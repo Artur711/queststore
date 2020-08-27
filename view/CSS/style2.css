@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial;
+    width: 90%;
+    
+}
+
+header {
+    height: 130px;
+    padding: 1%;
+    background-color: #64605d;
+    border: 2px solid #ddd;
+}
+
+.main {
+    margin-top: 2.5%;
+    width: 22%;
+    float: right;
+    font-size: 120%;
+}
+
+.pure-menu-item-messages {
+    padding: 2.5%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+#pure-main {
+    background-image: url(https://cdn.pixabay.com/photo/2017/01/31/21/58/building-2027573_960_720.png);
+}
+
+body {
+    background-color: white;
+}
+
+.pure-menu-item-contact {
+    padding: 2.5%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.pure-menu-item-log-out {
+    padding: 2.5%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.pure-profile-photo {
+    float: right;
+    width: 6%;
+    background: white;
+    border: solid black;
+}
+
+.pure-logo {
+    float: left;
+    width: 20%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+h1 {
+    
+    align-items: center;
+    font-size: 250%;
+}
+
+.is-center {
+    text-align: center;
+    align-items: center;
+}
+
+.pure-item {
+    float: left;
+    width: 15%;
+    padding: 2%;
+    margin: 0.5% 1% 0.5% 1%;
+    border: 1.5px solid rgb(20, 20, 85);;
+    background-color: white;
+    opacity: 1.0;
+}
+
+section {
+    margin-top: 10px;
+    text-align: center;
+}
+
+footer{
+    width: 90%;
+    bottom: 0;
+    background-color: #64605d;
+    color: white;
+    padding: 10px;
+}
