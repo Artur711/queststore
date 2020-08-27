@@ -3,12 +3,12 @@
     margin-left: auto;
     margin-right: auto;
     font-family: Arial;
-    width: 90%;
+    width: 100%;
     
 }
 
 header {
-    height: 130px;
+    height: 150px;
     padding: 1%;
     background-color: #64605d;
     border: 2px solid #ddd;
@@ -30,6 +30,12 @@ header {
 
 #pure-main {
     background-image: url(https://cdn.pixabay.com/photo/2017/01/31/21/58/building-2027573_960_720.png);
+    width: 90%;
+}
+
+
+iframe {
+    width: 90%;
 }
 
 body {
@@ -69,9 +75,11 @@ nav {
 }
 
 h1 {
-    
+    width: 10%;
     align-items: center;
-    font-size: 250%;
+    margin: 0% 40% 0% 40%;
+    font-size: 300%;
+    background-color: white;
 }
 
 .is-center {
@@ -82,7 +90,7 @@ h1 {
 .pure-item {
     float: left;
     width: 15%;
-    padding: 2%;
+    padding: 1% 2% 1% 2%;
     margin: 0.5% 1% 0.5% 1%;
     border: 1.5px solid rgb(20, 20, 85);;
     background-color: white;
@@ -95,7 +103,6 @@ section {
 }
 
 footer{
-    width: 90%;
     bottom: 0;
     background-color: #64605d;
     color: white;
