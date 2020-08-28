@@ -106,14 +106,7 @@ iframe {
     width: 90%;
 }
 
-.pure-menu-item-contact {
-    padding: 2.5%;
-    margin-right: 1%;
-    color: white;
-    text-decoration: none;
-}
-
-.pure-menu-item-log-out {
+.pure-menu-item {
     padding: 2.5%;
     margin-right: 1%;
     color: white;
@@ -177,4 +170,12 @@ section {
     border: 2px solid lightgray;
     padding-bottom: 10px;
     padding-top: 10px;
+}
+
+.pure-item-m {
+    width: 15%;
+}
+
+.main-c {
+    width: 25%;   
 }
