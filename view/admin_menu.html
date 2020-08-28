@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menthor menu</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <script defer src="js/script.js"></script>
 </head>
 <body>
 <div id="pure-main">
@@ -16,11 +17,18 @@
         <img alt="Profile photo" class="pure-profile-photo" src="https://cdn.pixabay.com/photo/2020/06/01/03/00/king-henry-iii-5244898_960_720.png">
         
         <div class="main">
-            <a class="pure-menu-item-messages" href="#" class="pure-manu-link">Mesages</a>
+            <a class="pure-menu-item-messages" href="#" class="pure-manu-link" onclick = "openList1()">Mesages</a>
+                <ul id="ollist" style="display: none;">
+                    <li><a class="pure-menu-item-messages" href = "#">Message 1</a></li>
+                    <li><a class="pure-menu-item-messages" href = "#">Message 2</a></li>
+                    <li><a class="pure-menu-item-messages" href = "#">Message 3</a></li>
+                    <li><a class="pure-menu-item-messages" href = "#">Message 4</a></li>
+                    <li><a class="pure-menu-item-messages" href = "#">Message 5</a></li>
+                </ul>
+            
             <a class="pure-menu-item-contact" href="#" class="pure-manu-link">Contact</a>
             <a class="pure-menu-item-log-out" href="#" class="pure-manu-link">Log out</a>
         </div>
-        
     </header>
 
     <nav>

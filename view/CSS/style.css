@@ -169,3 +169,12 @@ section {
 .pure-footer {
     position: static;
 }
+
+#ollist {
+    color: white;
+    background-color: #64605d;
+    margin: 10%;
+    border: 2px solid lightgray;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
