@@ -1,22 +1,20 @@
 * {
-    box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
     font-family: Arial;
-    width: 100%;
-    
 }
 
-header {
-    height: 150px;
+.pure-header {
+    height: 135px;
     padding: 1%;
     background-color: #64605d;
     border: 2px solid #ddd;
+    opacity: 1.0;
 }
 
 .main {
     margin-top: 2.5%;
-    width: 22%;
+    width: 18%;
     float: right;
     font-size: 120%;
 }
@@ -30,7 +28,8 @@ header {
 
 #pure-main {
     background-image: url(https://cdn.pixabay.com/photo/2017/01/31/21/58/building-2027573_960_720.png);
-    width: 90%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
@@ -65,13 +64,13 @@ body {
 
 .pure-logo {
     float: left;
-    width: 20%;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 h1 {
@@ -89,12 +88,12 @@ h1 {
 
 .pure-item {
     float: left;
-    width: 15%;
+    width: 12%;
     padding: 1% 2% 1% 2%;
     margin: 0.5% 1% 0.5% 1%;
     border: 1.5px solid rgb(20, 20, 85);;
     background-color: white;
-    opacity: 1.0;
+    text-decoration: none;
 }
 
 section {
@@ -102,7 +101,13 @@ section {
     text-align: center;
 }
 
-footer{
+.pure-footer {
+    position: static;
+}
+
+footer {
+    width: 100%;
+    position: fixed;
     bottom: 0;
     background-color: #64605d;
     color: white;

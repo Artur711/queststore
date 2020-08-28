@@ -1,3 +1,9 @@
+* {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial;
+}
+
 #realbackend {
     background-color: #dfdbc3;
     width: 100%;
@@ -65,4 +71,101 @@ footer {
     background-color: #64605d;
     color: white;
     padding: 10px;
+}
+
+.pure-header {
+    height: 130px;
+    padding: 1%;
+    background-color: #64605d;
+    border: 2px solid #ddd;
+    opacity: 1.0;
+}
+
+.main {
+    margin-top: 2.5%;
+    width: 18%;
+    float: right;
+    font-size: 120%;
+}
+
+.pure-menu-item-messages {
+    padding: 2.5%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+#pure-main {
+    background-image: url(https://cdn.pixabay.com/photo/2017/01/31/21/58/building-2027573_960_720.png);
+    width: 97%;
+    box-sizing: border-box;
+}
+
+
+iframe {
+    width: 90%;
+}
+
+.pure-menu-item-contact {
+    padding: 2.5%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.pure-menu-item-log-out {
+    padding: 2.5%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.pure-profile-photo {
+    float: right;
+    width: 6%;
+    background: white;
+    border: solid black;
+}
+
+.pure-logo {
+    float: left;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+h1 {
+    width: 10%;
+    align-items: center;
+    margin: 0% 40% 0% 40%;
+    font-size: 300%;
+    background-color: white;
+}
+
+.is-center {
+    text-align: center;
+    align-items: center;
+}
+
+.pure-item {
+    float: left;
+    width: 12%;
+    padding: 1% 2% 1% 2%;
+    margin: 0.5% 1% 0.5% 1%;
+    border: 1.5px solid rgb(20, 20, 85);;
+    background-color: white;
+    text-decoration: none;
+}
+
+section {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pure-footer {
+    position: static;
 }
