@@ -177,5 +177,178 @@ section {
 }
 
 .main-c {
-    width: 25%;   
+    width: 25%;  
+} 
+
+* {
+    font-family: Helvetica;
+    text-align: center;
+}
+
+.store-container {
+    display: grid;
+    background-color: #dfdbc3;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    border: 6px solid gray;
+    border-radius: 6px;
+    width: 100%; 
+    height: 100%; 
+}
+
+.store-container div:nth-child(1) {
+    background: url('../Pictures/castle/logo-castle2.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(2) {
+    background: url('../Pictures/mentor/logo-mentor1.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(3) {
+    background: url('../Pictures/time/logo-time2.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(4) {
+    background: url('../Pictures/workshop/logo-workshop3.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(5) {
+    background: url('../Pictures/meet/logo-meet6.jpg') no-repeat center;
+    background-size: 50% 85%;
+    background-color: white;
+}
+
+.store-container div:nth-child(11){
+    background: url('../Pictures/treasure/logo-treasure4.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(12){
+    background: url('../Pictures/funny/logo-funny3.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(13) {
+    background: url('../Pictures/king/logo-king3.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(14){
+    background: url('../Pictures/coffee/logo-coffee3.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(15){
+    background: url('../Pictures/game/logo-game1.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(21){
+    background: url('../Pictures/exam/logo-exam3.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.store-container div:nth-child(22){
+    background: url('../Pictures/exit/logo-exit3.jpg') no-repeat center;
+    background-size: 50% 90%;
+    background-color: white;
+}
+
+.block{
+    background-color: white;
+    margin: 40px 30px 20px 30px;
+    height: 150px;
+    border: 3px solid gray;
+    border-radius: 20px;
+    font-size: 20px;
+    color: red;
+}
+
+.button-buy{
+    color: black;
+    margin: 0px 30px 60px 30px;
+    height: 35px;
+    width: 85%;
+    border: 3px solid #73AD21;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(250, 180, 2);
+    background-color: rgb(15, 170, 15);
+    outline: none;
+}
+
+.button-buy:active {
+    outline: none;
+    border: none; 
+    background-color: #82c524;
+    box-shadow: 0 5px #666;
+    border-radius: 20px;
+    transform: translateY(4px);
+}
+
+div.block{
+    position: relative;
+    bottom: 0px;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+div.block span{
+    display: none
+}
+
+div.block:hover span{
+    display: block;
+    position: absolute;
+    top: -20px;
+    width: 15em;
+    border: 5px solid #0cf;
+    background-color:#cff; color:#000;
+    border-radius: 10px;
+    text-align: center;
+    padding: 8px;
+  }
+
+div.block:hover span:after{
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 5px solid #0cf;
+    border-right: 5px solid #0cf;
+    background: #cff;
+    left: 50%;
+
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.strong-title {
+    background-color: rgb(224, 212, 212);
+    border-radius: 5px;
+    border: 3px solid rgb(29, 28, 28);
+    position: absolute; 
+    padding: 10px;
+    bottom: 2px;
+    top: -40px;
+    left: 40px;
+    height: 20px;
+    width: 200px;
 }
