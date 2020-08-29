@@ -137,6 +137,8 @@ h1 {
     margin: 0% 40% 0% 40%;
     font-size: 300%;
     background-color: white;
+    border: 3px solid white;
+    border-radius: 5px;
 }
 
 .is-center {
@@ -149,7 +151,7 @@ h1 {
     width: 12%;
     padding: 1% 2% 1% 2%;
     margin: 0.5% 1% 0.5% 1%;
-    border: 1.5px solid rgb(20, 20, 85);;
+    border: 3px solid gray;
     background-color: white;
     text-decoration: none;
 }
@@ -191,7 +193,7 @@ section {
     grid-template-columns: 20% 20% 20% 20% 20%;
     border: 6px solid gray;
     border-radius: 6px;
-    width: 100%; 
+    width: 97%; 
     height: 100%; 
 }
 
@@ -275,6 +277,10 @@ section {
     border-radius: 20px;
     font-size: 20px;
     color: red;
+}
+
+body {
+    background-color: rgb(226, 215, 215);
 }
 
 .button-buy{
