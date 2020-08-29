@@ -180,11 +180,6 @@ section {
 
 .main-c {
     width: 25%;  
-} 
-
-* {
-    font-family: Helvetica;
-    text-align: center;
 }
 
 .store-container {
@@ -195,78 +190,6 @@ section {
     border-radius: 6px;
     width: 97%; 
     height: 100%; 
-}
-
-.store-container div:nth-child(1) {
-    background: url('../Pictures/castle/logo-castle2.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(2) {
-    background: url('../Pictures/mentor/logo-mentor1.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(3) {
-    background: url('../Pictures/time/logo-time2.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(4) {
-    background: url('../Pictures/workshop/logo-workshop3.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(5) {
-    background: url('../Pictures/meet/logo-meet6.jpg') no-repeat center;
-    background-size: 50% 85%;
-    background-color: white;
-}
-
-.store-container div:nth-child(11){
-    background: url('../Pictures/treasure/logo-treasure4.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(12){
-    background: url('../Pictures/funny/logo-funny3.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(13) {
-    background: url('../Pictures/king/logo-king3.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(14){
-    background: url('../Pictures/coffee/logo-coffee3.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(15){
-    background: url('../Pictures/game/logo-game1.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(21){
-    background: url('../Pictures/exam/logo-exam3.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
-}
-
-.store-container div:nth-child(22){
-    background: url('../Pictures/exit/logo-exit3.jpg') no-repeat center;
-    background-size: 50% 90%;
-    background-color: white;
 }
 
 .block{
@@ -281,6 +204,11 @@ section {
 
 body {
     background-color: rgb(226, 215, 215);
+}
+
+.block-img{
+    margin: 5px 0px 0px 0px;
+    height: 140px;
 }
 
 .button-buy{
