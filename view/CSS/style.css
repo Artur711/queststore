@@ -182,7 +182,7 @@ section {
     width: 25%;  
 }
 
-.store-container {
+.store-items-container {
     display: grid;
     background-color: #dfdbc3;
     grid-template-columns: 20% 20% 20% 20% 20%;
@@ -191,6 +191,18 @@ section {
     width: 97%; 
     height: 100%; 
 }
+
+
+.store-quests-container {
+    display: grid;
+    background-color: #dfdbc3;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    border: 6px solid gray;
+    border-radius: 6px;
+    width: 97%; 
+    height: 100%; 
+}
+
 
 .block{
     background-color: white;
@@ -274,15 +286,30 @@ div.block:hover span:after{
     transform: rotate(45deg);
 }
 
-.strong-title {
+.quest-title {
+    background-color: rgb(224, 212, 212);
+    border-radius: 5px;
+    border: 3px solid rgb(29, 28, 28);
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    top: -15%;
+    left: 10%;
+    padding: 10px;
+    width: 220px;
+    opacity: 0.9;
+}
+
+.items-title {
     background-color: rgb(224, 212, 212);
     border-radius: 5px;
     border: 3px solid rgb(29, 28, 28);
     position: absolute; 
     padding: 10px;
     bottom: 2px;
-    top: -40px;
+    top: -35px;
     left: 40px;
     height: 20px;
     width: 200px;
+    opacity: 0.9;
 }
