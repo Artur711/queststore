@@ -293,7 +293,7 @@ div.block:hover span:after{
     position: absolute;
     text-align: center;
     vertical-align: middle;
-    top: -15%;
+    top: -20%;
     left: 10%;
     padding: 10px;
     width: 220px;
@@ -308,7 +308,7 @@ div.block:hover span:after{
     padding: 10px;
     bottom: 2px;
     top: -35px;
-    left: 40px;
+    left: 12.5px;
     height: 20px;
     width: 200px;
     opacity: 0.9;
