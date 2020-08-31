@@ -5,8 +5,7 @@
 }
 
 body {
-
-    background-image: url("src/background3.webp");
+    background-image: url('../src/background3.jpg');
     /*"Designed by macrovector / Freepik"*/
     background-size: 57% 90%;
     margin: 0;
@@ -104,7 +103,6 @@ footer {
 }
 
 #pure-main {
-    
     width: 97%;
     box-sizing: border-box;
 }
@@ -113,6 +111,16 @@ footer {
 iframe {
     width: 90%;
     border: none;
+}
+
+.inside-field {
+    background-color: #dfdbc3;
+    grid-template-columns: 50% 50%;
+    border: 6px solid gray;
+    border-radius: 6px;
+    padding: 40px 19px 700px 19px;
+    width: 97%; 
+    height: 100%; 
 }
 
 .iframe-mini {
@@ -144,6 +152,12 @@ iframe {
     border: solid black;
 }
 
+.profile-photo {
+    margin-left: 15%;
+    float: none;
+    width: 30%;
+}
+
 .pure-logo {
     float: left;
 }
@@ -172,6 +186,7 @@ h1 {
 h2 {
     font-size: 200%;
     margin-right: 50%;
+    width: 300px;
 }
 
 .is-center {
@@ -254,6 +269,7 @@ section {
     grid-template-columns: 20% 20% 20% 20% 20%;
     border: 6px solid gray;
     border-radius: 6px;
+    padding: 30px 18px 30px 18px;
     width: 97%; 
     height: 100%; 
 }
@@ -264,6 +280,7 @@ section {
     background-color: #dfdbc3;
     grid-template-columns: 20% 20% 20% 20% 20%;
     border: 6px solid gray;
+    padding: 30px 18px 30px 18px;
     border-radius: 6px;
     width: 97%; 
     height: 100%; 
