@@ -104,6 +104,7 @@ footer {
 
 iframe {
     width: 90%;
+    border: none;
 }
 
 .iframe-mini {
@@ -213,10 +214,6 @@ section {
 .sub-section3 {
     width: 28%;
     font-size: 80%;
-}
-
-.sub-section-bottom {
-    width: 150%;
 }
 
 .pure-footer {
