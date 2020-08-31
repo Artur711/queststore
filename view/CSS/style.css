@@ -6,7 +6,7 @@
 
 body {
 
-    background-image: url('/home/flloki/Desktop/Questor/queststore/view/src/background3.jpg');
+    background-image: url('../src/background3.jpg');
     /*"Designed by macrovector / Freepik"*/
     background-size: 57% 90%;
     margin: 0;
