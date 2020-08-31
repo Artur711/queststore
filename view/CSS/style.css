@@ -196,6 +196,7 @@ section {
     grid-template-columns: 20% 20% 20% 20% 20%;
     border: 6px solid gray;
     border-radius: 6px;
+    padding: 30px 18px 30px 18px;
     width: 97%; 
     height: 100%; 
 }
@@ -206,6 +207,7 @@ section {
     background-color: #dfdbc3;
     grid-template-columns: 20% 20% 20% 20% 20%;
     border: 6px solid gray;
+    padding: 30px 18px 30px 18px;
     border-radius: 6px;
     width: 97%; 
     height: 100%; 
