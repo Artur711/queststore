@@ -217,10 +217,13 @@ section {
 #right-section {
     width: 42%;
     height: max-content;
-    float: left;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
+    margin: auto;
+    /*float: left;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*!*flex-wrap: wrap;*!*/
+    /*align-items: center;*/
+    /*align-content: space-between;*/
 }
 
 .sub-section {
@@ -493,4 +496,23 @@ div.block:hover span:after{
     color: rgb(250, 180, 2);
     background-color: #64605d;
     font-size: 50px;
+}
+
+
+.headline{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: green;
+    margin-left: 4%;
+}
+
+.savebutton{
+    margin-left: 35%;
+    width: 30%;
+    border-radius: 5px;
+    background-color: #e2d7d7;
+}
+
+.savebutton:hover{
+    background-color: #aaa2a2;
 }
