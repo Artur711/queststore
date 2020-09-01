@@ -5,8 +5,7 @@
 }
 
 body {
-    background-image: url('../src/background3.jpg');
-    /*"Designed by macrovector / Freepik"*/
+    background-image: url('../src/background3.jpg'); /*"Designed by macrovector / Freepik"*/
     background-size: 57% 90%;
     margin: 0;
 }
@@ -297,6 +296,17 @@ section {
     height: 100%; 
 }
 
+.update-menu-container{
+    display: grid;
+    background-color: #dfdbc3;
+    grid-template-columns:  60% 40%;
+    border: 5px solid gray;
+    border-radius: 6px;
+    padding: 25px 0px 75px 39px;
+    width: 97%; 
+    height: 100%; 
+}
+
 
 .block{
     background-color: white;
@@ -320,6 +330,24 @@ section {
     padding-top: 65px
 }
 
+.block-update-menu{
+    background-color: #64605d;
+    margin: 40px 30px 20px 30px;
+    height: 50px;
+    border-radius: 20px;
+    color: red;
+    text-align: center;
+}
+
+.block-update-add-new {
+    margin: 40px 30px 20px 340px;
+    padding-left: 25px;
+    outline: none;
+    padding-right: 25px;
+    position: center;
+    
+}
+
 .block-img{
     margin: 5px 0px 0px 0px;
     height: 140px;
@@ -333,6 +361,19 @@ section {
     border: 3px solid #73AD21;
     border-radius: 20px;
     font-size: 20px;
+    font-weight: 900;
+    color: rgb(250, 180, 2);
+    background-color: rgb(15, 170, 15);
+    outline: none;
+}
+
+.button-update{
+    color: black;
+    height: 60px;
+    width: 100%;
+    border: 3px solid #73AD21;
+    border-radius: 20px;
+    font-size: 30px;
     font-weight: 900;
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
@@ -353,11 +394,13 @@ section {
     outline: none;
 }
 
-.button-buy:active {
+
+
+.button-buy:active, .button-update:active {
     outline: none;
     border: none; 
     background-color: #82c524;
-    box-shadow: 0 5px #666;
+    box-shadow: 0 2px #666;
     border-radius: 20px;
     transform: translateY(4px);
 }
@@ -428,6 +471,20 @@ div.block:hover span:after{
     height: 20px;
     width: 200px;
     opacity: 0.9;
+}
+
+.input-update{
+    color: rgb(250, 180, 2);
+    background-color: #64605d;
+    border-radius: 5px;
+    border: 3px solid rgb(29, 28, 28);
+    width: 100%;
+    border-radius: 20px;
+    font-size: 30px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
 }
 
 .store-title{
