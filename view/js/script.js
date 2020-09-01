@@ -41,15 +41,3 @@ form.addEventListener('input', () => {
 function checkIsEmpty(name, value) {
     return (name.value === value || name.value == null || name.value == "") ? true : false;
 }
-
-
-function updateTitle(){
-    let input = document.getElementsByClassName('input');
-
-    input.setAttribute('value', input.value);
-    
-}
-
-function edit(){
-    document.getElementById("send-button").disabled = false; 
-}
