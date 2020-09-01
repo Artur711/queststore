@@ -340,10 +340,11 @@ section {
 }
 
 .block-update-add-new {
-    margin: 40px 30px 20px 340px;
+    margin: 40px 30px 20px 280px;
     padding-left: 25px;
     outline: none;
     padding-right: 25px;
+    padding-top: 25px;
     position: center;
     
 }
