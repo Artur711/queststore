@@ -5,8 +5,8 @@
 }
 
 body {
-    background-image: url('../src/background3.jpg'); /*"Designed by macrovector / Freepik"*/
-    background-size: 57% 90%;
+    background-image: url('../src/background3.jpg');
+    background-size: cover;
     margin: 0;
 }
 
@@ -268,6 +268,7 @@ section {
 .store-items-container {
     display: grid;
     background-color: #dfdbc3;
+    background-size: cover;
     grid-template-columns: 20% 20% 20% 20% 20%;
     border: 6px solid gray;
     border-radius: 6px;
@@ -299,10 +300,21 @@ section {
     height: 100%; 
 }
 
-.update-menu-container{
+.list-menu-container{
     display: grid;
     background-color: #dfdbc3;
     grid-template-columns:  60% 40%;
+    border: 5px solid gray;
+    border-radius: 6px;
+    padding: 25px 0px 75px 39px;
+    width: 97%; 
+    height: 100%; 
+}
+
+.update-menu-container{
+    display: grid;
+    background-color: #dfdbc3;
+    grid-template-columns:  40% 30% 30%;
     border: 5px solid gray;
     border-radius: 6px;
     padding: 25px 0px 75px 39px;
@@ -331,6 +343,15 @@ section {
     color: red;
     text-align: center;
     padding-top: 65px
+}
+
+.block-list-menu{
+    background-color: #64605d;
+    margin: 40px 30px 20px 30px;
+    height: 50px;
+    border-radius: 20px;
+    color: red;
+    text-align: center;
 }
 
 .block-update-menu{
@@ -409,7 +430,7 @@ section {
     transform: translateY(4px);
 }
 
-div.block{
+div.block, .block-update-menu{
     position: relative;
     bottom: 0px;
     text-decoration: none;
@@ -417,11 +438,15 @@ div.block{
 }
 
 
-div.block span{
+div.block span, .block-update-menu span{
     display: none
 }
 
-div.block:hover span{
+.block-update-menu span{
+    font-size: 22px;
+}
+
+div.block:hover span, .block-update-menu:hover span{
     display: block;
     position: absolute;
     top: -20px;
@@ -433,7 +458,7 @@ div.block:hover span{
     padding: 8px;
   }
 
-div.block:hover span:after{
+div.block:hover span:after, .block-update-menu:hover span:after{
     content: '';
     position: absolute;
     bottom: -11px;
@@ -515,4 +540,12 @@ div.block:hover span:after{
 
 .savebutton:hover{
     background-color: #aaa2a2;
+}
+
+.span-update{
+    color: rgb(250, 180, 2);
+    font-size: 30px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+
 }
