@@ -156,7 +156,9 @@ iframe {
 .profile-photo {
     margin-left: 15%;
     float: none;
-    width: 30%;
+    width: 50%;
+    border: 6px solid gray;
+    border-radius: 6px;
 }
 
 .pure-logo {
