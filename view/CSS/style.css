@@ -409,7 +409,7 @@ section {
     outline: none;
 }
 
-.button-update{
+.button-update, .button-remove{
     color: black;
     height: 60px;
     width: 100%;
@@ -420,6 +420,11 @@ section {
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
     outline: none;
+}
+
+.button-remove{
+    background-color: red;
+    border: 3px solid black;
 }
 
 .button-buy-with-team{
@@ -438,7 +443,7 @@ section {
 
 
 
-.button-buy:active, .button-update:active {
+.button-buy:active, .button-update:active, .button-remove:active{
     outline: none;
     border: none; 
     background-color: #82c524;
