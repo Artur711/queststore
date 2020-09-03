@@ -324,6 +324,10 @@ section {
     height: 100%; 
 }
 
+.list-menu-container-ex {
+    grid-template-columns:  35% 35% 15% 15%;
+}
+
 .update-menu-container{
     display: grid;
     background-color: #dfdbc3;
