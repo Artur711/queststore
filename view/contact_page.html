@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact page</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    
+</head>
+<body>
+    <script defer src="js/contact.js"></script>
+    <div id="right-section">
+        <h5 class="is-center headline">Have some questions? Contact us</h5>
+
+        <form id = "form">
+            <label for="name"></label><input class="is-center pure-item sub-section2" id="name" name="name" type="text" value="Enter your name" required>
+            <label for="mail"></label><input class="is-center pure-item sub-section2" id="mail" name="mail" type="text" value="Give your email" required>
+            <div class="is-center pure-comments"><label for="comments"></label><textarea rows="10" cols="50" id="comments" name="comments">Your comments</textarea></div>
+
+            <input type="submit" id="send" class="is-center headline savebutton" value="SEND" disabled='disabled'>
+        </form>
+    </div>
+</body>
+</html>

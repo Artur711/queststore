@@ -564,5 +564,9 @@ div.block:hover span:after, .block-update-menu:hover span:after{
     font-size: 30px;
     padding: 10px 10px 10px 10px;
     text-align: center;
+}
 
+textarea {
+    font-size: 155%;
+    border: 3px solid gray;   
 }
