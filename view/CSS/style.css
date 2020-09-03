@@ -127,6 +127,8 @@ iframe {
     width: 70%;
     background-color: white;
     font-size: 250%;
+    border: 6px solid gray;
+    border-radius: 6px;
 }
 
 
@@ -224,6 +226,15 @@ section {
     /*!*flex-wrap: wrap;*!*/
     /*align-items: center;*/
     /*align-content: space-between;*/
+}
+
+#right-section-flex {
+    width: 42%;
+    height: max-content;
+    margin: auto;
+    float: left;
+    display: flex;
+    justify-content: center;
 }
 
 .sub-section {
