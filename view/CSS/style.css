@@ -423,7 +423,7 @@ section {
 }
 
 .button-remove{
-    background-color: red;
+    background-color: rgb(206, 40, 40);
     border: 3px solid black;
 }
 
