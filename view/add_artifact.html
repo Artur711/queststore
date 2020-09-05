@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add new Artifact</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <script defer src="js/add_thing.js"></script>
 </head>
 <body>
 <div id="right-section">
@@ -21,13 +22,13 @@
             <div class="is-center pure-comments"><label for="description"></label><textarea rows="10" cols="50" id="description" name="description" onfocus="if (this.value === 'Description of artefact') {this.value=''}">Description of artefact</textarea></div>
 
             <h5 class="is-center pure-item sub-section2 headline">Artifact type</h5>
-            <h5 class="is-center pure-item sub-section2"><input type="radio" name="artifact-type" value="single"> Single  <input type="radio" name="artifact-type" value="team"> Team</h5>
+            <h5 class="is-center pure-item sub-section2"><input id="single" type="radio" name="artifact-type" value="single"> Single  <input id="team" type="radio" name="artifact-type" value="team"> Team</h5>
 
             <h5 class="is-center pure-item sub-section2">Value</h5>
             <label for="value"></label>
             <input id="value" class="is-center pure-item sub-section3 entity-input" type="text" value="Value of artefact" onfocus="if (this.value === 'Value of artefact') {this.value=''}">
             
-            <input type="submit" id="savebutton" class="is-center headline savebutton" value="SAVE" disabled='disabled'>
+            <input type="submit" id="save" class="is-center headline savebutton" value="SAVE" disabled='disabled'>
 
         </nav>
         <br><br><br>

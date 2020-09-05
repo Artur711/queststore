@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add new Item</title>
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"> 
+    <script defer src="js/add_thing.js"></script> 
 </head>
 <body>
     <div id="right-section">
         <br><br><br><br><br>
-        <form id="form">
+        <form id ="form">
             <h5 class="is-center headline"> Add new Item</h5>
             <nav>
                 <h5 class="is-center pure-item sub-section2">Name</h5>
@@ -20,18 +21,17 @@
                 <div class="is-center pure-comments"><label for="description"></label><textarea rows="10" cols="50" id="description" name="description" onfocus="if (this.value === 'Description of Item') {this.value=''}">Description of Item</textarea></div>
     
                 <h5 class="is-center pure-item sub-section2 headline">Item type</h5>
-                <h5 class="is-center pure-item sub-section2"><input type="radio" name="item-type" value="single"> Single  <input type="radio" name="item-type" value="team"> Team</h5>
+                <h5 class="is-center pure-item sub-section2"><input id="single" type="radio" name="item-type" value="single"> Single  <input id="team" type="radio" name="item-type" value="team"> Team</h5>
     
                 <h5 class="is-center pure-item sub-section2">Price</h5>
-                <label for="price"></label>
-                <input id="price" class="is-center pure-item sub-section3 entity-input" type="text" value="Price of items"
+                <label for="value"></label>
+                <input id="value" class="is-center pure-item sub-section3 entity-input" type="text" value="Price of items"
                 onfocus="if (this.value === 'Price of items') {this.value=''}">
                 
-                <input type="submit" id="savebutton" class="is-center headline savebutton" value="SAVE" disabled='disabled'>
+                <input type="submit" id="save" class="is-center headline savebutton" value="SAVE" disabled='disabled'>
     
             </nav>
             <br><br><br>
-        </form>br><br>
         </form>
     </div>
     
