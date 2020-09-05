@@ -200,7 +200,11 @@ h2 {
     text-align: center;
     align-items: center;
 }
-
+.class_header{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    /*background-color: #64605d;*/
+}
 .pure-item {
     float: left;
     width: 12%;
@@ -321,6 +325,18 @@ section {
     height: 100%;
 }
 
+.class-menu-container{
+    display: grid;
+    background-color: #dfdbc3;
+    grid-template-columns: 70% 30%;
+    border: 6px solid gray;
+    border-radius: 6px;
+    padding: 70px 19px 37px 19px;
+    width: 70%;
+    height: 50%;
+
+}
+
 .list-menu-container{
     display: grid;
     background-color: #dfdbc3;
@@ -370,6 +386,18 @@ section {
     color: red;
     text-align: center;
     padding-top: 65px
+}
+
+.class-block-menu{
+    background-color: #64605d;
+    margin: 20px 30px 20px 30px;
+    height: 75px;
+    border: 3px solid gray;
+    border-radius: 20px;
+    font-size: 25px;
+    color: red;
+    text-align: center;
+    padding-top: 0px
 }
 
 .block-list-menu{
@@ -554,6 +582,21 @@ div.block:hover span:after, .block-update-menu:hover span:after{
     font-size: 50px;
 }
 
+.add-new-class-buttons{
+    text-decoration: none;
+    color: rgb(250, 180, 2);
+    background-color: #64605d;
+    font-size: 30px;
+}
+
+.add-new-class-top-buttons{
+    color: #83d1eb
+}
+.mentor-select{
+    -webkit-appearance: menulist-button;
+    height: 75px;
+}
+
 
 .headline{
     padding-bottom: 10px;
@@ -584,4 +627,14 @@ div.block:hover span:after, .block-update-menu:hover span:after{
 textarea {
     font-size: 155%;
     border: 3px solid gray;
+}
+
+.class-header-middle{
+    padding-top: 10px;
+    height: 50px;
+}
+
+.class-add-new-class-confirmation{
+    background-color: #bcb001;
+    color: black;
 }
