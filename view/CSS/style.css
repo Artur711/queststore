@@ -118,8 +118,8 @@ iframe {
     border: 6px solid gray;
     border-radius: 6px;
     padding: 40px 19px 700px 19px;
-    width: 97%;
-    height: 100%;
+    width: 97%; 
+    height: 100%; 
 }
 
 .iframe-mini {
@@ -153,10 +153,6 @@ iframe {
     border: solid black;
 }
 
-.add-entity-photo {
-    width: 64%;
-    margin-bottom: 15px;
-}
 .profile-photo {
     margin-left: 15%;
     float: none;
@@ -261,10 +257,6 @@ section {
     font-size: 80%;
 }
 
-.entity-input {
-    width: 40%;
-}
-
 .pure-footer {
     position: static;
 }
@@ -283,7 +275,7 @@ section {
 }
 
 .main-c {
-    width: 25%;
+    width: 25%;  
 }
 
 .store-items-container {
@@ -294,8 +286,8 @@ section {
     border: 6px solid gray;
     border-radius: 6px;
     padding: 30px 18px 30px 18px;
-    width: 97%;
-    height: 100%;
+    width: 97%; 
+    height: 100%; 
 }
 
 
@@ -306,8 +298,8 @@ section {
     border: 6px solid gray;
     padding: 30px 18px 30px 18px;
     border-radius: 6px;
-    width: 97%;
-    height: 100%;
+    width: 97%; 
+    height: 100%; 
 }
 
 .store-menu-container {
@@ -317,8 +309,8 @@ section {
     border: 6px solid gray;
     border-radius: 6px;
     padding: 170px 19px 237px 19px;
-    width: 97%;
-    height: 100%;
+    width: 97%; 
+    height: 100%; 
 }
 
 .list-menu-container{
@@ -328,26 +320,24 @@ section {
     border: 5px solid gray;
     border-radius: 6px;
     padding: 25px 0px 75px 39px;
-    width: 97%;
-    height: 100%;
+    width: 97%; 
+    height: 100%; 
 }
 
 .list-menu-container-ex {
-    grid-template-columns:  35% 35% 15% 15%;
+    grid-template-columns:  34% 34% 15% 17%;
 }
 
 .update-menu-container{
     display: grid;
     background-color: #dfdbc3;
-    grid-template-columns: 40% 30% 30%;
+    grid-template-columns:  40% 30% 30%;
     border: 5px solid gray;
     border-radius: 6px;
     padding: 25px 0px 75px 39px;
-    width: 97%;
-    height: 100%;
+    width: 97%; 
+    height: 100%; 
 }
-
-
 
 
 .block{
@@ -397,6 +387,7 @@ section {
     padding-right: 25px;
     padding-top: 25px;
     position: center;
+    
 }
 
 .block-img{
@@ -454,7 +445,7 @@ section {
 
 .button-buy:active, .button-update:active, .button-remove:active{
     outline: none;
-    border: none;
+    border: none; 
     background-color: #82c524;
     box-shadow: 0 2px #666;
     border-radius: 20px;
@@ -523,7 +514,7 @@ div.block:hover span:after, .block-update-menu:hover span:after{
     background-color: rgb(224, 212, 212);
     border-radius: 5px;
     border: 3px solid rgb(29, 28, 28);
-    position: absolute;
+    position: absolute; 
     padding: 10px;
     bottom: 2px;
     top: -35px;
@@ -563,9 +554,8 @@ div.block:hover span:after, .block-update-menu:hover span:after{
 }
 
 .savebutton{
-    margin-left: auto;
-    margin-top: 15px;
-    width: 40%;
+    margin-left: 35%;
+    width: 30%;
     border-radius: 5px;
     background-color: #e2d7d7;
 }
@@ -583,5 +573,5 @@ div.block:hover span:after, .block-update-menu:hover span:after{
 
 textarea {
     font-size: 155%;
-    border: 3px solid gray;
+    border: 3px solid gray;   
 }
