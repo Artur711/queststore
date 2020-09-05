@@ -590,11 +590,12 @@ div.block:hover span:after, .block-update-menu:hover span:after{
 .add-new-class-top-buttons{
     color: #83d1eb
 }
+
 .mentor-select{
     -webkit-appearance: menulist-button;
     height: 75px;
+    text-align-last: center;
 }
-
 
 .headline{
     padding-bottom: 10px;
