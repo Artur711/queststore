@@ -339,7 +339,7 @@ section {
 .update-menu-container{
     display: grid;
     background-color: #dfdbc3;
-    grid-template-columns:  40% 30% 30%;
+    grid-template-columns: 40% 30% 30%;
     border: 5px solid gray;
     border-radius: 6px;
     padding: 25px 0px 75px 39px;
@@ -347,16 +347,7 @@ section {
     height: 100%;
 }
 
-.update-menu-container{
-    display: grid;
-    background-color: #dfdbc3;
-    grid-template-columns:  60% 40%;
-    border: 5px solid gray;
-    border-radius: 6px;
-    padding: 25px 0px 75px 39px;
-    width: 97%; 
-    height: 100%; 
-}
+
 
 
 .block{
