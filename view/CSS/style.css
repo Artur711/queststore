@@ -165,6 +165,11 @@ iframe {
     float: left;
 }
 
+.add-entity-photo {
+    width: 64%;
+    margin-bottom: 15px;
+}
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -255,6 +260,10 @@ section {
 .sub-section3 {
     width: 28%;
     font-size: 80%;
+}
+
+.entity-input {
+    width: 40%;
 }
 
 .pure-footer {
