@@ -5,14 +5,8 @@
 }
 
 body {
-<<<<<<< Updated upstream
     background-image: url('../src/background3.jpg');
     background-size: cover;
-=======
-
-    background-image: url('../src/background3.jpg'); /*"Designed by macrovector / Freepik"*/
-    background-size: 57% 90%;
->>>>>>> Stashed changes
     margin: 0;
 }
 
@@ -387,7 +381,6 @@ section {
     padding-top: 65px
 }
 
-<<<<<<< Updated upstream
 .block-list-menu{
     background-color: #64605d;
     margin: 40px 30px 20px 30px;
@@ -397,8 +390,6 @@ section {
     text-align: center;
 }
 
-=======
->>>>>>> Stashed changes
 .block-update-menu{
     background-color: #64605d;
     margin: 40px 30px 20px 30px;
@@ -409,22 +400,12 @@ section {
 }
 
 .block-update-add-new {
-<<<<<<< Updated upstream
     margin: 40px 30px 20px 280px;
     padding-left: 25px;
     outline: none;
     padding-right: 25px;
     padding-top: 25px;
     position: center;
-
-=======
-    margin: 40px 30px 20px 340px;
-    padding-left: 25px;
-    outline: none;
-    padding-right: 25px;
-    position: center;
-    
->>>>>>> Stashed changes
 }
 
 .block-img{
@@ -446,11 +427,7 @@ section {
     outline: none;
 }
 
-<<<<<<< Updated upstream
 .button-update, .button-remove{
-=======
-.button-update{
->>>>>>> Stashed changes
     color: black;
     height: 60px;
     width: 100%;
@@ -463,14 +440,11 @@ section {
     outline: none;
 }
 
-<<<<<<< Updated upstream
 .button-remove{
     background-color: rgb(206, 40, 40);
     border: 3px solid black;
 }
 
-=======
->>>>>>> Stashed changes
 .button-buy-with-team{
     color: black;
     margin: 0px 30px 60px 30px;
@@ -487,11 +461,7 @@ section {
 
 
 
-<<<<<<< Updated upstream
 .button-buy:active, .button-update:active, .button-remove:active{
-=======
-.button-buy:active, .button-update:active {
->>>>>>> Stashed changes
     outline: none;
     border: none;
     background-color: #82c524;
