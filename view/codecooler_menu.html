@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codecooler menu</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <script defer src="js/script.js"></script>
+    <script src="js/codecooler.js" defer></script>
 </head>
 <body>
 <div id="pure-main">
@@ -26,8 +26,8 @@
                     <li><a class="pure-menu-item-messages" href = "#">Message 5</a></li>
                 </ul>
             
-            <a class="pure-menu-item" href="#" class="pure-manu-link">Contact</a>
-            <a class="pure-menu-item" href="#" class="pure-manu-link">Log out</a>
+            <a class="pure-menu-item" href="contact_page.html" class="pure-manu-link">Contact</a>
+            <a class="pure-menu-item" href="index.html" class="pure-manu-link">Log out</a>
             <a class="pure-menu-item" href="#" class="pure-manu-link">Coins: 500</a>
         </div>
     </header>
@@ -35,14 +35,15 @@
     <nav>
         <h1 class="is-center">MENU</h1>
 
-        <a class="pure-item is-center" href="#" class="pure-manu-link">Classes</a>
-        <a class="pure-item is-center" href="#" class="pure-manu-link">Teams</a>
-        <a class="pure-item is-center" href="#" class="pure-manu-link">Questes</a>
-        <a class="pure-item is-center" href="#" class="pure-manu-link">Items</a>
-        <a class="pure-item is-center" href="#" class="pure-manu-link">My profile</a>
+        <div id="index_class" class="pure-item pure-item-m is-center" onclick="clickCell('class')">Classes</div>
+        <div id="index_team" class="pure-item pure-item-m is-center" onclick="clickCell('team')">Teams</div>
+        <div id="index_quests" class="pure-item pure-item-m is-center" onclick="clickCell('quests')">Quests</div>
+        <div id="index_items" class="pure-item pure-item-m is-center" onclick="clickCell('items')">Items</div>
+        <div id="index_profile" class="pure-item pure-item-m is-center" onclick="clickCell('profile')">My profile</div>
+        
     </nav>
     
-    <section><iframe src="codecooler_profile_page.html" height="800" title="Iframe Menu"></iframe></section>
+    <section><iframe id="iframe" src="codecooler_profile_page.html" height="800" title="Iframe Menu"></iframe></section>
     
     <footer class="pure-footer">&copy AK SOLDIERS 2020</footer>
 </div>

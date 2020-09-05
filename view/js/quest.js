@@ -11,5 +11,4 @@ function clickCell(index) {
         item.style.backgroundColor = "#e2d7d7";
         item.style.borderColor = '#73AD21';
     }
-
 }
