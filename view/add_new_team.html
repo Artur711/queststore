@@ -2,32 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add new team</title>
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div id="right-section">
-        <br><br><br><br><br>
-        <form id="form">
-            <h5 class="is-center headline"> Add new Team</h5>
-            <nav>
-                <h5 class="is-center pure-item sub-section2">Team name</h5>
-                <label for="name"></label>
-                <input id="name" class="is-center pure-item sub-section3 entity-input" type="text" value="Name of Team" onfocus="if (this.value === 'Name of Item') {this.value=''}">
-                
-                <h5 class="is-center pure-item sub-section2">Group size</h5>
-                <label for="size"></label>
-                <input id="size" class="is-center pure-item sub-section3 entity-input" type="text" value="Group size"
-                onfocus="if (this.value === 'Group size') {this.value=''}">
-                
-                <input type="submit" id="savebutton" class="is-center headline savebutton" value="CREATE" disabled='disabled'>
-    
-            </nav>
-            <br><br><br>
-        </form><br><br>
-        </form>
+
+<div class="class-menu-container">
+    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">New
+        Team
     </div>
-    
+    <input class="class-block-menu add-new-class-buttons" type="text" placeholder="Type team name"
+           style="height: 75px">
+
+    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="SAVE" disabled='disabled'>
+
+   
+    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">Add
+        Students for class
+    </div>
+    <select name="Add Student for this team" class="class-block-menu add-new-class-buttons mentor-select">
+        <option value="Student1">Student1</option>
+        <option value="Student2">Student2</option>
+        <option value="Student3">Student3</option>
+        <option value="Student4">Student4</option>
+        <option value="Student5">Student5</option>
+    </select>
+    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Add" disabled='disabled'>
+</div>
+<div class="class-menu-container">
+   
+
+    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">Added
+        Students
+    </div>
+
+    <div class="class-block-menu add-new-class-buttons class-header-middle">Student1</div>
+    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
+    <div class="class-block-menu add-new-class-buttons class-header-middle">Student2</div>
+    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
+    <div class="class-block-menu add-new-class-buttons class-header-middle">Student3</div>
+    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
+
+    <input type="submit"
+           class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle class-add-new-class-confirmation class-header-middle"
+           value="Confirm Team" style="padding: 0px">
+
+
+</div>
+<script src="js/script.js"></script>
+
 </body>
-</html>
