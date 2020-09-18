@@ -10,24 +10,25 @@
 <body>
 <div id="pure-main">
     <header class="pure-header">
-        <div class="pure-logo">
-            <img src="src/logoV.webp" style="width: 250px">
-        </div>
+        
+        <img class="pure-logo" src="src/logoV.webp">
 
         <img alt="Profile photo" class="pure-profile-photo" src="src/king.webp">
         
         <div class="main">
-            <a class="pure-menu-item-messages" href="#" class="pure-manu-link" onclick = "openList1()">Mesages</a>
-                <ul id="ollist" style="display: none;">
-                    <li><a class="pure-menu-item-messages" href = "#">Message 1</a></li>
-                    <li><a class="pure-menu-item-messages" href = "#">Message 2</a></li>
-                    <li><a class="pure-menu-item-messages" href = "#">Message 3</a></li>
-                    <li><a class="pure-menu-item-messages" href = "#">Message 4</a></li>
-                    <li><a class="pure-menu-item-messages" href = "#">Message 5</a></li>
-                </ul>
+            <div class="dropdown">
+                <a id="myBtn" class="pure-menu-item-messages" href="#" onclick = "myFunction()">Mesages</a>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="#">Message 1</a>
+                  <a href="#">Message 2</a>
+                  <a href="#">Message 3</a>
+                  <a href="#">Message 4</a>
+                  <a href="#">Message 5</a>
+                </div>
+            </div>
             
-            <a class="pure-menu-item" href="#" class="pure-manu-link">Contact</a>
-            <a class="pure-menu-item" href="#" class="pure-manu-link">Log out</a>
+            <a class="pure-menu-item" href="#">Contact</a>
+            <a class="pure-menu-item" href="#">Log out</a>
         </div>
     </header>
 
