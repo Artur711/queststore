@@ -15,7 +15,7 @@ INSERT INTO Users (first_name, last_name, email, password, user_type, phone) val
 ---Add Level of experience (LOE)
 INSERT INTO LOE (max_value) values (100);
 
----Add Codecooler (Probably its a good idea to add codecooler simultaneously when adding User with user_type codecooler)
+---Add Codecoolers (Probably its a good idea to add codecoolers simultaneously when adding User with user_type codecoolers)
 INSERT INTO Codecoolers (user_id) values (1);
 INSERT INTO Codecoolers (user_id) values (2);
 
@@ -46,10 +46,10 @@ INSERT INTO Users_classrooms (user_id, class_id) values (1,1);	---Pudzianowski t
 INSERT INTO Users_classrooms (user_id, class_id) values (2,1);	---Kalamaga to AK class
 
 
----Add Codecooler to team
+---Add Codecoolers to team
 INSERT INTO Codecoolers_teams (team_id, codecooler_id) values (1,2);  ---Add Kalamaga to AK team
 
----Add Item to Codecooler
+---Add Item to Codecoolers
 INSERT INTO Codecooler_item (item_id, codecooler_id) values (1,1); --- Add 1st Item to Pudzianowski
 
 ---Queries 
