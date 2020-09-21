@@ -7,8 +7,7 @@ const save = document.getElementById("save");
 form.addEventListener('input', () => {
     if (checkName(name.value) && checkDescription(description.value) && checkIfMark() && checkValue(value.value)) {
         save.removeAttribute('disabled');
-    }
-    else {
+    } else {
         save.setAttribute('disabled', 'disabled');
     }
 });

@@ -14,8 +14,7 @@ function clickCellByMenthor(index) {
         item.innerText = "USED";
         item.style.backgroundColor = "red";
         item.style.borderColor = "black";
-    }
-    else {
+    } else {
         item.innerText = "CAN USE";
         item.style.backgroundColor = "#e2d7d7";
         item.style.borderColor = '#73AD21';

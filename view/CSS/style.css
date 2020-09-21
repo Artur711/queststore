@@ -150,6 +150,7 @@ iframe {
     width: 64%;
     margin-bottom: 15px;
 }
+
 .profile-photo {
     margin-left: 15%;
     float: none;
@@ -195,7 +196,8 @@ h2 {
     text-align: center;
     align-items: center;
 }
-.class_header{
+
+.class_header {
     grid-column-start: 1;
     grid-column-end: 3;
 }
@@ -248,12 +250,12 @@ h2 {
         min-height: 12vh;
     }
 }
-  
+
 .dropdown {
     position: relative;
     display: inline-block;
 }
-  
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -261,21 +263,23 @@ h2 {
     border: 2px solid #ddd;
     min-width: 20vw;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
-  
+
 .dropdown-content a {
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-  
+
 .dropdown-content a:hover {
     background-color: #f1f1f1
 }
-  
-.show {display:block;}
+
+.show {
+    display: block;
+}
 
 section {
     margin-top: 10px;
@@ -374,7 +378,7 @@ section {
     height: 100%;
 }
 
-.class-menu-container{
+.class-menu-container {
     display: grid;
     background-color: #dfdbc3;
     grid-template-columns: 70% 30%;
@@ -386,7 +390,7 @@ section {
 
 }
 
-.list-menu-container{
+.list-menu-container {
     display: grid;
     background-color: #dfdbc3;
     grid-template-columns:  60% 40%;
@@ -401,7 +405,7 @@ section {
     grid-template-columns:  34% 34% 15% 17%;
 }
 
-.update-menu-container{
+.update-menu-container {
     display: grid;
     background-color: #dfdbc3;
     grid-template-columns: 40% 30% 30%;
@@ -413,7 +417,7 @@ section {
 }
 
 
-.block{
+.block {
     background-color: white;
     margin: 40px 30px 20px 30px;
     height: 150px;
@@ -423,7 +427,7 @@ section {
     color: red;
 }
 
-.block-menu{
+.block-menu {
     background-color: #64605d;
     margin: 40px 30px 20px 30px;
     height: 150px;
@@ -435,7 +439,7 @@ section {
     padding-top: 65px
 }
 
-.class-block-menu{
+.class-block-menu {
     background-color: #64605d;
     margin: 20px 30px 20px 30px;
     height: 75px;
@@ -447,7 +451,7 @@ section {
     padding-top: 0px
 }
 
-.block-list-menu{
+.block-list-menu {
     background-color: #64605d;
     margin: 40px 30px 20px 30px;
     height: 50px;
@@ -456,7 +460,7 @@ section {
     text-align: center;
 }
 
-.block-update-menu{
+.block-update-menu {
     background-color: #64605d;
     margin: 40px 30px 20px 30px;
     height: 50px;
@@ -474,12 +478,12 @@ section {
     position: center;
 }
 
-.block-img{
+.block-img {
     margin: 5px 0px 0px 0px;
     height: 140px;
 }
 
-.button-buy{
+.button-buy {
     color: black;
     margin: 0px 30px 60px 30px;
     height: 35px;
@@ -493,7 +497,7 @@ section {
     outline: none;
 }
 
-.button-update, .button-remove{
+.button-update, .button-remove {
     color: black;
     height: 60px;
     width: 100%;
@@ -506,12 +510,12 @@ section {
     outline: none;
 }
 
-.button-remove{
+.button-remove {
     background-color: rgb(206, 40, 40);
     border: 3px solid black;
 }
 
-.button-buy-with-team{
+.button-buy-with-team {
     color: black;
     margin: 0px 30px 60px 30px;
     height: 35px;
@@ -526,8 +530,7 @@ section {
 }
 
 
-
-.button-buy:active, .button-update:active, .button-remove:active{
+.button-buy:active, .button-update:active, .button-remove:active {
     outline: none;
     border: none;
     background-color: #82c524;
@@ -536,7 +539,7 @@ section {
     transform: translateY(4px);
 }
 
-div.block, .block-update-menu{
+div.block, .block-update-menu {
     position: relative;
     bottom: 0px;
     text-decoration: none;
@@ -544,27 +547,28 @@ div.block, .block-update-menu{
 }
 
 
-div.block span, .block-update-menu span{
+div.block span, .block-update-menu span {
     display: none
 }
 
-.block-update-menu span{
+.block-update-menu span {
     font-size: 22px;
 }
 
-div.block:hover span, .block-update-menu:hover span{
+div.block:hover span, .block-update-menu:hover span {
     display: block;
     position: absolute;
     top: -20px;
     width: 13em;
     border: 5px solid #0cf;
-    background-color:#cff; color:#000;
+    background-color: #cff;
+    color: #000;
     border-radius: 10px;
     text-align: center;
     padding: 8px;
-  }
+}
 
-div.block:hover span:after, .block-update-menu:hover span:after{
+div.block:hover span:after, .block-update-menu:hover span:after {
     content: '';
     position: absolute;
     bottom: -11px;
@@ -608,7 +612,7 @@ div.block:hover span:after, .block-update-menu:hover span:after{
     opacity: 0.9;
 }
 
-.input-update{
+.input-update {
     color: rgb(250, 180, 2);
     background-color: #64605d;
     border-radius: 5px;
@@ -622,49 +626,49 @@ div.block:hover span:after, .block-update-menu:hover span:after{
     outline: none;
 }
 
-.store-title{
+.store-title {
     text-decoration: none;
     color: rgb(250, 180, 2);
     background-color: #64605d;
     font-size: 50px;
 }
 
-.add-new-class-buttons{
+.add-new-class-buttons {
     text-decoration: none;
     color: rgb(250, 180, 2);
     background-color: #64605d;
     font-size: 30px;
 }
 
-.add-new-class-top-buttons{
+.add-new-class-top-buttons {
     color: #83d1eb
 }
 
-.mentor-select{
+.mentor-select {
     -webkit-appearance: menulist-button;
     height: 75px;
     text-align-last: center;
 }
 
-.headline{
+.headline {
     padding-bottom: 10px;
     padding-top: 10px;
     background-color: green;
     margin-left: 4%;
 }
 
-.savebutton{
+.savebutton {
     margin-left: 35%;
     width: 30%;
     border-radius: 5px;
     background-color: #e2d7d7;
 }
 
-.savebutton:hover{
+.savebutton:hover {
     background-color: #aaa2a2;
 }
 
-.span-update{
+.span-update {
     color: rgb(250, 180, 2);
     font-size: 30px;
     padding: 10px 10px 10px 10px;
@@ -676,12 +680,12 @@ textarea {
     border: 3px solid gray;
 }
 
-.class-header-middle{
+.class-header-middle {
     padding-top: 10px;
     height: 50px;
 }
 
-.class-add-new-class-confirmation{
+.class-add-new-class-confirmation {
     background-color: #bcb001;
     color: black;
 }

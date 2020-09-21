@@ -6,27 +6,31 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    
-    
-    <div class="update-menu-container">
-        <div class="block-update-menu">
-            <input class="input-update" type="text" value="TEAM NAME" disabled>
-        </div>
 
-        <div class="block-update-menu">
-            <input id="class-name" class="input-update" type="text" placeholder="Click to edit value"></input>
-            <span id="span-class-name">AK Soldiers</span>
-        </div>
 
-        <div id="name-button" class="block-update-menu"><button class="button-update" onclick="buttonClick('span-class-name', 'class-name')">Update</button> </div>
-
-        
-
-        <div class="block-update-menu" ><input class="input-update" type="text" value="PERMANENTLY REMOVE" disabled></input></div>
-        <div class="block-update-menu"><button class="button-remove" >REMOVE</button> </div>
-
+<div class="update-menu-container">
+    <div class="block-update-menu">
+        <input class="input-update" type="text" value="TEAM NAME" disabled>
     </div>
 
-    <script src="js/update.js"></script>
-    
+    <div class="block-update-menu">
+        <input id="class-name" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-class-name">AK Soldiers</span>
+    </div>
+
+    <div id="name-button" class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-class-name', 'class-name')">Update</button>
+    </div>
+
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="PERMANENTLY REMOVE" disabled></input>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-remove">REMOVE</button>
+    </div>
+
+</div>
+
+<script src="js/update.js"></script>
+
 </body>

@@ -5,8 +5,7 @@ function clickCell(index) {
         item.innerText = "DONE";
         item.style.backgroundColor = "red";
         item.style.borderColor = "black";
-    }
-    else {
+    } else {
         item.innerText = "TO DO";
         item.style.backgroundColor = "#e2d7d7";
         item.style.borderColor = '#73AD21';

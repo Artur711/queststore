@@ -10,22 +10,19 @@ function myFunction() {
 form.addEventListener('input', () => {
     if (!checkIsEmpty(phone, '0125548755')) {
         submit_phone.removeAttribute('disabled');
-    }
-    else {
+    } else {
         submit_phone.setAttribute('disabled', 'disabled');
     }
 
     if (!checkIsEmpty(password, 'kZj4fv8cV')) {
         submit_password.removeAttribute('disabled');
-    }
-    else {
+    } else {
         submit_password.setAttribute('disabled', 'disabled');
     }
 
     if (!checkIsEmpty(mail, 'domink.nowak@gamial.com')) {
         submit_mail.removeAttribute('disabled');
-    }
-    else {
+    } else {
         submit_mail.setAttribute('disabled', 'disabled');
     }
 
