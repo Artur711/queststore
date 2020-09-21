@@ -1,13 +1,13 @@
-package comcodecool.queststore;
+package com.queststore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QueststoreApplication {
+public class QuestStoreApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(QueststoreApplication.class, args);
+        SpringApplication.run(QuestStoreApplication.class, args);
     }
 
 }

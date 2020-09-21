@@ -1,10 +1,10 @@
-package comcodecool.queststore;
+package com.queststore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class QueststoreApplicationTests {
+class QuestStoreApplicationTests {
 
     @Test
     void contextLoads() {
