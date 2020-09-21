@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update student</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body>
+
+<div class="update-menu-container">
+    <div class="block-update-menu"><input class="input-update" type="text" value="FIRST NAME" disabled></div>
+    <div class="block-update-menu">
+        <input id="first-name" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-first-name">Wasilij</span>
+    </div>
+    <div id="name-button" class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-first-name', 'first-name')">Update</button>
+    </div>
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="LAST NAME" disabled></div>
+    <div class="block-update-menu">
+        <input id="last-name" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-last-name">Zajcew</span>
+    </div>
+    <div class="block-update-menu">
+        <button id="description-button" class="button-update" onclick="buttonClick('span-last-name', 'last-name')">
+            Update
+        </button>
+    </div>
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="EMAIL" disabled></div>
+    <div class="block-update-menu">
+        <input id="email" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-email">snajper777@gmail.com</span>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-email', 'email')">Update</button>
+    </div>
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="PASSWORD" disabled></div>
+    <div class="block-update-menu">
+        <input id="password" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-password">**********</span>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-password', 'password')">Update</button>
+    </div>
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="USER TYPE" disabled></div>
+    <div class="block-update-menu">
+        <input id="user-type" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-user-type">3</span>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-user-type', 'user-type')">Update</button>
+    </div>
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="PHONE" disabled></div>
+    <div class="block-update-menu">
+        <input id="phone" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-phone">159486324</span>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-phone', 'phone')">Update</button>
+    </div>
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="LEVEL" disabled></div>
+    <div class="block-update-menu">
+        <input id="level" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-level">1 lvevel</span>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-level', 'level')">Update</button>
+    </div>
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="COINS" disabled></div>
+    <div class="block-update-menu">
+        <input id="coins" class="input-update" type="text" placeholder="Click to edit value"></input>
+        <span id="span-coins">384 CC</span>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-update" onclick="buttonClick('span-coins', 'coins')">Update</button>
+    </div>
+
+
+    <div class="block-update-menu"><input class="input-update" type="text" value="PERMANENTLY REMOVE" disabled></input>
+    </div>
+    <div class="block-update-menu">
+        <button class="button-remove">REMOVE</button>
+    </div>
+
+</div>
+
+<script src="js/update.js"></script>
+
+</body>
