@@ -8,38 +8,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
+    <div th:switch="${students}">
+        <h2 th:case="null">No students yet!</h2>
+        <div th:case="*">
+            <tbody th:each="user: ${students}">
 
-<div class="list-menu-container list-menu-container-ex" th:switch="${students}">
-
-    <h2 th:case="null">No students yet!</h2>
-    <div th:case="*">
-        <tbody th:each="user: ${students}">
-
-
-        <div class="block-list-menu"><input class="input-update"  th:value="${user.codecooler_id}" disabled></div>
-        <div class="block-list-menu"><input class="input-update"  th:value="${user.loe_id}" disabled></div>
-        <div class="block-list-menu">
-            <button class="button-update">Edit</button>
+                <div class="list-menu">
+                    <input class="input-update"  th:value="${user.codecooler_id}" disabled>
+                    <input class="input-update"  th:value="${user.loe_id}" disabled>
+                    <button class="button-update">Edit</button>
+                    <button class="button-remove">Remove</button>
+                </div>
+            </tbody>
         </div>
-        <div class="block-list-menu">
-            <button class="button-remove">Remove</button>
-        </div>
-        </tbody>
     </div>
 
+    <div class="list-menu">
+        <input class="input-update" type="text" value="New student" disabled>
+        <button class="button-update">ADD</button>
 
-</div>
-<div class="list-menu-container">
-
-    <div class="block-list-menu"><input class="input-update" type="text" value="New student" disabled></div>
-    <div class="block-list-menu">
-        <button class="button-update">>>> ADD NEW STUDENT <<<</button>
+        <script src="js/script.js"></script>
     </div>
-
-
-    <script src="js/script.js"></script>
-</div>
-
 </body>
-
 </html>

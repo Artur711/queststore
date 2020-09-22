@@ -8,6 +8,7 @@ body {
     background-image: url('../src/background3.jpg');
     background-size: cover;
     margin: 0;
+    background-color: #dfdbc3;
 }
 
 #realbackend {
@@ -212,45 +213,6 @@ h2 {
     text-decoration: none;
 }
 
-@media screen and (max-width: 1050px) {
-    .pure-logo {
-        width: 40vw;
-    }
-
-    .pure-menu-item, .pure-menu-item-messages {
-        display: block;
-        font-size: 150%;
-    }
-
-    .pure-profile-photo {
-        width: 15vw;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .pure-item {
-        width: 35%;
-    }
-
-    .main {
-        margin-right: 12vw;
-    }
-
-    .pure-menu-item, .pure-menu-item-messages {
-        font-size: 90%;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    .pure-menu-item, .pure-menu-item-messages {
-        font-size: 68%;
-    }
-
-    .pure-header {
-        min-height: 12vh;
-    }
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -387,7 +349,16 @@ section {
     padding: 70px 19px 37px 19px;
     width: 70%;
     height: 50%;
+}
 
+.list-menu {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #dfdbc3;
+    height: 100%;
+    color: white;
 }
 
 .list-menu-container {
@@ -484,7 +455,6 @@ section {
 }
 
 .button-buy {
-    color: black;
     margin: 0px 30px 60px 30px;
     height: 35px;
     width: 85%;
@@ -498,21 +468,25 @@ section {
 }
 
 .button-update, .button-remove {
-    color: black;
-    height: 60px;
-    width: 100%;
-    border: 3px solid #73AD21;
-    border-radius: 20px;
-    font-size: 30px;
-    font-weight: 900;
+    width: 12%;
+    border-radius: 1vw;
+    font-size: 150%;
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
     outline: none;
+    margin: 1vw;
+    color: white;
+    padding: 0.6vw;
+}
+
+.button-update {
+    background-color: green;
+    border: solid green;
 }
 
 .button-remove {
     background-color: rgb(206, 40, 40);
-    border: 3px solid black;
+    border: solid rgb(206, 40, 40);
 }
 
 .button-buy-with-team {
@@ -613,17 +587,17 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 }
 
 .input-update {
-    color: rgb(250, 180, 2);
     background-color: #64605d;
-    border-radius: 5px;
-    border: 3px solid rgb(29, 28, 28);
-    width: 100%;
-    border-radius: 20px;
-    font-size: 30px;
-    padding: 10px 10px 10px 10px;
+    border: solid #64605d;
+    width: 30%;
+    border-radius: 1vw;
+    font-size: 150%;
+    padding: 0.6vw;
     text-align: center;
     text-decoration: none;
     outline: none;
+    margin: 1vw;
+    color: white;
 }
 
 .store-title {
@@ -688,4 +662,55 @@ textarea {
 .class-add-new-class-confirmation {
     background-color: #bcb001;
     color: black;
+}
+
+@media screen and (max-width: 1050px) {
+    .pure-logo {
+        width: 40vw;
+    }
+
+    .pure-menu-item, .pure-menu-item-messages {
+        display: block;
+        font-size: 150%;
+    }
+
+    .pure-profile-photo {
+        width: 15vw;
+    }
+
+    .input-update {
+        width: 42%;
+    }
+
+    .button-update, .button-remove {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .pure-item {
+        width: 35%;
+    }
+
+    .main {
+        margin-right: 12vw;
+    }
+
+    .pure-menu-item, .pure-menu-item-messages {
+        font-size: 90%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .pure-menu-item, .pure-menu-item-messages {
+        font-size: 68%;
+    }
+
+    .pure-header {
+        min-height: 12vh;
+    }
+
+    .input-update, .button-update, .button-remove {
+        font-size: 100%;
+    }
 }
