@@ -152,7 +152,7 @@ iframe {
 
 .add-entity-photo {
     width: 64%;
-    margin-bottom: 15px;
+    margin-bottom: 5vw;
 }
 
 .profile-photo {
@@ -628,10 +628,12 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 }
 
 .headline {
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
     background-color: green;
     margin-left: 4%;
+    border: none;
+    color: white;
 }
 
 .savebutton {

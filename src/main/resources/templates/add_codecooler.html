@@ -9,37 +9,16 @@
 <body>
 <div id="right-section">
     <br><br><br><br><br>
-    <form id="form">
+    <form id="form" action="#" th:action="@{/students_list}" th:object="${codecooler}" method="post">
         <h5 class="is-center headline"> Add new Student</h5>
         <nav>
-            <img alt="Profile photo" class="pure-profile-photo add-entity-photo" src="src/knight.webp">
+            <img alt="Profile photo" class="pure-profile-photo add-entity-photo" src="../static/photo/profile/knight.webp">
             <h5 class="is-center pure-item sub-section2">Name</h5>
             <label for="name"></label>
             <input id="name" class="is-center pure-item sub-section3 entity-input" type="text"
-                   value="Your Name"
-                   onfocus="if (this.value === 'Your Name') {this.value=''}">
-            <h5 class="is-center pure-item sub-section2">Surname</h5>
-            <label for="surename"></label>
-            <input id="surename" class="is-center pure-item sub-section3 entity-input" type="text"
-                   value="Your Surename"
-                   onfocus="if (this.value === 'Your Surename') {this.value=''}">
-            <h5 class="is-center pure-item sub-section2">Phone number</h5>
-            <label for="phone"></label>
-            <input id="phone" class="is-center pure-item sub-section3 entity-input" type="text"
-                   value="Your phone"
-                   onfocus="if (this.value === 'Your phone') {this.value=''}">
-            <h5 class="is-center pure-item sub-section2">Password</h5>
-            <label for="password"></label>
-            <input id="password" class="is-center pure-item sub-section3 entity-input" type="text"
-                   value="Your password"
-                   onfocus="if (this.value === 'Your password') {this.value=''}">
-            <h5 class="is-center pure-item sub-section2">Mail</h5>
-            <label for="mail"></label>
-            <input id="mail" class="is-center pure-item sub-section3 entity-input" type="text"
-                   value="Your email"
-                   onfocus="if (this.value === 'Your email') {this.value=''}">
-            <input type="submit" id="savebutton" class="is-center headline savebutton" value="SAVE" disabled='disabled'>
-
+                   value="Your Name">
+<!--                   onfocus="if (this.value === 'Your Name') {this.value=''}">-->
+            <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
         </nav>
         <br><br><br>
     </form>
