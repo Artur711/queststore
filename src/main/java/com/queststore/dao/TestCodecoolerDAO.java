@@ -4,7 +4,7 @@ import com.queststore.model.Codecoolers;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public interface TestCodecoolerDAO extends CrudRepository<Codecoolers, Long> {
 
 }

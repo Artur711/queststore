@@ -1,27 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add new Student</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
 <div id="right-section">
     <br><br><br><br><br>
-    <form id="form" action="#" th:action="@{/students_list}" th:object="${codecooler}" method="post">
-        <h5 class="is-center headline"> Add new Student</h5>
-        <nav>
-            <img alt="Profile photo" class="pure-profile-photo add-entity-photo" src="../static/photo/profile/knight.webp">
-            <h5 class="is-center pure-item sub-section2">Name</h5>
-            <label for="name"></label>
-            <input id="name" class="is-center pure-item sub-section3 entity-input" type="text"
-                   value="Your Name">
-<!--                   onfocus="if (this.value === 'Your Name') {this.value=''}">-->
+
+    <h5 class="is-center headline"> Add new Student</h5>
+
+    <nav>
+
+        <img alt="Profile photo" class="pure-profile-photo add-entity-photo" src="../static/photo/profile/knight.webp">
+        <h5 class="is-center pure-item sub-section2">Name</h5>
+        <form id="form" action="#" th:action="@{/add_codecooler}" th:object="${codecoolers}" method="post">
+            <label for="user_id"></label>
+            <input id="user_id" class="is-center pure-item sub-section3 entity-input" type="text"
+                               th:field="*{user_id}">
+
+            <label for="codecooler_id"></label>
+            <input id="codecooler_id" class="is-center pure-item sub-section3 entity-input" type="text"
+                               th:field="*{codecooler_id}">
+
+            <label for="loe_id"></label>
+            <input id="loe_id" class="is-center pure-item sub-section3 entity-input" type="text"
+                               th:field="*{loe_id}">
+
+            <label for="codecool_coins"></label>
+            <input id="codecool_coins" class="is-center pure-item sub-section3 entity-input" type="text"
+                               th:field="*{codecool_coins}">
+
             <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
-        </nav>
-        <br><br><br>
-    </form>
+        </form>
+    </nav>
+    <br><br><br>
+
 </div>
 <script defer src="js/Add_entity.js"></script>
 
