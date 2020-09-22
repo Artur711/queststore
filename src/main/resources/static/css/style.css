@@ -5,10 +5,13 @@
 }
 
 body {
-    background-image: url('../src/background3.jpg');
-    background-size: cover;
     margin: 0;
     background-color: #dfdbc3;
+}
+
+.body-menu {
+    background-image: url('../photo/background3.jpg');
+    background-size: cover;
 }
 
 #realbackend {
@@ -111,7 +114,7 @@ footer {
 
 iframe {
     width: 90%;
-    border: none;
+    border: 0.5vw double #64605d;
 }
 
 .inside-field {

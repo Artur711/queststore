@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Students list</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
     <div th:switch="${students}">
-        <h2 th:case="null">No students yet!</h2>
+        <h2 class="button-remove" th:case="null">No students yet!</h2>
         <div th:case="*">
             <tbody th:each="user: ${students}">
 
@@ -20,14 +20,14 @@
                     <button class="button-remove">Remove</button>
                 </div>
             </tbody>
+
+            <div class="list-menu">
+                <input class="input-update" type="text" value="New student" disabled>
+                <button class="button-update">ADD</button>
+
+                <script src="js/script.js"></script>
+            </div>
         </div>
-    </div>
-
-    <div class="list-menu">
-        <input class="input-update" type="text" value="New student" disabled>
-        <button class="button-update">ADD</button>
-
-        <script src="js/script.js"></script>
     </div>
 </body>
 </html>

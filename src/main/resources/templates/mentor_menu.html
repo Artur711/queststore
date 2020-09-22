@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Mentor menu</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" />
-    <script th:src="@{js/mentor.js}" defer></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
+    <script th:src="@{js/mentor.js}" src="../static/js/mentor.js" defer></script>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
-<body>
+<body class="body-menu">
 <div id="pure-main">
     <header class="pure-header">
 
-        <img class="pure-logo" src="src/logoV.webp">
+        <img class="pure-logo" src="../static/photo/logoV.webp">
 
-        <img alt="Profile photo" class="pure-profile-photo" src="src/lord.webp">
+        <img alt="Profile photo" class="pure-profile-photo" src="../static/photo/profile/lord.webp">
 
         <div class="main">
             <div class="dropdown">
@@ -47,7 +47,7 @@
     </nav>
 
     <section>
-        <iframe id="iframe" src="mentor_profile_page.html" height="800" title="Iframe Menu"></iframe>
+        <iframe id="iframe" src="students_list.html" height="800" title="Iframe Menu"></iframe>
     </section>
 
     <footer class="pure-footer">&copy AK SOLDIERS 2020</footer>
