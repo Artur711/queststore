@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan("com.queststore.dao")
-public class SpringJdbcConfig {
+public class SpringJdbcConfig{
     @Bean
     public DataSource postgresDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();

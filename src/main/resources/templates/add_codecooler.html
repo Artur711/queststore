@@ -20,19 +20,19 @@
         <form id="form" action="#" th:action="@{/add_codecooler}" th:object="${codecoolers}" method="post">
             <label for="user_id"></label>
             <input id="user_id" class="is-center pure-item sub-section3 entity-input" type="text"
-                               th:field="*{user_id}">
+                   th:field="*{user_id}" th:value="UserID">
 
             <label for="codecooler_id"></label>
             <input id="codecooler_id" class="is-center pure-item sub-section3 entity-input" type="text"
-                               th:field="*{codecooler_id}">
+                   th:field="*{codecooler_id}" placeholder="CC_ID">
 
             <label for="loe_id"></label>
             <input id="loe_id" class="is-center pure-item sub-section3 entity-input" type="text"
-                               th:field="*{loe_id}">
+                   th:field="*{loe_id}" th:placeholder="loe">
 
             <label for="codecool_coins"></label>
             <input id="codecool_coins" class="is-center pure-item sub-section3 entity-input" type="text"
-                               th:field="*{codecool_coins}">
+                   th:field="*{codecool_coins}" th:placeholder="coins" >
 
             <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
         </form>

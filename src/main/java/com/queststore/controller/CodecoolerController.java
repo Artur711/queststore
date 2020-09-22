@@ -22,20 +22,20 @@ public class CodecoolerController {
     @GetMapping("/student_list")
     public String getStudentsList(Model model){
         model.addAttribute("students", service.getAll());
-        return "students_list";
+        return "student_list";
     }
 
 
     @GetMapping("/add_codecooler")
-    public String addTheCodecooler(Model model){
+    public String addTheCodecooler(Codecoolers codecooler){
 
         return "add_codecooler";
     }
 
     @PostMapping("/add_codecooler")
-        public String addCodecooler(Model model, @ModelAttribute Codecoolers codecoolers){
+        public String addCodecooler(Model model, @Valid Codecoolers codecoolers){
         service.create(codecoolers);
         model.addAttribute("codecoolers", service.getAll());
-        return "redirect:/students_list";
+        return "redirect:/student_list";
             }
 }

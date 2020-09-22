@@ -1,5 +1,6 @@
 package com.queststore.dao;
 
+import com.queststore.model.CodecoolerMapper;
 import com.queststore.model.Codecoolers;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,7 +39,8 @@ public class CodecoolerJDBCDAO implements CodecoolerDAO {
     @Override
     public List<Codecoolers> getAll() {
         JdbcTemplate temp = new JdbcTemplate(datasource.postgresDataSource());
-        List<Codecoolers> cdlist = temp.query("Select * from Codecoolers", BeanPropertyRowMapper.newInstance(Codecoolers.class));
+//        List<Codecoolers> cdlist = temp.query("Select * from Codecoolers", BeanPropertyRowMapper.newInstance(Codecoolers.class));
+        List<Codecoolers> cdlist = temp.query("Select * from Codecoolers", new CodecoolerMapper());
         return  cdlist;
     }
 
