@@ -5,6 +5,7 @@ import com.queststore.service.CodecoolerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +34,7 @@ public class CodecoolerController {
     }
 
     @PostMapping("/add_codecooler")
-        public String addCodeCooler(Model model, @Valid Codecoolers codecoolers){
+    public String addCodeCooler(Model model, @Valid Codecoolers codecoolers){
         service.create(codecoolers);
         model.addAttribute("codecoolers", service.getAll());
         return "redirect:/student_list";
@@ -47,13 +48,20 @@ public class CodecoolerController {
     }
 
     @PostMapping("/update/{id}")
-    String updateUser (@PathVariable("id") long id, @Valid Codecoolers codecooler, BindingResult result, Model model) {
+    public String updateCodeCooler(@PathVariable("id") long id, @Valid Codecoolers codecooler, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "update_student";
         }
         Codecoolers updateCodeCooler = new Codecoolers(id, codecooler.getUser_id(), codecooler.getLoe_id(), codecooler.getCodecool_coins());
         service.update(updateCodeCooler);
         model.addAttribute("students", service.getAll());;
+        return "redirect:/student_list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String removeCodeCooler(@PathVariable("id") long id, Model model) {
+        service.delete(id);
+        model.addAttribute("students", service.getAll());
         return "redirect:/student_list";
     }
 }

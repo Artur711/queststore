@@ -11,6 +11,7 @@ import java.util.List;
 public class CodeCoolerJDBCDAO implements CodecoolerDAO {
     private SpringJdbcConfig datasource;
     private JdbcTemplate temp;
+    private String query;
 
     public CodeCoolerJDBCDAO(SpringJdbcConfig datasource) {
         this.datasource = datasource;
@@ -29,7 +30,7 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
         int codeCoolerLevel = codecoolers.getLoe_id();
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
-        String query = String.format("%s (%d, %d, %d);", queryInsert, userID, codeCoolerLevel, codeCoolerCoins);
+        query = String.format("%s (%d, %d, %d);", queryInsert, userID, codeCoolerLevel, codeCoolerCoins);
         temp.batchUpdate(query);
     }
 
@@ -41,13 +42,14 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
         String querySet = String.format("SET user_id = %d, loe_id = %d, codecool_coins = %d", userID, codeCoolerLevel, codeCoolerCoins);
-        String query = String.format("UPDATE Codecoolers %s WHERE codecooler_id = %d;", querySet, codeCoolerID);
+        query = String.format("UPDATE Codecoolers %s WHERE codecooler_id = %d;", querySet, codeCoolerID);
         temp.batchUpdate(query);
     }
 
     @Override
     public void delete(Long id) {
-
+        query = String.format("DELETE FROM Codecoolers WHERE codecooler_id = %d;", id);
+        temp.batchUpdate(query);
     }
 
     @Override
