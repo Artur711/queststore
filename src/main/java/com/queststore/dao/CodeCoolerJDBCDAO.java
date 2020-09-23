@@ -3,39 +3,24 @@ package com.queststore.dao;
 import com.queststore.model.CodecoolerMapper;
 import com.queststore.model.Codecoolers;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 @Repository
-public class CodecoolerJDBCDAO implements CodecoolerDAO {
+public class CodeCoolerJDBCDAO implements CodecoolerDAO {
     private SpringJdbcConfig datasource;
-    private SimpleJdbcInsert simpleJdbcInsert;
     private JdbcTemplate temp;
 
-    public CodecoolerJDBCDAO(SpringJdbcConfig datasource) {
+    public CodeCoolerJDBCDAO(SpringJdbcConfig datasource) {
         this.datasource = datasource;
-        this.simpleJdbcInsert = new SimpleJdbcInsert(datasource.postgresDataSource()).withTableName("Codecoolers");
         this.temp = new JdbcTemplate(datasource.postgresDataSource());
     }
 
     @Override
     public List<Codecoolers> getAll() {
-        List<Codecoolers> cdlist = temp.query("Select * from Codecoolers", new CodecoolerMapper());
-        return  cdlist;
+        return temp.query("Select * from Codecoolers", new CodecoolerMapper());
     }
-
-//    public int addCodecooler(Codecoolers codecooler) {
-//        Map<String, Object> parameters = new HashMap<String, Object>();
-//        parameters.put("codecooler_id", codecooler.getCodecooler_id());
-//        parameters.put("user_id", codecooler.getUser_id());
-//        parameters.put("loe_id", codecooler.getLoe_id());
-//        parameters.put("codecool_coins", codecooler.getCodecool_coins());
-//
-//        return simpleJdbcInsert.execute(parameters);
-//    }
 
     @Override
     public void create(Codecoolers codecoolers) {
@@ -50,10 +35,30 @@ public class CodecoolerJDBCDAO implements CodecoolerDAO {
 
     @Override
     public void update(Codecoolers codecoolers) {
+        long codeCoolerID = codecoolers.getCodecooler_id();
+        int userID = codecoolers.getUser_id();
+        int codeCoolerLevel = codecoolers.getLoe_id();
+        int codeCoolerCoins = codecoolers.getCodecool_coins();
+
+        String querySet = String.format("SET user_id = %d, loe_id = %d, codecool_coins = %d", userID, codeCoolerLevel, codeCoolerCoins);
+        String query = String.format("UPDATE Codecoolers %s WHERE codecooler_id = %d;", querySet, codeCoolerID);
+        temp.batchUpdate(query);
     }
 
     @Override
     public void delete(Long id) {
 
+    }
+
+    @Override
+    public Codecoolers getByID(Long id) {
+        List<Codecoolers> cdList = getAll();
+
+        for (Codecoolers codeCooler : cdList) {
+            if (codeCooler.getCodecooler_id() == id) {
+                return codeCooler;
+            }
+        }
+        return null;
     }
 }

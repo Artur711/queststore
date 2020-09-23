@@ -21,7 +21,7 @@ public class Codecoolers {
         this.codecool_coins = codecool_coins;
     }
 
-    public Codecoolers(int user_id, int codecooler_id, int loe_id, int codecool_coins) {
+    public Codecoolers(long codecooler_id, int user_id, int loe_id, int codecool_coins) {
         this.user_id = user_id;
         this.codecooler_id = codecooler_id;
         this.loe_id = loe_id;

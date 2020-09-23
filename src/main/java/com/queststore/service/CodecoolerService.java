@@ -29,4 +29,8 @@ public class CodecoolerService {
     public void delete(Long id) {
         dao.delete(id);
     }
+
+    public Codecoolers getByID(Long id) {
+        return dao.getByID(id);
+    }
 }

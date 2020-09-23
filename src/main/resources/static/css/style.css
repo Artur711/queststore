@@ -115,6 +115,7 @@ footer {
 iframe {
     width: 90%;
     border: 0.5vw double #64605d;
+    height: 75vh;
 }
 
 .inside-field {
@@ -480,6 +481,8 @@ section {
     margin: 1vw;
     color: white;
     padding: 0.6vw;
+    text-align: center;
+    text-decoration: none;
 }
 
 .button-update {
@@ -689,6 +692,14 @@ textarea {
 
     .button-update, .button-remove {
         width: 35%;
+    }
+
+    #right-section {
+        width: 85%;
+    }
+
+    .add-entity-photo {
+        width: 64%;
     }
 }
 

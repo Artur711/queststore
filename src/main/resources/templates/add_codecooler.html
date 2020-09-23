@@ -9,35 +9,32 @@
 </head>
 <body>
 <div id="right-section">
-    <br><br><br><br><br>
+    <br>
 
     <h5 class="is-center headline"> Add new Student</h5>
-
     <nav>
         <img alt="Profile photo" class="pure-profile-photo add-entity-photo" th:src="@{/photo/profile/knight.webp}" src="../static/photo/profile/knight.webp">
         <form id="form" action="#" th:action="@{/add_codecooler}" th:object="${codecoolers}" method="post">
-            <h5 class="is-center pure-item sub-section3 entity-input">User id</h5>
-            <label for="user_id"></label>
-            <input id="user_id" class="is-center pure-item sub-section3 entity-input" type="text"
-                   th:field="*{user_id}" th:value="UserID">
+            <nav>
+                <h5 class="is-center pure-item sub-section3 entity-input">User id</h5>
+                <label for="user_id"></label>
+                <input id="user_id" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{user_id}" th:value="UserID">
 
-            <h5 class="is-center pure-item sub-section3 entity-input">Codecooler level</h5>
-            <label for="loe_id"></label>
-            <input id="loe_id" class="is-center pure-item sub-section3 entity-input" type="text"
-                   th:field="*{loe_id}" th:placeholder="loe">
+                <h5 class="is-center pure-item sub-section3 entity-input">Codecooler level</h5>
+                <label for="loe_id"></label>
+                <input id="loe_id" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{loe_id}" th:placeholder="loe">
 
-            <h5 class="is-center pure-item sub-section3 entity-input">Codecooler coins</h5>
-            <label for="codecool_coins"></label>
-            <input id="codecool_coins" class="is-center pure-item sub-section3 entity-input" type="text"
-                   th:field="*{codecool_coins}" th:placeholder="coins" >
-
-            <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+                <h5 class="is-center pure-item sub-section3 entity-input">Codecooler coins</h5>
+                <label for="codecool_coins"></label>
+                <input id="codecool_coins" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{codecool_coins}" th:placeholder="coins" >
+                <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+            </nav>
         </form>
     </nav>
-    <br><br><br>
-
+    <script defer src="js/Add_entity.js"></script>
 </div>
-<script defer src="js/Add_entity.js"></script>
-
 </body>
 </html>
