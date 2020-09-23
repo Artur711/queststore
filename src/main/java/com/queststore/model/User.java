@@ -1,10 +1,16 @@
 package com.queststore.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 public class User {
+
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long userId;
+
     private String firstName;
     private String lastName;
     private String email;
@@ -13,6 +19,15 @@ public class User {
     private int phoneNumber;
 
     public User() {
+    }
+
+    public User(long userId, String firstName, String lastName, String email, String password, int phoneNumber) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
     public User(long userId, String firstName, String lastName, String email, String password, String photoUrl, int phoneNumber) {

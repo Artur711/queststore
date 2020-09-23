@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class Codecoolers {
+public class Codecoolers extends User {
 
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +19,8 @@ public class Codecoolers {
     }
 
 
-    public Codecoolers(long codecooler_id, int user_id, int loe_id, int codecool_coins) {
+    public Codecoolers(long codecooler_id, int user_id, int loe_id, int codecool_coins, String firstName, String lastName, String email, String password, int phoneNumber) {
+        super(user_id, firstName, lastName, email, password, phoneNumber);
         this.codecooler_id = codecooler_id;
         this.user_id = user_id;
         this.loe_id = loe_id;

@@ -2,9 +2,14 @@ package com.queststore.dao;
 
 import com.queststore.model.CodecoolerMapper;
 import com.queststore.model.Codecoolers;
+import com.queststore.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 
 @Repository
@@ -20,18 +25,53 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
 
     @Override
     public List<Codecoolers> getAll() {
-        return temp.query("Select * from Codecoolers", new CodecoolerMapper());
+        return temp.query("select users.first_name, users.last_name, users.email, users.password, users.phone, users.user_type,  codecoolers.* from users INNER JOIN codecoolers ON users.user_id = codecoolers.user_id;", new CodecoolerMapper());
     }
 
     @Override
     public void create(Codecoolers codecoolers) {
-        String queryInsert = "INSERT INTO Codecoolers (user_id, loe_id, codecool_coins) VALUES";
+        GeneratedKeyHolder holder = new GeneratedKeyHolder();
+
+        System.out.println(holder.getKey());
+
+
+        String queryInsert = "INSERT INTO users (first_name, last_name, email, password, phone, user_type) VALUES";
+        String firstName = codecoolers.getFirstName();
+        String lastName = codecoolers.getLastName();
+        String email = codecoolers.getEmail();
+        String password = codecoolers.getPassword();
+        int phoneNumber = codecoolers.getPhoneNumber();
+
+        query = String.format("%s ('%s', '%s', '%s', '%s', %d, 1);", queryInsert, firstName, lastName, email, password, phoneNumber);
+        temp.batchUpdate(query, holder);
+
+/*
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        System.out.println(keyHolder.getKey());
+*/
+
+        queryInsert = "INSERT INTO codecoolers (user_id, loe_id, codecool_coins) VALUES";
         int userID = codecoolers.getUser_id();
         int codeCoolerLevel = codecoolers.getLoe_id();
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
         query = String.format("%s (%d, %d, %d);", queryInsert, userID, codeCoolerLevel, codeCoolerCoins);
         temp.batchUpdate(query);
+
+    }
+
+    private int getUser(Codecoolers codecoolers) {
+        String firstName = codecoolers.getFirstName();
+        String lastName = codecoolers.getLastName();
+        String email = codecoolers.getEmail();
+        String password = codecoolers.getPassword();
+        int phoneNumber = codecoolers.getPhoneNumber();
+
+        String queryWhere = String.format("first_name = '%s' AND last_name = '%s' AND email = 's' AND password = 's' AND phone = %d", firstName, lastName, email, password, phoneNumber);
+        query = String.format("SELECT users WHERE %s", queryWhere);
+
+        Codecoolers codecoolers1 = temp.query(query, new CodecoolerMapper()).get(0);
+        return 1;
     }
 
     @Override
