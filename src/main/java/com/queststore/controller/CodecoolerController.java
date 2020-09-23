@@ -5,7 +5,6 @@ import com.queststore.service.CodecoolerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -28,7 +27,6 @@ public class CodecoolerController {
 
     @GetMapping("/add_codecooler")
     public String addTheCodecooler(Codecoolers codecooler){
-
         return "add_codecooler";
     }
 
@@ -37,5 +35,5 @@ public class CodecoolerController {
         service.create(codecoolers);
         model.addAttribute("codecoolers", service.getAll());
         return "redirect:/student_list";
-            }
+    }
 }

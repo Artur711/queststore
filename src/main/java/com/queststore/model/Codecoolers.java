@@ -1,10 +1,16 @@
 package com.queststore.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 @Entity
 public class Codecoolers {
     private int user_id;
-    private int codecooler_id;
+
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long codecooler_id;
     private int loe_id;
     private int codecool_coins;
 
@@ -32,7 +38,7 @@ public class Codecoolers {
         return user_id;
     }
 
-    public int getCodecooler_id() {
+    public long getCodecooler_id() {
         return codecooler_id;
     }
 

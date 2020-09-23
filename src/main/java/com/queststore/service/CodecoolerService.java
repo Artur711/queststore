@@ -15,7 +15,7 @@ public class CodecoolerService {
     }
 
     public void create(Codecoolers codecooler) {
-       dao.addCodecooler(codecooler);
+       dao.create(codecooler);
     }
 
     public void update(Codecoolers codecooler) {
@@ -29,10 +29,4 @@ public class CodecoolerService {
     public void delete(Long id) {
         dao.delete(id);
     }
-
-//    public List<Codecoolers> testFindAll() {
-//        return (List<Codecoolers>) dao.findAll();
-//    }
-
-
 }
