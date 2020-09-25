@@ -2,14 +2,13 @@ package com.queststore.dao;
 
 import com.queststore.model.CodecoolerMapper;
 import com.queststore.model.Codecoolers;
-import com.queststore.model.User;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -30,11 +29,6 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
 
     @Override
     public void create(Codecoolers codecoolers) {
-        GeneratedKeyHolder holder = new GeneratedKeyHolder();
-
-        System.out.println(holder.getKey());
-
-
         String queryInsert = "INSERT INTO users (first_name, last_name, email, password, phone, user_type) VALUES";
         String firstName = codecoolers.getFirstName();
         String lastName = codecoolers.getLastName();
@@ -42,16 +36,22 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
         String password = codecoolers.getPassword();
         int phoneNumber = codecoolers.getPhoneNumber();
 
-        query = String.format("%s ('%s', '%s', '%s', '%s', %d, 1);", queryInsert, firstName, lastName, email, password, phoneNumber);
-        temp.batchUpdate(query, holder);
+        query = String.format("%s ('%s', '%s', '%s', '%s', %d, 1) RETURNING user_id;", queryInsert, firstName, lastName, email, password, phoneNumber);
+        Integer id = temp.query(query, new ResultSetExtractor<Integer>() {
 
-/*
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        System.out.println(keyHolder.getKey());
-*/
+            @Override
+            public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
+                if (rs.next()) {
+                    Integer lastAddedId = rs.getInt("user_id");
+                    return lastAddedId;
+                }
+                return null;
+            }
+        });
+        System.out.println(id);
 
         queryInsert = "INSERT INTO codecoolers (user_id, loe_id, codecool_coins) VALUES";
-        int userID = codecoolers.getUser_id();
+        int userID = id;
         int codeCoolerLevel = codecoolers.getLoe_id();
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
