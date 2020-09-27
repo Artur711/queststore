@@ -5,6 +5,7 @@ import com.queststore.service.QuestService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class QuestController {
@@ -15,8 +16,10 @@ public class QuestController {
         this.service = service;
     }
 
-    @GetMapping("/quest_store")
-    public String getSingleQuestList(Model model){
+    @GetMapping("/quest_store/{type}")
+    public String getQuestList(@PathVariable("type") int type, Model model){
+        System.out.println(type);
+        model.addAttribute("type", type);
         model.addAttribute("quests", service.getAll());
         return "quest_store";
     }

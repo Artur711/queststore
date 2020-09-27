@@ -10,7 +10,7 @@
 
 <div class="flex-container">
     <div th:each="quest: ${quests}">
-        <div th:if="${quest.questTypeId == 2}">
+        <div th:if="${quest.questTypeId == 1}"><!--1 or 2, 1 for single 2 for team quests-->
 
             <div class="grid-block">
                 <img class="img"  th:src="@{${quest.img}}"/>
@@ -21,8 +21,6 @@
         </div>
     </div>
 </div>
-
-<script src="script.js"></script>
 
 </body>
 </html>
