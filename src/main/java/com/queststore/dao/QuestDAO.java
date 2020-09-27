@@ -7,9 +7,9 @@ import java.util.List;
 public interface QuestDAO {
     List<Quest> getAll();
 
-    Quest getByID(int id);
+    Quest getByID(long id);
 
-    void delete(int id);
+    void delete(long id);
 
     void create(Quest quest);
 

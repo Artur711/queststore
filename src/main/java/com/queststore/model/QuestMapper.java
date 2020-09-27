@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class QuestMapper implements RowMapper<Quest> {
 
     public Quest mapRow(ResultSet rs, int rowNum) throws SQLException {
-        int questId = rs.getInt("quest_id");
+        long questId = rs.getInt("quest_id");
         String name = rs.getString("name");
         String description = rs.getString("description");
         int questTypeId = rs.getInt("quest_type_id");
