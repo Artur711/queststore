@@ -39,7 +39,18 @@ INSERT INTO Items_types (name_of_item_type) values ('SOLO');
 INSERT INTO Items_types (name_of_item_type) values ('DUO');
 
 ---Add Items
-INSERT INTO Items (name, description, price) values ('1st Item','Badge',100);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Private mentoring','Mentor joins a students for private mentoring.',1000,'photo/img/logo-items/mentor/logo-mentor1.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Extend deadline','Extend SI week assignment deadline by one day.',500,'photo/img/logo-items/time/logo-time2.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('60 min workshop','60 min workshop by a mentor(s) of the chosen topic.',100,'photo/img/logo-items/workshop/logo-workshop3.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Mentor time','Mentor joins a students team for a one hour.',1000,'photo/img/logo-items/meet/logo-meet6.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Extra material','Extra material for the current topic.',1000,'photo/img/logo-items/treasure/logo-treasure4.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Funny time :)','All mentors should dress up as pirates (or just funny) for the day.',500,'photo/img/logo-items/funny/logo-funny3.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('King time','The whole course goes to an off-school program instead for a day.',30000,'photo/img/logo-items/king/logo-king3.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Coffee break','You might as well take a team coffee break.',250,'photo/img/logo-items/coffee/logo-coffee3.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Kahoot time','You might as well take a kahoot game.',300,'photo/img/logo-items/game/logo-game1.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Project - free pass','Everyone dreams of it, only few can have it.',999999,'photo/img/logo-items/exam/logo-exam3.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Clean code excuse','Clean code excuse free of bad comments from mentors side.',555,'photo/img/logo-items/exit/logo-exit3.jpg',2);
+
 
 ---Add Codecoolers to Classrooms
 INSERT INTO Users_classrooms (user_id, class_id) values (1,1);	---Pudzianowski to AK class

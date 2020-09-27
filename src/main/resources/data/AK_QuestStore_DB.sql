@@ -109,6 +109,7 @@ CREATE TABLE Items(
 			name varchar(25) NOT NULL,
 			description varchar(255) NOT NULL,
 			price int NOT NULL,
+			img varchar(255) NOT NULL,
 			item_type_id int DEFAULT 1,
 			CONSTRAINT FK_item_type_id FOREIGN KEY (item_type_id) REFERENCES Items_types (item_id) ON DELETE CASCADE
 );

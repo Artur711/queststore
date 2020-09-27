@@ -46,6 +46,10 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
         temp.batchUpdate(query);
     }
 
+    public void updateSingleField(int vaule){
+
+    }
+
     @Override
     public void delete(Long id) {
         query = String.format("DELETE FROM Codecoolers WHERE codecooler_id = %d;", id);
