@@ -23,9 +23,7 @@ public class ItemService {
         dao.update(item);
     }
 
-    public void delete(Long id) {
-        dao.delete(id);
-    }
+    public void delete(Long id) { dao.delete(id); }
 
     public List<Item> getAll(){
         return dao.getAll();

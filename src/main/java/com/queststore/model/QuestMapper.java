@@ -12,8 +12,9 @@ public class QuestMapper implements RowMapper<Quest> {
         String name = rs.getString("name");
         String description = rs.getString("description");
         int questTypeId = rs.getInt("quest_type_id");
+        String img = rs.getString("img");
         int questValue = rs.getInt("quest_value");
 
-        return new Quest(questId, name, description, questTypeId, questValue);
+        return new Quest(questId, name, description, questTypeId, img, questValue);
     }
 }

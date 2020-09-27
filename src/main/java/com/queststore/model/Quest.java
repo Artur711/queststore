@@ -1,19 +1,32 @@
 package com.queststore.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Quest {
     private long questId;
     private String name;
     private String description;
     private int questTypeId;
+    private String img;
     private int questValue;
 
     public Quest(){}
 
-    public Quest(long questId, String name, String description, int questTypeId, int questValue) {
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public Quest(long questId, String name, String description, int questTypeId, String img, int questValue) {
         this.questId = questId;
         this.name = name;
         this.description = description;
         this.questTypeId = questTypeId;
+        this.img = img;
         this.questValue = questValue;
     }
 

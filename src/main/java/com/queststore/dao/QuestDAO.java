@@ -5,6 +5,7 @@ import com.queststore.model.Quest;
 import java.util.List;
 
 public interface QuestDAO {
+
     List<Quest> getAll();
 
     Quest getByID(long id);
