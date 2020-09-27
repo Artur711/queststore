@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ItemMapper implements RowMapper<Item> {
-    @Override
+
     public Item mapRow(ResultSet rs, int i) throws SQLException {
+
         int itemId = rs.getInt("item_id");
         String name = rs.getString("name");
         String description = rs.getString("description");

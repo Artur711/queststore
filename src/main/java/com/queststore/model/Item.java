@@ -9,8 +9,6 @@ public class Item {
     private String img;
     private int itemTypeId;
 
-
-
     public Item(){}
 
     public Item(int itemId, String name, String description, int price, String img, int itemTypeId) {

@@ -86,8 +86,8 @@ CREATE TABLE Quests(
 			quest_id SERIAL PRIMARY KEY,
 			name varchar(25) NOT NULL,
 			description varchar(255) NOT NULL,
-			quest_type_id int NOT NULL,
 			quest_value int NOT NULL,
+			quest_type_id int DEFAULT 1,
 			CONSTRAINT FK_quest_type_id FOREIGN KEY(quest_type_id) REFERENCES Quest_types (quest_id) ON DELETE CASCADE
 );
 
