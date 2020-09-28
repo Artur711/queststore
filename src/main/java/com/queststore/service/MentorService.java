@@ -23,4 +23,11 @@ public class MentorService {
     public void createMentor(User mentor){
         mentorDao.create(mentor);
     }
+    public User getMentorById(long id){
+        return mentorDao.getMentorById(id);
+    }
+
+    public void updateMentor(User mentor){
+        mentorDao.update(mentor);
+    }
 }

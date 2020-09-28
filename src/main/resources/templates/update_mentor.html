@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Mentor</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body>
+<div id="right-section">
+    <br>
+
+    <h5 class="is-center headline"> Update Mentor</h5>
+    <nav>
+        <form id="form" action="#" th:action="@{/mentor_edit/{id}(id=${user.userId})}" th:object="${user}" method="post">
+            <nav>
+                <h5 class="is-center pure-item sub-section3 entity-input">User First name</h5>
+                <label for="firstName"></label>
+                <input id="firstName" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{firstName}" th:value="UserFirstname">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User Last name</h5>
+                <label for="lastName"></label>
+                <input id="lastName" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{lastName}" th:value="UserLastname">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User email</h5>
+                <label for="email"></label>
+                <input id="email" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{email}" th:value="UserEmail">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User password</h5>
+                <label for="password"></label>
+                <input id="password" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{password}" th:value="UserPassword">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User phonenumber</h5>
+                <label for="phoneNumber"></label>
+                <input id="phoneNumber" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{phoneNumber}" th:value="UserPhonenumber">
+
+                <input type="submit" id="savebutton" class="input-update headline" value="UPDATE">
+            </nav>
+        </form>
+    </nav>
+    <script src="js/update.js"></script>
+</div>
+</body>
+</html>

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -36,4 +37,17 @@ public class MentorController {
         return "redirect:/mentors_list";
     }
 
+    @GetMapping("/mentor_edit/{id}")
+        public String mentorEdition(@PathVariable("id") long id, Model model){
+        User mentor = mentorService.getMentorById(id);
+        model.addAttribute("user", mentor);
+        return "update_mentor";
+    }
+
+    @PostMapping("/mentor_edit/{id}")
+    public String updateTheMentor(@PathVariable("id") long id, @Valid User mentor){
+        mentor.setUserId(id);
+        mentorService.updateMentor(mentor);
+        return "redirect:/mentors_list";
+    }
 }

@@ -12,4 +12,6 @@ public interface UserDAO {
     List<User> getAll();
 
     void delete(Long id);
+
+    User getMentorById(long id);
 }

@@ -59,6 +59,10 @@ public class User {
         this.userType = userType;
     }
 
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
     public long getUserId() {
         return userId;
     }
