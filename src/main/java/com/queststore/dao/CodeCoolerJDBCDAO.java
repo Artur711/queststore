@@ -2,13 +2,8 @@ package com.queststore.dao;
 
 import com.queststore.model.CodecoolerMapper;
 import com.queststore.model.Codecoolers;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -37,16 +32,12 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
         int phoneNumber = codecoolers.getPhoneNumber();
 
         query = String.format("%s ('%s', '%s', '%s', '%s', %d, 1) RETURNING user_id;", queryInsert, firstName, lastName, email, password, phoneNumber);
-        Integer id = temp.query(query, new ResultSetExtractor<Integer>() {
-
-            @Override
-            public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
-                if (rs.next()) {
-                    Integer lastAddedId = rs.getInt("user_id");
-                    return lastAddedId;
-                }
-                return null;
+        Integer id = temp.query(query, rs -> {
+            if (rs.next()) {
+                Integer lastAddedId = rs.getInt("user_id");
+                return lastAddedId;
             }
+            return null;
         });
         System.out.println(id);
 
@@ -60,19 +51,6 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
 
     }
 
-    private int getUser(Codecoolers codecoolers) {
-        String firstName = codecoolers.getFirstName();
-        String lastName = codecoolers.getLastName();
-        String email = codecoolers.getEmail();
-        String password = codecoolers.getPassword();
-        int phoneNumber = codecoolers.getPhoneNumber();
-
-        String queryWhere = String.format("first_name = '%s' AND last_name = '%s' AND email = 's' AND password = 's' AND phone = %d", firstName, lastName, email, password, phoneNumber);
-        query = String.format("SELECT users WHERE %s", queryWhere);
-
-        Codecoolers codecoolers1 = temp.query(query, new CodecoolerMapper()).get(0);
-        return 1;
-    }
 
     @Override
     public void update(Codecoolers codecoolers) {
@@ -86,9 +64,6 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
         temp.batchUpdate(query);
     }
 
-    public void updateSingleField(int vaule){
-
-    }
 
     @Override
     public void delete(Long id) {
