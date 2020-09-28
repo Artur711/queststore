@@ -61,4 +61,8 @@ public class Codecoolers extends User {
     public void setCodecool_coins(int codecool_coins) {
         this.codecool_coins = codecool_coins;
     }
+
+    public void setCodecooler_id(long codecooler_id) {
+        this.codecooler_id = codecooler_id;
+    }
 }

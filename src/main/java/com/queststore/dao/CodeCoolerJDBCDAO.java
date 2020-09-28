@@ -4,6 +4,7 @@ import com.queststore.model.CodecoolerMapper;
 import com.queststore.model.Codecoolers;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 @Repository
@@ -55,19 +56,31 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
     @Override
     public void update(Codecoolers codecoolers) {
         long codeCoolerID = codecoolers.getCodecooler_id();
+        String firstName = codecoolers.getFirstName();
+        String lastName = codecoolers.getLastName();
+        String email = codecoolers.getEmail();
+        String password = codecoolers.getPassword();
+        int phoneNumber = codecoolers.getPhoneNumber();
         int userID = codecoolers.getUser_id();
         int codeCoolerLevel = codecoolers.getLoe_id();
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
-        String querySet = String.format("SET user_id = %d, loe_id = %d, codecool_coins = %d", userID, codeCoolerLevel, codeCoolerCoins);
+        String querySet = String.format("SET loe_id = %d, codecool_coins = %d", codeCoolerLevel, codeCoolerCoins);
         query = String.format("UPDATE Codecoolers %s WHERE codecooler_id = %d;", querySet, codeCoolerID);
+        temp.batchUpdate(query);
+
+        querySet = String.format("SET first_name = '%s', last_name = '%s', email = '%s', password = '%s', phone = %d", firstName, lastName, email, password, phoneNumber);
+        query = String.format("UPDATE Users %s WHERE user_id = %d;", querySet, userID);
         temp.batchUpdate(query);
     }
 
 
     @Override
     public void delete(Long id) {
+        int user_id = getByID(id).getUser_id();
         query = String.format("DELETE FROM Codecoolers WHERE codecooler_id = %d;", id);
+        temp.batchUpdate(query);
+        query = String.format("DELETE FROM Users WHERE user_id = %d;", user_id);
         temp.batchUpdate(query);
     }
 

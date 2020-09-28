@@ -52,8 +52,9 @@ public class CodecoolerController {
         if (result.hasErrors()) {
             return "update_student";
         }
-//        Codecoolers updateCodeCooler = new Codecoolers(id, codecooler.getUser_id(), codecooler.getLoe_id(), codecooler.getCodecool_coins());
-//        service.update(updateCodeCooler);
+        codecooler.setCodecooler_id(id);
+        codecooler.setUser_id(service.getByID(id).getUser_id());
+        service.update(codecooler);
         model.addAttribute("students", service.getAll());;
         return "redirect:/student_list";
     }
