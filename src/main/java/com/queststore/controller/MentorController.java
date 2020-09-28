@@ -50,4 +50,10 @@ public class MentorController {
         mentorService.updateMentor(mentor);
         return "redirect:/mentors_list";
     }
+
+    @GetMapping("/mentor_delete/{id}")
+    public String deleteTheMentor(@PathVariable("id") long id, Model model){
+        mentorService.deleteTheMentor(id);
+        return "redirect:/mentors_list";
+    }
 }

@@ -30,4 +30,8 @@ public class MentorService {
     public void updateMentor(User mentor){
         mentorDao.update(mentor);
     }
+
+    public void deleteTheMentor(Long id){
+        mentorDao.delete(id);
+    }
 }

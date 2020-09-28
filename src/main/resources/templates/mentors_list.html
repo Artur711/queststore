@@ -20,7 +20,7 @@
             <input class="input-update"  th:value="${user.firstName}" disabled>
             <input class="input-update"  th:value="${user.lastName}" disabled>
             <a th:href="@{mentor_edit/{id}(id=${user.userId})}" class="button-update">Edit</a>
-            <a th:href="@{delete/{id}(id=${user.userId})}" class="button-remove">Remove</a>
+            <a th:href="@{mentor_delete/{id}(id=${user.userId})}" class="button-remove">Remove</a>
         </div>
         </tbody>
     </div>

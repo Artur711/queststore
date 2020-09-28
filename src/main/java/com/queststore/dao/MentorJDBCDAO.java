@@ -47,7 +47,8 @@ public class MentorJDBCDAO implements UserDAO {
 
     @Override
     public void delete(Long id) {
-
+        String query = String.format("Delete from Users where user_id = %d", id);
+        temp.batchUpdate(query);
     }
 
     @Override
