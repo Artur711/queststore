@@ -21,6 +21,11 @@ public class ItemController {
         this.service = service;
     }
 
+    @GetMapping("/items_menu")
+    public String chooseItemType() {
+        return "items_menu";
+    }
+
     @GetMapping("/items_store")
     public String getTeamItems(Model model) {
         model.addAttribute("items", service.getAll());

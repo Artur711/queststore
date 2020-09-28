@@ -16,6 +16,11 @@ public class QuestController {
         this.service = service;
     }
 
+    @GetMapping("/quests_menu")
+    public String chooseQuestsType() {
+        return "quests_menu";
+    }
+
     @GetMapping("/quests_store/{type}")
     public String getQuestList(@PathVariable("type") int type, Model model){
         System.out.println(type);
