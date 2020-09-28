@@ -77,18 +77,15 @@ CREATE TABLE Codecoolers_teams(
 			CONSTRAINT FK_codecooler_id FOREIGN KEY(codecooler_id) REFERENCES Teams (team_id) ON DELETE CASCADE
 );
 
-CREATE TABLE Quest_types(
-			quest_id SERIAL PRIMARY KEY,
-			name_of_quest_type varchar(100) NOT NULL
-);
+
 
 CREATE TABLE Quests(
 			quest_id SERIAL PRIMARY KEY,
 			name varchar(25) NOT NULL,
 			description varchar(255) NOT NULL,
-			quest_type_id int NOT NULL,
 			quest_value int NOT NULL,
-			CONSTRAINT FK_quest_type_id FOREIGN KEY(quest_type_id) REFERENCES Quest_types (quest_id) ON DELETE CASCADE
+			img varchar(255) NOT NULL,
+			quest_type_id int DEFAULT 1
 );
 
 CREATE TABLE Codecoolers_quest(
@@ -109,6 +106,7 @@ CREATE TABLE Items(
 			name varchar(25) NOT NULL,
 			description varchar(255) NOT NULL,
 			price int NOT NULL,
+			img varchar(255) NOT NULL,
 			item_type_id int DEFAULT 1,
 			CONSTRAINT FK_item_type_id FOREIGN KEY (item_type_id) REFERENCES Items_types (item_id) ON DELETE CASCADE
 );

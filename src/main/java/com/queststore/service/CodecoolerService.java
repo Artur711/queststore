@@ -10,6 +10,7 @@ import java.util.List;
 public class CodecoolerService {
     private CodecoolerDAO dao;
 
+
     public CodecoolerService(CodecoolerDAO dao) {
         this.dao = dao;
     }
