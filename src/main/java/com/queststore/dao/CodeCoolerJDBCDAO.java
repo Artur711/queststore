@@ -37,16 +37,12 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
         int phoneNumber = codecoolers.getPhoneNumber();
 
         query = String.format("%s ('%s', '%s', '%s', '%s', %d, 1) RETURNING user_id;", queryInsert, firstName, lastName, email, password, phoneNumber);
-        Integer id = temp.query(query, new ResultSetExtractor<Integer>() {
-
-            @Override
-            public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
-                if (rs.next()) {
-                    Integer lastAddedId = rs.getInt("user_id");
-                    return lastAddedId;
-                }
-                return null;
+        Integer id = temp.query(query, rs -> {
+            if (rs.next()) {
+                Integer lastAddedId = rs.getInt("user_id");
+                return lastAddedId;
             }
+            return null;
         });
         System.out.println(id);
 
