@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class CodeCoolerJDBCDAO implements CodecoolerDAO {
+public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
     private SpringJdbcConfig datasource;
     private JdbcTemplate temp;
     private String query;
@@ -40,7 +40,6 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
             }
             return null;
         });
-        System.out.println(id);
 
         queryInsert = "INSERT INTO codecoolers (user_id, loe_id, codecool_coins) VALUES";
         int userID = id;
@@ -49,7 +48,6 @@ public class CodeCoolerJDBCDAO implements CodecoolerDAO {
 
         query = String.format("%s (%d, %d, %d);", queryInsert, userID, codeCoolerLevel, codeCoolerCoins);
         temp.batchUpdate(query);
-
     }
 
 

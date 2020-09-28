@@ -4,7 +4,7 @@ import com.queststore.model.Codecoolers;
 
 import java.util.List;
 
-public interface CodecoolerDAO {
+public interface CodeCoolerDAO {
     void create(Codecoolers codecoolers);
 
     void update(Codecoolers codecoolers);

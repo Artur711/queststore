@@ -1,6 +1,6 @@
 package com.queststore.service;
 
-import com.queststore.dao.CodecoolerDAO;
+import com.queststore.dao.CodeCoolerDAO;
 import com.queststore.model.Codecoolers;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +8,10 @@ import java.util.List;
 
 @Service
 public class CodecoolerService {
-    private CodecoolerDAO dao;
+    private CodeCoolerDAO dao;
 
 
-    public CodecoolerService(CodecoolerDAO dao) {
+    public CodecoolerService(CodeCoolerDAO dao) {
         this.dao = dao;
     }
 
