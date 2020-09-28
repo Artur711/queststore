@@ -19,7 +19,15 @@ public class MentorJDBCDAO implements UserDAO {
 
     @Override
     public void create(User user) {
+        String queryInsert = "INSERT INTO users (first_name, last_name, email, password, phone, user_type) VALUES";
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        String email = user.getEmail();
+        String password = user.getPassword();
+        int phoneNumber = user.getPhoneNumber();
 
+        query = String.format("%s ('%s', '%s', '%s', '%s', %d, 2) RETURNING user_id;", queryInsert, firstName, lastName, email, password, phoneNumber);
+        temp.batchUpdate(query);
     }
 
     @Override

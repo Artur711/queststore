@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new Mentor</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+</head>
+<body>
+<div id="right-section">
+    <br><br><br><br><br>
+    <form id="form">
+        <h5 class="is-center headline"> Add new Mentor</h5>
+        <nav>
+            <img alt="Profile photo" class="pure-profile-photo add-entity-photo" src="src/lord.webp">
+            <h5 class="is-center pure-item sub-section2">Name</h5>
+            <label for="name"></label>
+            <input id="name" class="is-center pure-item sub-section3 entity-input" type="text"
+                   value="Your Name"
+                   onfocus="if (this.value === 'Your Name') {this.value=''}">
+            <h5 class="is-center pure-item sub-section2">Surname</h5>
+            <label for="surename"></label>
+            <input id="surename" class="is-center pure-item sub-section3 entity-input" type="text"
+                   value="Your Surename"
+                   onfocus="if (this.value === 'Your Surename') {this.value=''}">
+            <h5 class="is-center pure-item sub-section2">Phone number</h5>
+            <label for="phone"></label>
+            <input id="phone" class="is-center pure-item sub-section3 entity-input" type="text"
+                   value="Your phone"
+                   onfocus="if (this.value === 'Your phone') {this.value=''}">
+            <h5 class="is-center pure-item sub-section2">Password</h5>
+            <label for="password"></label>
+            <input id="password" class="is-center pure-item sub-section3 entity-input" type="text"
+                   value="Your password"
+                   onfocus="if (this.value === 'Your password') {this.value=''}">
+            <h5 class="is-center pure-item sub-section2">Mail</h5>
+            <label for="mail"></label>
+            <input id="mail" class="is-center pure-item sub-section3 entity-input" type="text"
+                   value="Your email"
+                   onfocus="if (this.value === 'Your email') {this.value=''}">
+            <input type="submit" id="savebutton" class="is-center headline savebutton" value="SAVE" disabled='disabled'>
+
+        </nav>
+        <br><br><br>
+    </form>
+</div>
+<script defer src="js/Add_entity.js"></script>
+
+</body>
+</html>
+</html>

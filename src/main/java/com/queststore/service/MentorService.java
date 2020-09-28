@@ -19,4 +19,8 @@ public class MentorService {
     public List<User> getAllMentors(){
         return mentorDao.getAll();
     }
+
+    public void createMentor(User mentor){
+        mentorDao.create(mentor);
+    }
 }
