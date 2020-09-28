@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CodecoolerService {
+public class CodeCoolerService {
     private CodeCoolerDAO dao;
 
 
-    public CodecoolerService(CodeCoolerDAO dao) {
+    public CodeCoolerService(CodeCoolerDAO dao) {
         this.dao = dao;
     }
 

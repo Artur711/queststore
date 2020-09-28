@@ -17,6 +17,7 @@ public class User {
     private String password;
     private String photoUrl;
     private int phoneNumber;
+    private int userType;
 
     public User() {
     }
@@ -38,6 +39,16 @@ public class User {
         this.password = password;
         this.photoUrl = photoUrl;
         this.phoneNumber = phoneNumber;
+    }
+
+    public User(long userId, String firstName, String lastName, String email, String password, int phoneNumber, int userType) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.userType = userType;
     }
 
     public User(String firstName, String lastName, String email, String password, String photoUrl, int phoneNumber) {
@@ -99,5 +110,9 @@ public class User {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getUserType() {
+        return userType;
     }
 }

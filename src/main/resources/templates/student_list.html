@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Students list</title>
@@ -9,8 +9,10 @@
 </head>
 <body>
     <div th:switch="${students}">
-        <div class="list-menu">
-            <h2 class="button-remove is-center" th:case="null">No students yet!</h2>
+        <div th:case="null">
+            <div class="list-menu">
+                <h2 class="button-remove is-center">No students yet!</h2>
+            </div>
         </div>
 
         <div th:case="*">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Mentor menu</title>
@@ -11,9 +11,9 @@
 <div id="pure-main">
     <header class="pure-header">
 
-        <img class="pure-logo" src="../static/photo/logoV.webp">
+        <img class="pure-logo" src="../static/photo/logoV.webp" th:src="@{/photo/logoV.webp}">
 
-        <img alt="Profile photo" class="pure-profile-photo" src="../static/photo/profile/lord.webp">
+        <img alt="Profile photo" class="pure-profile-photo" src="../static/photo/profile/lord.webp" th:src="@{/photo/profile/lord.webp}">
 
         <div class="main">
             <div class="dropdown">
@@ -28,7 +28,7 @@
             </div>
 
             <a class="pure-menu-item" href="contact_page.html">Contact</a>
-            <a class="pure-menu-item" href="index.html">Log out</a>
+            <a class="pure-menu-item" href="index.html" th:href="@{logout}">Log out</a>
         </div>
     </header>
 
@@ -47,7 +47,7 @@
     </nav>
 
     <section>
-        <iframe id="iframe" src="add_codecooler.html" height="800" title="Iframe Menu"></iframe>
+        <iframe id="iframe" src="student_list.html" th:src="@{/student_list}" height="800" title="Iframe Menu"></iframe>
     </section>
 
     <footer class="pure-footer">&copy AK SOLDIERS 2020</footer>
