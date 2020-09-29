@@ -44,6 +44,7 @@ body {
 #container {
     position: relative;
     z-index: 1;
+    width: 90%;
 }
 
 header {
@@ -779,8 +780,8 @@ textarea {
         width: 40vw;
     }
 
-    .instructionDiv {
-        font-size: 200%;
+    .instructionDiv, .inputDiv {
+        font-size: 300%;
     }
 
     #loginDiv {
@@ -817,10 +818,6 @@ textarea {
 
     .pure-item {
         width: 35%;
-    }
-
-    .instructionDiv {
-        font-size: 300%;
     }
 
     #loginDiv {
