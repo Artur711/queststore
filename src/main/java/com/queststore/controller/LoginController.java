@@ -35,6 +35,8 @@ public class LoginController {
                 return "redirect:/mentor_menu";
             } else if (loggedUser.getUserType() == 2) {
                 return "redirect:/mentor_menu";
+            } else if (loggedUser.getUserType() == 1) {
+                return "redirect:/codecooler_menu";
             }
         }
         return "index";

@@ -1,13 +1,13 @@
 package com.queststore.controller;
 
 import com.queststore.model.Codecoolers;
+import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -21,14 +21,14 @@ public class CodeCoolerController {
     }
 
     @GetMapping("/student_list")
-    public String getStudentsList(Model model){
+    public String getStudentsList(Model model, @SessionAttribute("loggedUser") User loggedUser){
         model.addAttribute("students", service.getAll());
         return "student_list";
     }
 
 
     @GetMapping("/add_codecooler")
-    public String addTheCodeCooler(Codecoolers codecooler){
+    public String addTheCodeCooler(Codecoolers codecooler, @SessionAttribute("loggedUser") User loggedUser){
         return "add_codecooler";
     }
 
@@ -40,7 +40,7 @@ public class CodeCoolerController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editTheCodeCooler(@PathVariable("id") long id, Model model) {
+    public String editTheCodeCooler(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
         Codecoolers codecooler = service.getByID(id);
         model.addAttribute("codecooler", codecooler);
         return "update_student";
@@ -59,10 +59,15 @@ public class CodeCoolerController {
     }
 
     @GetMapping("/delete/{id}")
-    public String removeCodeCooler(@PathVariable("id") long id, Model model) {
+    public String removeCodeCooler(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
         System.out.println(id);
         service.delete(id);
         model.addAttribute("students", service.getAll());
         return "redirect:/student_list";
+    }
+
+    @ExceptionHandler(ServletRequestBindingException.class)
+    public String handle() {
+        return "redirect:/index";
     }
 }
