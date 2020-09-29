@@ -1,7 +1,7 @@
 package com.queststore.controller;
 
 import com.queststore.model.Codecoolers;
-import com.queststore.service.CodecoolerService;
+import com.queststore.service.CodeCoolerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class CodecoolerController {
+public class CodeCoolerController {
 
-    private CodecoolerService service;
+    private CodeCoolerService service;
 
-    public CodecoolerController(CodecoolerService service) {
+    public CodeCoolerController(CodeCoolerService service) {
         this.service = service;
     }
 

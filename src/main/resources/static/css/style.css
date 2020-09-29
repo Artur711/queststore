@@ -60,10 +60,7 @@ header {
 }
 
 #loginDiv {
-    padding-top: 50px;
-    padding-bottom: 60px;
-    padding-right: 150px;
-    padding-left: 150px;
+    padding: 5vw 15vw 6vw;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -78,11 +75,11 @@ header {
     position: relative;
     z-index: 1;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 0.5vw;
 }
 
 .instructionDiv {
-    margin-bottom: 5px;
+    margin-bottom: 0.5vw;
 }
 
 footer {
@@ -221,8 +218,8 @@ h2 {
 .pure-item {
     float: left;
     width: 12%;
-    padding: 1% 2% 1% 2%;
-    margin: 0.5% 1% 0.5% 1%;
+    padding: 1% 2%;
+    margin: 0.5% 1%;
     border: 3px solid gray;
     background-color: white;
     text-decoration: none;
@@ -786,6 +783,14 @@ textarea {
         width: 40vw;
     }
 
+    .instructionDiv {
+        font-size: 200%;
+    }
+
+    #loginDiv {
+        width: 35%;
+    }
+
     .pure-menu-item, .pure-menu-item-messages {
         display: block;
         font-size: 150%;
@@ -813,8 +818,17 @@ textarea {
 }
 
 @media screen and (max-width: 750px) {
+
     .pure-item {
         width: 35%;
+    }
+
+    .instructionDiv {
+        font-size: 300%;
+    }
+
+    #loginDiv {
+        width: 50%;
     }
 
     .main {

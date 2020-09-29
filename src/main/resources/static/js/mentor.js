@@ -5,7 +5,8 @@ function clickCell(index) {
     if (subpage.innerText === 'Classes') {
         document.getElementById('iframe').src = 'mentor_class_list.html';
     } else if (subpage.innerText === 'Codecoolers') {
-        document.getElementById('iframe').src = 'student_list.html';
+        // document.getElementById('iframe').src = 'student_list.html';
+        document.getElementById('iframe').src = "/student_list";
     } else if (subpage.innerText === 'Teams') {
         document.getElementById('iframe').src = 'add_new_team.html';
     } else if (subpage.innerText === 'Expierience Leves') {

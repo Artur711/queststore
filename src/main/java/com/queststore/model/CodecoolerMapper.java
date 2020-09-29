@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CodecoolerMapper implements RowMapper<Codecoolers> {
+    public class CodecoolerMapper implements RowMapper<Codecoolers> {
 
     public Codecoolers mapRow(ResultSet rs, int rowNum) throws SQLException {
 
