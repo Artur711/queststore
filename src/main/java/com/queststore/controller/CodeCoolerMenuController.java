@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 @Controller
 public class CodeCoolerMenuController {
 
-    private CodeCoolerService service;
+    private final CodeCoolerService service;
 
     public CodeCoolerMenuController(CodeCoolerService service) {
         this.service = service;

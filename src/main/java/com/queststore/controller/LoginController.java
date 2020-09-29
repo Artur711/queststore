@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("loggedUser")
 public class LoginController {
 
-    private UserLoginJDBCDAO userLoginJDBCDAO;
+    private final UserLoginJDBCDAO userLoginJDBCDAO;
 
     public LoginController(UserLoginJDBCDAO userLoginJDBCDAO) {
         this.userLoginJDBCDAO = userLoginJDBCDAO;

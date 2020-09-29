@@ -9,17 +9,17 @@ import java.sql.SQLException;
 
     public Codecoolers mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-        int codecoolerId = rs.getInt("codecooler_id");
-        int codecoolerUserId = rs.getInt("user_id");
-        int codecoolerLoeId = rs.getInt("loe_id");
-        int codecoolerCoinsId = rs.getInt("codecool_coins");
+        int codeCoolerId = rs.getInt("codecooler_id");
+        int codeCoolerUserId = rs.getInt("user_id");
+        int codeCoolerLoeId = rs.getInt("loe_id");
+        int codeCoolerCoinsId = rs.getInt("codecool_coins");
         String firstName = rs.getString("first_name");
         String lastName = rs.getString("last_name");
         String email = rs.getString("email");
         String password = rs.getString("password");
         int phoneNumber = rs.getInt("phone");
 
-        return new Codecoolers(codecoolerId, codecoolerUserId, codecoolerLoeId, codecoolerCoinsId, firstName, lastName, email, password, phoneNumber);
+        return new Codecoolers(codeCoolerId, codeCoolerUserId, codeCoolerLoeId, codeCoolerCoinsId, firstName, lastName, email, password, phoneNumber);
     }
 }
 

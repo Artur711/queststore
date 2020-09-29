@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @Controller
 public class CodeCoolerController {
 
-    private CodeCoolerService service;
+    private final CodeCoolerService service;
 
     public CodeCoolerController(CodeCoolerService service) {
         this.service = service;

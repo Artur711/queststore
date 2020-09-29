@@ -9,9 +9,11 @@ import java.util.List;
 
 @Repository
 public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
-    private SpringJdbcConfig datasource;
-    private JdbcTemplate temp;
+    private final SpringJdbcConfig datasource;
+    private final JdbcTemplate temp;
     private String query;
+    private final String tranBegQuery = "BEGIN TRANSACTION; ";
+    private final String tranEndQuery = " COMMIT;";
 
     public CodeCoolerJDBCDAO(SpringJdbcConfig datasource) {
         this.datasource = datasource;
@@ -35,8 +37,7 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
         query = String.format("%s ('%s', '%s', '%s', '%s', %d, 1) RETURNING user_id;", queryInsert, firstName, lastName, email, password, phoneNumber);
         Integer id = temp.query(query, rs -> {
             if (rs.next()) {
-                Integer lastAddedId = rs.getInt("user_id");
-                return lastAddedId;
+                return rs.getInt("user_id");
             }
             return null;
         });
@@ -49,7 +50,6 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
         query = String.format("%s (%d, %d, %d);", queryInsert, userID, codeCoolerLevel, codeCoolerCoins);
         temp.batchUpdate(query);
     }
-
 
     @Override
     public void update(Codecoolers codecoolers) {
@@ -64,22 +64,19 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
         String querySet = String.format("SET loe_id = %d, codecool_coins = %d", codeCoolerLevel, codeCoolerCoins);
-        query = String.format("UPDATE Codecoolers %s WHERE codecooler_id = %d;", querySet, codeCoolerID);
-        temp.batchUpdate(query);
+        query = tranBegQuery + String.format("UPDATE Codecoolers %s WHERE codecooler_id = %d;", querySet, codeCoolerID);
 
         querySet = String.format("SET first_name = '%s', last_name = '%s', email = '%s', password = '%s', phone = %d", firstName, lastName, email, password, phoneNumber);
-        query = String.format("UPDATE Users %s WHERE user_id = %d;", querySet, userID);
-        temp.batchUpdate(query);
+        query = query + " " + String.format("UPDATE Users %s WHERE user_id = %d;", querySet, userID) + tranEndQuery;
+        temp.execute(query);
     }
-
 
     @Override
     public void delete(Long id) {
         int user_id = getByID(id).getUser_id();
-        query = String.format("DELETE FROM Codecoolers WHERE codecooler_id = %d;", id);
-        temp.batchUpdate(query);
-        query = String.format("DELETE FROM Users WHERE user_id = %d;", user_id);
-        temp.batchUpdate(query);
+        query = tranBegQuery + String.format("DELETE FROM Codecoolers WHERE codecooler_id = %d;", id);
+        query = query + " " + String.format("DELETE FROM Users WHERE user_id = %d;", user_id) + tranEndQuery;
+        temp.execute(query);
     }
 
     @Override

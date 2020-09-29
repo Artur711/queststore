@@ -8,19 +8,19 @@ import java.util.List;
 
 @Service
 public class CodeCoolerService {
-    private CodeCoolerDAO dao;
+    private final CodeCoolerDAO dao;
 
 
     public CodeCoolerService(CodeCoolerDAO dao) {
         this.dao = dao;
     }
 
-    public void create(Codecoolers codecooler) {
-       dao.create(codecooler);
+    public void create(Codecoolers codeCooler) {
+       dao.create(codeCooler);
     }
 
-    public void update(Codecoolers codecooler) {
-        dao.update(codecooler);
+    public void update(Codecoolers codeCooler) {
+        dao.update(codeCooler);
     }
 
     public List<Codecoolers> getAll() {
