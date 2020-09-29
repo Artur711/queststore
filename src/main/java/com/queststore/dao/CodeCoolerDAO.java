@@ -14,4 +14,6 @@ public interface CodeCoolerDAO {
     void delete(Long id);
 
     Codecoolers getByID(Long id);
+
+    Codecoolers getByUserID(long id);
 }

@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public class UserLoginJDBCDAO {
-    private SpringJdbcConfig datasource;
-    private JdbcTemplate temp;
+    private final SpringJdbcConfig datasource;
+    private final JdbcTemplate temp;
 
     public UserLoginJDBCDAO(SpringJdbcConfig datasource) {
         this.datasource = datasource;
@@ -20,15 +20,13 @@ public class UserLoginJDBCDAO {
     public User getUser(String login, String password) {
         List<User> userList = temp.query("select * from users;", new UserMapper());
 
-        for (int i = 0; i < userList.size(); i++) {
-            if (login.equals(userList.get(i).getLastName())) {
-                if (password.equals(userList.get(i).getPassword())) {
-                    return userList.get(i);
+        for (User user : userList) {
+            if (login.equals(user.getLastName())) {
+                if (password.equals(user.getPassword())) {
+                    return user;
                 }
             }
-
         }
-
         return null;
     }
 }

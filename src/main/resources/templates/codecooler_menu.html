@@ -29,7 +29,9 @@
 
             <a class="pure-menu-item" href="contact_page.html">Contact</a>
             <a class="pure-menu-item" href="index.html" th:href="@{logout}">Logout</a>
-            <a class="pure-menu-item" href="#">C$:500</a>
+            <div th:object="${menu}">
+                <a class="pure-menu-item" href="#"><span th:text="${'C$:' + menu.codecool_coins}"></span></a>
+            </div>
         </div>
     </header>
 

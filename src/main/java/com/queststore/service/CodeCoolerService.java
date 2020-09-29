@@ -34,4 +34,8 @@ public class CodeCoolerService {
     public Codecoolers getByID(Long id) {
         return dao.getByID(id);
     }
+
+    public Codecoolers getByUserID(long id) {
+        return dao.getByUserID(id);
+    }
 }

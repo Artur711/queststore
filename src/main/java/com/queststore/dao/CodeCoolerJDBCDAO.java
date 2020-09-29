@@ -93,4 +93,16 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
         }
         return null;
     }
+
+    @Override
+    public Codecoolers getByUserID(long id) {
+        List<Codecoolers> codeCoolersList = getAll();
+
+        for (Codecoolers codeCooler : codeCoolersList) {
+            if (codeCooler.getUser_id() == id) {
+                return codeCooler;
+            }
+        }
+        return null;
+    }
 }
