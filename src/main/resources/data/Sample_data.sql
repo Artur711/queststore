@@ -27,9 +27,6 @@ INSERT INTO Classrooms (name) values ('Rest of the world');
 INSERT INTO Teams (team_name) values ('AK-Team');
 INSERT INTO Teams (team_name) values ('A-Team');
 
----Add Quest_types
-INSERT INTO Quest_types (name_of_quest_type) values ('MAGIC');
-
 ---Add Quests
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Passing a Checkpoint','Passing a checkpoint.',1,'photo/img/logo-quests/road/logo-road2.jpg',100);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Spot a major mistake','Spot a major mistake in the assignment.',1,'photo/img/logo-quests/mistake/logo-mistake2.jpg',500);
@@ -60,10 +57,6 @@ INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values (
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Social souls','Organize an evening of board games.',2,'photo/img/logo-items/game/logo-game4.jpg',250);
 
 
-
-
-
-
 ---Add Items_types
 INSERT INTO Items_types (name_of_item_type) values ('SOLO');
 INSERT INTO Items_types (name_of_item_type) values ('DUO');
@@ -80,6 +73,17 @@ INSERT INTO Items (name, description, price, img, item_type_id) values ('Coffee 
 INSERT INTO Items (name, description, price, img, item_type_id) values ('Kahoot time','You might as well take a kahoot game.',300,'photo/img/logo-items/game/logo-game1.jpg',2);
 INSERT INTO Items (name, description, price, img, item_type_id) values ('Project - free pass','Everyone dreams of it, only few can have it.',999999,'photo/img/logo-items/exam/logo-exam3.jpg',2);
 INSERT INTO Items (name, description, price, img, item_type_id) values ('Clean code excuse','Clean code excuse free of bad comments from mentors side.',555,'photo/img/logo-items/exit/logo-exit3.jpg',2);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Day in home office','You can spend a day in home office.',500,'photo/img/logo-items/castle/logo-castle2.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Private mentoring','Mentor joins a student for private mentoring.',700,'photo/img/logo-items/mentor/logo-mentor1.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Additional term','Take one more chance to pass PA.',500,'photo/img/logo-items/time/logo-time3.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Mentor time','Mentor joins a student for a one hour.',1000,'photo/img/logo-items/meet/logo-meet1.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Extra material','Extra material for the current topic.',1000,'photo/img/logo-items/treasure/logo-treasure4.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Funny time :)','All mentors should dress up as pirates (or just funny) for the day.',500,'photo/img/logo-items/funny/logo-funny3.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('King time','The whole course goes to an off-school program instead for a day.',5000,'photo/img/logo-items/king/logo-king3.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Coffee break','You might as well take a coffee break.',30000,'photo/img/logo-items/coffee/logo-coffee3.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Kahoot time','You might as well take a kahoot game.',150,'photo/img/logo-items/game/logo-game1.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('PA - free pass','Everyone dreams of it, only the chosen one can have it.',999999,'photo/img/logo-items/exam/logo-exam3.jpg',1);
+INSERT INTO Items (name, description, price, img, item_type_id) values ('Attendance excuse','Attendance excuse free of bad comments from mentor.',150,'photo/img/logo-items/exit/logo-exit3.jpg',1);
 
 
 ---Add Codecoolers to Classrooms

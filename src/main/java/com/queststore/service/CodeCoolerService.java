@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CodecoolerService {
-    private CodeCoolerDAO dao;
+public class CodeCoolerService {
+    private final CodeCoolerDAO dao;
 
 
-    public CodecoolerService(CodeCoolerDAO dao) {
+    public CodeCoolerService(CodeCoolerDAO dao) {
         this.dao = dao;
     }
 
-    public void create(Codecoolers codecooler) {
-       dao.create(codecooler);
+    public void create(Codecoolers codeCooler) {
+       dao.create(codeCooler);
     }
 
-    public void update(Codecoolers codecooler) {
-        dao.update(codecooler);
+    public void update(Codecoolers codeCooler) {
+        dao.update(codeCooler);
     }
 
     public List<Codecoolers> getAll() {
@@ -33,5 +33,9 @@ public class CodecoolerService {
 
     public Codecoolers getByID(Long id) {
         return dao.getByID(id);
+    }
+
+    public Codecoolers getByUserID(long id) {
+        return dao.getByUserID(id);
     }
 }

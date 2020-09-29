@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Students list</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
     <div th:switch="${students}">
-        <div class="list-menu">
-            <h2 class="button-remove is-center" th:case="null">No students yet!</h2>
+        <div th:case="null">
+            <div class="list-menu">
+                <h2 class="button-remove is-center">No students yet!</h2>
+            </div>
         </div>
 
         <div th:case="*">
