@@ -343,6 +343,7 @@ section {
 }
 /*------------------STYLING STORE ITEMS/QUESTS--------------------------*/
 .flex-container{
+    margin-top: 5vh;
     max-width: 100vw;
     display: flex;
     flex-wrap: wrap;
@@ -390,8 +391,7 @@ div.grid-block:hover span {
     width: 18vw;
     border: 5px solid #0cf;
     background-color: #cff;
-    font-size: 175%;
-    font-weight: 900;
+    font-size: calc(0.8em + 1vw);
     color: #000;
     border-radius: 10px;
     text-align: center;

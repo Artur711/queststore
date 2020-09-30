@@ -7,20 +7,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
-
-<div class="flex-container">
-    <div th:each="item: ${items}">
-        <div th:if="${item.itemTypeId == 2}"><!--1 or 2, 1 for single 2 for team quests-->
+<body>
+    <div class="flex-container">
+        <div th:each="item: ${teamItems}" th:if="${item.itemTypeId == type}">
 
             <div class="grid-block">
                 <img class="img"  th:src="@{${item.img}}"/>
-                <button class="grid-title btn fontsforweb_fontid_221" th:text="${item.name + ' [' + item.price + 'CC]'}"></button>
-                <span class="grid-description fontsforweb_fontid_221" th:text="${item.description}" disabled></span>
+                <button class="grid-title btn" th:text="${item.name + ' [' + item.price + 'CC]'}"></button>
+                <span class="grid-description" th:text="${item.description}" disabled></span>
             </div>
 
         </div>
     </div>
-</div>
 
 </body>
 </html>
