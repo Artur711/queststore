@@ -32,7 +32,7 @@ public class LoginController {
 
         if (loggedUser != null) {
             if (loggedUser.getUserType() == 3) {
-                return "redirect:/mentor_menu";
+                return "redirect:/admin_menu";
             } else if (loggedUser.getUserType() == 2) {
                 return "redirect:/mentor_menu";
             } else if (loggedUser.getUserType() == 1) {

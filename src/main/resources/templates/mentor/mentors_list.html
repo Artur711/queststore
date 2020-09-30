@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentors list</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body>
+<div th:switch="${mentors}">
+    <div class="list-menu">
+        <h2 class="button-remove is-center" th:case="null">No Mentors yet!</h2>
+    </div>
+
+    <div th:case="*">
+        <tbody th:each="user: ${mentors}">
+
+        <div class="list-menu">
+            <input class="input-update"  th:value="${user.firstName}" disabled>
+            <input class="input-update"  th:value="${user.lastName}" disabled>
+            <a th:href="@{mentor_edit/{id}(id=${user.userId})}" class="button-update">Edit</a>
+            <a th:href="@{mentor_delete/{id}(id=${user.userId})}" class="button-remove">Remove</a>
+        </div>
+        </tbody>
+    </div>
+</div>
+
+<div class="list-menu">
+    <a th:href="@{add_mentor}" class="input-update button-update headline">ADD NEW MENTOR</a>
+    <script src="js/script.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Student</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body>
+<div id="right-section">
+    <br>
+
+    <h5 class="is-center headline"> Add new Student</h5>
+    <nav>
+        <img alt="Profile photo" class="pure-profile-photo add-entity-photo" th:src="@{/photo/profile/knight.webp}" src="../static/photo/profile/knight.webp">
+        <form id="form" action="#" th:action="@{/add_codecooler}" th:object="${codecoolers}" method="post">
+            <nav>
+                <h5 class="is-center pure-item sub-section3 entity-input">User firstname</h5>
+                <label for="firstName"></label>
+                <input id="firstName" class="is-center pure-item sub-section3 entity-input" type="text"
+                th:field="*{firstName}" th:value="UserFirstname">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User lastname</h5>
+                <label for="lastName"></label>
+                <input id="lastName" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{lastName}" th:value="UserLastname">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User email</h5>
+                <label for="email"></label>
+                <input id="email" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{email}" th:value="UserEmail">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User password</h5>
+                <label for="password"></label>
+                <input id="password" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{password}" th:value="UserPassword">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">User phonenumber</h5>
+                <label for="phoneNumber"></label>
+                <input id="phoneNumber" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{phoneNumber}" th:value="UserPhonenumber">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">Codecooler level</h5>
+                <label for="loe_id"></label>
+                <input id="loe_id" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{loe_id}" th:placeholder="loe">
+
+                <h5 class="is-center pure-item sub-section3 entity-input">Codecooler coins</h5>
+                <label for="codecool_coins"></label>
+                <input id="codecool_coins" class="is-center pure-item sub-section3 entity-input" type="text"
+                       th:field="*{codecool_coins}" th:placeholder="coins">
+                <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+            </nav>
+        </form>
+    </nav>
+    <script defer src="js/Add_entity.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Codecooler menu</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
+    <script th:src="@{js/codecooler.js}" src="../static/js/codecooler.js" defer></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body class="body-menu">
+<div id="pure-main">
+    <header class="pure-header">
+
+        <img class="pure-logo" src="../static/photo/logoV.webp" th:src="@{/photo/logoV.webp}">
+
+        <img alt="Profile photo" class="pure-profile-photo" src="../static/photo/profile/knight.webp" th:src="@{/photo/profile/knight.webp}">
+
+        <div class="main">
+            <div class="dropdown">
+                <a id="myBtn" class="pure-menu-item-messages" href="#" onclick="myFunction()">Mesages</a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Message 1</a>
+                    <a href="#">Message 2</a>
+                    <a href="#">Message 3</a>
+                    <a href="#">Message 4</a>
+                    <a href="#">Message 5</a>
+                </div>
+            </div>
+
+            <a class="pure-menu-item" href="contact_page.html">Contact</a>
+            <a class="pure-menu-item" href="index.html" th:href="@{logout}">Logout</a>
+            <div th:object="${menu}">
+                <a class="pure-menu-item" href="#"><span th:text="${'C$:' + menu.codecool_coins}"></span></a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <h1 class="is-center">MENU</h1>
+
+        <div id="index_class" class="pure-item is-center" onclick="clickCell('class')">Classes</div>
+        <div id="index_team" class="pure-item is-center" onclick="clickCell('team')">Teams</div>
+        <div id="index_quests" class="pure-item is-center" onclick="clickCell('quests')">Quests</div>
+        <div id="index_items" class="pure-item is-center" onclick="clickCell('items')">Items</div>
+        <div id="index_profile" class="pure-item is-center" onclick="clickCell('profile')">My profile</div>
+    </nav>
+
+    <section>
+        <iframe id="iframe" src="welcome_page.html" th:src="@{/welcome_page}" height="800" title="Iframe Menu"></iframe>
+    </section>
+
+    <footer class="pure-footer">&copy AK SOLDIERS 2020</footer>
+</div>
+</body>
+</html>
