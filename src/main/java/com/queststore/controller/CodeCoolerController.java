@@ -23,13 +23,13 @@ public class CodeCoolerController {
     @GetMapping("/student_list")
     public String getStudentsList(Model model, @SessionAttribute("loggedUser") User loggedUser){
         model.addAttribute("students", service.getAll());
-        return "student_list";
+        return "codecooler/student_list";
     }
 
 
     @GetMapping("/add_codecooler")
     public String addTheCodeCooler(Codecoolers codecooler, @SessionAttribute("loggedUser") User loggedUser){
-        return "add_codecooler";
+        return "codecooler/add_codecooler";
     }
 
     @PostMapping("/add_codecooler")
@@ -43,13 +43,13 @@ public class CodeCoolerController {
     public String editTheCodeCooler(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
         Codecoolers codecooler = service.getByID(id);
         model.addAttribute("codecooler", codecooler);
-        return "update_student";
+        return "codecooler/update_student";
     }
 
     @PostMapping("/update/{id}")
     public String updateCodeCooler(@PathVariable("id") long id, @Valid Codecoolers codecooler, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "update_student";
+            return "codecooler/update_student";
         }
         codecooler.setCodecooler_id(id);
         codecooler.setUser_id(service.getByID(id).getUser_id());

@@ -112,8 +112,13 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
     public int getUserType() {
         return userType;
+
     }
 
     public void setUserType(int userType) {

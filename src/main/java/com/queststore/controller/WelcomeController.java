@@ -14,7 +14,7 @@ public class WelcomeController {
     @GetMapping("/welcome_page")
     public String getWelcome(Model model, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("welcome", loggedUser);
-        return "welcome_page";
+        return "other/welcome_page";
     }
 
     @ExceptionHandler(ServletRequestBindingException.class)

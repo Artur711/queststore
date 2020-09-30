@@ -21,7 +21,7 @@ public class CodeCoolerMenuController {
     @GetMapping("/codecooler_menu")
     public String getMentorMenu(Model model, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("menu", service.getByUserID(loggedUser.getUserId()));
-        return "codecooler_menu";
+        return "menu/codecooler_menu";
     }
 
     @ExceptionHandler(ServletRequestBindingException.class)

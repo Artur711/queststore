@@ -14,7 +14,7 @@ public class MentorMenuController {
     @GetMapping("/mentor_menu")
     public String getMentorMenu(Model model, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("menu", null);
-        return "mentor_menu";
+        return "menu/mentor_menu";
     }
 
     @ExceptionHandler(ServletRequestBindingException.class)

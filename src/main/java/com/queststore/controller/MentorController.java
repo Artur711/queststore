@@ -23,12 +23,12 @@ public class MentorController {
     @GetMapping("/mentors_list")
     public String allMentorsList(Model model){
         model.addAttribute("mentors", mentorService.getAllMentors());
-        return "mentors_list";
+        return "mentor/mentors_list";
     }
 
     @GetMapping("/add_mentor")
     public String addNewMentor(User user){
-    return "add_mentor";
+    return "mentor/add_mentor";
     };
 
     @PostMapping("/add_mentor")
@@ -41,7 +41,7 @@ public class MentorController {
         public String mentorEdition(@PathVariable("id") long id, Model model){
         User mentor = mentorService.getMentorById(id);
         model.addAttribute("user", mentor);
-        return "update_mentor";
+        return "mentor/update_mentor";
     }
 
     @PostMapping("/mentor_edit/{id}")
