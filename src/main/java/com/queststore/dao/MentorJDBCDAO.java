@@ -1,7 +1,7 @@
 package com.queststore.dao;
 
-import com.queststore.model.Codecoolers;
 import com.queststore.model.User;
+import com.queststore.model.UserMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

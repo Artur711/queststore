@@ -4,10 +4,8 @@ import com.queststore.model.User;
 import com.queststore.service.MentorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -21,13 +19,13 @@ public class MentorController {
     }
 
     @GetMapping("/mentors_list")
-    public String allMentorsList(Model model){
+    public String allMentorsList(Model model, @SessionAttribute("loggedUser") User loggedUser){
         model.addAttribute("mentors", mentorService.getAllMentors());
         return "mentor/mentors_list";
     }
 
     @GetMapping("/add_mentor")
-    public String addNewMentor(User user){
+    public String addNewMentor(User user, @SessionAttribute("loggedUser") User loggedUser){
     return "mentor/add_mentor";
     };
 
@@ -38,7 +36,7 @@ public class MentorController {
     }
 
     @GetMapping("/mentor_edit/{id}")
-        public String mentorEdition(@PathVariable("id") long id, Model model){
+        public String mentorEdition(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser){
         User mentor = mentorService.getMentorById(id);
         model.addAttribute("user", mentor);
         return "mentor/update_mentor";
@@ -52,8 +50,13 @@ public class MentorController {
     }
 
     @GetMapping("/mentor_delete/{id}")
-    public String deleteTheMentor(@PathVariable("id") long id, Model model){
+    public String deleteTheMentor(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser){
         mentorService.deleteTheMentor(id);
         return "redirect:/mentors_list";
+    }
+
+    @ExceptionHandler(ServletRequestBindingException.class)
+    public String handle() {
+        return "redirect:/index";
     }
 }

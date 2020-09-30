@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserLoginJDBCDAO {
+public class UserLoginJDBCDAO implements UserLoginDAO {
     private final SpringJdbcConfig datasource;
     private final JdbcTemplate temp;
 
@@ -17,6 +17,7 @@ public class UserLoginJDBCDAO {
         this.temp = new JdbcTemplate(datasource.postgresDataSource());
     }
 
+    @Override
     public User getUser(String login, String password) {
         List<User> userList = temp.query("select * from users;", new UserMapper());
 

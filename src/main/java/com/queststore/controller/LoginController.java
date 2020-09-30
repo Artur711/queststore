@@ -1,6 +1,6 @@
 package com.queststore.controller;
 
-import com.queststore.dao.UserLoginJDBCDAO;
+import com.queststore.dao.UserLoginDAO;
 import com.queststore.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("loggedUser")
 public class LoginController {
 
-    private final UserLoginJDBCDAO userLoginJDBCDAO;
+    private final UserLoginDAO userLoginDAO;
 
-    public LoginController(UserLoginJDBCDAO userLoginJDBCDAO) {
-        this.userLoginJDBCDAO = userLoginJDBCDAO;
+    public LoginController(UserLoginDAO userLoginDAO) {
+        this.userLoginDAO = userLoginDAO;
     }
 
     @GetMapping("/index")
@@ -27,7 +27,7 @@ public class LoginController {
 
     @PostMapping
     public String postLogin(Model model, @ModelAttribute("user") User user) {
-        User loggedUser = userLoginJDBCDAO.getUser(user.getLastName(), user.getPassword());
+        User loggedUser = userLoginDAO.getUser(user.getLastName(), user.getPassword());
         model.addAttribute("loggedUser", loggedUser);
 
         if (loggedUser != null) {
