@@ -9,16 +9,14 @@
 </head>
 
 <div class="flex-container">
-    <div th:each="quest: ${quests}">
-        <div th:if="${quest.questTypeId == type}">
+    <div th:each="quest: ${quests}" th:if="${quest.questTypeId == type}">
 
-            <div class="grid-block">
-                <img class="img"  th:src="@{${quest.img}}"/>
-                <button class="grid-title btn" th:text="${quest.name + ' [' + quest.questValue + 'CC]'}"></button>
-                <span class="grid-description" th:text="${quest.description}" disabled></span>
-            </div>
-
+        <div class="grid-block">
+            <img class="img"  th:src="@{${quest.img}}"/>
+            <button class="grid-title btn" th:text="${quest.name + ' [' + quest.questValue + 'CC]'}"></button>
+            <span class="grid-description" th:text="${quest.description}" disabled></span>
         </div>
+
     </div>
 </div>
 
