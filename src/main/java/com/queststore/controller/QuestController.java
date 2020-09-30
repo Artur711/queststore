@@ -21,13 +21,13 @@ public class QuestController {
 
     @GetMapping("/quests_menu")
     public String chooseQuestsType() {
-        return "quests_menu";
+        return "store/quests_menu";
     }
 
 
     @GetMapping("/quests_store/{type}")
     public String getQuestList(@PathVariable("type") int type, Model model){
         model.addAttribute("quests", service.getAll());
-        return "quests_store";
+        return "store/quests_store";
     }
 }

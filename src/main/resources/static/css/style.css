@@ -424,6 +424,17 @@ div.grid-block:hover span:after{
     outline: none;
 }
 
+.btn:disabled {
+
+    border: 3px solid #73AD21;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(250, 180, 2);
+    background-color: gray;
+    outline: none;
+}
+
 .btn:active{
     outline: none;
     border: none;

@@ -30,21 +30,21 @@ public class ItemController {
 
     @GetMapping("/items_menu")
     public String chooseItemType() {
-        return "items_menu";
+        return "store/items_menu";
     }
 
 
     @GetMapping("/items_store/{type}")
     public String getQuestList(@PathVariable("type") int type, Model model){
         model.addAttribute("teamItems", itemService.getAll());
-        return "items_store";
+        return "store/items_store";
     }
 
     @GetMapping("/buy")
     public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("id", codeService.getByUserID(loggedUser.getUserId()));
         System.out.println();
-        return "update_student";
+        return "store/update_student";
     }
 
    /* @PostMapping("team_items/buy/{id}")

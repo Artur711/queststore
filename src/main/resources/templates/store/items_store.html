@@ -13,7 +13,12 @@
 
             <div class="grid-block">
                 <img class="img"  th:src="@{${item.img}}"/>
-                <button class="grid-title btn" th:text="${item.name + ' [' + item.price + 'CC]'}"></button>
+                <div th:if="${500 >= item.price}">
+                    <button class="grid-title btn" th:text="${item.name + ' [' + item.price + 'CC]'}" ></button>
+                </div>
+                <div th:if="${500 < item.price}">
+                    <button class="grid-title btn" th:text="${item.name + ' [' + item.price + 'CC]'}" disabled></button>
+                </div>
                 <span class="grid-description" th:text="${item.description}" disabled></span>
             </div>
 
