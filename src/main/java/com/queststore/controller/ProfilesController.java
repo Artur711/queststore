@@ -30,10 +30,7 @@ public class ProfilesController {
 
     @PostMapping("/update_mentor_profile")
     public String updateMentorProfile(Model model, User user, @SessionAttribute("loggedUser") User loggedUser) {
-        loggedUser.setPhoneNumber(user.getPhoneNumber());
-        loggedUser.setPassword(user.getPassword());
-        loggedUser.setEmail(user.getEmail());
-        model.addAttribute("loggedUser", loggedUser);
+        model.addAttribute("loggedUser", setUserUpdate(loggedUser, user));
         mentorService.updateMentor(loggedUser);
         return "redirect:/mentor_profile";
     }
@@ -41,7 +38,22 @@ public class ProfilesController {
     @GetMapping("/codecooler_profile")
     public String getCodecoolerProfile(Model model, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("profile", loggedUser);
-        return "codecooler/codecooler_profile";
+        model.addAttribute("codecooler", codeCoolerService.getByUserID(loggedUser.getUserId()));
+        return "codecooler/codecooler_profile_page";
+    }
+
+    @PostMapping("/update_codecooler_profile")
+    public String updateCodeCoolerProfile(Model model, User user, @SessionAttribute("loggedUser") User loggedUser) {
+        model.addAttribute("loggedUser", setUserUpdate(loggedUser, user));
+        mentorService.updateMentor(loggedUser);
+        return "redirect:/codecooler_profile";
+    }
+
+    private User setUserUpdate(User loggedUser, User user) {
+        loggedUser.setPhoneNumber(user.getPhoneNumber());
+        loggedUser.setPassword(user.getPassword());
+        loggedUser.setEmail(user.getEmail());
+        return loggedUser;
     }
 
     @ExceptionHandler(ServletRequestBindingException.class)

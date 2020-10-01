@@ -137,14 +137,14 @@ iframe {
     height: 100%;
 }
 
-.iframe-mini {
+/*.iframe-mini {
     margin-right: 30%;
     width: 70%;
     background-color: white;
     font-size: 250%;
     border: 6px solid gray;
     border-radius: 6px;
-}
+}*/
 
 
 .pure-menu-item {
@@ -277,12 +277,12 @@ section {
     color: black;
 }
 
-.sub-section {
+/*.sub-section {
     width: 75%;
     padding: 0% 10% 0% 10%;
     font-size: 200%;
     margin-left: 4%;
-}
+}*/
 
 .sub-section2 {
     width: 40%;
@@ -828,6 +828,10 @@ textarea {
     .profile-photo {
         width: 35vw;
     }
+
+    .sub-section2 {
+        font-size: 75%;
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -853,7 +857,7 @@ textarea {
     }
 
     .sub-section2 {
-        font-size: 75%;
+        font-size: 60%;
     }
 }
 
