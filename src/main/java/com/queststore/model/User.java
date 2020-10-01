@@ -124,4 +124,5 @@ public class User {
     public void setUserType(int userType) {
         this.userType = userType;
     }
+
 }
