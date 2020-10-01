@@ -35,8 +35,9 @@ public class ItemController {
 
 
     @GetMapping("/items_store/{type}")
-    public String getQuestList(@PathVariable("type") int type, Model model){
-        model.addAttribute("teamItems", itemService.getAll());
+    public String getQuestList(@PathVariable("type") int type,@SessionAttribute("loggedUser") User loggedUser, Model model){
+        model.addAttribute("coins", codeService.getByUserID(loggedUser.getUserId()).getCodecool_coins());
+        model.addAttribute("items", itemService.getAll());
         return "store/items_store";
     }
 
