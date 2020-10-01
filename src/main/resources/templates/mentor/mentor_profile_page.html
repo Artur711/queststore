@@ -2,43 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor profile</title>
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+<!--    <script th:src="@{js/script.js}" src="../static/js/script.js" defer></script>-->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
-<div class="inside-field">
+<div class="list-menu">
     <div id="left-section">
-        <img alt="Profile photo" class="pure-profile-photo profile-photo" src="src/profiles/menthor.webp">
-        <br><br><br>
-        <input type="submit" class="is-center button-buy" id="my_classes" value="My classes">
+        <img alt="Profile photo" class="pure-profile-photo profile-photo" src="../static/photo/profile/lord.webp" th:src="@{/photo/profile/lord.webp}">
+        <br>
+        <a th:href="@{student_list}"><h5 class="is-center headline">My classes</h5></a>
+        <br>
     </div>
 
-    <div id="right-section-flex">
-        <br><br><br><br><br>
-        <form id="form">
+    <div id="right-section" class="black-color">
+        <form id="form" action="#" th:action="@{/update_mentor_profile}" th:object="${profile}" method="post">
             <nav>
                 <h5 class="is-center pure-item sub-section2">Name</h5>
-                <h5 class="is-center pure-item sub-section2">Rafał</h5>
+                <h5 class="is-center pure-item sub-section2"><span th:text="${profile.firstName}"></span></h5>
 
                 <h5 class="is-center pure-item sub-section2">Surname</h5>
-                <h5 class="is-center pure-item sub-section2">Dudzik</h5>
+                <h5 class="is-center pure-item sub-section2"><span th:text="${profile.lastName}"></span></h5>
 
                 <h5 class="is-center pure-item sub-section2">Phone number</h5>
-                <label for="phone"></label><input id="phone" class="is-center pure-item sub-section3" type="text"
-                                                  value="0125548755">
-                <input type="submit" id="submit_phone" value="Confirm" disabled='disabled'>
+                <label for="phone"></label><input id="phone" class="is-center pure-item sub-section2 background" type="text"
+                                                  th:field="*{phoneNumber}" th:value="${profile.phoneNumber}">
 
                 <h5 class="is-center pure-item sub-section2">Password</h5>
-                <label for="password"></label><input id="password" class="is-center pure-item sub-section3" type="text"
-                                                     value="kZj4fv8cV">
-                <input type="submit" id="submit_password" value="Confirm" disabled='disabled'>
+                <label for="password"></label><input id="password" class="is-center pure-item sub-section2 background" type="text"
+                                                     th:field="*{password}" th:value="${profile.password}">
 
                 <h5 class="is-center pure-item sub-section2">Mail</h5>
-                <label for="mail"></label><input id="mail" class="is-center pure-item sub-section3" type="text"
-                                                 value="r.dudzik@codecool.com">
-                <input type="submit" id="submit_mail" value="Confirm" disabled='disabled'>
+                <label for="mail"></label><input id="mail" class="is-center pure-item sub-section2 background" type="text"
+                                                 th:field="*{email}" th:value="${profile.email}">
+                <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
             </nav>
 
         </form>

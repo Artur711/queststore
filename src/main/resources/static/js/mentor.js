@@ -18,7 +18,7 @@ function clickCell(index) {
     } else if (subpage.innerText === 'Wallets') {
         document.getElementById('iframe').src = "/wallet_list";
     } else if (subpage.innerText === 'My profile') {
-        document.getElementById('iframe').src = "/mentor_profile_page";
+        document.getElementById('iframe').src = "/mentor_profile";
     }
 }
 

@@ -166,11 +166,9 @@ iframe {
 }
 
 .profile-photo {
-    margin-left: 15%;
     float: none;
     width: 50%;
-    border: 6px solid gray;
-    border-radius: 6px;
+    border: 0.6vw ridge darkred;
 }
 
 .pure-logo {
@@ -187,9 +185,9 @@ nav {
 
 h1, h2, h5 {
     background-color: white;
-    border: 3px solid gray;
+    border: 0.3vw solid gray;
     padding: 1vw;
-    border-radius: 5px;
+    border-radius: 0.5vw;
     float: none;
 }
 
@@ -203,7 +201,7 @@ h1 {
 h2 {
     font-size: 200%;
     margin-right: 50%;
-    width: 300px;
+    width: 30vw;
 }
 
 .is-center {
@@ -263,8 +261,9 @@ section {
 
 #left-section {
     margin-top: 2%;
-    margin-left: 10%;
-    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 #right-section {
@@ -274,13 +273,8 @@ section {
 
 }
 
-#right-section-flex {
-    width: 42%;
-    height: max-content;
-    margin: auto;
-    float: left;
-    display: flex;
-    justify-content: center;
+.black-color {
+    color: black;
 }
 
 .sub-section {
@@ -296,13 +290,12 @@ section {
     margin-left: 4%;
 }
 
-.sub-section3 {
-    width: 28%;
-    font-size: 80%;
-}
-
 .entity-input {
     width: 40%;
+}
+
+.background {
+    background-color: greenyellow;
 }
 
 .pure-footer {
@@ -775,6 +768,10 @@ div.block:hover span:after, .block-update-menu:hover span:after {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 textarea {
     font-size: 155%;
     border: 3px solid gray;
@@ -827,6 +824,10 @@ textarea {
     .add-entity-photo {
         width: 64%;
     }
+
+    .profile-photo {
+        width: 35vw;
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -845,6 +846,14 @@ textarea {
 
     .pure-menu-item, .pure-menu-item-messages {
         font-size: 90%;
+    }
+
+    .profile-photo {
+        width: 50vw;
+    }
+
+    .sub-section2 {
+        font-size: 75%;
     }
 }
 

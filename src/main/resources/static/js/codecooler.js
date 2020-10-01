@@ -11,7 +11,7 @@ function clickCell(index) {
     } else if (subpage.innerText === 'Items') {
         document.getElementById('iframe').src = "/items_menu";
     } else if (subpage.innerText === 'My profile') {
-        document.getElementById('iframe').src = "/codecooler_profile_page";
+        document.getElementById('iframe').src = "/codecooler_profile";
     }
 }
 
