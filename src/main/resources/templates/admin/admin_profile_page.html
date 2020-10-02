@@ -2,20 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Mentor profile</title>
+    <title>Administrator profile</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
 <div class="list-menu">
     <div id="left-section">
-        <img alt="Profile photo" class="pure-profile-photo profile-photo" src="../static/photo/profile/lord.webp" th:src="@{/photo/profile/lord.webp}">
-        <br>
-        <a th:href="@{student_list}"><h5 class="is-center headline">My classes</h5></a>
+        <img alt="Profile photo" class="pure-profile-photo profile-photo" src="../static/photo/profile/king.webp" th:src="@{/photo/profile/king.webp}">
     </div>
 
     <div id="right-section" class="black-color">
-        <form id="form" action="#" th:action="@{/update_mentor_profile}" th:object="${profile}" method="post">
+        <form id="form" action="#" th:action="@{/update_admin_profile}" th:object="${profile}" method="post">
 
             <h5 class="is-center pure-item sub-section2">Name</h5>
             <h5 class="is-center pure-item sub-section2"><span th:text="${profile.firstName}"></span></h5>
@@ -25,19 +23,18 @@
 
             <h5 class="is-center pure-item sub-section2">Phone number</h5>
             <label for="phone"></label><input id="phone" class="is-center pure-item sub-section2 background" type="text"
-                                                  th:field="*{phoneNumber}" th:value="${profile.phoneNumber}">
+                                              th:field="*{phoneNumber}" th:value="${profile.phoneNumber}">
 
             <h5 class="is-center pure-item sub-section2">Password</h5>
             <label for="password"></label><input id="password" class="is-center pure-item sub-section2 background" type="text"
-                                                     th:field="*{password}" th:value="${profile.password}">
+                                                 th:field="*{password}" th:value="${profile.password}">
 
             <h5 class="is-center pure-item sub-section2">Mail</h5>
             <label for="mail"></label><input id="mail" class="is-center pure-item sub-section2 background" type="text"
-                                                 th:field="*{email}" th:value="${profile.email}">
+                                             th:field="*{email}" th:value="${profile.email}">
             <nav>
                 <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
             </nav>
-
         </form>
     </div>
 </div>
