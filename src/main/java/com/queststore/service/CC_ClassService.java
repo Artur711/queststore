@@ -1,0 +1,19 @@
+package com.queststore.service;
+
+import com.queststore.dao.CC_classDAO;
+import com.queststore.dao.CC_classJDBCDAO;
+import com.queststore.model.CC_Class;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CC_ClassService {
+    CC_classDAO classDAO;
+
+    public CC_ClassService(CC_classJDBCDAO classDAO) {
+        this.classDAO = classDAO;
+    }
+
+    public void create(CC_Class cc_class){
+        classDAO.create(cc_class);
+    }
+}
