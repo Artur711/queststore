@@ -270,11 +270,6 @@ section {
     width: 42%;
     height: max-content;
     margin: auto;
-
-}
-
-.black-color {
-    color: black;
 }
 
 /*.sub-section {
@@ -292,10 +287,6 @@ section {
 
 .entity-input {
     width: 40%;
-}
-
-.background {
-    background-color: greenyellow;
 }
 
 .pure-footer {
@@ -784,6 +775,14 @@ textarea {
 
 .class-add-new-class-confirmation {
     background-color: #bcb001;
+    color: black;
+}
+
+.background {
+    background-color: greenyellow;
+}
+
+.black-color {
     color: black;
 }
 

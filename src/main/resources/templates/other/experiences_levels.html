@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiences levels</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body>
+    <div th:switch="${experience}">
+        <div th:case="null">
+            <div class="list-menu">
+                <h2 class="button-remove is-center">No students yet!</h2>
+            </div>
+        </div>
+        <div th:case="*">
+            <tbody th:each="level: ${experience}">
+                <div class="list-menu">
+                    <input class="input-update" type="text" th:value="${'Level ' + level.loeID}" disabled>
+                    <input class="input-update background black-color" type="text" th:value="${level.value}">
+                    <a th:href="@{edit/{id}(id=${level.loeID})}" class="button-update">Update</a>
+                    <a th:href="@{delete/{id}(id=${level.loeID})}" class="button-remove">Remove</a>
+                </div>
+            </tbody>
+        </div>
+    </div>
+
+    <div class="list-menu">
+        <h5 class="input-update is-center headline"> Add new Level</h5>
+    </div>
+
+    <div class="list-menu">
+        <input class="input-update background black-color" type="text" value="Range">
+        <button class="button-update">ADD NEW</button>
+    </div>
+</body>
+</html>
