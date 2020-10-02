@@ -10,7 +10,7 @@ function clickCell(index) {
     } else if (subpage.innerText === 'Teams') {
         document.getElementById('iframe').src = "/add_new_team";
     } else if (subpage.innerText === 'Expierience Leves') {
-        document.getElementById('iframe').src = "/experiences_levels";
+        document.getElementById('iframe').src = "/experiences";
     } else if (subpage.innerText === 'Questes') {
         document.getElementById('iframe').src = "/quest_list";
     } else if (subpage.innerText === 'Items') {

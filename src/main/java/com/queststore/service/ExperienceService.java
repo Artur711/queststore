@@ -26,8 +26,8 @@ public class ExperienceService {
         dao.update(experience);
     }
 
-    public void delete(Experience experience) {
-        dao.delete(experience);
+    public void delete(int id) {
+        dao.delete(id);
     }
 
     public int getLevel(long experience) {

@@ -15,23 +15,29 @@
         </div>
         <div th:case="*">
             <tbody th:each="level: ${experience}">
-                <div class="list-menu">
-                    <input class="input-update" type="text" th:value="${'Level ' + level.loeID}" disabled>
-                    <input class="input-update background black-color" type="text" th:value="${level.value}">
-                    <a th:href="@{edit/{id}(id=${level.loeID})}" class="button-update">Update</a>
-                    <a th:href="@{delete/{id}(id=${level.loeID})}" class="button-remove">Remove</a>
-                </div>
+<!--                <form action="#" th:action="@{/edit_level/{id}/(id=${experience.indexOf(level)})}" th:object="${level}" method="post">-->
+                    <div class="list-menu">
+                        <input class="input-update" type="text" th:value="${'Level ' + (experience.indexOf(level) + 1)}" disabled>
+                        <input class="input-update background black-color" type="text" th:value="${level.value}">
+<!--                        <a th:href="@{edit_level/{id}/{value}(id=${experience.indexOf(level)},value=${level.value})}" class="button-update">Update</a>-->
+                        <input type="submit" id="savebutton" class="button-update" value="Update">
+                        <a th:href="@{delete_level/{id}(id=${experience.indexOf(level)})}" class="button-remove">Remove</a>
+                    </div>
+                </form>
             </tbody>
         </div>
     </div>
+
 
     <div class="list-menu">
         <h5 class="input-update is-center headline"> Add new Level</h5>
     </div>
 
-    <div class="list-menu">
-        <input class="input-update background black-color" type="text" value="Range">
-        <button class="button-update">ADD NEW</button>
-    </div>
+    <form id="form" action="#" th:action="@{/add_level}" th:object="${level}" method="post">
+        <div class="list-menu">
+            <input class="input-update background black-color" type="text" th:field="*{value}" th:placeholder="Range">
+            <input class="input-update button-update headline" type="submit" th:value="${'ADD NEW'}">
+        </div>
+    </form>
 </body>
 </html>

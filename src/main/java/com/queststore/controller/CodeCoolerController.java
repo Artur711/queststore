@@ -60,7 +60,6 @@ public class CodeCoolerController {
 
     @GetMapping("/delete/{id}")
     public String removeCodeCooler(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
-        System.out.println(id);
         service.delete(id);
         model.addAttribute("students", service.getAll());
         return "redirect:/student_list";

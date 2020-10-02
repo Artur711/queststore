@@ -12,7 +12,7 @@ public interface ExperienceDAO {
 
     void update(Experience experience);
 
-    void delete(Experience experience);
+    void delete(int id);
 
     int getLevel(long experience);
 }

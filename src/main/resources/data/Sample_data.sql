@@ -13,7 +13,9 @@ INSERT INTO Users (first_name, last_name, email, password, user_type, phone) val
 
 
 ---Add Level of experience (LOE)
-INSERT INTO LOE (max_value) values (100);
+INSERT INTO LOE (max_value) values (500);
+INSERT INTO LOE (max_value) values (1000);
+INSERT INTO LOE (max_value) values (1500);
 
 ---Add Codecoolers (Probably its a good idea to add codecoolers simultaneously when adding User with user_type codecoolers)
 INSERT INTO Codecoolers (user_id) values (1);

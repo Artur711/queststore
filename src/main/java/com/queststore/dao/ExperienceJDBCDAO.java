@@ -1,6 +1,5 @@
 package com.queststore.dao;
 
-import com.queststore.model.CodecoolerMapper;
 import com.queststore.model.Experience;
 import com.queststore.model.ExperienceMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,6 +11,7 @@ import java.util.List;
 public class ExperienceJDBCDAO implements ExperienceDAO {
     private final SpringJdbcConfig datasource;
     private final JdbcTemplate temp;
+    private String query;
 
     public ExperienceJDBCDAO(SpringJdbcConfig datasource) {
         this.datasource = datasource;
@@ -25,17 +25,21 @@ public class ExperienceJDBCDAO implements ExperienceDAO {
 
     @Override
     public void create(Experience experience) {
-
+        query = String.format("INSERT INTO loe (max_value) VALUES (%d);", experience.getValue());
+        temp.batchUpdate(query);
     }
 
     @Override
     public void update(Experience experience) {
-
+        query = String.format("UPDATE loe SET max_value = %d WHERE loe_id = %d;", experience.getValue(), experience.getLoeID());
+        temp.batchUpdate(query);
     }
 
     @Override
-    public void delete(Experience experience) {
-
+    public void delete(int id) {
+        long loeID = getExperience().get(id).getLoeID();
+        query = String.format("DELETE FROM loe WHERE loe_id = %d;", loeID);
+        temp.batchUpdate(query);
     }
 
     @Override

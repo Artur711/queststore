@@ -1,9 +1,12 @@
 package com.queststore.controller;
 
+import com.queststore.model.Experience;
+import com.queststore.model.User;
 import com.queststore.service.ExperienceService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ExperienceController {
@@ -17,6 +20,43 @@ public class ExperienceController {
     @GetMapping("/experiences")
     public String getExperience(Model model) {
         model.addAttribute("experience", service.getExperience());
+        model.addAttribute("level", new Experience());
         return "other/experiences_levels";
+    }
+
+    @PostMapping("add_level")
+    public String create(@ModelAttribute Experience level, Model model) {
+        service.create(level);
+        return "redirect:/experiences";
+    }
+
+    /*@GetMapping("/edit_level/{id}")
+    public String updateLevel(@PathVariable("id") int id, Model model) {
+        Experience level = service.getExperience().get(id);
+        level.setValue(20);
+        service.update(level);
+        ;
+        return "redirect:/experiences";
+    }*/
+
+    @PostMapping("/edit_level/{id}")
+    public String updateLevel(@PathVariable("id") int id, Model model, Experience level) {
+        Experience experience = service.getExperience().get(id);
+        experience.setValue(level.getValue());
+        service.update(experience);
+        model.addAttribute("experience", service.getExperience());
+        return "redirect:/experiences";
+    }
+
+    @GetMapping("/delete_level/{id}")
+    public String removeLevel(@PathVariable("id") int id, Model model) {
+        service.delete(id);
+        model.addAttribute("experience", service.getExperience());
+        return "redirect:/experiences";
+    }
+
+    @ExceptionHandler(ServletRequestBindingException.class)
+    public String handle() {
+        return "redirect:/index";
     }
 }
