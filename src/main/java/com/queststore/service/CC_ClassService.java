@@ -16,4 +16,8 @@ public class CC_ClassService {
     public void create(CC_Class cc_class){
         classDAO.create(cc_class);
     }
+
+    public void deleteTheClass(Integer id){
+        classDAO.delete(id);
+    }
 }

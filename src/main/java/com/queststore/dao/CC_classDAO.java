@@ -8,7 +8,7 @@ public interface CC_classDAO {
 
     void create(CC_Class cc_class);
 
-    void delete(Long id);
+    void delete(Integer id);
 
     void update(CC_Class cc_class);
 

@@ -21,6 +21,9 @@ public class CC_Class {
 //    private Date startingDate;
 
 
+    public CC_Class() {
+    }
+
     public CC_Class(String name) {
         this.name = name;
     }

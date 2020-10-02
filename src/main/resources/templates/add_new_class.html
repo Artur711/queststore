@@ -1,68 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Add new class</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
 </head>
 <body>
+<form id="form" action="#" th:action="@{/add_class}" th:object="${cc_class}" method="post">
 
-<div class="class-menu-container">
-    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">New
-        Class
+    <div class="class-menu-container">
+        <!--    /*@thymesVar id="cc_class" type="com.queststore.model.CC_Class"*/-->
+
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            New
+            Class
+        </div>
+        <label for="name"></label>
+        <input id="name" class="class_header class-block-menu add-new-class-buttons" type="text" style="height: 75px"
+               th:value="Name" th:field="*{name}" th:placeholder="${'Type Name of New Class'}">
+
+
+        <!--    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="SAVE" disabled='disabled'>-->
+
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Chose
+            mentor for class
+        </div>
+        <select name="Chose a Mentor for this class" class="class-block-menu add-new-class-buttons mentor-select"
+                th:object="${mentorsList}" multiple="multiple">
+            <div th:each="user: ${mentorsList}">
+                <option
+                        th:value="${firstName}"
+                        th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
+                </option>
+            </div>
+            <!--                        th:text="*{firstName}">-->
+            <!--            </select>-->
+
+        </select>
+        <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Confirm" disabled='disabled'>
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Add
+            Students for class
+        </div>
+        <select name="Add Student for this class" class="class-block-menu add-new-class-buttons mentor-select">
+            <option value="Student1">Student1</option>
+            <option value="Student2">Student2</option>
+            <option value="Student3">Student3</option>
+            <option value="Student4">Student4</option>
+            <option value="Student5">Student5</option>
+        </select>
+        <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Add" disabled='disabled'>
     </div>
-    <input class="class-block-menu add-new-class-buttons" type="text" placeholder="Type class name"
-           style="height: 75px">
+    <div class="class-menu-container">
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Chosen Mentors
+        </div>
+        <div class="class-block-menu add-new-class-buttons class-header-middle">Student1</div>
+        <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
 
-    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="SAVE" disabled='disabled'>
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Added
+            Students
+        </div>
 
-    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">Chose
-        mentor for class
+        <div class="class-block-menu add-new-class-buttons class-header-middle">Student1</div>
+        <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
+        <div class="class-block-menu add-new-class-buttons class-header-middle">Student2</div>
+        <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
+        <div class="class-block-menu add-new-class-buttons class-header-middle">Student3</div>
+        <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
+
+        <input type="submit"
+               class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle class-add-new-class-confirmation class-header-middle"
+               value="Chosen Mentors" style="padding: 0px">
+        <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
     </div>
-    <select name="Chose a Mentor for this class" class="class-block-menu add-new-class-buttons mentor-select">
-        <option value="Mentor1">Mentor1</option>
-        <option value="Mentor2">Mentor2</option>
-        <option value="Mentor3">Mentor3</option>
-        <option value="Mentor4">Mentor4</option>
-        <option value="Mentor5">Mentor5</option>
-    </select>
-    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Confirm" disabled='disabled'>
-    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">Add
-        Students for class
-    </div>
-    <select name="Add Student for this class" class="class-block-menu add-new-class-buttons mentor-select">
-        <option value="Student1">Student1</option>
-        <option value="Student2">Student2</option>
-        <option value="Student3">Student3</option>
-        <option value="Student4">Student4</option>
-        <option value="Student5">Student5</option>
-    </select>
-    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Add" disabled='disabled'>
-</div>
-<div class="class-menu-container">
-    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
-        Chosen Mentors
-    </div>
-    <div class="class-block-menu add-new-class-buttons class-header-middle">Student1</div>
-    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
+</form>
 
-    <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">Added
-        Students
-    </div>
-
-    <div class="class-block-menu add-new-class-buttons class-header-middle">Student1</div>
-    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
-    <div class="class-block-menu add-new-class-buttons class-header-middle">Student2</div>
-    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
-    <div class="class-block-menu add-new-class-buttons class-header-middle">Student3</div>
-    <input type="submit" id="" class="class-block-menu add-new-class-buttons" value="Remove">
-
-    <input type="submit"
-           class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle class-add-new-class-confirmation class-header-middle"
-           value="Chosen Mentors" style="padding: 0px">
-
-
-</div>
 <script src="js/script.js"></script>
 
 </body>
