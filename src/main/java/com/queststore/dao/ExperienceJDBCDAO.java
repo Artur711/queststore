@@ -44,6 +44,14 @@ public class ExperienceJDBCDAO implements ExperienceDAO {
 
     @Override
     public int getLevel(long experience) {
-        return 0;
+        List<Experience> experienceList = getExperience();
+        int level = 1;
+
+        for (Experience exp : experienceList) {
+            if (experience >= exp.getValue()) {
+                level++;
+            }
+        }
+        return level;
     }
 }

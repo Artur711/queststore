@@ -1,7 +1,9 @@
 package com.queststore.controller;
 
+import com.queststore.dao.ExperienceDAO;
 import com.queststore.dao.UserLoginDAO;
 import com.queststore.model.User;
+import com.queststore.service.ExperienceService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ public class LoginController {
         this.userLoginDAO = userLoginDAO;
     }
 
+
     @GetMapping("/index")
     public String login(Model model, User user) {
         model.addAttribute("user", user);
@@ -28,9 +31,10 @@ public class LoginController {
     @PostMapping
     public String postLogin(Model model, @ModelAttribute("user") User user) {
         User loggedUser = userLoginDAO.getUser(user.getLastName(), user.getPassword());
-        model.addAttribute("loggedUser", loggedUser);
 
         if (loggedUser != null) {
+            model.addAttribute("loggedUser", loggedUser);
+
             if (loggedUser.getUserType() == 3) {
                 return "redirect:/admin_menu";
             } else if (loggedUser.getUserType() == 2) {

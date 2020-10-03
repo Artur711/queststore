@@ -21,7 +21,6 @@ public class ExperienceController {
     public String getExperience(Model model, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("experience", service.getExperience());
         model.addAttribute("level", new Experience());
-        model.addAttribute("exp", new Experience());
         return "other/experiences_levels";
     }
 

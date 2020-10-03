@@ -16,7 +16,7 @@
         <div th:case="*">
             <tbody th:each="level: ${experience}">
                     <div class="list-menu">
-                        <input class="input-update" type="text" th:value="${'Level ' + (experience.indexOf(level) + 1)}" disabled>
+                        <input class="input-update" type="text" th:value="${'Level ' + (experience.indexOf(level) + 2)}" disabled>
                         <input class="input-update" type="text" th:value="${level.value}" disabled>
 <!--                        <a th:href="@{edit_level/{id}/{value}(id=${experience.indexOf(level)}, value=${level.value})}" class="button-update">Update</a>-->
                         <a th:href="@{delete_level/{id}(id=${experience.indexOf(level)})}" class="button-remove">Remove</a>
