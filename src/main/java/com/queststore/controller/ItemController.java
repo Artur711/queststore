@@ -42,21 +42,15 @@ public class ItemController {
     public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser, @RequestParam(value = "itemId") long itemId) {
 
         model.addAttribute("id", codeService.getByUserID(loggedUser.getUserId()));
-        System.out.println(itemId);
         int studentCoins =  codeService.getByID(loggedUser.getUserId()).getCodecool_coins();
         int itemPrice = itemService.getById(itemId).getPrice();
         int loggedUserId = (int)loggedUser.getUserId();
         System.out.println(studentCoins + " " + itemPrice + " " + loggedUserId);
 
-        codeService.updateCoins(loggedUserId ,(studentCoins - itemPrice), (int)itemId);
+        codeService.updateCodecoolerItems(loggedUserId ,(studentCoins - itemPrice), (int)itemId);
 
-/*
-        model.addAttribute("loggedUser", loggedUser);
-*/
 
-        System.out.println(codeService.getByUserID(loggedUserId).getCodecool_coins());
-
-        return "redirect:/items_menu";
+        return "redirect:/welcome_page";
     }
 
    /* @PostMapping("team_items/buy/{id}")

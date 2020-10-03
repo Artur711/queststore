@@ -104,16 +104,33 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
     }
 
     @Override
-    public void updateCoins(int userId, int coins, int itemId) {
+    public void updateCodecoolerItems(int userId, int coins, int itemId) {
 
         String querySet = tranBegQuery + String.format("UPDATE Codecoolers SET codecool_coins = %d WHERE codecooler_id = %d;",coins, userId);
-
         String queryInsert = "INSERT INTO codecooler_item (item_id, codecooler_id) VALUES";
+
         query = querySet + " " + String.format("%s (%d, %d);", queryInsert, itemId, userId) + tranEndQuery;
 
-/*        query = query + tranEndQuery;*/
 
         temp.execute(query);
-
     }
+
+    @Override
+    public void updateCodecoolerQuests(int userId, int coins, int questId) {
+        String querySet = tranBegQuery + String.format("UPDATE Codecoolers SET codecool_coins = %d WHERE codecooler_id = %d;",coins, userId);
+        String queryInsert = "INSERT INTO codecoolers_quest (quest_id, codecooler_id) VALUES";
+
+        query = querySet + " " + String.format("%s (%d, %d);", queryInsert, questId, userId) + tranEndQuery;
+
+        temp.execute(query);
+    }
+
+   /* public void addItem(int userId, int itemId){
+
+        String queryInsert = "INSERT INTO codecooler_item (item_id, codecooler_id) VALUES";
+
+        query = String.format("%s (%d, %d);", queryInsert, itemId, userId) + tranEndQuery;
+
+        temp.execute(query);
+    }*/
 }

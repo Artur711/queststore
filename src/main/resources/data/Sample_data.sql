@@ -99,6 +99,9 @@ INSERT INTO Codecoolers_teams (team_id, codecooler_id) values (1,2);  ---Add Kal
 ---Add Item to Codecoolers
 INSERT INTO Codecooler_item (item_id, codecooler_id) values (1,1); --- Add 1st Item to Pudzianowski
 
+---Add Quest to Codecoolers
+INSERT INTO Codecoolers_quest (quest_id, codecooler_id) values (1,1); --- Add 1st Quest to Pudzianowski
+
 ---Queries 
 SELECT users.first_name, users.last_name FROM USERS INNER JOIN CODECOOLERS ON CODECOOLERS.USER_ID = USERS.USER_ID INNER JOIN LOE ON LOE.LOE_ID = CODECOOLERS.LOE_ID WHERE CODECOOLERS.LOE_ID =1;
 

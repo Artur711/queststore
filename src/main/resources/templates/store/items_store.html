@@ -14,17 +14,15 @@
             <div class="grid-block">
                 <img class="img"  th:src="@{${item.img}}"/>
                 <div th:if="${coins >= item.price}">
-                    <!--<form action="#" th:action="@{'/buy/{id}'(id=${item.itemId)}" th:object="${codecoolers}" th:method="post" >
-                        <button class="grid-title btn" th:value="${item.name + ' [' + item.price + 'CC]'}" type="submit"> </button>
-                    </form>-->
+
                     <form method="POST" th:action="@{/buy}">
                         <input type="hidden" th:name="itemId" th:value="${item.itemId}"/>
-                        <input type="submit" class="grid-title btn" th:value="${item.name + ' [' + item.price + 'CC]'}"  ></input>
+                        <input type="submit" class="grid-title btn" th:value="${item.name + ' [' + item.price + 'CC]'}"  />
                     </form>
-                    <!--<input class="grid-title btn" th:value="${item.name + ' [' + item.price + 'CC]'}" ></input>-->
+
                 </div>
                 <div th:if="${coins < item.price}">
-                    <input class="grid-title btn" th:value="${item.name + ' [' + item.price + 'CC]'}" disabled></input>
+                    <input class="grid-title btn" th:value="${item.name + ' [' + item.price + 'CC]'}" disabled>
                 </div>
                 <span class="grid-description" th:text="${item.description}" disabled></span>
             </div>
