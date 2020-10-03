@@ -10,7 +10,7 @@ public interface ExperienceDAO {
 
     void create(Experience experience);
 
-    void update(Experience experience);
+/*    void update(Experience experience);*/
 
     void delete(int id);
 

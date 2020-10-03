@@ -21,6 +21,7 @@ public class ExperienceController {
     public String getExperience(Model model) {
         model.addAttribute("experience", service.getExperience());
         model.addAttribute("level", new Experience());
+        model.addAttribute("exp", new Experience());
         return "other/experiences_levels";
     }
 
@@ -39,14 +40,6 @@ public class ExperienceController {
         return "redirect:/experiences";
     }*/
 
-    @PostMapping("/edit_level/{id}")
-    public String updateLevel(@PathVariable("id") int id, Model model, Experience level) {
-        Experience experience = service.getExperience().get(id);
-        experience.setValue(level.getValue());
-        service.update(experience);
-        model.addAttribute("experience", service.getExperience());
-        return "redirect:/experiences";
-    }
 
     @GetMapping("/delete_level/{id}")
     public String removeLevel(@PathVariable("id") int id, Model model) {

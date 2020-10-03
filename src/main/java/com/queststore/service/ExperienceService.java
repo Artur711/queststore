@@ -22,9 +22,9 @@ public class ExperienceService {
         dao.create(experience);
     }
 
-    public void update(Experience experience) {
+/*    public void update(Experience experience) {
         dao.update(experience);
-    }
+    }*/
 
     public void delete(int id) {
         dao.delete(id);

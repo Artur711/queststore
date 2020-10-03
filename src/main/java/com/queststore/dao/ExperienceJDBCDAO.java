@@ -29,11 +29,11 @@ public class ExperienceJDBCDAO implements ExperienceDAO {
         temp.batchUpdate(query);
     }
 
-    @Override
+ /*   @Override
     public void update(Experience experience) {
         query = String.format("UPDATE loe SET max_value = %d WHERE loe_id = %d;", experience.getValue(), experience.getLoeID());
         temp.batchUpdate(query);
-    }
+    }*/
 
     @Override
     public void delete(int id) {
