@@ -38,8 +38,11 @@
             <h5 class="is-center pure-item sub-section2">Mail</h5>
             <label for="mail"></label><input id="mail" class="is-center pure-item sub-section2 background" type="text"
                                                  th:field="*{email}" th:value="${profile.email}">
+
+            <div th:object="${loe}">
+                    <h5 class="is-center pure-item sub-section2"><span th:text="${'Level: ' + loe}"></span></h5>
+            </div>
             <div th:object="${codecooler}">
-                <h5 class="is-center pure-item sub-section2"><span th:text="${'Level: ' + codecooler.loe_id}"></span></h5>
                 <h5 class="is-center pure-item sub-section2"><span th:text="${'You earned C$:' + codecooler.codecool_coins}"></span></h5>
             </div>
             <nav>

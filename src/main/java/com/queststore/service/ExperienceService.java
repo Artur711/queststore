@@ -31,6 +31,6 @@ public class ExperienceService {
     }
 
     public int getLevel(long experience) {
-        return getLevel(experience);
+        return dao.getLevel(experience);
     }
 }

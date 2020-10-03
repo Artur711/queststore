@@ -1,7 +1,9 @@
 package com.queststore.controller;
 
+import com.queststore.model.Codecoolers;
 import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
+import com.queststore.service.ExperienceService;
 import com.queststore.service.MentorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +15,12 @@ public class ProfilesController {
 
     private MentorService mentorService;
     private CodeCoolerService codeCoolerService;
+    private ExperienceService experienceService;
 
-    public ProfilesController(MentorService mentorService, CodeCoolerService codeCoolerService) {
+    public ProfilesController(MentorService mentorService, CodeCoolerService codeCoolerService, ExperienceService experienceService) {
         this.mentorService = mentorService;
         this.codeCoolerService = codeCoolerService;
+        this.experienceService = experienceService;
     }
 
     @GetMapping("/mentor_profile")
@@ -45,8 +49,10 @@ public class ProfilesController {
 
     @GetMapping("/codecooler_profile")
     public String getCodecoolerProfile(Model model, @SessionAttribute("loggedUser") User loggedUser) {
+        Codecoolers codecoolers = codeCoolerService.getByUserID(loggedUser.getUserId());
         model.addAttribute("profile", loggedUser);
-        model.addAttribute("codecooler", codeCoolerService.getByUserID(loggedUser.getUserId()));
+        model.addAttribute("codecooler", codecoolers);
+        model.addAttribute("loe", experienceService.getLevel(codecoolers.getLoe_id()));
         return "codecooler/codecooler_profile_page";
     }
 

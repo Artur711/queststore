@@ -42,9 +42,9 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
             return null;
         });
 
-        queryInsert = "INSERT INTO codecoolers (user_id, loe_id, codecool_coins) VALUES";
+        queryInsert = "INSERT INTO codecoolers (user_id, exp, codecool_coins) VALUES";
         int userID = id;
-        int codeCoolerLevel = codecoolers.getLoe_id();
+        long codeCoolerLevel = codecoolers.getLoe_id();
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
         query = String.format("%s (%d, %d, %d);", queryInsert, userID, codeCoolerLevel, codeCoolerCoins);
@@ -60,10 +60,10 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
         String password = codecoolers.getPassword();
         int phoneNumber = codecoolers.getPhoneNumber();
         int userID = codecoolers.getUser_id();
-        int codeCoolerLevel = codecoolers.getLoe_id();
+        long codeCoolerLevel = codecoolers.getLoe_id();
         int codeCoolerCoins = codecoolers.getCodecool_coins();
 
-        String querySet = String.format("SET loe_id = %d, codecool_coins = %d", codeCoolerLevel, codeCoolerCoins);
+        String querySet = String.format("SET exp = %d, codecool_coins = %d", codeCoolerLevel, codeCoolerCoins);
         query = tranBegQuery + String.format("UPDATE Codecoolers %s WHERE codecooler_id = %d;", querySet, codeCoolerID);
 
         querySet = String.format("SET first_name = '%s', last_name = '%s', email = '%s', password = '%s', phone = %d", firstName, lastName, email, password, phoneNumber);

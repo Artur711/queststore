@@ -12,14 +12,14 @@ public class Codecoolers extends User {
     private long codecooler_id;
 
     private int user_id;
-    private int loe_id;
+    private long loe_id;
     private int codecool_coins;
 
     public Codecoolers() {
     }
 
 
-    public Codecoolers(long codecooler_id, int user_id, int loe_id, int codecool_coins, String firstName, String lastName, String email, String password, int phoneNumber) {
+    public Codecoolers(long codecooler_id, int user_id, long loe_id, int codecool_coins, String firstName, String lastName, String email, String password, int phoneNumber) {
         super(user_id, firstName, lastName, email, password, phoneNumber);
         this.codecooler_id = codecooler_id;
         this.user_id = user_id;
@@ -27,7 +27,7 @@ public class Codecoolers extends User {
         this.codecool_coins = codecool_coins;
     }
 
-    public Codecoolers(int user_id, int loe_id, int codecool_coins) {
+    public Codecoolers(int user_id, long loe_id, int codecool_coins) {
         this.user_id = user_id;
         this.loe_id = loe_id;
         this.codecool_coins = codecool_coins;
@@ -46,11 +46,11 @@ public class Codecoolers extends User {
         this.user_id = user_id;
     }
 
-    public int getLoe_id() {
+    public long getLoe_id() {
         return loe_id;
     }
 
-    public void setLoe_id(int loe_id) {
+    public void setLoe_id(long loe_id) {
         this.loe_id = loe_id;
     }
 

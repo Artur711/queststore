@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
         int codeCoolerId = rs.getInt("codecooler_id");
         int codeCoolerUserId = rs.getInt("user_id");
-        int codeCoolerLoeId = rs.getInt("loe_id");
+        long codeCoolerLoeId = rs.getLong("exp");
         int codeCoolerCoinsId = rs.getInt("codecool_coins");
         String firstName = rs.getString("first_name");
         String lastName = rs.getString("last_name");

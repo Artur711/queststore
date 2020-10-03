@@ -61,7 +61,7 @@ CREATE TABLE Codecoolers(
 			loe_id int DEFAULT 1,
 			codecool_coins int DEFAULT 0,
 			CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES Users (user_id) ON DELETE CASCADE,
-			CONSTRAINT FK_loe_id FOREIGN KEY(loe_id) REFERENCES LOE (loe_id) ON DELETE CASCADE
+			exp int DEFAULT 0
 );
 
 CREATE TABLE Teams(
