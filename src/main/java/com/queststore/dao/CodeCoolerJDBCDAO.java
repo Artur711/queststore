@@ -102,4 +102,18 @@ public class CodeCoolerJDBCDAO implements CodeCoolerDAO {
         }
         return null;
     }
+
+    @Override
+    public void updateCoins(int userId, int coins, int itemId) {
+
+        String querySet = tranBegQuery + String.format("UPDATE Codecoolers SET codecool_coins = %d WHERE codecooler_id = %d;",coins, userId);
+
+        String queryInsert = "INSERT INTO codecooler_item (item_id, codecooler_id) VALUES";
+        query = querySet + " " + String.format("%s (%d, %d);", queryInsert, itemId, userId) + tranEndQuery;
+
+/*        query = query + tranEndQuery;*/
+
+        temp.execute(query);
+
+    }
 }

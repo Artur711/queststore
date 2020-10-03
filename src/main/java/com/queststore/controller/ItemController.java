@@ -8,10 +8,7 @@ import com.queststore.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -41,11 +38,25 @@ public class ItemController {
         return "store/items_store";
     }
 
-    @GetMapping("/buy")
-    public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser) {
+    @PostMapping("/buy")
+    public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser, @RequestParam(value = "itemId") long itemId) {
+
         model.addAttribute("id", codeService.getByUserID(loggedUser.getUserId()));
-        System.out.println();
-        return "store/update_student";
+        System.out.println(itemId);
+        int studentCoins =  codeService.getByID(loggedUser.getUserId()).getCodecool_coins();
+        int itemPrice = itemService.getById(itemId).getPrice();
+        int loggedUserId = (int)loggedUser.getUserId();
+        System.out.println(studentCoins + " " + itemPrice + " " + loggedUserId);
+
+        codeService.updateCoins(loggedUserId ,(studentCoins - itemPrice), (int)itemId);
+
+/*
+        model.addAttribute("loggedUser", loggedUser);
+*/
+
+        System.out.println(codeService.getByUserID(loggedUserId).getCodecool_coins());
+
+        return "redirect:/items_menu";
     }
 
    /* @PostMapping("team_items/buy/{id}")

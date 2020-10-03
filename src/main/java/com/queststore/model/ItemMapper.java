@@ -9,7 +9,7 @@ public class ItemMapper implements RowMapper<Item> {
 
     public Item mapRow(ResultSet rs, int i) throws SQLException {
 
-        int itemId = rs.getInt("item_id");
+        Long itemId = rs.getLong("item_id");
         String name = rs.getString("name");
         String description = rs.getString("description");
         int price = rs.getInt("price");

@@ -16,4 +16,6 @@ public interface CodeCoolerDAO {
     Codecoolers getByID(Long id);
 
     Codecoolers getByUserID(long id);
+
+    void updateCoins(int userId, int coins, int itemId);
 }

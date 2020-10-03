@@ -33,6 +33,10 @@ public class Codecoolers extends User {
         this.codecool_coins = codecool_coins;
     }
 
+    public Codecoolers(int user_id, int codecool_coins) {
+        this.codecool_coins = codecool_coins;
+    }
+
     public long getCodecooler_id() {
         return codecooler_id;
     }

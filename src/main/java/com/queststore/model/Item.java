@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class Item {
 
-    private int itemId;
+    private long itemId;
     private String name;
     private String description;
     private int price;
@@ -14,7 +14,7 @@ public class Item {
 
     public Item(){}
 
-    public Item(int itemId, String name, String description, int price, String img, int itemTypeId) {
+    public Item(Long itemId, String name, String description, int price, String img, int itemTypeId) {
         this.itemId = itemId;
         this.name = name;
         this.description = description;
@@ -23,11 +23,11 @@ public class Item {
         this.itemTypeId = itemTypeId;
     }
 
-    public int getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
 

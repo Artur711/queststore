@@ -23,6 +23,8 @@ public class CodeCoolerService {
         dao.update(codeCooler);
     }
 
+    public void updateCoins(int userId, int coins, int itemId) {dao.updateCoins(userId, coins, itemId);}
+
     public List<Codecoolers> getAll() {
         return dao.getAll();
     }

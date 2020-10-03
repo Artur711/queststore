@@ -354,7 +354,8 @@ img{
     padding: 0.6vw;
     text-align: center;
     text-decoration: none;
-    margin: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
 }
 
 div.grid-block {
@@ -430,6 +431,10 @@ div.grid-block:hover span:after{
 
 .top-margin{
     margin-top: 25vh;
+}
+
+.input-margin{
+    margin-left: 1vw;
 }
 
 /*-------------------END OF STYLE--------------------------*/

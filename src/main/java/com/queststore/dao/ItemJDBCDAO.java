@@ -44,7 +44,7 @@ public class ItemJDBCDAO implements ItemDAO {
     @Override
     public void create(Item item) {
 
-        int itemId = item.getItemId();
+        long itemId = item.getItemId();
         String name = item.getName();
         String description = item.getDescription();
         int price = item.getPrice();
