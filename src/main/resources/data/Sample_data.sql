@@ -49,11 +49,11 @@ INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values (
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Two-week assignment','Finishing two-week assignment - 100 cc per person for the team and they decide on how to share it.',2,'../photo/img/logo-quests/work/logo-work3.jpg',100);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Complete project','Complete team project.',2,'../photo/img/logo-quests/road/logo-road2.jpg',500);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Taking part in screening process','Taking part in the student screening process.',2,'../photo/img/logo-quests/mix/logo-mix6.jpg',50);
-INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Organizing a workshop','Organizing a workshop as team for other students.',2,'../photo/img/logo-quests/mix/logo-mix4.jpg',100);
+INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Organizing workshop','Organizing a workshop as team for other students.',2,'../photo/img/logo-quests/mix/logo-mix4.jpg',100);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('The best project','Students choose the best project of the week. Selected team scores.',2,'../photo/img/logo-quests/mix/logo-mix9.jpg',400);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('ERD & UML','Create ERD and UML for the project.',2,'../photo/img/logo-quests/mix/logo-mix8.jpg',250);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Learn something new','Its aint much but its honest work',2,'../photo/img/logo-quests/work/logo-work1.jpg',1);
-INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Ping-Pong Duo MASTERS','Win against a mentor duo in ping pong.',2,'../photo/img/logo-quests/pingpong/logo-ping2.jpg',404);
+INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Ping-Pong MASTERS','Win against a mentor duo in ping pong.',2,'../photo/img/logo-quests/pingpong/logo-ping2.jpg',404);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('DAO design pattern','Implement DAO pattern in your projects.',2,'../photo/img/logo-quests/base/logo-base3.jpg',800);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('MVC design pattern','Implement MVC pattern in your projects.',2,'../photo/img/logo-quests/pattern/logo-model1.jpg',250);
 INSERT INTO Quests (name, description, quest_type_id, img, quest_value) values ('Social souls','Organize an evening of board games.',2,'../photo/img/logo-items/game/logo-game4.jpg',250);
@@ -98,6 +98,9 @@ INSERT INTO Codecoolers_teams (team_id, codecooler_id) values (1,2);  ---Add Kal
 
 ---Add Item to Codecoolers
 INSERT INTO Codecooler_item (item_id, codecooler_id) values (1,1); --- Add 1st Item to Pudzianowski
+
+---Add Quest to Codecoolers
+INSERT INTO Codecoolers_quest (quest_id, codecooler_id) values (1,1); --- Add 1st Quest to Pudzianowski
 
 ---Queries 
 SELECT users.first_name, users.last_name FROM USERS INNER JOIN CODECOOLERS ON CODECOOLERS.USER_ID = USERS.USER_ID INNER JOIN LOE ON LOE.LOE_ID = CODECOOLERS.LOE_ID WHERE CODECOOLERS.LOE_ID =1;

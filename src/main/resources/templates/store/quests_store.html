@@ -7,18 +7,36 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
+<body>
+    <div class="flex-container">
+        <!--<div th:each="quest: ${quests}" th:if="${quest.questTypeId == type}">
 
-<div class="flex-container">
-    <div th:each="quest: ${quests}" th:if="${quest.questTypeId == type}">
+            <div class="grid-block">
+                <img class="img"  th:src="@{${quest.img}}"/>
+                <button class="grid-title btn" th:text="${quest.name + ' [' + quest.questValue + 'CC]'}"></button>
+                <span class="grid-description" th:text="${quest.description}" disabled></span>
+            </div>
 
-        <div class="grid-block">
-            <img class="img"  th:src="@{${quest.img}}"/>
-            <button class="grid-title btn" th:text="${quest.name + ' [' + quest.questValue + 'CC]'}"></button>
-            <span class="grid-description" th:text="${quest.description}" disabled></span>
-        </div>
+        </div>-->
 
+        <div th:each="quest: ${quests}" th:if="${quest.questTypeId == type}">
+
+            <div class="grid-block">
+                <img class="img"  th:src="@{${quest.img}}"/>
+               <!-- <div th:if="${coins >= quest.questValue}">-->
+
+                <form method="POST" th:action="@{/complete_quest}">
+                    <input type="hidden" th:name="questId" th:value="${quest.questId}"/>
+                    <input type="submit" class="grid-title btn" th:value="${quest.name + ' [' + quest.questValue + 'CC]'}"/>
+                </form>
+
+                <!--</div>
+                <div th:if="${coins < quest.questValue}">
+                    <input class="grid-title btn" th:value="${quest.name + ' [' + quest.questValue + 'CC]'}" disabled>
+                </div>-->
+                <span class="grid-description" th:text="${quest.description}" disabled></span>
+            </div>
     </div>
-</div>
 
 </body>
 </html>

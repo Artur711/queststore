@@ -23,7 +23,11 @@ public class CodeCoolerService {
         dao.update(codeCooler);
     }
 
-    public void updateCoins(int userId, int coins, int itemId) {dao.updateCoins(userId, coins, itemId);}
+    public void updateCodecoolerItems(int userId, int coins, int itemId) {dao.updateCodecoolerItems(userId, coins, itemId);}
+
+    public void complateQuest(int userId, int coins, int questId){dao.updateCodecoolerQuests(userId, coins, questId);};
+
+    public void addItem(int userId, int itemId){};
 
     public List<Codecoolers> getAll() {
         return dao.getAll();
