@@ -579,7 +579,7 @@ div.grid-block:hover span:after{
 }
 
 .button-update, .button-remove {
-    width: 12%;
+    width: 12vw;
     border-radius: 1vw;
     font-size: 150%;
     color: rgb(250, 180, 2);

@@ -32,22 +32,22 @@ public class ItemController {
 
 
     @GetMapping("/items_store/{type}")
-    public String getQuestList(@PathVariable("type") int type,@SessionAttribute("loggedUser") User loggedUser, Model model){
+    public String getQuestList(@PathVariable("type") int type, @SessionAttribute("loggedUser") User loggedUser, Model model) {
         model.addAttribute("coins", codeService.getByUserID(loggedUser.getUserId()).getCodecool_coins());
         model.addAttribute("items", itemService.getAll());
         return "store/items_store";
     }
 
 
-    @GetMapping("/buy")
+    @PostMapping("/buy")
     public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser, @RequestParam(value = "itemId") long itemId) {
 
         model.addAttribute("id", codeService.getByUserID(loggedUser.getUserId()));
-        int studentCoins =  codeService.getByID(loggedUser.getUserId()).getCodecool_coins();
+        int studentCoins = codeService.getByID(loggedUser.getUserId()).getCodecool_coins();
         int itemPrice = itemService.getById(itemId).getPrice();
-        int loggedUserId = (int)loggedUser.getUserId();
+        int loggedUserId = (int) loggedUser.getUserId();
 
-        codeService.updateCodecoolerItems(loggedUserId ,(studentCoins - itemPrice), (int)itemId);
+        codeService.updateCodecoolerItems(loggedUserId, (studentCoins - itemPrice), (int) itemId);
 
         return "redirect:/items_menu";
     }
