@@ -18,7 +18,7 @@ public class ExperienceController {
     }
 
     @GetMapping("/experiences")
-    public String getExperience(Model model) {
+    public String getExperience(Model model, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("experience", service.getExperience());
         model.addAttribute("level", new Experience());
         model.addAttribute("exp", new Experience());
@@ -42,7 +42,7 @@ public class ExperienceController {
 
 
     @GetMapping("/delete_level/{id}")
-    public String removeLevel(@PathVariable("id") int id, Model model) {
+    public String removeLevel(@PathVariable("id") int id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
         service.delete(id);
         model.addAttribute("experience", service.getExperience());
         return "redirect:/experiences";
