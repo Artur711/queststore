@@ -58,10 +58,9 @@ CREATE TABLE LOE(
 CREATE TABLE Codecoolers(
 			codecooler_id SERIAL PRIMARY KEY,
 			user_id int NOT NULL,
-			loe_id int DEFAULT 1,
+			exp int DEFAULT 0,
 			codecool_coins int DEFAULT 0,
-			CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES Users (user_id) ON DELETE CASCADE,
-			exp int DEFAULT 0
+			CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES Users (user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Teams(
@@ -115,6 +114,7 @@ CREATE TABLE Codecooler_item(
 			codecooler_item_id SERIAL PRIMARY KEY,
 			item_id int NOT NULL,
 			codecooler_id int NOT NULL,
+			used int DEFAULT 1,
 			CONSTRAINT FK_item_id FOREIGN KEY(item_id) REFERENCES Items (item_id) ON DELETE CASCADE,
 			CONSTRAINT FK_codecooler_id FOREIGN KEY(codecooler_id) REFERENCES Codecoolers (codecooler_id) ON DELETE CASCADE
 );
