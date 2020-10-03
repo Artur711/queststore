@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My items list</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <!--    <script src="js/item.js" defer></script>-->
+</head>
+<body>
+
+    <div th:switch="${my_items}">
+        <div th:case="null">
+            <div class="list-menu">
+                <h2 class="button-remove is-center">No items yet!</h2>
+            </div>
+        </div>
+
+        <div th:case="*">
+            <div th:each="item: ${my_items}">
+                <nav>
+                    <input class="list-menu input-update" type="text" th:value="${item.name}" disabled>
+                    <div th:switch="${item.used}">
+                        <div th:case=1>
+                            <a th:href="@{use_item/{id}(id=${item.codeCoolerItemID})}"><input class="list-menu button-update" type="submit" th:value="USE"></a>
+                        </div>
+                        <div th:case=0>
+                            <input class="list-menu button-remove" type="submit" th:value="USED" disabled>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

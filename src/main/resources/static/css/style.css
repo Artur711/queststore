@@ -814,11 +814,11 @@ textarea {
     }
 
     .input-update {
-        width: 42%;
+        width: 42vw;
     }
 
     .button-update, .button-remove {
-        width: 35%;
+        width: 35vw;
     }
 
     #right-section {

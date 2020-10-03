@@ -97,7 +97,7 @@ INSERT INTO Users_classrooms (user_id, class_id) values (2,1);	---Kalamaga to AK
 INSERT INTO Codecoolers_teams (team_id, codecooler_id) values (1,2);  ---Add Kalamaga to AK team
 
 ---Add Item to Codecoolers
-INSERT INTO Codecooler_item (item_id, codecooler_id) values (1,1); --- Add 1st Item to Pudzianowski
+INSERT INTO Codecooler_item (item_id, codecooler_id, used) values (1,1,1); --- Add 1st Item to Pudzianowski
 
 ---Add Quest to Codecoolers
 INSERT INTO Codecoolers_quest (quest_id, codecooler_id) values (1,1); --- Add 1st Quest to Pudzianowski
