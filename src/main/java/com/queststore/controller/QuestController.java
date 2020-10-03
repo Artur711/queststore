@@ -44,6 +44,6 @@ public class QuestController {
 
         codeService.complateQuest(loggedUserId ,(studentCoins + questPrice), (int)questId);
 
-        return "redirect:/welcome_page";
+        return "redirect:/quests_menu";
     }
 }

@@ -38,26 +38,17 @@ public class ItemController {
         return "store/items_store";
     }
 
-    @PostMapping("/buy")
+
+    @GetMapping("/buy")
     public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser, @RequestParam(value = "itemId") long itemId) {
 
         model.addAttribute("id", codeService.getByUserID(loggedUser.getUserId()));
         int studentCoins =  codeService.getByID(loggedUser.getUserId()).getCodecool_coins();
         int itemPrice = itemService.getById(itemId).getPrice();
         int loggedUserId = (int)loggedUser.getUserId();
-        System.out.println(studentCoins + " " + itemPrice + " " + loggedUserId);
 
         codeService.updateCodecoolerItems(loggedUserId ,(studentCoins - itemPrice), (int)itemId);
 
-
-        return "redirect:/welcome_page";
+        return "redirect:/items_menu";
     }
-
-   /* @PostMapping("team_items/buy/{id}")
-    public String buyTeamItem(@PathVariable("id") long id, @Valid Codecoolers codecooler, BindingResult result, Model model){
-        if (result.hasErrors()) {
-            return "update_student";
-        }
-        return "redirect:/team_items";
-    }*/
 }
