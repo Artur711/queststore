@@ -34,7 +34,7 @@ public class CC_ClassController {
     public String getListOfAllClasses(Model model){
         List<CC_Class> allClass = classService.getAllClasses();
         model.addAttribute("allClasses", allClass);
-        return "my_class_list";
+        return "collaboration/my_class_list";
     }
 
 
@@ -48,7 +48,7 @@ public class CC_ClassController {
         List<Codecoolers> studentsList = codeCoolerService.getAll();
         model.addAttribute("mentors", membersList);
         model.addAttribute("students", studentsList);
-        return "add_new_class";
+        return "collaboration/add_new_class";
     }
 
     @GetMapping("/add_the_class")
@@ -96,7 +96,7 @@ public class CC_ClassController {
     @PostMapping("/add_class")
     public String addTheClass(Model model, @Valid CC_Class cc_class){
         classService.create(cc_class);
-        return "add_new_class";
+        return "collaboration/add_new_class";
     }
 
     @GetMapping("/delete_class/{id}")
