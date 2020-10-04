@@ -38,6 +38,7 @@ public class CC_classJDBCDAO implements CC_classDAO {
         });
         query = tranBegQuery;
         List<User> userList = cc_class.getMentors();
+        userList.addAll(cc_class.getStudents());
         if (userList != null) {
             for (User mentor : userList
             ) {

@@ -3,6 +3,7 @@ package com.queststore.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.util.Objects;
 
 @Entity
 public class User {
@@ -58,6 +59,26 @@ public class User {
         this.password = password;
         this.photoUrl = photoUrl;
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getUserId() == user.getUserId() &&
+                getPhoneNumber() == user.getPhoneNumber() &&
+                getUserType() == user.getUserType() &&
+                Objects.equals(getFirstName(), user.getFirstName()) &&
+                Objects.equals(getLastName(), user.getLastName()) &&
+                Objects.equals(getEmail(), user.getEmail()) &&
+                Objects.equals(getPassword(), user.getPassword()) &&
+                Objects.equals(getPhotoUrl(), user.getPhotoUrl());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserId(), getFirstName(), getLastName(), getEmail(), getPassword(), getPhotoUrl(), getPhoneNumber(), getUserType());
     }
 
     public long getUserId() {
