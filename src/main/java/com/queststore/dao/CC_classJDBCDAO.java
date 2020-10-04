@@ -64,6 +64,7 @@ public class CC_classJDBCDAO implements CC_classDAO {
 
     @Override
     public List<CC_Class> getAll() {
-        return null;
+
+        return temp.query("select * from classrooms", new CC_classMapper());
     }
 }

@@ -48,6 +48,11 @@ public class CC_Class {
         this.students = students;
     }
 
+    public CC_Class(int classId, String className) {
+        this.classId = classId;
+        this.name = className;
+    }
+
     public Integer getClassId() {
         return classId;
     }

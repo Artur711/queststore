@@ -30,6 +30,14 @@ public class CC_ClassController {
         this.listOfChosenStudents = new ArrayList<>();
     }
 
+    @GetMapping("/all_classes")
+    public String getListOfAllClasses(Model model){
+        List<CC_Class> allClass = classService.getAllClasses();
+        model.addAttribute("allClasses", allClass);
+        return "my_class_list";
+    }
+
+
     @GetMapping("/add_class")
     public String addClassTest(Model model, CC_Class cc_class) {
         model.addAttribute("cc_class", new CC_Class());
@@ -65,7 +73,7 @@ public class CC_ClassController {
         classService.create(new CC_Class(name, listOfChosenMentors, listOfChosenStudents));
         listOfChosenMentors.clear();
         listOfChosenStudents.clear();
-        return "redirect:/add_class";
+        return "redirect:/all_classes";
     }
 
     @GetMapping("/delete_student/{id}")
@@ -94,7 +102,7 @@ public class CC_ClassController {
     @GetMapping("/delete_class/{id}")
     public String deleteTheClass(@PathVariable("id") Integer id){
         classService.deleteTheClass(id);
-        return "redirect:/add_new_class";
+        return "redirect:/all_classes";
     }
 
 }
