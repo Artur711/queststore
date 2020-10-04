@@ -45,11 +45,6 @@ public class CC_classJDBCDAO implements CC_classDAO {
                 query = query + " " + String.format("INSERT into users_classrooms (user_id, class_id) VALUES (%d, %d);", mentor.getUserId(), class_id);
             }
         }
-//        List<Codecoolers> ccList = cc_class.getStudents();
-//        for (Codecoolers cc : ccList
-//        ) {
-//            query = query + " " + String.format("INSERT into users_classrooms (user_id, class_id) VALUES (%d, %d);", cc.getUserId(), class_id);
-//        }
         query = query + tranEndQuery;
         System.out.println(query);
         temp.execute(query);

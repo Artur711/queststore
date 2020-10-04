@@ -6,15 +6,12 @@ import com.queststore.model.User;
 import com.queststore.service.CC_ClassService;
 import com.queststore.service.CodeCoolerService;
 import com.queststore.service.MentorService;
-import org.springframework.jca.cci.core.support.CciDaoSupport;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -43,14 +40,6 @@ public class CC_ClassController {
         List<Codecoolers> studentsList = codeCoolerService.getAll();
         model.addAttribute("mentors", membersList);
         model.addAttribute("students", studentsList);
-//
-////        Casting Students into Mentors in order to make action on one list instead of two while creating
-//        List<User> studentsList;
-//        studentsList = Collections.unmodifiableList(codeCoolerService.getAll());
-//        membersList.addAll(studentsList);
-//
-//        CC_Class newClass = new CC_Class("dupa dupa", membersList);
-//        classService.create(newClass);
         return "add_new_class";
     }
 
@@ -59,7 +48,6 @@ public class CC_ClassController {
         Long userId = Long.parseLong(user);
         User chosenOne = mentorService.getMentorById(userId);
         listOfChosenMentors.add(chosenOne);
-//        model.addAttribute("listOfChosenMentors", listOfChosenMentors);
         return "redirect:/add_class";
    }
 
@@ -74,7 +62,6 @@ public class CC_ClassController {
     @PostMapping("/add_the_class")
     public String addTheClass(Model model, @RequestParam(value = "name") String name){
         System.out.println(name);
-//        listOfChosenMentors.addAll(Collections.unmodifiableList(listOfChosenStudents));
         classService.create(new CC_Class(name, listOfChosenMentors, listOfChosenStudents));
         listOfChosenMentors.clear();
         listOfChosenStudents.clear();
@@ -107,7 +94,7 @@ public class CC_ClassController {
     @GetMapping("/delete_class/{id}")
     public String deleteTheClass(@PathVariable("id") Integer id){
         classService.deleteTheClass(id);
-        return "add_new_class";
+        return "redirect:/add_new_class";
     }
 
 }
