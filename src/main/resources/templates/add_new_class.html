@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new class</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+</head>
+<body>
+<form id="form" action="#" th:action="@{/add_the_class}" th:object="${cc_class}" method="get">
+
+    <div class="class-menu-container">
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Chose
+            mentor for class
+        </div>
+        <select name="user" id="user" class="class-block-menu add-new-class-buttons mentor-select">
+            <option th:each="user: ${mentors}"
+                    th:value="${user.userId}"
+                    th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
+            </option>
+        </select>
+        <input type="submit" id="savebutton" class="class-block-menu add-new-class-buttons" value="CONFIRM">
+    </div>
+</form>
+
+<form id="form" action="#" th:action="@{/add_the_student_to_class}" th:object="${cc_class}" method="get">
+    <div class="class-menu-container">
+
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Add
+            Students for class
+        </div>
+        <select name="student" id="student" class="class-block-menu add-new-class-buttons mentor-select">
+            <option th:each="user: ${students}"
+                    th:value="${user.userId}"
+                    th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
+            </option>
+        </select>
+        <input type="submit" id="savebutton" class="class-block-menu add-new-class-buttons" value="CONFIRM">
+    </div>
+</form>
+<form id="form2" action="#" th:action="@{/add_the_class/}" th:object="${listOfChosenMentors}" method="post">
+
+    <div class="class-menu-container" th:object="${cc_class}">
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            New
+            Class
+        </div>
+        <label for="name"></label>
+        <input id="name" class="class_header class-block-menu add-new-class-buttons" type="text" style="height: 75px"
+               th:value="${cc_class.name}" th:field="*{name}" th:name="name"
+               th:placeholder="${'Type Name of New Class'}">
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Chosen Mentors
+        </div>
+        <table>
+            <th:block th:each="user : ${listOfChosenMentors}">
+                <tr>
+                    <td th:text="${user.firstName} + ' ' + ${user.lastName}"
+                        class="class-block-menu add-new-class-buttons mentor-select"></td>
+
+
+                    <td>
+                        <a th:href="@{delete_user/{id}(id=${user.userId})}"
+                           class="button-remove">Remove</a>
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+
+
+        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
+            Added
+            Students
+        </div>
+
+        <table>
+            <th:block th:each="user : ${listOfChosenStudents}">
+                <tr>
+                    <td th:text="${user.firstName} + ' ' + ${user.lastName}"
+                        class="class-block-menu add-new-class-buttons mentor-select"></td>
+
+
+                    <td>
+                        <a th:href="@{delete_student/{id}(id=${user.userId})}"
+                           class="button-remove">Remove</a>
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+        <br>
+        <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+
+    </div>
+
+</form>
+<script src="js/script.js"></script>
+
+</body>
+</html>

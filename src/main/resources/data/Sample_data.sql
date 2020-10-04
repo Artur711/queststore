@@ -9,6 +9,8 @@ INSERT INTO Users_types (user_type_name) values ('ADMIN');
 INSERT INTO Users (first_name, last_name, email, password, user_type, phone) values ('MARIUSZ','PUDZIANOWSKI', 'pudzian@gmial.com', '1234m',1,1234567);
 INSERT INTO Users (first_name, last_name, email, password, user_type, phone) values ('MARIUSZ','KALAMAGA', 'kala@gmial.com', '1234k',1,1234567);
 INSERT INTO Users (first_name, last_name, email, password, user_type, phone) values ('MARIUSZ','KOLONKO', 'max@gmial.com', '1234mk',2,1234567);
+INSERT INTO Users (first_name, last_name, email, password, user_type, phone) values ('ZENEK','MARTYNIUK', 'max@gmial.com', '1234mk',2,1234567);
+INSERT INTO Users (first_name, last_name, email, password, user_type, phone) values ('SLAWOMIR','ZAPALA', 'max@gmial.com', '1234mk',2,1234567);
 INSERT INTO Users (first_name, last_name, email, password, user_type, phone) values ('MARIUSZ','WACH', 'wachu@gmial.com', '1234w',3,1234567);
 
 

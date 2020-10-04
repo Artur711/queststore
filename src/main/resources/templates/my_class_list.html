@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>My class list</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+</head>
+<body>
+
+
+
+<div class="list-menu-container list-menu-container-ex">
+
+    <tbody th:each="class: ${allClasses}">
+
+    <div class="list-menu">
+        <input class="input-update"  th:value="${class.classId}" disabled>
+        <input class="input-update"  th:value="${class.name}" disabled>
+        <a th:href="@{class_edit/{id}(id=${class.classId})}" class="button-update">Edit</a>
+        <a th:href="@{delete_class/{id}(id=${class.classId})}" class="button-remove">Remove</a>
+    </div>
+    </tbody>
+
+
+
+
+<!--    <div class="block-list-menu"><input class="input-update" type="text" value="Class" disabled></div>-->
+<!--    <div class="block-list-menu"><input class="input-update" type="text" value="Class A" disabled></div>-->
+<!--    <div class="block-list-menu"><input class="input-update" type="text" value="20/25" disabled></div>-->
+    <div class="block-list-menu" style="background-color: #dfdbc3">
+
+        <a th:href="@{add_class/}">
+        <button class="button-update">New Class</button></a>
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
