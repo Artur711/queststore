@@ -20,7 +20,7 @@ public class CodeCoolerMenuController {
 
     @GetMapping("/codecooler_menu")
     public String getMentorMenu(Model model, @SessionAttribute("loggedUser") User loggedUser) {
-        model.addAttribute("menu", service.getByUserID(loggedUser.getUserId()));
+//        model.addAttribute("menu", service.getByUserID(loggedUser.getUserId()));
         return "menu/codecooler_menu";
     }
 

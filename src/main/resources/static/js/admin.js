@@ -7,7 +7,7 @@ function clickCell(index) {
         document.getElementById('iframe').src = "/admins_list";
     } else if (subpage.innerText === 'Classes') {
         //to implement
-        document.getElementById('iframe').src = "/mentor_class_list";
+        document.getElementById('iframe').src = "/all_classes";
     } else if (subpage.innerText === 'Mentors') {
         document.getElementById('iframe').src = "/mentors_list";
     } else if (subpage.innerText === 'Codecoolers') {

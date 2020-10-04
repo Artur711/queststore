@@ -3,7 +3,7 @@ function clickCell(index) {
     const subpage = document.getElementById(id);
 
     if (subpage.innerText === 'Classes') {
-        document.getElementById('iframe').src = "/mentor_class_list";
+        document.getElementById('iframe').src = "/all_classes";
     } else if (subpage.innerText === 'Codecoolers') {
         // document.getElementById('iframe').src = 'student_list.html';
         document.getElementById('iframe').src = "/student_list";
