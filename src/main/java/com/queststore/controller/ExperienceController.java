@@ -18,37 +18,22 @@ public class ExperienceController {
     }
 
     @GetMapping("/experiences")
-    public String getExperience(Model model, @SessionAttribute("loggedUser") User loggedUser) {
+    public String getExperience(Model model) {
         model.addAttribute("experience", service.getExperience());
         model.addAttribute("level", new Experience());
         return "other/experiences_levels";
     }
 
     @PostMapping("add_level")
-    public String create(@ModelAttribute Experience level, Model model) {
+    public String create(@ModelAttribute Experience level) {
         service.create(level);
         return "redirect:/experiences";
     }
 
-    /*@GetMapping("/edit_level/{id}")
-    public String updateLevel(@PathVariable("id") int id, Model model) {
-        Experience level = service.getExperience().get(id);
-        level.setValue(20);
-        service.update(level);
-        ;
-        return "redirect:/experiences";
-    }*/
-
-
     @GetMapping("/delete_level/{id}")
-    public String removeLevel(@PathVariable("id") int id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
+    public String removeLevel(@PathVariable("id") int id, Model model) {
         service.delete(id);
         model.addAttribute("experience", service.getExperience());
         return "redirect:/experiences";
-    }
-
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handle() {
-        return "redirect:/index";
     }
 }

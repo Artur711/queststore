@@ -21,14 +21,14 @@ public class CodeCoolerController {
     }
 
     @GetMapping("/student_list")
-    public String getStudentsList(Model model, @SessionAttribute("loggedUser") User loggedUser){
+    public String getStudentsList(Model model){
         model.addAttribute("students", service.getAll());
         return "codecooler/student_list";
     }
 
 
     @GetMapping("/add_codecooler")
-    public String addTheCodeCooler(Codecoolers codecooler, @SessionAttribute("loggedUser") User loggedUser){
+    public String addTheCodeCooler(Codecoolers codecooler){
         return "codecooler/add_codecooler";
     }
 
@@ -40,7 +40,7 @@ public class CodeCoolerController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editTheCodeCooler(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
+    public String editTheCodeCooler(@PathVariable("id") long id, Model model) {
         Codecoolers codecooler = service.getByID(id);
         model.addAttribute("codecooler", codecooler);
         return "codecooler/update_student";
@@ -59,14 +59,9 @@ public class CodeCoolerController {
     }
 
     @GetMapping("/delete/{id}")
-    public String removeCodeCooler(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
+    public String removeCodeCooler(@PathVariable("id") long id, Model model) {
         service.delete(id);
         model.addAttribute("students", service.getAll());
         return "redirect:/student_list";
-    }
-
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handle() {
-        return "redirect:/index";
     }
 }

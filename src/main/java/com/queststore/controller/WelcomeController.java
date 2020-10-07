@@ -16,9 +16,4 @@ public class WelcomeController {
         model.addAttribute("welcome", loggedUser);
         return "other/welcome_page";
     }
-
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handler() {
-        return "redirect:/index";
-    }
 }
