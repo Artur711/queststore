@@ -23,9 +23,4 @@ public class CodeCoolerMenuController {
 //        model.addAttribute("menu", service.getByUserID(loggedUser.getUserId()));
         return "menu/codecooler_menu";
     }
-
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handle() {
-        return "redirect:/index";
-    }
 }

@@ -12,13 +12,9 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class MentorMenuController {
 
     @GetMapping("/mentor_menu")
-    public String getMentorMenu(Model model, @SessionAttribute("loggedUser") User loggedUser) {
+    public String getMentorMenu(Model model) {
         model.addAttribute("menu", null);
         return "menu/mentor_menu";
     }
 
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handle() {
-        return "redirect:/index";
-    }
 }

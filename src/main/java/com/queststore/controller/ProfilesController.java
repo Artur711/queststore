@@ -69,9 +69,4 @@ public class ProfilesController {
         mentorService.updateMentor(loggedUser);
         return loggedUser;
     }
-
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handle() {
-        return "redirect:/index";
-    }
 }

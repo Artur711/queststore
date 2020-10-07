@@ -32,10 +32,4 @@ public class CodeCoolerItemsController {
         String str = "select codecooler_item.*, items.name  from items inner join codecooler_item on codecooler_item.item_id = items.item_id;";
         return "redirect:/my_items";
     }
-
-
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handle() {
-        return "redirect:/index";
-    }
 }

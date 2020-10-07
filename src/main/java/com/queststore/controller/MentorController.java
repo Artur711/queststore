@@ -19,15 +19,15 @@ public class MentorController {
     }
 
     @GetMapping("/mentors_list")
-    public String allMentorsList(Model model, @SessionAttribute("loggedUser") User loggedUser){
+    public String allMentorsList(Model model){
         model.addAttribute("mentors", mentorService.getAllMentors());
         return "mentor/mentors_list";
     }
 
     @GetMapping("/add_mentor")
-    public String addNewMentor(User user, @SessionAttribute("loggedUser") User loggedUser){
+    public String addNewMentor(User user){
     return "mentor/add_mentor";
-    };
+    }
 
     @PostMapping("/add_mentor")
     public String addTheMentor(Model model, @Valid User mentor){
@@ -36,7 +36,7 @@ public class MentorController {
     }
 
     @GetMapping("/mentor_edit/{id}")
-        public String mentorEdition(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser){
+        public String mentorEdition(@PathVariable("id") long id, Model model){
         User mentor = mentorService.getMentorById(id);
         model.addAttribute("user", mentor);
         return "mentor/update_mentor";
@@ -50,13 +50,8 @@ public class MentorController {
     }
 
     @GetMapping("/mentor_delete/{id}")
-    public String deleteTheMentor(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser){
+    public String deleteTheMentor(@PathVariable("id") long id){
         mentorService.deleteTheMentor(id);
         return "redirect:/mentors_list";
-    }
-
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String handle() {
-        return "redirect:/index";
     }
 }
