@@ -1,23 +1,35 @@
 package com.queststore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "users")
 public class User {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private long userId;
 
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
     private String email;
     private String password;
+
+    @Column(name = "photo_url")
     private String photoUrl;
+
+    @Column(name = "phone_number")
     private int phoneNumber;
+
+    @Column(name = "user_type")
     private int userType;
 
     public User() {

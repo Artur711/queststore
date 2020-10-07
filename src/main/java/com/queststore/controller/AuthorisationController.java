@@ -1,9 +1,8 @@
 package com.queststore.controller;
 
-import com.queststore.dao.ExperienceDAO;
 import com.queststore.dao.UserLoginDAO;
 import com.queststore.model.User;
-import com.queststore.service.ExperienceService;
+import com.queststore.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +20,10 @@ import java.util.Optional;
 @SessionAttributes("loggedUser")
 public class AuthorisationController {
 
-    private final UserLoginDAO userLoginDAO;
+    private final UserRepository userRepository;
 
-    public AuthorisationController(UserLoginDAO userLoginDAO) {
-        this.userLoginDAO = userLoginDAO;
+    public AuthorisationController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
 
@@ -39,7 +38,7 @@ public class AuthorisationController {
     public void processLoginAttempt(HttpServletRequest request,
                                     HttpServletResponse response,
                                     @ModelAttribute("user") User user) throws IOException {
-        Optional<User> maybeUser = Optional.ofNullable(userLoginDAO.getUser(user.getLastName(), user.getPassword()));
+        Optional<User> maybeUser = Optional.ofNullable(userRepository.findUserByLastNameAndPassword(user.getLastName(), user.getPassword()));
         if (maybeUser.isPresent()) {
             HttpSession session = request.getSession(true);
             session.setAttribute("loggedUser", maybeUser.get());
