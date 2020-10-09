@@ -24,15 +24,12 @@ public class CodeCoolerItems {
     @Column(name = "codeCooler_id")
     private long codeCoolerID;
 
-    private int used;
+    private String used;
 
-    private String name;
-
-    public CodeCoolerItems(long codeCoolerItemID, int itemID, long codeCoolerID, int used, String name) {
+    public CodeCoolerItems(long codeCoolerItemID, int itemID, long codeCoolerID, String used) {
         this.codeCoolerItemID = codeCoolerItemID;
         this.itemID = itemID;
         this.codeCoolerID = codeCoolerID;
         this.used = used;
-        this.name = name;
     }
 }

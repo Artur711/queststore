@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "codeCooler_items")
+@Table(name = "Classrooms")
 public class CC_Class {
 
     @GeneratedValue(strategy = GenerationType.AUTO)

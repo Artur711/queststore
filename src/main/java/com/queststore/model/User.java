@@ -34,12 +34,12 @@ public class User {
     private String photoUrl;
 
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private long phoneNumber;
 
     @Column(name = "user_type")
     private int userType;
 
-    public User(long userId, String firstName, String lastName, String email, String password, String photoUrl, int phoneNumber, int userType) {
+    public User(long userId, String firstName, String lastName, String email, String password, String photoUrl, long phoneNumber, int userType) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
