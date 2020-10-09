@@ -1,25 +1,34 @@
 package com.queststore.model;
 
-import javax.persistence.Entity;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "quests")
 public class Quest {
-    private long questId;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "quest_id")
+    private @Id @Setter(AccessLevel.PROTECTED) long questId;
+
     private String name;
+
     private String description;
+
+    @Column(name = "quest_type_id")
     private int questTypeId;
+
     private String img;
+
+    @Column(name = "quest_value")
     private int questValue;
-
-    public Quest(){}
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
 
     public Quest(long questId, String name, String description, int questTypeId, String img, int questValue) {
         this.questId = questId;
@@ -27,46 +36,6 @@ public class Quest {
         this.description = description;
         this.questTypeId = questTypeId;
         this.img = img;
-        this.questValue = questValue;
-    }
-
-    public long getQuestId() {
-        return questId;
-    }
-
-    public void setQuestId(long questId) {
-        this.questId = questId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getQuestTypeId() {
-        return questTypeId;
-    }
-
-    public void setQuestTypeId(int questTypeId) {
-        this.questTypeId = questTypeId;
-    }
-
-    public int getQuestValue() {
-        return questValue;
-    }
-
-    public void setQuestValue(int questValue) {
         this.questValue = questValue;
     }
 }

@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class QuestStoreConfiguration {
 
-
     @Bean
     public FilterRegistrationBean<AuthorizationFilter> authorizationFilter() {
         FilterRegistrationBean<AuthorizationFilter> registrationBean = new FilterRegistrationBean<>();
