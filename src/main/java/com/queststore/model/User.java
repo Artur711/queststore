@@ -1,6 +1,5 @@
 package com.queststore.model;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +18,7 @@ public class User {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private @Id @Setter(AccessLevel.PROTECTED) long userId;
+    private @Id long userId;
 
     @Column(name = "first_name")
     private String firstName;
