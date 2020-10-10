@@ -259,6 +259,7 @@ section {
 }
 
 #left-section {
+    width: 35vw;
     margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
@@ -266,7 +267,7 @@ section {
 }
 
 #right-section {
-    width: 42%;
+    width: 60vw;
     height: max-content;
     margin: auto;
 }

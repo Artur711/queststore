@@ -8,12 +8,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
-<div id="right-section">
+<div class="list-menu">
     <br>
-
-    <h5 class="is-center headline"> Add new Mentor</h5>
-    <nav>
-        <img alt="Profile photo" class="pure-profile-photo add-entity-photo" th:src="@{/photo/profile/lord.webp}" src="../static/photo/profile/lord.webp">
+    <div id="left-section">
+        <nav>
+            <img alt="Profile photo" class="pure-profile-photo profile-photo" th:src="@{/photo/profile/lord.webp}" src="../static/photo/profile/lord.webp">
+        </nav>
+    </div>
+    <div id="right-section" class="black-color">
         <form id="form" action="#" th:action="@{/add_mentor}" th:object="${user}" method="post">
             <nav>
                 <h5 class="is-center pure-item sub-section3 entity-input">User firstname</h5>
@@ -53,7 +55,7 @@
                 <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
             </nav>
         </form>
-    </nav>
+    </div>
     <script defer src="js/Add_entity.js"></script>
 </div>
 </body>

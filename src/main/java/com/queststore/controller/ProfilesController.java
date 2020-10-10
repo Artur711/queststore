@@ -1,15 +1,15 @@
 package com.queststore.controller;
 
+import com.queststore.model.CodeCooler;
 import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
 import com.queststore.service.ExperienceService;
 import com.queststore.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
 
-//@Controller
+@Controller
 public class ProfilesController {
 
     private UserService mentorService;
@@ -48,10 +48,10 @@ public class ProfilesController {
 
     @GetMapping("/codecooler_profile")
     public String getCodecoolerProfile(Model model, @SessionAttribute("loggedUser") User loggedUser) {
-//        Codecoolers codecoolers = codeCoolerService.getByUserID(loggedUser.getUserId());
+        CodeCooler codeCooler = codeCoolerService.getCodeCoolerById(loggedUser.getUserId());
         model.addAttribute("profile", loggedUser);
-//        model.addAttribute("codecooler", codecoolers);
-//        model.addAttribute("loe", experienceService.getLevel(codecoolers.getLoe_id()));
+        model.addAttribute("codecooler", codeCooler);
+        model.addAttribute("loe", experienceService.getLevel(codeCooler.getExp()));
         return "codecooler/codecooler_profile_page";
     }
 

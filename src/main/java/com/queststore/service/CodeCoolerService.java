@@ -1,48 +1,42 @@
 package com.queststore.service;
 
-import com.queststore.dao.CodeCoolerDAO;
 import com.queststore.model.CodeCooler;
+import com.queststore.repository.CodeCoolerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Service
+@Service
 public class CodeCoolerService {
-//    private final CodeCoolerDAO dao;
-//
-//
-//    public CodeCoolerService(CodeCoolerDAO dao) {
-//        this.dao = dao;
-//    }
-//
-//    public void create(CodeCooler codeCooler) {
-//       dao.create(codeCooler);
-//    }
-//
-//    public void update(Codecoolers codeCooler) {
-//        dao.update(codeCooler);
-//    }
-//
+
+    private CodeCoolerRepository repository;
+
+    public CodeCoolerService(CodeCoolerRepository repository) {
+        this.repository = repository;
+    }
+
+    public void create(CodeCooler codeCooler) {
+        codeCooler.setUserType(1);
+        repository.save(codeCooler);
+    }
+
 //    public void updateCodecoolerItems(int userId, int coins, int itemId) {dao.updateCodecoolerItems(userId, coins, itemId);}
-//
+
 //    public void complateQuest(int userId, int coins, int questId){dao.updateCodecoolerQuests(userId, coins, questId);};
-//
+
 //    public void addItem(int userId, int itemId){};
-//
-//    public List<Codecoolers> getAll() {
-//        return dao.getAll();
-//    }
-//
-//    public void delete(Long id) {
-//        dao.delete(id);
-//    }
-//
-//    public Codecoolers getByID(Long id) {
-//        return dao.getByID(id);
-//    }
-//
-//    public Codecoolers getByUserID(long id) {
-//        return dao.getByUserID(id);
-//    }
+
+    public List<CodeCooler> getAll() {
+        return repository.findAll();
+    }
+
+    public CodeCooler getCodeCoolerById(long id){
+        List<CodeCooler> codeCoolerList = repository.findAll();
+        return codeCoolerList.stream().filter(user -> user.getUserId() == id).findAny().orElse(null);
+    }
+
+    public void delete(Long id) {
+        repository.delete(getCodeCoolerById(id));
+    }
 
 }

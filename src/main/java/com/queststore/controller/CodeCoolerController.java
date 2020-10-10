@@ -1,7 +1,6 @@
 package com.queststore.controller;
 
 import com.queststore.model.CodeCooler;
-import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +8,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
-//@Controller
+@Controller
 public class CodeCoolerController {
 
     private final CodeCoolerService service;
@@ -21,27 +21,29 @@ public class CodeCoolerController {
 
     @GetMapping("/student_list")
     public String getStudentsList(Model model){
-//        model.addAttribute("students", service.getAll());
+        List<CodeCooler> codeCoolerList = service.getAll();
+        model.addAttribute("students", service.getAll());
         return "codecooler/student_list";
     }
 
 
     @GetMapping("/add_codecooler")
-    public String addTheCodeCooler(CodeCooler codecooler){
+    public String addTheCodeCooler(Model model, CodeCooler codeCooler){
+        model.addAttribute("codeCooler", codeCooler);
         return "codecooler/add_codecooler";
     }
 
     @PostMapping("/add_codecooler")
     public String addCodeCooler(Model model, @Valid CodeCooler codeCooler){
-//        service.create(codeCooler);
-//        model.addAttribute("codecoolers", service.getAll());
+        service.create(codeCooler);
+        model.addAttribute("codecoolers", service.getAll());
         return "redirect:/student_list";
     }
 
     @GetMapping("/edit/{id}")
     public String editTheCodeCooler(@PathVariable("id") long id, Model model) {
-//        Codecoolers codecooler = service.getByID(id);
-//        model.addAttribute("codecooler", codecooler);
+        CodeCooler codeCooler = service.getCodeCoolerById(id);
+        model.addAttribute("codecooler", codeCooler);
         return "codecooler/update_student";
     }
 
@@ -50,17 +52,17 @@ public class CodeCoolerController {
         if (result.hasErrors()) {
             return "codecooler/update_student";
         }
-//        codeCooler.setCodecooler_id(id);
-//        codeCooler.setUser_id(service.getByID(id).getUser_id());
-//        service.update(codeCooler);
-//        model.addAttribute("students", service.getAll());;
+        codeCooler.setUserId(id);
+        codeCooler.setUserId(service.getCodeCoolerById(id).getUserId());
+        service.create(codeCooler);
+        model.addAttribute("students", service.getAll());;
         return "redirect:/student_list";
     }
 
     @GetMapping("/delete/{id}")
     public String removeCodeCooler(@PathVariable("id") long id, Model model) {
-//        service.delete(id);
-//        model.addAttribute("students", service.getAll());
+        service.delete(id);
+        model.addAttribute("students", service.getAll());
         return "redirect:/student_list";
     }
 }
