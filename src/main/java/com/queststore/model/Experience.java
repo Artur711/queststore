@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "experiences")
 public class Experience {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "loe_id")
     private @Id @Setter(AccessLevel.PROTECTED) long loeID;
 

@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "items_type")
 public class ItemsType {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_type_id")
     private @Id @Setter(AccessLevel.PROTECTED) long questTypeId;
 

@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "codeCooler_items")
 public class CodeCoolerItems {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codeCooler_item_id")
     private @Id @Setter(AccessLevel.PROTECTED) long codeCoolerItemID;
 

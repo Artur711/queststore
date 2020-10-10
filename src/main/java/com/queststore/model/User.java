@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private @Id long userId;
 

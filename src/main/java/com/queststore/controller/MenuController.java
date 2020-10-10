@@ -10,19 +10,17 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class MenuController {
 
     @GetMapping("/admin_menu")
-    public String getAdminMenu(Model model) {
-        model.addAttribute("menu", null);
+    public String getAdminMenu() {
         return "menu/admin_menu";
     }
 
     @GetMapping("/mentor_menu")
-    public String getMentorMenu(Model model) {
-        model.addAttribute("menu", null);
+    public String getMentorMenu() {
         return "menu/mentor_menu";
     }
 
     @GetMapping("/codecooler_menu")
-    public String getCodeCoolerMenu(Model model, @SessionAttribute("loggedUser") User loggedUser) {
+    public String getCodeCoolerMenu() {
         return "menu/codecooler_menu";
     }
 

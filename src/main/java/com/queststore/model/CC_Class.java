@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "Classrooms")
 public class CC_Class {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private @Id @Setter(AccessLevel.PROTECTED) long classId;
 
     private String name;
