@@ -29,8 +29,8 @@ public class ExperienceController {
     }
 
     @GetMapping("/delete_level/{id}")
-    public String removeLevel(@PathVariable("id") int id, Model model) {
-//        service.delete(id);
+    public String removeLevel(@PathVariable("id") long id, Model model) {
+        service.delete(id);
         model.addAttribute("experience", service.getExperience());
         return "redirect:/experiences";
     }

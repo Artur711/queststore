@@ -16,10 +16,6 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
     public List<User> getAllMentors() {
         List<User> userList = userRepository.findAll();
         return userList.stream().filter(user -> user.getUserType() == 2).collect(Collectors.toList());

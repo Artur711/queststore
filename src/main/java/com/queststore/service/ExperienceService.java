@@ -27,11 +27,19 @@ public class ExperienceService {
         return experienceList.stream().filter(exp ->exp.getLoeID() == id).findAny().orElse(null);
     }
 
-//    public void delete(int id) {
-//        repository.delete(getExpById(id + 1));
-//    }
-//
-//    public int getLevel(long experience) {
-//        return dao.getLevel(experience);
-//    }
+    public void delete(long id) {
+        repository.delete(getExpById(id));
+    }
+
+    public int getLevel(long experience) {
+        List<Experience> experienceList = getExperience();
+        int level = 1;
+
+        for (Experience exp : experienceList) {
+            if (experience >= exp.getValue()) {
+                level++;
+            }
+        }
+        return level;
+    }
 }

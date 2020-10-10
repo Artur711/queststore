@@ -185,9 +185,8 @@ nav {
 
 h1, h2, h5 {
     background-color: white;
-    border: 0.3vw solid gray;
+    border: 0.3vw double gray;
     padding: 1vw;
-    border-radius: 0.5vw;
     float: none;
 }
 
@@ -219,7 +218,7 @@ h2 {
     width: 12%;
     padding: 1% 2%;
     margin: 0.5% 1%;
-    border: 3px solid gray;
+    border: 0.3vw double gray;
     background-color: white;
     text-decoration: none;
 }
