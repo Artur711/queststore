@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-//@Controller
+@Controller
 public class CodeCoolerItemsController {
 
     private final CodeCoolerItemsService codeCoolerItemsService;
@@ -27,7 +27,6 @@ public class CodeCoolerItemsController {
     public String useItem(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
         codeCoolerItemsService.markUsedItem(id);
         model.addAttribute("my_items", codeCoolerItemsService.getByCodeCoolerID(loggedUser.getUserId()));
-        String str = "select codecooler_item.*, items.name  from items inner join codecooler_item on codecooler_item.item_id = items.item_id;";
         return "redirect:/my_items";
     }
 }

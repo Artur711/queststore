@@ -19,12 +19,14 @@
         <div th:case="*">
             <div th:each="item: ${my_items}">
                 <nav>
-                    <input class="list-menu input-update" type="text" th:value="${item.name}" disabled>
+                    <input class="input-update" type="text" th:value="${item.itemID}" disabled>
+                    <input class="input-update" type="text" th:value="${item.name}" disabled>
+
                     <div th:switch="${item.used}">
-                        <div th:case=1>
+                        <div th:case="NO">
                             <a th:href="@{use_item/{id}(id=${item.codeCoolerItemID})}"><input class="list-menu button-update" type="submit" th:value="USE"></a>
                         </div>
-                        <div th:case=0>
+                        <div th:case="YES">
                             <input class="list-menu button-remove" type="submit" th:value="USED" disabled>
                         </div>
                     </div>

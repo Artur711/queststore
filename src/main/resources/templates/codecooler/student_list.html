@@ -18,8 +18,8 @@
             <tbody th:each="user: ${students}">
 
                 <div class="list-menu">
-                    <input class="input-update" th:value="${user.userId}" disabled>
                     <input class="input-update" th:value="${user.firstName}" disabled>
+                    <input class="input-update" th:value="${user.lastName}" disabled>
                     <a th:href="@{edit/{id}(id=${user.userId})}" class="button-update">Edit</a>
                     <a th:href="@{delete/{id}(id=${user.userId})}" class="button-remove">Remove</a>
                 </div>

@@ -1,6 +1,7 @@
 package com.queststore.service;
 
 import com.queststore.model.CodeCooler;
+import com.queststore.model.CodeCoolerItems;
 import com.queststore.repository.CodeCoolerRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,13 @@ import java.util.List;
 public class CodeCoolerService {
 
     private CodeCoolerRepository repository;
+    private CodeCoolerItemsService codeCoolerItemsService;
+    private ItemService itemService;
 
-    public CodeCoolerService(CodeCoolerRepository repository) {
+    public CodeCoolerService(CodeCoolerRepository repository, CodeCoolerItemsService codeCoolerItemsService, ItemService itemService) {
         this.repository = repository;
+        this.codeCoolerItemsService = codeCoolerItemsService;
+        this.itemService = itemService;
     }
 
     public void create(CodeCooler codeCooler) {
@@ -20,7 +25,17 @@ public class CodeCoolerService {
         repository.save(codeCooler);
     }
 
-//    public void updateCodecoolerItems(int userId, int coins, int itemId) {dao.updateCodecoolerItems(userId, coins, itemId);}
+    public void updateCodeCoolerItems(long userId, int coins, long itemId) {
+        CodeCooler codeCooler = getCodeCoolerById(userId);
+        codeCooler.setCodeCoolCoins(coins);
+        repository.save(codeCooler);
+
+        CodeCoolerItems coolerItems = new CodeCoolerItems();
+        coolerItems.setCodeCoolerID(userId);
+        coolerItems.setItemID(itemId);
+        coolerItems.setName(itemService.getById(itemId).getName());
+        codeCoolerItemsService.create(coolerItems);
+    }
 
 //    public void complateQuest(int userId, int coins, int questId){dao.updateCodecoolerQuests(userId, coins, questId);};
 

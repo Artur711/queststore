@@ -1,37 +1,34 @@
 package com.queststore.service;
 
-import com.queststore.dao.ItemDAO;
 import com.queststore.model.Item;
+import com.queststore.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//import java.util.List;
-
-//@Service
+@Service
 public class ItemService {
 
-    private ItemDAO dao;
+    private ItemRepository repository;
 
-    public ItemService(ItemDAO dao) {
-        this.dao = dao;
+    public ItemService(ItemRepository repository) {
+        this.repository = repository;
     }
 
     public void create(Item item) {
-        dao.create(item);
+        repository.save(item);
     }
 
-    public void update(Item item) {
-        dao.update(item);
+    public void delete(Long id) {
+        repository.delete(getById(id));
     }
-
-    public void delete(Long id) { dao.delete(id); }
 
     public List<Item> getAll(){
-        return dao.getAll();
+        return repository.findAll();
     }
 
     public Item getById(Long id) {
-        return dao.getByID(id);
+        List<Item> itemList = repository.findAll();
+        return itemList.stream().filter(item -> item.getItemId() == id).findAny().orElse(null);
     }
 }
