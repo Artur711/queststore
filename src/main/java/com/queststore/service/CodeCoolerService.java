@@ -39,8 +39,6 @@ public class CodeCoolerService {
 
 //    public void complateQuest(int userId, int coins, int questId){dao.updateCodecoolerQuests(userId, coins, questId);};
 
-//    public void addItem(int userId, int itemId){};
-
     public List<CodeCooler> getAll() {
         return repository.findAll();
     }

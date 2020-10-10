@@ -2,13 +2,12 @@ package com.queststore.controller;
 
 import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
-//import com.queststore.service.ItemService;
 import com.queststore.service.QuestService;
-//import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-//@Controller
+@Controller
 public class QuestController {
 
     private final CodeCoolerService codeService;
@@ -35,9 +34,9 @@ public class QuestController {
     @PostMapping("/complete_quest")
     public String complateQuest(Model model, @SessionAttribute("loggedUser") User loggedUser, @RequestParam(value = "questId") long questId) {
 
-//        model.addAttribute("id", codeService.getByUserID(loggedUser.getUserId()));
+        model.addAttribute("id", codeService.getCodeCoolerById(loggedUser.getUserId()));
 
-//        int studentCoins =  codeService.getByID(loggedUser.getUserId()).getCodecool_coins();
+        int studentCoins =  codeService.getCodeCoolerById(loggedUser.getUserId()).getCodeCoolCoins();
         int questPrice = service.getById(questId).getQuestValue();
         int loggedUserId = (int)loggedUser.getUserId();
 
