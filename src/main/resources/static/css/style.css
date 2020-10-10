@@ -93,11 +93,11 @@ footer {
 }
 
 .pure-header {
-    min-height: 16vh;
+    min-height: 10vh;
     height: auto;
     padding: 1%;
     background-color: #64605d;
-    border: 2px solid #ddd;
+    border: 0.2vh solid #ddd;
     opacity: 1.0;
 }
 
@@ -124,7 +124,7 @@ footer {
 iframe {
     width: 90%;
     border: 0.5vw double #64605d;
-    height: 75vh;
+    height: 68vh;
 }
 
 .inside-field {
@@ -155,7 +155,7 @@ iframe {
 
 .pure-profile-photo {
     float: right;
-    width: 6%;
+    height: 10vh;
     background: white;
     border: solid black;
 }
@@ -167,12 +167,12 @@ iframe {
 
 .profile-photo {
     float: none;
-    width: 50%;
+    height: 20vh;
     border: 0.6vw ridge darkred;
 }
 
 .pure-logo {
-    width: 25vw;
+    width: 25vh;
     float: left;
 }
 
@@ -806,11 +806,7 @@ textarea {
 
     .pure-menu-item, .pure-menu-item-messages {
         display: block;
-        font-size: 150%;
-    }
-
-    .pure-profile-photo {
-        width: 15vw;
+        font-size: 2vh;
     }
 
     .input-update {
@@ -829,10 +825,6 @@ textarea {
         width: 64%;
     }
 
-    .profile-photo {
-        width: 35vw;
-    }
-
     .sub-section2 {
         font-size: 75%;
     }
@@ -848,16 +840,16 @@ textarea {
         width: 50%;
     }
 
-    .main {
-        margin-right: 12vw;
-    }
-
-    .pure-menu-item, .pure-menu-item-messages {
-        font-size: 90%;
+    .pure-profile-photo {
+        height: 9vh;
     }
 
     .profile-photo {
-        width: 50vw;
+        height: 20vh;
+    }
+
+    .main {
+        margin-right: 12vw;
     }
 
     .sub-section2 {
@@ -866,12 +858,9 @@ textarea {
 }
 
 @media screen and (max-width: 420px) {
-    .pure-menu-item, .pure-menu-item-messages {
-        font-size: 68%;
-    }
 
     .pure-header {
-        min-height: 12vh;
+        min-height: 10vh;
     }
 
     .input-update, .button-update, .button-remove {
