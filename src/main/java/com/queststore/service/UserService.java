@@ -24,6 +24,7 @@ public class UserService {
     public void createUser(User user) {
         userRepository.save(user);
     }
+
     public void crateMentor(User mentor) {
         mentor.setUserType(2);
         userRepository.save(mentor);
@@ -32,10 +33,6 @@ public class UserService {
     public User getUserById(long id){
         List<User> userList = userRepository.findAll();
         return userList.stream().filter(user -> user.getUserId() == id).findAny().orElse(null);
-    }
-
-    public void updateUser(User user){
-        userRepository.save(user);
     }
 
     public void updateMentor(User mentor){
