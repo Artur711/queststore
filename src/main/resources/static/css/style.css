@@ -1,27 +1,41 @@
+﻿@font-face {
+    font-family:"Zenda";
+    src:url("zenda.eot?") format("eot"),
+    url("zenda.woff") format("woff"),
+    url("zenda.ttf") format("truetype"),
+    url("zenda.svg#Zenda") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+
 * {
     margin-left: auto;
     margin-right: auto;
     font-family: Arial;
 }
 
-@font-face {
-	font-family: 'SEVESBRG';
-	src: url('./SEVESBRG.eot');
-	src: local('SEVESBRG'), url('./SEVESBRG.woff') format('woff'), url('./SEVESBRG.ttf') format('truetype');
-}
+/*@font-face {*/
+/*	font-family: 'SEVESBRG';*/
+/*	src: url('./SEVESBRG.eot');*/
+/*	src: local('SEVESBRG'), url('./SEVESBRG.woff') format('woff'), url('./SEVESBRG.ttf') format('truetype');*/
+/*}*/
 /* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_221">Text with this font applied</p> */
 .fontsforweb_fontid_221 {
 	font-family: 'SEVESBRG' !important;
 }
 
+.zenta {
+    font-family: "Zenda";
+    font-size: 200%;
+}
 
 body {
     margin: 0;
-    background-color: #dfdbc3;
+    /*background-color: #dfdbc3;*/
 }
 
 .body-menu {
-    background-image: url('../photo/background3.jpg');
+    background-image: url('../photo/background5.jpg');
     background-size: cover;
 }
 
@@ -36,9 +50,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 #container {
@@ -97,20 +110,19 @@ footer {
     height: auto;
     padding: 1%;
     background-color: #64605d;
-    border: 0.2vh solid #ddd;
+    border:solid black;
     opacity: 1.0;
 }
 
 .main {
-    margin-top: 2.5%;
-    width: 18%;
+    margin-top: 3.2vh;
+    width: 17vw;
     float: right;
-    font-size: 120%;
 }
 
 .pure-menu-item-messages {
     padding: 2.5%;
-    margin-right: 1%;
+    margin-right: 1vw;
     color: white;
     text-decoration: none;
 }
@@ -123,8 +135,9 @@ footer {
 
 iframe {
     width: 90%;
-    border: 0.5vw double #64605d;
-    height: 68vh;
+    border: none;
+    /*border: 0.5vw double #64605d;*/
+    /*height: 68vh;*/
 }
 
 .inside-field {
@@ -155,9 +168,7 @@ iframe {
 
 .pure-profile-photo {
     float: right;
-    height: 10vh;
-    background: white;
-    border: solid black;
+    height: 8vh;
 }
 
 .add-entity-photo {
@@ -166,8 +177,9 @@ iframe {
 }
 
 .profile-photo {
+    background-color: white;
     float: none;
-    height: 20vh;
+    height: 40vh;
     border: 0.6vw ridge darkred;
 }
 
@@ -185,9 +197,10 @@ nav {
 
 h1, h2, h5 {
     background-color: white;
-    border: 0.3vw double gray;
+    border: solid black;
     padding: 1vw;
     float: none;
+    font-weight: normal;
 }
 
 h1 {
@@ -218,7 +231,7 @@ h2 {
     width: 12%;
     padding: 1% 2%;
     margin: 0.5% 1%;
-    border: 0.3vw double gray;
+    border: 0.3vw double black;
     background-color: white;
     text-decoration: none;
 }
@@ -336,10 +349,9 @@ section {
 .grid-block {
    width: 20vw;
    height: 18vh;
-
    background: white;
-   border: 6px solid gray;
-   border-radius: 12px;
+   border: 0.5vh solid black;
+   border-radius: 2vh;
    margin-bottom: 12vh;
 }
 
@@ -400,7 +412,7 @@ div.grid-block:hover span:after{
 
 .btn {
 
-    border: 3px solid #73AD21;
+    border: solid black;
     border-radius: 20px;
     font-size: 20px;
     font-weight: 900;
@@ -410,8 +422,6 @@ div.grid-block:hover span:after{
 }
 
 .btn:disabled {
-
-    border: 3px solid #73AD21;
     border-radius: 20px;
     font-size: 20px;
     font-weight: 900;
@@ -468,7 +478,6 @@ div.grid-block:hover span:after{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: #dfdbc3;
     height: 100%;
     color: white;
 }
@@ -581,6 +590,7 @@ div.grid-block:hover span:after{
 .button-update, .button-remove {
     width: 12vw;
     border-radius: 1vw;
+    border: solid black;
     font-size: 150%;
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
@@ -594,12 +604,10 @@ div.grid-block:hover span:after{
 
 .button-update {
     background-color: green;
-    border: solid green;
 }
 
 .button-remove {
     background-color: rgb(206, 40, 40);
-    border: solid rgb(206, 40, 40);
 }
 
 .button-buy-with-team {
@@ -701,7 +709,7 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 
 .input-update {
     background-color: #64605d;
-    border: solid #64605d;
+    border: solid black;
     width: 30%;
     border-radius: 1vw;
     font-size: 150%;
@@ -742,7 +750,6 @@ div.block:hover span:after, .block-update-menu:hover span:after {
     padding-top: 1vw;
     background-color: green;
     margin-left: 4%;
-    border: none;
     color: white;
 }
 
@@ -796,12 +803,24 @@ textarea {
         width: 40vw;
     }
 
+    .zenta {
+        font-size: 130%;
+    }
+
+    .main {
+        margin-top: 1vh;
+    }
+
     .instructionDiv, .inputDiv {
         font-size: 300%;
     }
 
     #loginDiv {
         width: 35%;
+    }
+
+    .pure-item {
+        border: 0.7vh double gray;
     }
 
     .pure-menu-item, .pure-menu-item-messages {
@@ -841,19 +860,20 @@ textarea {
     }
 
     .pure-profile-photo {
-        height: 9vh;
+        height: 8vh;
     }
 
     .profile-photo {
-        height: 20vh;
+        height: 30vh;
     }
 
     .main {
+        width: 6vw;
         margin-right: 12vw;
     }
 
     .sub-section2 {
-        font-size: 60%;
+        font-size: 110%;
     }
 }
 
@@ -865,5 +885,13 @@ textarea {
 
     .input-update, .button-update, .button-remove {
         font-size: 100%;
+    }
+
+    .sub-section2 {
+        font-size: 80%;
+    }
+
+    .profile-photo {
+        height: 20vh;
     }
 }

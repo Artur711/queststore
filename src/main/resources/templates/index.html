@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="realbackend"></div>
-<img id="background-foto" src="../static/photo/img/src/2.png" th:src="@{/photo/img/2.png}">
+<img id="background-foto" src="../static/photo/img/src/3.png" th:src="@{/photo/img/2.png}">
 
 <div id="container">
     <header>
@@ -19,20 +19,20 @@
     </header>
     <div id="loginDiv">
         <form id="form" action="#" th:action="@{/}" th:object="${user}" method="post">
-            <div class="instructionDiv">Login:</div>
+            <div class="instructionDiv zenta">Login:</div>
 
             <label for="login"></label>
             <input id="login" class="inputDiv" type="text" onfocus="this.value=''" value="type your login:" th:field="*{lastName}">
 
             <div class="errormessage"></div>
-            <div class="instructionDiv">Password:</div>
+            <div class="instructionDiv zenta">Password:</div>
 
             <label for="password"></label>
             <input id="password" class="inputDiv" type="password" onfocus="this.value=''" value="password:" th:field="*{password}">
 
             <div class="errormessage"></div>
-            <input type="submit" class="instructionDiv" value="login" onclick="validation()"/><br><br>
-            <a href="word-recovery.html" class="instructionDiv">Forgot password?</a>
+            <input type="submit" class="instructionDiv zenta" value="login" onclick="validation()"/><br><br>
+            <a href="word-recovery.html" class="instructionDiv zenta">Forgot password?</a>
         </form>
     </div>
 
