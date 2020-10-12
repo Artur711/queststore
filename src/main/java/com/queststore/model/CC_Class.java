@@ -7,6 +7,7 @@ import lombok.Setter;
 //import org.springframework.data.relational.core.sql.In;
 
 import javax.persistence.*;
+import java.util.List;
 //import java.util.List;
 
 @Entity
@@ -20,6 +21,9 @@ public class CC_Class {
     private @Id @Setter(AccessLevel.PROTECTED) long classId;
 
     private String name;
+
+    @ManyToMany
+    private List<User> users;
 //    private List<User> mentors;
 //    private List<CodeCooler> students;
 //    private Date startingDate;
