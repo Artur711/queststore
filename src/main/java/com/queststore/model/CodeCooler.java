@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,9 +18,14 @@ public class CodeCooler extends User {
     @Column(name = "codeCooler_coins")
     private int codeCoolCoins;
 
+    @ManyToMany(mappedBy = "codecoolers")
+    List<Quest> quests;
+
     public CodeCooler(long userId, String firstName, String lastName, String email, String password, String photoUrl, int phoneNumber, int userType, long exp, int codeCoolCoins) {
         super(userId, firstName, lastName, email, password, photoUrl, phoneNumber, userType);
         this.exp = exp;
         this.codeCoolCoins = codeCoolCoins;
     }
+
+
 }
