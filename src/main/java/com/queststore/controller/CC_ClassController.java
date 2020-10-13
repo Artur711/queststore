@@ -22,6 +22,7 @@ public class CC_ClassController {
     CodeCoolerService codeCoolerService;
     List<User> listOfChosenMentors;
     List<CodeCooler> listOfChosenStudents;
+
     public CC_ClassController(CC_ClassService classService, UserService mentorservice, CodeCoolerService codeCoolerService) {
         this.classService = classService;
         this.userService = mentorservice;
@@ -31,7 +32,7 @@ public class CC_ClassController {
     }
 
     @GetMapping("/all_classes")
-    public String getListOfAllClasses(Model model){
+    public String getListOfAllClasses(Model model) {
         List<CC_Class> allClass = classService.getAllClasses();
         model.addAttribute("allClasses", allClass);
         return "collaboration/my_class_list";
@@ -52,32 +53,33 @@ public class CC_ClassController {
     }
 
     @GetMapping("/add_the_class")
-    public String addChosenMembers(Model model, @Valid String user){
+    public String addChosenMembers(Model model, @Valid String user) {
         Long userId = Long.parseLong(user);
         User chosenOne = userService.getUserById(userId);
         listOfChosenMentors.add(chosenOne);
         return "redirect:/add_class";
-   }
+    }
 
-   @GetMapping("/add_the_student_to_class")
-   public String addChosenStudentToTempList(Model model, @Valid String student){
-       Long studentId = Long.parseLong(student);
-       CodeCooler chosenOne = codeCoolerService.getCodeCoolerById(studentId);
-       listOfChosenStudents.add(chosenOne);
+    @GetMapping("/add_the_student_to_class")
+    public String addChosenStudentToTempList(Model model, @Valid String student) {
+        Long studentId = Long.parseLong(student);
+        CodeCooler chosenOne = codeCoolerService.getCodeCoolerById(studentId);
+        listOfChosenStudents.add(chosenOne);
         return "redirect:/add_class";
-   }
-//   CDN
-   @PostMapping("/add_the_class")
-    public String addTheClass(Model model, @RequestParam(value = "name") String name){
+    }
+
+    //   CDN
+    @PostMapping("/add_the_class")
+    public String addTheClass(Model model, @RequestParam(value = "name") String name) {
         System.out.println(name);
-//        classService.create(new CC_Class(name, listOfChosenMentors, listOfChosenStudents));
+        classService.create(new CC_Class(name), listOfChosenMentors, listOfChosenStudents);
         listOfChosenMentors.clear();
         listOfChosenStudents.clear();
         return "redirect:/all_classes";
     }
 
     @GetMapping("/delete_student/{id}")
-    public String deleteChosenStudent(@PathVariable("id") long id){
+    public String deleteChosenStudent(@PathVariable("id") long id) {
         System.out.println(id);
         CodeCooler chosenOneToBeRemoved = codeCoolerService.getCodeCoolerById(id);
         listOfChosenStudents.removeIf(chosenOneToBeRemoved::equals);
@@ -85,22 +87,16 @@ public class CC_ClassController {
     }
 
     @GetMapping("/delete_user/{id}")
-    public String deleteChosenMentor(@PathVariable("id") long id){
+    public String deleteChosenMentor(@PathVariable("id") long id) {
         System.out.println(id);
         User chosenOneToBeRemoved = userService.getUserById(id);
         listOfChosenMentors.removeIf(chosenOneToBeRemoved::equals);
         return "redirect:/add_class";
 
     }
-//to be removed We guess :)
-//    @PostMapping("/add_class")
-//    public String addTheClass(Model model, @Valid CC_Class cc_class){
-//        classService.create(cc_class);
-//        return "collaboration/add_new_class";
-//    }
 
     @GetMapping("/delete_class/{id}")
-    public String deleteTheClass(@PathVariable("id") Long id){
+    public String deleteTheClass(@PathVariable("id") Long id) {
         classService.deleteTheClass(id);
         return "redirect:/all_classes";
     }

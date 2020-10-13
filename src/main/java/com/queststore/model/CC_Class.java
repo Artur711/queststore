@@ -18,16 +18,18 @@ import java.util.List;
 public class CC_Class {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Id @Setter(AccessLevel.PROTECTED) long classId;
+    private @Id
+    @Setter(AccessLevel.PROTECTED)
+    long classId;
 
     private String name;
 
     @ManyToMany
     private List<User> users;
-//    private List<User> mentors;
-//    private List<CodeCooler> students;
-//    private Date startingDate;
 
+    public CC_Class(String name) {
+        this.name = name;
+    }
 
     public CC_Class(long classId, String name) {
         this.classId = classId;
