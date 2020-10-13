@@ -464,10 +464,8 @@ div.grid-block:hover span:after{
 
 .class-menu-container {
     display: grid;
-    background-color: #dfdbc3;
     grid-template-columns: 70% 30%;
-    border: 6px solid gray;
-    border-radius: 6px;
+    /*border: double black;*/
     padding: 70px 19px 37px 19px;
     width: 70%;
     height: 50%;
@@ -535,11 +533,11 @@ div.grid-block:hover span:after{
 
 .class-block-menu {
     background-color: #64605d;
-    margin: 20px 30px 20px 30px;
-    height: 75px;
-    border: 3px solid gray;
-    border-radius: 20px;
-    font-size: 25px;
+    margin: 2vw 3vw;
+    /*height: 75px;*/
+    border: solid black;
+    border-radius: 2vw;
+    /*font-size: 2.5vw;*/
     color: red;
     text-align: center;
     padding-top: 0px
