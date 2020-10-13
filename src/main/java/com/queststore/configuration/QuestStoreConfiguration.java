@@ -15,8 +15,7 @@ public class QuestStoreConfiguration {
         registrationBean.addUrlPatterns("/mentor_menu",
                 "/students_list",
                 "/admin_menu",
-                "/add_class",
-                "/add_the_class");
+                "/add_class");
 
 
         return registrationBean;

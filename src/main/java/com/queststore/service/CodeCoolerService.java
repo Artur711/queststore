@@ -3,6 +3,7 @@ package com.queststore.service;
 import com.queststore.model.CodeCooler;
 import com.queststore.model.CodeCoolerItems;
 import com.queststore.repository.CodeCoolerRepository;
+import com.queststore.repository.QuestRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +14,14 @@ public class CodeCoolerService {
     private CodeCoolerRepository repository;
     private CodeCoolerItemsService codeCoolerItemsService;
     private ItemService itemService;
+    private QuestRepository questRepository;
 
-    public CodeCoolerService(CodeCoolerRepository repository, CodeCoolerItemsService codeCoolerItemsService, ItemService itemService) {
+    public CodeCoolerService(QuestRepository questRepository, CodeCoolerRepository repository, CodeCoolerItemsService codeCoolerItemsService, ItemService itemService) {
+        this.questRepository = questRepository;
         this.repository = repository;
         this.codeCoolerItemsService = codeCoolerItemsService;
         this.itemService = itemService;
+
     }
 
     public void create(CodeCooler codeCooler) {
@@ -37,13 +41,15 @@ public class CodeCoolerService {
         codeCoolerItemsService.create(coolerItems);
     }
 
-//    public void complateQuest(int userId, int coins, int questId){dao.updateCodecoolerQuests(userId, coins, questId);};
+    public void updateCoinsBalance(int coins, Long userId){
+        repository.updateCoinsBalance(coins, userId);
+    }
 
     public List<CodeCooler> getAll() {
         return repository.findAll();
     }
 
-    public CodeCooler getCodeCoolerById(long id){
+    public CodeCooler getCodeCoolerById(long id) {
         List<CodeCooler> codeCoolerList = repository.findAll();
         return codeCoolerList.stream().filter(user -> user.getUserId() == id).findAny().orElse(null);
     }

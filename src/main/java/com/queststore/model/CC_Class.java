@@ -4,10 +4,9 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-//import org.springframework.data.relational.core.sql.In;
 
 import javax.persistence.*;
-//import java.util.List;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,13 +16,20 @@ import javax.persistence.*;
 public class CC_Class {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Id @Setter(AccessLevel.PROTECTED) long classId;
+    private @Id
+    @Setter(AccessLevel.PROTECTED)
+    long classId;
 
     private String name;
-//    private List<User> mentors;
-//    private List<CodeCooler> students;
-//    private Date startingDate;
 
+    @ManyToMany
+    @JoinTable( joinColumns = @JoinColumn(name = "class_id"),
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> users;
+
+    public CC_Class(String name) {
+        this.name = name;
+    }
 
     public CC_Class(long classId, String name) {
         this.classId = classId;

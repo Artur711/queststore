@@ -3,6 +3,7 @@ package com.queststore.service;
 import com.queststore.model.Quest;
 import com.queststore.repository.QuestRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class QuestService {
         repository.delete(getById(id));
     }
 
-    public List<Quest> getAll(){
+    public List<Quest> getAll() {
         return repository.findAll();
     }
 
@@ -30,4 +31,10 @@ public class QuestService {
         List<Quest> questList = repository.findAll();
         return questList.stream().filter(quest -> quest.getQuestId() == id).findAny().orElse(null);
     }
+
+    public void complateQuest(Long userId, Long questId) {
+        repository.insertQuestIntoAccomplishedTable(questId, userId);
+    }
+
+
 }

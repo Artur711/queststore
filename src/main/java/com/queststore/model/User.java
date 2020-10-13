@@ -7,6 +7,8 @@ import lombok.Setter;
 import javax.persistence.Id;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -38,6 +40,9 @@ public class User {
     @Column(name = "user_type")
     private int userType;
 
+    @ManyToMany(mappedBy = "users")
+    private List<CC_Class> cc_classes;
+
     public User(long userId, String firstName, String lastName, String email, String password, String photoUrl, long phoneNumber, int userType) {
         this.userId = userId;
         this.firstName = firstName;
@@ -47,5 +52,25 @@ public class User {
         this.photoUrl = photoUrl;
         this.phoneNumber = phoneNumber;
         this.userType = userType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getUserId() == user.getUserId() &&
+                getPhoneNumber() == user.getPhoneNumber() &&
+                getUserType() == user.getUserType() &&
+                Objects.equals(getFirstName(), user.getFirstName()) &&
+                Objects.equals(getLastName(), user.getLastName()) &&
+                Objects.equals(getEmail(), user.getEmail()) &&
+                Objects.equals(getPassword(), user.getPassword()) &&
+                Objects.equals(getPhotoUrl(), user.getPhotoUrl());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserId(), getFirstName(), getLastName(), getEmail(), getPassword(), getPhotoUrl(), getPhoneNumber(), getUserType());
     }
 }

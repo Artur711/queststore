@@ -93,7 +93,8 @@ INSERT INTO Items (ITEM_ID, NAME, DESCRIPTION, PRICE, IMG, ITEM_TYPE_ID) values 
 
 
 ---Add Codecoolers to Classrooms
--- INSERT INTO Users_classrooms (user_id, class_id) values (1,1);	---Pudzianowski to AK class
+INSERT INTO CLASSROOMS_USERS (class_id , user_id  ) values (1,1);	---Pudzianowski to AK class
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,2);	---Kalamaga to AK class
 -- INSERT INTO Users_classrooms (user_id, class_id) values (2,1);	---Kalamaga to AK class
 
 

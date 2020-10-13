@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,6 +30,12 @@ public class Quest {
 
     @Column(name = "quest_value")
     private int questValue;
+
+
+    @ManyToMany
+            @JoinTable(joinColumns = @JoinColumn(name = "quest_id"),
+            inverseJoinColumns = @JoinColumn(name = "codecooler_id"))
+    List<CodeCooler> codecoolers;
 
     public Quest(long questId, String name, String description, int questTypeId, String img, int questValue) {
         this.questId = questId;

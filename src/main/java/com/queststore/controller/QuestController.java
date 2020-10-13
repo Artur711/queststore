@@ -38,10 +38,10 @@ public class QuestController {
 
         int studentCoins =  codeService.getCodeCoolerById(loggedUser.getUserId()).getCodeCoolCoins();
         int questPrice = service.getById(questId).getQuestValue();
-        int loggedUserId = (int)loggedUser.getUserId();
+        long loggedUserId = loggedUser.getUserId();
 
-//        codeService.complateQuest(loggedUserId ,(studentCoins + questPrice), (int)questId);
-
+        service.complateQuest(loggedUserId, questId);
+        codeService.updateCoinsBalance((studentCoins + questPrice),loggedUserId);
         return "redirect:/quests_menu";
     }
 }
