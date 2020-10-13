@@ -24,7 +24,7 @@ public interface CC_ClassRepository extends CrudRepository<CC_Class, Long> {
     @Modifying
     @Query(
             value =
-                    "INSERT into CLASSROOMS_USERS (CC_CLASSES_CLASS_ID,USERS_USER_ID) VALUES (:CC_CLASSES_CLASS_ID,:USERS_USER_ID)",
+                    "INSERT into CLASSROOMS_USERS (class_id,user_id) VALUES (:CC_CLASSES_CLASS_ID,:USERS_USER_ID)",
             nativeQuery = true)
     void insertUsertoClassroom(@Param("CC_CLASSES_CLASS_ID") Long CC_CLASSES_CLASS_ID, @Param("USERS_USER_ID") Long USERS_USER_ID);
 

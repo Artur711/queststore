@@ -4,11 +4,9 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-//import org.springframework.data.relational.core.sql.In;
 
 import javax.persistence.*;
 import java.util.List;
-//import java.util.List;
 
 @Entity
 @Getter
@@ -25,6 +23,8 @@ public class CC_Class {
     private String name;
 
     @ManyToMany
+    @JoinTable( joinColumns = @JoinColumn(name = "class_id"),
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users;
 
     public CC_Class(String name) {
