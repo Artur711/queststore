@@ -93,8 +93,8 @@ INSERT INTO Items (NAME, DESCRIPTION, PRICE, IMG, ITEM_TYPE_ID) values ('Attenda
 
 
 ---Add Codecoolers to Classrooms
-INSERT INTO CLASSROOMS_USERS (user_id) values (1);	---Pudzianowski to AK class
-INSERT INTO CLASSROOMS_USERS (user_id) values (2);	---Kalamaga to AK class
+INSERT INTO CLASSROOMS_USERS (class_id , user_id  ) values (1,1);	---Pudzianowski to AK class
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,2);	---Kalamaga to AK class
 -- INSERT INTO Users_classrooms (user_id, class_id) values (2,1);	---Kalamaga to AK class
 
 
@@ -102,7 +102,7 @@ INSERT INTO CLASSROOMS_USERS (user_id) values (2);	---Kalamaga to AK class
 -- INSERT INTO Codecoolers_teams (team_id, codecooler_id) values (1,2);  ---Add Kalamaga to AK team
 
 ---Add Item to Codecoolers
-insert into CODE_COOLER_ITEMS (CODE_COOLER_ID, ITEM_ID, NAME, USED) VALUES (1, 1, 'Private mentoring', 'NO');
+insert into CODE_COOLER_ITEMS (CODE_COOLER_ITEM_ID, CODE_COOLER_ID, ITEM_ID, NAME, USED) VALUES (1, 1, 1, 'Private mentoring', 'NO');
 
 ---Add Quest to Codecoolers
 -- INSERT INTO Codecoolers_quest (quest_id, codecooler_id) values (1,1); --- Add 1st Quest to Pudzianowski
