@@ -55,7 +55,7 @@ public class CodeCoolerService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        repository.delete(getCodeCoolerById(id));
     }
 
 }

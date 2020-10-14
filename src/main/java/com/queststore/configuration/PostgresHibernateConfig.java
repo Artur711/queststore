@@ -15,7 +15,7 @@ public class PostgresHibernateConfig {
     public DataSource postgresDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/ak_queststore");
+        dataSource.setUrl("jdbc:postgresql://localhost/ak_queststore");
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres");
 

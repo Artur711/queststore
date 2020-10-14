@@ -30,8 +30,6 @@ public class MentorController {
 
     @PostMapping("/add_mentor")
     public String addTheMentor(Model model, @Valid User user){
-        User newUser = new User();
-        user.setUserId(newUser.getUserId());
         userService.crateMentor(user);
         return "redirect:/mentors_list";
     }
