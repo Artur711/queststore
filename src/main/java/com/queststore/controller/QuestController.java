@@ -40,7 +40,7 @@ public class QuestController {
         int questPrice = service.getById(questId).getQuestValue();
         long loggedUserId = loggedUser.getUserId();
 
-        service.complateQuest(loggedUserId, questId);
+        service.completeQuest(loggedUserId, questId);
         codeService.updateCoinsBalance((studentCoins + questPrice),loggedUserId);
         return "redirect:/quests_menu";
     }

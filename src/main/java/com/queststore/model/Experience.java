@@ -14,9 +14,11 @@ import javax.persistence.*;
 @Table(name = "experiences")
 public class Experience {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "loe_id")
-    private @Id @Setter(AccessLevel.PROTECTED) long loeID;
+    @Setter(AccessLevel.PROTECTED)
+    private long loeID;
 
     private long value;
 

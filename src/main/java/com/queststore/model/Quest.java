@@ -15,9 +15,11 @@ import java.util.List;
 @Table(name = "quests")
 public class Quest {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quest_id")
-    private @Id @Setter(AccessLevel.PROTECTED) long questId;
+    @Setter(AccessLevel.PROTECTED)
+    private long questId;
 
     private String name;
 

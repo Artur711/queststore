@@ -1,7 +1,5 @@
 package com.queststore.service;
 
-import com.queststore.dao.CC_classDAO;
-import com.queststore.dao.CC_classJDBCDAO;
 import com.queststore.model.CC_Class;
 import com.queststore.model.CodeCooler;
 import com.queststore.model.User;

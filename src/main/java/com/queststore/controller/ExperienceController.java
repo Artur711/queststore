@@ -24,7 +24,7 @@ public class ExperienceController {
 
     @PostMapping("add_level")
     public String create(@ModelAttribute Experience level) {
-        service.create(level);
+        service.save(level);
         return "redirect:/experiences";
     }
 

@@ -20,7 +20,7 @@ public class ItemService {
     }
 
     public void delete(Long id) {
-        repository.delete(getById(id));
+        repository.deleteById(id);
     }
 
     public List<Item> getAll(){

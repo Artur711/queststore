@@ -12,8 +12,4 @@ public interface ExperienceRepository extends CrudRepository<Experience,Long> {
 
     @Query("SELECT e FROM Experience e order by e.value")
     List<Experience> sortExperience();
-
-    Experience save(Experience experience);
-
-    void delete(Experience experience);
 }

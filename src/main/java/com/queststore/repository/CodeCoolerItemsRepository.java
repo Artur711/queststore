@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface CodeCoolerItemsRepository extends CrudRepository<CodeCoolerItems, Long> {
 
-    CodeCoolerItems save(CodeCoolerItems items);
-
     List<CodeCoolerItems> findAll();
 }

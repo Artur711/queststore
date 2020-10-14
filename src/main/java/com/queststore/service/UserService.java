@@ -21,7 +21,7 @@ public class UserService {
         return userList.stream().filter(user -> user.getUserType() == 2).collect(Collectors.toList());
     }
 
-    public void createUser(User user) {
+    public void saveUser(User user) {
         userRepository.save(user);
     }
 
@@ -41,6 +41,6 @@ public class UserService {
     }
 
     public void deleteUser(Long id){
-        userRepository.delete(getUserById(id));
+        userRepository.deleteById(id);
     }
 }

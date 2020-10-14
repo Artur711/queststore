@@ -11,11 +11,7 @@ import java.util.List;
 
 public interface CodeCoolerRepository extends CrudRepository<CodeCooler, Long> {
 
-    CodeCooler save(CodeCooler codeCooler);
-
     List<CodeCooler> findAll();
-
-    void delete (CodeCooler codeCooler);
 
     @Transactional
     @Modifying

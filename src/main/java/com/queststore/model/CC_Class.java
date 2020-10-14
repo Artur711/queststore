@@ -15,10 +15,10 @@ import java.util.List;
 @Table(name = "Classrooms")
 public class CC_Class {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Id
     @Setter(AccessLevel.PROTECTED)
-    long classId;
+    private long classId;
 
     private String name;
 

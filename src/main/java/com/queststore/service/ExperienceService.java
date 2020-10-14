@@ -18,17 +18,12 @@ public class ExperienceService {
         return repository.sortExperience();
     }
 
-    public void create(Experience experience) {
+    public void save(Experience experience) {
        repository.save(experience);
     }
 
-    public Experience getExpById(long id){
-        List<Experience> experienceList = repository.findAll();
-        return experienceList.stream().filter(exp ->exp.getLoeID() == id).findAny().orElse(null);
-    }
-
     public void delete(long id) {
-        repository.delete(getExpById(id));
+        repository.deleteById(id);
     }
 
     public int getLevel(long experience) {

@@ -13,8 +13,6 @@ public interface CC_ClassRepository extends CrudRepository<CC_Class, Long> {
 
     List<CC_Class> findAll();
 
-    CC_Class save(CC_Class cc_class);
-
     CC_Class getCC_ClassByName(String name);
 
     @Override

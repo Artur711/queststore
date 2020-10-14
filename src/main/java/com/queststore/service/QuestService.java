@@ -32,7 +32,7 @@ public class QuestService {
         return questList.stream().filter(quest -> quest.getQuestId() == id).findAny().orElse(null);
     }
 
-    public void complateQuest(Long userId, Long questId) {
+    public void completeQuest(Long userId, Long questId) {
         repository.insertQuestIntoAccomplishedTable(questId, userId);
     }
 

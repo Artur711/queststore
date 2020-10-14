@@ -14,9 +14,11 @@ import javax.persistence.*;
 @Table(name = "quest_type")
 public class QuestType {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quest_type_id")
-    private @Id @Setter(AccessLevel.PROTECTED) long questTypeId;
+    @Setter(AccessLevel.PROTECTED)
+    private long questTypeId;
 
     private String name;
 

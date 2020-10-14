@@ -540,7 +540,7 @@ div.grid-block:hover span:after{
     /*font-size: 2.5vw;*/
     color: red;
     text-align: center;
-    padding-top: 0px
+    /*padding-top: 0px*/
 }
 
 .block-list-menu {
@@ -708,7 +708,7 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 .input-update {
     background-color: #64605d;
     border: solid black;
-    width: 30%;
+    width: 29vw;
     border-radius: 1vw;
     font-size: 150%;
     padding: 0.6vw;
@@ -730,7 +730,7 @@ div.block:hover span:after, .block-update-menu:hover span:after {
     text-decoration: none;
     color: rgb(250, 180, 2);
     background-color: #64605d;
-    font-size: 30px;
+    font-size: 3vh;
 }
 
 .add-new-class-top-buttons {
@@ -779,8 +779,8 @@ textarea {
 }
 
 .class-header-middle {
-    padding-top: 10px;
-    height: 50px;
+    padding-top: 1vw;
+    height: 5vh;
 }
 
 .class-add-new-class-confirmation {

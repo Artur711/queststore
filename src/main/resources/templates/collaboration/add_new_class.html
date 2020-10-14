@@ -44,7 +44,7 @@
         <label for="name"></label>
         <input id="name" class="class_header class-block-menu add-new-class-buttons" type="text" style="height: 75px"
                th:value="${cc_class.name}" th:field="*{name}" th:name="name"
-               th:placeholder="${'Type Name of New Class'}">
+               th:placeholder="${'Name of New Class'}">
         <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
             Chosen Mentors
         </div>
@@ -52,7 +52,7 @@
             <th:block th:each="user : ${listOfChosenMentors}">
                 <tr>
                     <td th:text="${user.firstName} + ' ' + ${user.lastName}"
-                        class="class-block-menu add-new-class-buttons mentor-select"></td>
+                        class="input-update"></td>
                     <td>
                         <a th:href="@{delete_user/{id}(id=${user.userId})}"
                            class="button-remove">Remove</a>
@@ -71,7 +71,7 @@
             <th:block th:each="user : ${listOfChosenStudents}">
                 <tr>
                     <td th:text="${user.firstName} + ' ' + ${user.lastName}"
-                        class="class-block-menu add-new-class-buttons mentor-select"></td>
+                        class="input-update"></td>
                     <td>
                         <a th:href="@{delete_student/{id}(id=${user.userId})}"
                            class="button-remove">Remove</a>

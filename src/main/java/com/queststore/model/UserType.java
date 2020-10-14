@@ -15,9 +15,11 @@ import javax.persistence.*;
 @Table(name = "user_type")
 public class UserType {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_type_id")
-    private @Id @Setter(AccessLevel.PROTECTED) Long userTypeID;
+    @Setter(AccessLevel.PROTECTED)
+    private Long userTypeID;
 
     @Column(name = "user_type_name")
     private String userTypeName;

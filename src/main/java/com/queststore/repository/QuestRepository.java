@@ -11,10 +11,6 @@ import java.util.List;
 
 public interface QuestRepository extends CrudRepository<Quest, Long> {
 
-    Quest save(Quest quest);
-
-    void delete(Quest quest);
-
     List<Quest> findAll();
 
     @Transactional
