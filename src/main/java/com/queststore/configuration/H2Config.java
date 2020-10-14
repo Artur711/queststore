@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.sql.SQLException;
 
-@Configuration
+//@Configuration
 public class H2Config {
 
     @Bean(initMethod = "start", destroyMethod = "stop")

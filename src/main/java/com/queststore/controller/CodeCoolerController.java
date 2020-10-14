@@ -21,7 +21,6 @@ public class CodeCoolerController {
 
     @GetMapping("/student_list")
     public String getStudentsList(Model model){
-        List<CodeCooler> codeCoolerList = service.getAll();
         model.addAttribute("students", service.getAll());
         return "codecooler/student_list";
     }
@@ -35,7 +34,7 @@ public class CodeCoolerController {
 
     @PostMapping("/add_codecooler")
     public String addCodeCooler(Model model, @Valid CodeCooler codeCooler){
-        service.create(codeCooler);
+        service.save(codeCooler);
         model.addAttribute("codecoolers", service.getAll());
         return "redirect:/student_list";
     }
@@ -54,7 +53,7 @@ public class CodeCoolerController {
         }
         codeCooler.setUserId(id);
         codeCooler.setUserId(service.getCodeCoolerById(id).getUserId());
-        service.create(codeCooler);
+        service.save(codeCooler);
         model.addAttribute("students", service.getAll());;
         return "redirect:/student_list";
     }

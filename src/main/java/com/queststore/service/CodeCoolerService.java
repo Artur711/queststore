@@ -24,7 +24,7 @@ public class CodeCoolerService {
 
     }
 
-    public void create(CodeCooler codeCooler) {
+    public void save(CodeCooler codeCooler) {
         codeCooler.setUserType(1);
         repository.save(codeCooler);
     }
