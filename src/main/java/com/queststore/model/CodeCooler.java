@@ -26,6 +26,4 @@ public class CodeCooler extends User {
         this.exp = exp;
         this.codeCoolCoins = codeCoolCoins;
     }
-
-
 }
