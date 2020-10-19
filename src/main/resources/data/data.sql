@@ -35,6 +35,11 @@ insert into QUEST_TYPE (NAME) VALUES ('SOLO');
 insert into QUEST_TYPE (NAME) VALUES ('DUO');
 
 ---Add Quests
+INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('DRAGON LORE','[Almost impossible] Pass your PA on the FIRST TRY.',1,'../photo/img/logo-quests/legend/logo-legend1.jpg',999);
+INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Call me LEGEND','Complete the course, and be LEGEND!',1,'../photo/img/logo-quests/legend/logo-legend4.jpg',99999);
+INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Rise like PHOENIX','Pass PA in the 4 attempt and rise from the ashes...',1,'../photo/img/logo-quests/phoenix/logo-rise2.jpg',1500);
+INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Kahoot specialist','Win the Kahoot quiz.',1,'../photo/img/logo-items/game/logo-game3.jpg',300);
+INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Help hand','Help another student with the project or assignment.',1,'../photo/img/logo-quests/help/logo-help1.jpg',500);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Passing a Checkpoint','Passing a checkpoint.',1,'../photo/img/logo-quests/road/logo-road2.jpg',100);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Spot a major mistake','Spot a major mistake in the assignment.',1,'../photo/img/logo-quests/mistake/logo-mistake2.jpg',500);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Screening process','Taking part in the student screening process.',1,'../photo/img/logo-quests/mix/logo-mix6.jpg',50);
@@ -44,13 +49,8 @@ INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values 
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Do a presentation','Do a presentation on a meet-up.',1,'../photo/img/logo-quests/mix/logo-mix1.jpg',900);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Promising child','Beat the mentor in the discussion.',1,'../photo/img/logo-quests/mix/logo-mix5.jpg',404);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('PA - pass','You did it you crazy son of a ... , you did it',1,'../photo/img/logo-quests/dinosaur/logo-dinosaur1.jpg',1);
-INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Complete background materials','Its aint much but its honest work',1,'../photo/img/logo-quests/work/logo-work1.jpg',1);
+INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Complete assigment','Its aint much but its honest work',1,'../photo/img/logo-quests/work/logo-work1.jpg',1);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('King of Ping Pong','Win against a mentor in ping pong.',1,'../photo/img/logo-quests/pingpong/logo-ping1.jpg',404);
-INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Kahoot specialist','Win the Kahoot quiz.',1,'../photo/img/logo-items/game/logo-game3.jpg',300);
-INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Help hand','Help another student (not on your team) with the project or assignment.',1,'../photo/img/logo-quests/help/logo-help1.jpg',500);
-INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('DRAGON LORE','[Almost impossible] Pass your PA on the FIRST TRY.',1,'../photo/img/logo-quests/legend/logo-legend1.jpg',999);
-INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Call me LEGEND','Complete the course, and be LEGEND!',1,'../photo/img/logo-quests/legend/logo-legend4.jpg',99999);
-INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Rise like a PHOENIX','Pass PA in the fourth attempt and rise like a PHOENIX from the ashes...',1,'../photo/img/logo-quests/phoenix/logo-rise2.jpg',1500);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Two-week assignment','Finishing two-week assignment - 100 cc per person for the team and they decide on how to share it.',2,'../photo/img/logo-quests/work/logo-work3.jpg',100);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Complete project','Complete team project.',2,'../photo/img/logo-quests/road/logo-road2.jpg',500);
 INSERT INTO Quests (NAME, DESCRIPTION, QUEST_TYPE_ID, IMG,  QUEST_VALUE) values ('Taking part in screening process','Taking part in the student screening process.',2,'../photo/img/logo-quests/mix/logo-mix6.jpg',50);

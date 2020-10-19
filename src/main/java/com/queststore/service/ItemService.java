@@ -31,4 +31,8 @@ public class ItemService {
         List<Item> itemList = repository.findAll();
         return itemList.stream().filter(item -> item.getItemId() == id).findAny().orElse(null);
     }
+
+    public void buyItem(Long itemId, Long codecoolerId){
+        repository.insertItemIntoTable(itemId, codecoolerId);
+    }
 }

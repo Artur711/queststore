@@ -21,6 +21,9 @@ public class CodeCooler extends User {
     @ManyToMany(mappedBy = "codecoolers")
     List<Quest> quests;
 
+    @ManyToMany(mappedBy = "codecoolers")
+    List<Item> items;
+
     public CodeCooler(long userId, String firstName, String lastName, String email, String password, String photoUrl, int phoneNumber, int userType, long exp, int codeCoolCoins) {
         super(userId, firstName, lastName, email, password, photoUrl, phoneNumber, userType);
         this.exp = exp;

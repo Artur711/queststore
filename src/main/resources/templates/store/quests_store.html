@@ -27,7 +27,7 @@
 
                 <form method="POST" th:action="@{/complete_quest}">
                     <input type="hidden" th:name="questId" th:value="${quest.questId}"/>
-                    <input type="submit" class="grid-title btn" th:value="${quest.name + ' [' + quest.questValue + 'CC]'}"/>
+                    <input type="submit" class="grid-title btn" th:value="${quest.name + ' ' + quest.questValue + 'CC'}"/>
                 </form>
 
                 <!--</div>
