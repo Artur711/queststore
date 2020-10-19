@@ -17,7 +17,7 @@ public class UserService {
     }
 
     public List<User> getAllMentors() {
-        List<User> userList = userRepository.findAll();
+        List<User> userList = (List<User>) userRepository.findAll();
         return userList.stream().filter(user -> user.getUserType() == 2).collect(Collectors.toList());
     }
 
@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public User getUserById(long id){
-        List<User> userList = userRepository.findAll();
+        List<User> userList = getAllMentors();
         return userList.stream().filter(user -> user.getUserId() == id).findAny().orElse(null);
     }
 
