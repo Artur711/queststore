@@ -38,7 +38,7 @@ public class CodeCoolerService {
         coolerItems.setCodeCoolerID(userId);
         coolerItems.setItemID(itemId);
         coolerItems.setName(itemService.getById(itemId).getName());
-        codeCoolerItemsService.create(coolerItems);
+        codeCoolerItemsService.save(coolerItems);
     }
 
     public void updateCoinsBalance(int coins, Long userId){

@@ -30,7 +30,7 @@ public class MentorController {
 
     @PostMapping("/add_mentor")
     public String addTheMentor(Model model, @Valid User user){
-        userService.crateMentor(user);
+        userService.saveMentor(user);
         return "redirect:/mentors_list";
     }
 
@@ -44,7 +44,7 @@ public class MentorController {
     @PostMapping("/mentor_edit/{id}")
     public String updateTheMentor(@PathVariable("id") long id, @Valid User mentor){
         mentor.setUserId(id);
-        userService.updateMentor(mentor);
+        userService.saveMentor(mentor);
         return "redirect:/mentors_list";
     }
 

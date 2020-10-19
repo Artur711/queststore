@@ -21,7 +21,7 @@ public class CodeCoolerItemsService {
         return repository.findAll();
     }
 
-    public void create(CodeCoolerItems items) {
+    public void save(CodeCoolerItems items) {
         items.setUsed("NO");
         repository.save(items);
     }

@@ -20,7 +20,7 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    public void findAll() {
+    public void should_find_all() {
         //given:
         int listSize = 6;
         User secondUser = getSecondUser();
@@ -36,7 +36,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    public void findUserByLastNameAndPassword() {
+    public void should_find_user_by_last_name_and_password() {
         // given:
         User user = getUser();
 

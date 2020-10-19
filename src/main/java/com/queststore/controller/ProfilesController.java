@@ -65,7 +65,7 @@ public class ProfilesController {
         loggedUser.setPhoneNumber(user.getPhoneNumber());
         loggedUser.setPassword(user.getPassword());
         loggedUser.setEmail(user.getEmail());
-        mentorService.updateMentor(loggedUser);
+        mentorService.saveMentor(loggedUser);
         return loggedUser;
     }
 }
