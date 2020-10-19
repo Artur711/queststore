@@ -55,6 +55,14 @@ public class User {
         this.userType = userType;
     }
 
+    public User(String firstName, String lastName, String email, String password, long phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -55,7 +55,7 @@ class CodeCoolerServiceTest {
                   (Executable) () -> assertEquals(codeCoolerService.getCodeCoolerById(id3).getFirstName(), "Nicole"));
     }
 
-    public List<CodeCooler> getUserList() {
+    private List<CodeCooler> getUserList() {
         CodeCooler codeCooler1 = new CodeCooler();
         CodeCooler codeCooler2 = new CodeCooler();
         CodeCooler codeCooler3 = new CodeCooler();
