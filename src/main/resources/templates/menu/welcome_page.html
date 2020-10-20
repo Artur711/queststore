@@ -7,11 +7,29 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
-    <div th:object="${welcome}">
-        <br><br><br>
-        <nav>
-            <h1 class="button-update is-center"><span th:text="${'Welcome ' + welcome.firstName + '!'}"></span></h1>
-        </nav>
-    </div>
+    <br><br><br>
+    <nav>
+        <div class="welcome is-center" th:object="${welcome}">
+            <p><span th:text="${'Welcome ' + welcome.firstName + '!'}"></span></p>
+            <div th:switch="${welcome.userType}">
+                <div th:case=3>
+                    <p>You are a King in this kingdom. You can do anything. You have all the permissions.</p>
+                    <p>You should manage your kingdom fairly and for the sake of your subordinates.</p>
+                    <p>Your subordinates are lords (mentors) and knights (codecoolers).</p>
+                </div>
+                <div th:case=2>
+                    <p>You are one of lords in this kingdom. You have many the permissions.</p>
+                    <p>You should manage your subordinates fairly.</p>
+                    <p>Your subordinates are knights (codecoolers).</p>
+                </div>
+                <div th:case=1>
+                    <p>You are one of kings in this kingdom. You don't have many the permissions.</p>
+                    <p>For your main aim are complete the tasks for which you are given code coins.</p>
+                    <p>Your code coins can you exchange for items which it will help you in code learn.</p>
+                </div>
+            </div>
+            <p>Good luck!!!</p>
+        </div>
+    </nav>
 </body>
 </html>

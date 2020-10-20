@@ -586,6 +586,14 @@ div.grid-block:hover span:after{
     outline: none;
 }
 
+.welcome {
+    width: 55vw;
+    border-radius: 1vw;
+    border: solid #0cf;;
+    font-size: 3vh;
+    background-color: #cff;
+}
+
 .button-update, .button-remove {
     width: 12vw;
     border-radius: 1vw;
@@ -802,12 +810,16 @@ textarea {
         width: 40vw;
     }
 
+    .welcome {
+        width: 70vw;
+    }
+
     .zenta {
         font-size: 130%;
     }
 
     .main {
-        margin-top: 1vh;
+        margin-top: -1vh;
     }
 
     .instructionDiv, .inputDiv {
