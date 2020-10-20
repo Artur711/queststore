@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrator menu</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
+    <script th:src="@{js/menu.js}" src="../static/js/menu.js" defer></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body class="body-menu">
+<div id="pure-main">
+    <header class="pure-header">
+        <img class="pure-logo" src="../static/photo/logoV.webp" th:src="@{/photo/logoV.webp}">
+        <div id="user" class="empty" th:object="${user}" th:text="${user.userType}"></div>
+
+        <div th:switch="${user.userType}">
+            <div th:case=3>
+                <img alt="Profile photo" class="pure-profile-photo" src="../static/photo/profile/crown.webp" th:src="@{/photo/profile/crown.webp}">
+            </div>
+            <div th:case=2>
+                <img alt="Profile photo" class="pure-profile-photo" src="../static/photo/profile/crest.webp" th:src="@{/photo/profile/crest.webp}">
+            </div>
+            <div th:case=1>
+                <img alt="Profile photo" class="pure-profile-photo" src="../static/photo/profile/shield.webp" th:src="@{/photo/profile/shield.webp}">
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="dropdown">
+                <a id="myBtn" class="pure-menu-item-messages zenta" href="#" onclick="myFunction()">Mesages</a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Message 1</a>
+                    <a href="#">Message 2</a>
+                    <a href="#">Message 3</a>
+                    <a href="#">Message 4</a>
+                    <a href="#">Message 5</a>
+                </div>
+            </div>
+
+            <a class="pure-menu-item zenta" href="contact_page.html">Contact</a>
+            <a class="pure-menu-item zenta" href="index.html" th:href="@{logout}">Logout</a>
+        </div>
+    </header>
+
+    <div th:switch="${user.userType}">
+        <div th:case=3>
+            <nav>
+                <div id="index_admin3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('admin3')">Admins</div>
+                <div id="index_class3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('class3')">Classes</div>
+                <div id="index_mentors3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('mentors3')">Mentors</div>
+                <div id="index_codecoolers3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('codecoolers3')">Codecoolers</div>
+                <div id="index_teams3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('teams3')">Teams</div>
+                <div id="index_levels3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('levels3')">Expierience Leves</div>
+                <div id="index_quests3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('quests3')">Quests</div>
+                <div id="index_items3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('items3')">Items</div>
+                <div id="index_wallets3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('wallets3')">Wallets</div>
+                <div id="index_profile3" class="pure-item pure-item-m is-center zenta" onclick="clickCell('profile3')">My profile</div>
+            </nav>
+        </div>
+        <div th:case=2>
+            <nav>
+                <div id="index_class2" class="pure-item pure-item-m is-center zenta" onclick="clickCell('class2')">Classes</div>
+                <div id="index_codecoolers2" class="pure-item pure-item-m is-center zenta" onclick="clickCell('codecoolers2')">Codecoolers</div>
+                <div id="index_teams2" class="pure-item is-center zenta" onclick="clickCell('teams2')">Teams</div>
+                <div id="index_levels2" class="pure-item is-center zenta" onclick="clickCell('levels2')">Expierience Leves</div>
+                <div id="index_quests2" class="pure-item is-center zenta" onclick="clickCell('quests2')">Quests</div>
+                <div id="index_items2" class="pure-item is-center zenta" onclick="clickCell('items2')">Items</div>
+                <div id="index_wallets2" class="pure-item is-center zenta" onclick="clickCell('wallets2')">Wallets</div>
+                <div id="index_profile2" class="pure-item is-center zenta" onclick="clickCell('profile2')">My profile</div>
+            </nav>
+        </div>
+        <div th:case=1>
+            <nav>
+                <div id="index_class1" class="pure-item is-center zenta" onclick="clickCell('class1')">Classes</div>
+                <div id="index_teams1" class="pure-item is-center zenta" onclick="clickCell('teams1')">Teams</div>
+                <div id="index_quests1" class="pure-item is-center zenta" onclick="clickCell('quests1')">Quests</div>
+                <div id="index_items1" class="pure-item is-center zenta" onclick="clickCell('items1')">Items</div>
+                <div id="index_profile1" class="pure-item is-center zenta" onclick="clickCell('profile1')">My profile</div>
+            </nav>
+        </div>
+    </div>
+
+    <section>
+        <iframe id="iframe" src="welcome_page.html" th:src="@{/welcome_page}" height="800" title="Iframe Menu"></iframe>
+    </section>
+
+    <footer class="pure-footer">&copy AK SOLDIERS 2020</footer>
+</div>
+</body>
+</html>

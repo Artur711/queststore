@@ -569,7 +569,9 @@ div.grid-block:hover span:after{
     position: center;
 }
 
-
+.empty {
+    color: #64605d;
+}
 
 .button-buy {
     margin: 0px 30px 60px 30px;

@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
-//@SessionAttributes("loggedUser")
 public class AuthorisationController {
 
     private final UserRepository userRepository;
@@ -28,9 +26,13 @@ public class AuthorisationController {
 
 
     @GetMapping("/index")
-    public String login(Model model, User user) {
+    public String login(Model model, User user, HttpSession session) {
         model.addAttribute("user", user);
-        return "index";
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "index";
+        }
+        return "redirect:/menu";
     }
 
 
@@ -57,17 +59,6 @@ public class AuthorisationController {
             response.sendRedirect(request.getContextPath() + "/index");
         }
     }
-
-
-//    @GetMapping("/logout")
-//        public void processLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//            HttpSession session = request.getSession(false);
-//            if (session != null) {
-//                session.invalidate();
-//            }
-//
-//            response.sendRedirect(request.getContextPath() + "/index");
-//    }
 
     @GetMapping("/logout")
     public String processLogout(HttpServletRequest request) throws IOException {
