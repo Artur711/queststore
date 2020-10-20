@@ -12,9 +12,9 @@ public class QuestStoreConfiguration {
     public FilterRegistrationBean<AuthorizationFilter> authorizationFilter() {
         FilterRegistrationBean<AuthorizationFilter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new AuthorizationFilter());
-        registrationBean.addUrlPatterns("/mentor_menu",
+        registrationBean.addUrlPatterns("/add_mentor",
                 "/students_list",
-                "/admin_menu",
+                "/menu",
                 "/add_class");
 
 

@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import java.io.IOException;
 import java.util.Optional;
 
 @Controller
-//@SessionAttributes("loggedUser")
 public class AuthorisationController {
 
     private final UserRepository userRepository;
@@ -27,11 +25,14 @@ public class AuthorisationController {
 
 
     @GetMapping("/index")
-    public String login(Model model, User user) {
+    public String login(Model model, User user, HttpSession session) {
         model.addAttribute("user", user);
-        return "index";
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "index";
+        }
+        return "redirect:/menu";
     }
-
 
     @PostMapping
     public void processLoginAttempt(HttpServletRequest request,
@@ -41,29 +42,11 @@ public class AuthorisationController {
         if (maybeUser.isPresent()) {
             HttpSession session = request.getSession(true);
             session.setAttribute("loggedUser", maybeUser.get());
-
-            if (maybeUser.get().getUserType() == 3) {
-                response.sendRedirect(request.getContextPath() + "/admin_menu");
-            } else if (maybeUser.get().getUserType() == 2) {
-                response.sendRedirect(request.getContextPath() + "/mentor_menu");
-            } else if (maybeUser.get().getUserType() == 1) {
-                response.sendRedirect(request.getContextPath() + "/codecooler_menu");
-            }
+            response.sendRedirect(request.getContextPath() + "/menu");
         } else {
             response.sendRedirect(request.getContextPath() + "/index");
         }
     }
-
-
-//    @GetMapping("/logout")
-//        public void processLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//            HttpSession session = request.getSession(false);
-//            if (session != null) {
-//                session.invalidate();
-//            }
-//
-//            response.sendRedirect(request.getContextPath() + "/index");
-//    }
 
     @GetMapping("/logout")
     public String processLogout(HttpServletRequest request) throws IOException {
