@@ -56,7 +56,6 @@ body {
 #container {
     position: relative;
     z-index: 1;
-    width: 90%;
 }
 
 header {
@@ -782,11 +781,6 @@ a {
     text-decoration: none;
 }
 
-textarea {
-    font-size: 155%;
-    border: 3px solid gray;
-}
-
 .class-header-middle {
     padding-top: 1vw;
     height: 5vh;
@@ -824,6 +818,10 @@ textarea {
 
     .instructionDiv, .inputDiv {
         font-size: 300%;
+    }
+
+    .inputDiv-m {
+        font-size: 120%;
     }
 
     #loginDiv {
