@@ -48,13 +48,7 @@ public class AuthorisationController {
             session.setAttribute(String.format("listOfChosenMentors_%s", maybeUser.get().getUserId()), new ArrayList<User>());
             session.setAttribute(String.format("listOfChosenStudents_%s",maybeUser.get().getUserId()), new ArrayList<User>());
 
-            if (maybeUser.get().getUserType() == 3) {
-                response.sendRedirect(request.getContextPath() + "/admin_menu");
-            } else if (maybeUser.get().getUserType() == 2) {
-                response.sendRedirect(request.getContextPath() + "/mentor_menu");
-            } else if (maybeUser.get().getUserType() == 1) {
-                response.sendRedirect(request.getContextPath() + "/codecooler_menu");
-            }
+            response.sendRedirect(request.getContextPath() + "/menu");
         } else {
             response.sendRedirect(request.getContextPath() + "/index");
         }
