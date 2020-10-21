@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/all_classes")
 public class CC_ClassController {
 
     CC_ClassService classService;
@@ -30,7 +31,7 @@ public class CC_ClassController {
         this.codeCoolerService = codeCoolerService;
     }
 
-    @GetMapping("/all_classes")
+    @GetMapping
     public String getListOfAllClasses(Model model, HttpSession session) {
         List<CC_Class> allClass = classService.getAllClasses();
         model.addAttribute("allClasses", allClass);
@@ -61,7 +62,7 @@ public class CC_ClassController {
         List<User> tempList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
         tempList.add(chosenOne);
         session.setAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()), tempList);
-        return "redirect:/add_class";
+        return "redirect:/all_classes/add_class";
     }
 
     @GetMapping("/add_the_student_to_class")
@@ -72,7 +73,7 @@ public class CC_ClassController {
         List<User> tempList = (List<User>) session.getAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()));
         tempList.add(chosenOne);
         session.setAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()), tempList);
-        return "redirect:/add_class";
+        return "redirect:/all_classes/add_class";
     }
 
     //   CDN
@@ -97,7 +98,7 @@ public class CC_ClassController {
         List<CodeCooler> codecoolersList = (List<CodeCooler>) session.getAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()));
         codecoolersList.removeIf(chosenOneToBeRemoved::equals);
         session.setAttribute((String.format("listOfChosenStudents_%s", loggedUser.getUserId())), codecoolersList);
-        return "redirect:/add_class";
+        return "redirect:/all_classes/add_class";
     }
 
     @GetMapping("/delete_user/{id}")
@@ -107,7 +108,7 @@ public class CC_ClassController {
         List<User> mentorsList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
         mentorsList.removeIf(chosenOneToBeRemoved::equals);
         session.setAttribute((String.format("listOfChosenMentors_%s", loggedUser.getUserId())), mentorsList);
-        return "redirect:/add_class";
+        return "redirect:/all_classes/add_class";
 
     }
 
@@ -117,4 +118,9 @@ public class CC_ClassController {
         return "redirect:/all_classes";
     }
 
+    @GetMapping("/edit_class/{id}")
+    public String editiTheClass(@PathVariable("id") Long classId){
+        System.out.println(classId);
+        return "collaboration/edit_the_class";
+    }
 }

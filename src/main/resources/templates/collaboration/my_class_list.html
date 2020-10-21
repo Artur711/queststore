@@ -16,8 +16,8 @@
     <div class="list-menu">
         <input class="input-update"  th:value="${class.classId}" disabled>
         <input class="input-update"  th:value="${class.name}" disabled>
-        <a th:href="@{class_edit/{id}(id=${class.classId})}" class="button-update">Edit</a>
-        <a th:href="@{delete_class/{id}(id=${class.classId})}" class="button-remove">Remove</a>
+        <a th:href="@{all_classes/edit_class/{id}(id=${class.classId})}" class="button-update">Edit</a>
+        <a th:href="@{all_classes/delete_class/{id}(id=${class.classId})}" class="button-remove">Remove</a>
     </div>
     </tbody>
 
@@ -29,7 +29,7 @@
 <!--    <div class="block-list-menu"><input class="input-update" type="text" value="20/25" disabled></div>-->
     <div class="is-center">
 
-        <a th:href="@{add_class/}">
+        <a th:href="@{all_classes/add_class/}">
         <button class="button-update">New Class</button></a>
     </div>
 

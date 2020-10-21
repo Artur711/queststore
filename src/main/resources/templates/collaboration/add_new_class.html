@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
 </head>
 <body>
-<form id="form" action="#" th:action="@{/add_the_class}" th:object="${cc_class}" method="get">
+<form id="form" action="#" th:action="@{/all_classes/add_the_class}" th:object="${cc_class}" method="get">
 
     <div class="list-menu">
         <div class="input-update">Chose mentor for class</div>
@@ -21,7 +21,7 @@
     </div>
 </form>
 
-<form id="form" action="#" th:action="@{/add_the_student_to_class}" th:object="${cc_class}" method="get">
+<form id="form" action="#" th:action="@{/all_classes/add_the_student_to_class}" th:object="${cc_class}" method="get">
     <div class="list-menu">
 
         <div class="input-update">Add Students for class</div>
@@ -34,7 +34,7 @@
         <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
     </div>
 </form>
-<form id="form2" action="#" th:action="@{/add_the_class/}" th:object="${listOfChosenMentors}" method="post">
+<form id="form2" action="#" th:action="@{/all_classes/add_the_class/}" th:object="${listOfChosenMentors}" method="post">
 
     <div class="class-menu-container" th:object="${cc_class}">
         <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
@@ -54,7 +54,7 @@
                     <td th:text="${user.firstName} + ' ' + ${user.lastName}"
                         class="input-update"></td>
                     <td>
-                        <a th:href="@{delete_user/{id}(id=${user.userId})}"
+                        <a th:href="@{/all_classes/delete_user/{id}(id=${user.userId})}"
                            class="button-remove">Remove</a>
                     </td>
                 </tr>
@@ -73,7 +73,7 @@
                     <td th:text="${user.firstName} + ' ' + ${user.lastName}"
                         class="input-update"></td>
                     <td>
-                        <a th:href="@{delete_student/{id}(id=${user.userId})}"
+                        <a th:href="@{/all_classes/delete_student/{id}(id=${user.userId})}"
                            class="button-remove">Remove</a>
                     </td>
                 </tr>
