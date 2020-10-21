@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/all_classes")
@@ -119,8 +121,17 @@ public class CC_ClassController {
     }
 
     @GetMapping("/edit_class/{id}")
-    public String editiTheClass(@PathVariable("id") Long classId){
-        System.out.println(classId);
+    public String editiTheClass(Model model,@PathVariable("id") Long classId){
+        Integer mentorType = 2;
+        Integer studentType = 1;
+        CC_Class cc_classById = classService.findCC_ClassById(classId);
+        model.addAttribute("cc_class", cc_classById);
+        model.addAttribute("mentors", userService.getAllMentors());
+        model.addAttribute("students", codeCoolerService.getAll());
+//        classService.getUsersFromTheClass(classId, studentType);
+
+        model.addAttribute("listOfChosenMentors",  classService.getUsersFromTheClass(classId, mentorType));
+        model.addAttribute("listOfChosenStudents",  classService.getUsersFromTheClass(classId, studentType));
         return "collaboration/edit_the_class";
     }
 }

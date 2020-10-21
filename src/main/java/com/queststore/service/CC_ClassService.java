@@ -6,14 +6,20 @@ import com.queststore.model.User;
 import com.queststore.repository.CC_ClassRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CC_ClassService {
     private CC_ClassRepository repository;
+    private UserService userService;
+    private CodeCoolerService codeCoolerService;
 
-    public CC_ClassService(CC_ClassRepository repository) {
+    public CC_ClassService(CC_ClassRepository repository, UserService userService, CodeCoolerService codeCoolerService) {
         this.repository = repository;
+        this.userService = userService;
+        this.codeCoolerService = codeCoolerService;
     }
 
     public void create(CC_Class cc_class, List<User> users, List<CodeCooler> codecoolers) {
@@ -33,5 +39,22 @@ public class CC_ClassService {
 
     public List<CC_Class> getAllClasses() {
         return repository.findAll();
+    }
+
+    public CC_Class findCC_ClassById(Long classId) {
+        return repository.findByClassId(classId);
+    }
+
+    public List<User> getUsersFromTheClass(Long class_id, Integer user_type) {
+        List<Integer> usersId = repository.getUserIdByTypeFromTheClassroom(class_id, user_type);
+        List<User> usersFromTheClass = new ArrayList<>();
+        usersId.stream().collect(Collectors.toSet()).forEach(userId -> {
+            if (user_type == 2) {
+                usersFromTheClass.add(userService.getUserById(userId));
+            } else if (user_type == 1) {
+                usersFromTheClass.add(codeCoolerService.getCodeCoolerById(userId));
+            }
+        });
+        return usersFromTheClass;
     }
 }
