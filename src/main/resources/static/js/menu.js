@@ -37,7 +37,7 @@ function adminMenu(subpage) {
     } else if (subpage.innerText === 'Wallets') {
         document.getElementById('iframe').src = "/wallet_list";
     } else if (subpage.innerText === 'My profile') {
-        document.getElementById('iframe').src = "/admin_profile";
+        document.getElementById('iframe').src = "/profile/admin_profile";
     }
 }
 
@@ -58,7 +58,7 @@ function mentorMenu(subpage) {
     } else if (subpage.innerText === 'Wallets') {
         document.getElementById('iframe').src = "/wallet_list";
     } else if (subpage.innerText === 'My profile') {
-        document.getElementById('iframe').src = "/mentor_profile";
+        document.getElementById('iframe').src = "/profile/mentor_profile";
     }
 }
 
@@ -72,7 +72,7 @@ function codeCoolerMenu(subpage) {
     } else if (subpage.innerText === 'Items') {
         document.getElementById('iframe').src = "/items_menu";
     } else if (subpage.innerText === 'My profile') {
-        document.getElementById('iframe').src = "/codecooler_profile";
+        document.getElementById('iframe').src = "/profile/codecooler_profile";
     }
 }
 

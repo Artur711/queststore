@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/profile")
 public class ProfilesController {
 
     private UserService mentorService;
@@ -31,7 +32,7 @@ public class ProfilesController {
     @PostMapping("/update_mentor_profile")
     public String updateMentorProfile(Model model, User user, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("loggedUser", setUserUpdate(loggedUser, user));
-        return "redirect:/mentor_profile";
+        return "redirect:/profile/mentor_profile";
     }
 
     @GetMapping("/admin_profile")
@@ -43,7 +44,7 @@ public class ProfilesController {
     @PostMapping("/update_admin_profile")
     public String updateAdminProfile(Model model, User user, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("loggedUser", setUserUpdate(loggedUser, user));
-        return "redirect:/admin_profile";
+        return "redirect:/profile/admin_profile";
     }
 
     @GetMapping("/codecooler_profile")
@@ -58,7 +59,7 @@ public class ProfilesController {
     @PostMapping("/update_codecooler_profile")
     public String updateCodeCoolerProfile(Model model, User user, @SessionAttribute("loggedUser") User loggedUser) {
         model.addAttribute("loggedUser", setUserUpdate(loggedUser, user));
-        return "redirect:/codecooler_profile";
+        return "redirect:/profile/codecooler_profile";
     }
 
     private User setUserUpdate(User loggedUser, User user) {

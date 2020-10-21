@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/experiences")
 public class ExperienceController {
 
     private final ExperienceService service;
@@ -15,7 +16,7 @@ public class ExperienceController {
         this.service = service;
     }
 
-    @GetMapping("/experiences")
+    @GetMapping
     public String getExperience(Model model) {
         model.addAttribute("experience", service.getExperience());
         model.addAttribute("level", new Experience());

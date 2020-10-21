@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("/student_list")
 public class CodeCoolerController {
 
     private final CodeCoolerService service;
@@ -18,7 +19,7 @@ public class CodeCoolerController {
         this.service = service;
     }
 
-    @GetMapping("/student_list")
+    @GetMapping
     public String getStudentsList(Model model){
         model.addAttribute("students", service.getAll());
         return "codecooler/student_list";

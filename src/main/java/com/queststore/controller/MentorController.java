@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("/mentors_list")
 public class MentorController {
 
     private UserService userService;
@@ -17,7 +18,7 @@ public class MentorController {
         this.userService = userService;
     }
 
-    @GetMapping("/mentors_list")
+    @GetMapping
     public String allMentorsList(Model model){
         model.addAttribute("mentors", userService.getAllMentors());
         return "mentor/mentors_list";
