@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
@@ -34,6 +35,7 @@ public class AuthorisationController {
         return "redirect:/menu";
     }
 
+
     @PostMapping
     public void processLoginAttempt(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -42,7 +44,17 @@ public class AuthorisationController {
         if (maybeUser.isPresent()) {
             HttpSession session = request.getSession(true);
             session.setAttribute("loggedUser", maybeUser.get());
-            response.sendRedirect(request.getContextPath() + "/menu");
+
+            session.setAttribute(String.format("listOfChosenMentors_%s", maybeUser.get().getUserId()), new ArrayList<User>());
+            session.setAttribute(String.format("listOfChosenStudents_%s",maybeUser.get().getUserId()), new ArrayList<User>());
+
+            if (maybeUser.get().getUserType() == 3) {
+                response.sendRedirect(request.getContextPath() + "/admin_menu");
+            } else if (maybeUser.get().getUserType() == 2) {
+                response.sendRedirect(request.getContextPath() + "/mentor_menu");
+            } else if (maybeUser.get().getUserType() == 1) {
+                response.sendRedirect(request.getContextPath() + "/codecooler_menu");
+            }
         } else {
             response.sendRedirect(request.getContextPath() + "/index");
         }
