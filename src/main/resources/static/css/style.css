@@ -134,7 +134,7 @@ footer {
 
 
 iframe {
-    width: 90vw;
+    width: 90%;
     border: none;
     height: 69vh;
 }
@@ -191,7 +191,7 @@ nav {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    width: 97vw;
+    width: 100%;
 }
 
 h1, h2, h5 {
@@ -291,10 +291,6 @@ section {
     margin-left: 4%;
 }*/
 
-.pure-footer {
-    position: static;
-}
-
 .sub-section2 {
     width: 23vw;
     font-size: 150%;
@@ -303,6 +299,10 @@ section {
 
 .entity-input {
     width: 40%;
+}
+
+.pure-footer {
+    position: static;
 }
 
 #ollist {
