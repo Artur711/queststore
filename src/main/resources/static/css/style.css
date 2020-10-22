@@ -149,16 +149,6 @@ iframe {
     height: 100%;
 }
 
-/*.iframe-mini {
-    margin-right: 30%;
-    width: 70%;
-    background-color: white;
-    font-size: 250%;
-    border: 6px solid gray;
-    border-radius: 6px;
-}*/
-
-
 .pure-menu-item {
     margin-right: 1vw;
     color: white;
@@ -259,6 +249,14 @@ h2 {
 
 .dropdown-content a:hover {
     background-color: #f1f1f1
+}
+
+.elem:hover {
+    background-color: lightgray;
+}
+
+.elem-a:hover {
+    background-color: darkgreen;
 }
 
 .show {
@@ -443,6 +441,10 @@ div.mini-block:hover span {
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
     outline: none;
+}
+
+.btn:hover {
+    background-color: darkgreen;
 }
 
 .btn:disabled {
@@ -644,8 +646,16 @@ div.mini-block:hover span {
     background-color: green;
 }
 
+.button-update:hover {
+    background-color: darkgreen;
+}
+
 .button-remove {
     background-color: rgb(206, 40, 40);
+}
+
+.button-remove:hover {
+    background-color: darkred;
 }
 
 .button-buy-with-team {
@@ -789,6 +799,18 @@ div.block:hover span:after, .block-update-menu:hover span:after {
     background-color: green;
     margin-left: 4%;
     color: white;
+}
+
+.headline:hover {
+    background-color: darkgreen;
+}
+
+.headline2 {
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+    background-color: green;
+    color: white;
+    border: solid black;
 }
 
 .savebutton {
