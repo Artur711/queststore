@@ -2,6 +2,7 @@ package com.queststore.controller;
 
 import com.queststore.model.User;
 import com.queststore.service.UserService;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +54,10 @@ public class MentorController {
     public String deleteTheMentor(@PathVariable("id") long id){
         userService.deleteUser(id);
         return "redirect:/mentors_list";
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public String handle() {
+        return "error/contain_mentor";
     }
 }

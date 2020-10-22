@@ -26,7 +26,7 @@
 
 .zenta {
     font-family: "Zenda";
-    font-size: 200%;
+    font-size: 1.7vw;
 }
 
 body {
@@ -96,6 +96,7 @@ header {
 
 footer {
     width: 90vw;
+    left: 5vw;
     position: fixed;
     bottom: 0;
     background-color: #64605d;
@@ -126,16 +127,16 @@ footer {
 }
 
 #pure-main {
-    width: 97%;
+    width: 97vw;
+    margin-left: 1.5vw;
     box-sizing: border-box;
 }
 
 
 iframe {
-    width: 90%;
+    width: 90vw;
     border: none;
-    /*border: 0.5vw double #64605d;*/
-    /*height: 68vh;*/
+    height: 69vh;
 }
 
 .inside-field {
@@ -190,7 +191,7 @@ nav {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    width: 100%;
+    width: 97vw;
 }
 
 h1, h2, h5 {
@@ -290,6 +291,10 @@ section {
     margin-left: 4%;
 }*/
 
+.pure-footer {
+    position: static;
+}
+
 .sub-section2 {
     width: 23vw;
     font-size: 150%;
@@ -298,10 +303,6 @@ section {
 
 .entity-input {
     width: 40%;
-}
-
-.pure-footer {
-    position: static;
 }
 
 #ollist {
@@ -614,9 +615,14 @@ div.mini-block:hover span {
 .welcome {
     width: 55vw;
     border-radius: 1vw;
-    border: solid #0cf;;
+    border: solid black;
+    color: white;
     font-size: 3vh;
-    background-color: #cff;
+    background-color: #64605d;
+}
+
+.error-photo {
+    width: 20vw;
 }
 
 .button-update, .button-remove {
@@ -826,9 +832,6 @@ a {
 }
 
 @media screen and (max-width: 1050px) {
-    .pure-logo {
-        width: 40vw;
-    }
 
     .welcome {
         width: 70vw;
@@ -885,6 +888,9 @@ a {
 }
 
 @media screen and (max-width: 750px) {
+    .pure-logo {
+        width: 39vw;
+    }
 
     .pure-item {
         width: 30vw;
@@ -910,6 +916,10 @@ a {
     .sub-section2 {
         font-size: 110%;
     }
+
+    .error-photo {
+        width: 30vw;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -928,5 +938,9 @@ a {
 
     .profile-photo {
         height: 20vh;
+    }
+
+    .error-photo {
+        width: 40vw;
     }
 }
