@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My items list</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <!--    <script src="js/item.js" defer></script>-->
+</head>
+<body>
+
+<div th:switch="${codecoolerQuests}">
+    <div th:case="null">
+        <div class="list-menu">
+            <h2 class="button-remove is-center">No Quests yet!</h2>
+        </div>
+    </div>
+
+    <div th:case="*">
+        <div th:each="quest: ${codecoolerQuests}">
+            <nav>
+                <input class="input-update" type="text" th:value="${quest.questId}" disabled>
+                <input class="input-update" type="text" th:value="${quest.name}" disabled>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+</html>

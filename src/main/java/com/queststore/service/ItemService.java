@@ -4,6 +4,7 @@ import com.queststore.model.Item;
 import com.queststore.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,5 +35,31 @@ public class ItemService {
 
     public void buyItem(Long itemId, Long codecoolerId){
         repository.insertItemIntoTable(itemId, codecoolerId);
+    }
+
+    public List<Item> getCodecoolerItems(Long codecoolerId){
+        List<Long> itemsIds = repository.getUserItems(codecoolerId);
+        List<Item> itemsList = new ArrayList<>();
+        for (Long itemId: itemsIds){
+            itemsList.add(repository.findById(itemId).get());
+        }
+        return  itemsList;
+    }
+
+    public List<Item> getListOfItems(List<Long> itemsId) {
+        List<Item> resultList = new ArrayList<>();
+        for (Long itemId: itemsId) {
+            resultList.add(repository.findById(itemId).get());
+        }
+
+        return resultList;
+    }
+
+    public List<Item> getUniqueItems(Long codecoolerId) {
+
+        List<Long> allItemsId = new ArrayList<>(repository.getAllItemsId(codecoolerId));
+        allItemsId.removeAll(new ArrayList<>(repository.getUserItems(codecoolerId)));
+
+        return getListOfItems(allItemsId);
     }
 }
