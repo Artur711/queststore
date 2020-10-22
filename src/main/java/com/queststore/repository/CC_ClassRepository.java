@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
+import java.beans.Transient;
 import java.util.List;
 
 public interface CC_ClassRepository extends CrudRepository<CC_Class, Long> {
@@ -37,5 +38,10 @@ public interface CC_ClassRepository extends CrudRepository<CC_Class, Long> {
             nativeQuery = true)
     List<Integer> getUserIdByTypeFromTheClassroom(@Param("class_id") Long class_id, @Param("user_type") Integer user_type);
 
-
+    @Transactional
+    @Modifying
+    @Query(
+            value = "DELETE FROM classrooms_users where class_id = :classId",
+            nativeQuery = true)
+    void removeOldMembersFromClassToBeUpdated(@Param("classId") Long classId);
 }

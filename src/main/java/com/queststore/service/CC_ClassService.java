@@ -22,6 +22,12 @@ public class CC_ClassService {
         this.codeCoolerService = codeCoolerService;
     }
 
+    public void ClassToBeUpdate(CC_Class cc_class, List<User> users, List<CodeCooler> codecoolers) {
+        repository.removeOldMembersFromClassToBeUpdated(cc_class.getClassId());
+        create(cc_class, users, codecoolers);
+    }
+
+
     public void create(CC_Class cc_class, List<User> users, List<CodeCooler> codecoolers) {
         repository.save(cc_class);
         CC_Class cc = repository.getCC_ClassByName(cc_class.getName());
@@ -33,7 +39,6 @@ public class CC_ClassService {
     }
 
     public void deleteTheClass(Long id) {
-
         repository.deleteById(id);
     }
 

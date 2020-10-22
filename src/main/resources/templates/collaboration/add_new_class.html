@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
 </head>
 <body>
-<form id="form" action="#" th:action="@{/all_classes/add_the_class}" th:object="${cc_class}" method="get">
+<form id="form" action="#" th:action="@{/all_classes/add_mentor_to_new_class}" th:object="${cc_class}" method="get">
 
     <div class="list-menu">
         <div class="input-update">Chose mentor for class</div>
@@ -21,7 +21,7 @@
     </div>
 </form>
 
-<form id="form" action="#" th:action="@{/all_classes/add_the_student_to_class}" th:object="${cc_class}" method="get">
+<form id="forme" action="#" th:action="@{/all_classes/add_the_student_to_class}" th:object="${cc_class}" method="get">
     <div class="list-menu">
 
         <div class="input-update">Add Students for class</div>
