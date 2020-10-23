@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div th:switch="${my_items}">
+    <div th:switch="${codecoolerItems}">
         <div th:case="null">
             <div class="list-menu">
                 <h2 class="button-remove is-center">No items yet!</h2>
@@ -17,19 +17,12 @@
         </div>
 
         <div th:case="*">
-            <div th:each="item: ${my_items}">
+            <div th:each="item: ${codecoolerItems}">
                 <nav>
-                    <input class="input-update" type="text" th:value="${item.itemID}" disabled>
+                    <input class="input-update" type="text" th:value="${item.itemId}" disabled>
                     <input class="input-update" type="text" th:value="${item.name}" disabled>
 
-                    <div th:switch="${item.used}">
-                        <div th:case="NO">
-                            <a th:href="@{use_item/{id}(id=${item.codeCoolerItemID})}"><input class="list-menu button-update" type="submit" th:value="USE"></a>
-                        </div>
-                        <div th:case="YES">
-                            <input class="list-menu button-remove" type="submit" th:value="USED" disabled>
-                        </div>
-                    </div>
+                    <a th:href="@{use_item/{id}(id=${item.itemId})}"><input class="list-menu button-remove" type="submit" th:value="USE"></a>
                 </nav>
             </div>
         </div>

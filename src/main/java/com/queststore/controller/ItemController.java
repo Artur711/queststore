@@ -1,11 +1,14 @@
 package com.queststore.controller;
 
+import com.queststore.model.Item;
 import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
 import com.queststore.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class ItemController {
@@ -28,7 +31,7 @@ public class ItemController {
     @GetMapping("/items_store/{type}")
     public String getQuestList(@PathVariable("type") int type, @SessionAttribute("loggedUser") User loggedUser, Model model) {
         model.addAttribute("coins", codeService.getCodeCoolerById(loggedUser.getUserId()).getCodeCoolCoins());
-        model.addAttribute("items", itemService.getAll());
+        model.addAttribute("items", itemService.getUniqueItems(loggedUser.getUserId()));
         return "store/items_store";
     }
 
@@ -46,5 +49,20 @@ public class ItemController {
         codeService.updateCoinsBalance((studentCoins - itemPrice), loggedUserId);
 
         return "redirect:/items_menu";
+    }
+
+    @GetMapping("/my_items")
+    public String getMyItemsList(@SessionAttribute("loggedUser") User loggedUser, Model model) {
+        Long id = loggedUser.getUserId();
+        List<Item> listItems = itemService.getCodecoolerItems(id);
+        model.addAttribute("codecoolerItems", listItems);
+        return "store/my_items_list";
+    }
+
+    @GetMapping("/use_item/{id}")
+    public String useItem(@PathVariable("id") long id, Model model, @SessionAttribute("loggedUser") User loggedUser) {
+        itemService.delete(id);
+        model.addAttribute("codecoolerItems", itemService.getCodecoolerItems(loggedUser.getUserId()));
+        return "redirect:/welcome_page";
     }
 }

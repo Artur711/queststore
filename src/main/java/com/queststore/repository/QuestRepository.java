@@ -17,7 +17,22 @@ public interface QuestRepository extends CrudRepository<Quest, Long> {
     @Modifying
     @Query(
             value =
-                    "INSERT into QUESTS_CODECOOLERS (quest_id,codecooler_id) VALUES (:quest_id,:codecooler_id)",
+                    "INSERT into quests_codecoolers (quest_id,codecooler_id) VALUES (:quest_id,:codecooler_id)",
             nativeQuery = true)
     void insertQuestIntoAccomplishedTable(@Param("quest_id") Long quest_id, @Param("codecooler_id") Long codecooler_id);
+
+    @Transactional
+    @Modifying
+    @Query(
+            value = "SELECT * FROM quests_codecoolers WHERE codecooler_id= :codecooler_id",
+            nativeQuery = true)
+    List<Long> getUserQuests(@Param("codecooler_id") Long codecooler_id);
+
+    @Transactional
+    @Modifying
+    @Query(
+            value = "SELECT quest_id FROM quests",
+            nativeQuery = true)
+    List<Long> getAllQuestsId(@Param("codecooler_id") Long codecooler_id);
+
 }
