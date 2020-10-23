@@ -54,4 +54,10 @@ public class QuestController {
         model.addAttribute("codecoolerQuests", service.getCodecoolerQuests(loggedUser.getUserId()));
         return "store/my_quests_list";
     }
+
+    @GetMapping("quest_list")
+    public String getItemsList(Model model){
+        model.addAttribute("quests", service.getAll());
+        return "store/quest_list";
+    }
 }

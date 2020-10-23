@@ -65,4 +65,12 @@ public class ItemController {
         model.addAttribute("codecoolerItems", itemService.getCodecoolerItems(loggedUser.getUserId()));
         return "redirect:/welcome_page";
     }
+
+    @GetMapping("item_list")
+    public String getItemsList(Model model){
+        model.addAttribute("items", itemService.getAll());
+        return "store/item_list";
+    }
+
+
 }
