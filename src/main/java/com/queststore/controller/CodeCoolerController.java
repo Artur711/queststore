@@ -1,19 +1,16 @@
 package com.queststore.controller;
 
 import com.queststore.model.CodeCooler;
-import com.queststore.model.Item;
-import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
-import com.queststore.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
+@RequestMapping("/student_list")
 public class CodeCoolerController {
 
     private final CodeCoolerService service;
@@ -24,7 +21,7 @@ public class CodeCoolerController {
 
     }
 
-    @GetMapping("/student_list")
+    @GetMapping
     public String getStudentsList(Model model){
         model.addAttribute("students", service.getAll());
         return "codecooler/student_list";
