@@ -5,6 +5,7 @@
     <title>Experiences levels</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <script th:src="@{js/exp.js}" src="../static/js/exp.js" defer></script>
 </head>
 <body>
     <div th:switch="${experience}">
@@ -18,22 +19,17 @@
                     <div class="list-menu">
                         <input class="input-update" type="text" th:value="${'Level ' + (experience.indexOf(level) + 2)}" disabled>
                         <input class="input-update" type="text" th:value="${level.value}" disabled>
-<!--                        <a th:href="@{edit_level/{id}/{value}(id=${experience.indexOf(level)}, value=${level.value})}" class="button-update">Update</a>-->
                         <a th:href="@{experiences/delete_level/{id}(id=${level.loeID})}" class="button-remove">Remove</a>
                     </div>
             </tbody>
         </div>
     </div>
 
-
-    <div class="list-menu">
-        <h5 class="input-update is-center headline2"> Add new Level</h5>
-    </div>
-
     <form id="form" action="#" th:action="@{experiences/add_level}" th:object="${level}" method="post">
-        <div class="list-menu">
-            <input class="input-update background black-color" type="text" th:field="*{value}" th:placeholder="Range">
-            <input class="input-update button-update headline" type="submit" th:value="${'ADD NEW'}">
+        <div class="list-menu list-menu-frame">
+            <label for="new_exp"></label>
+            <input id="new_exp" class="input-update background black-color" type="text" th:value="${level.value}" th:field="*{value}" th:placeholder="Range">
+            <input id="send" class="input-update button-update headline" type="submit" value="ADD NEW">
         </div>
     </form>
 </body>

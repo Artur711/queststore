@@ -139,15 +139,15 @@ iframe {
     height: 69vh;
 }
 
-.inside-field {
-    background-color: #dfdbc3;
-    grid-template-columns: 50% 50%;
-    border: 6px solid gray;
-    border-radius: 6px;
-    padding: 40px 19px 700px 19px;
-    width: 97%;
-    height: 100%;
-}
+/*.inside-field {*/
+/*    background-color: #dfdbc3;*/
+/*    grid-template-columns: 50% 50%;*/
+/*    border: 6px solid gray;*/
+/*    border-radius: 6px;*/
+/*    padding: 40px 19px 700px 19px;*/
+/*    width: 97%;*/
+/*    height: 100%;*/
+/*}*/
 
 .pure-menu-item {
     margin-right: 1vw;
@@ -506,6 +506,10 @@ div.mini-block:hover span {
     color: white;
 }
 
+.list-menu-frame {
+    width: 70vw;
+}
+
 /*.list-menu-container {
     display: grid;
     background-color: #dfdbc3;
@@ -601,18 +605,18 @@ div.mini-block:hover span {
     color: #64605d;
 }
 
-.button-buy {
-    margin: 0px 30px 60px 30px;
-    height: 35px;
-    width: 85%;
-    border: 3px solid #73AD21;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: 900;
-    color: rgb(250, 180, 2);
-    background-color: rgb(15, 170, 15);
-    outline: none;
-}
+/*.button-buy {*/
+/*    margin: 0px 30px 60px 30px;*/
+/*    height: 35px;*/
+/*    width: 85%;*/
+/*    border: 3px solid #73AD21;*/
+/*    border-radius: 20px;*/
+/*    font-size: 20px;*/
+/*    font-weight: 900;*/
+/*    color: rgb(250, 180, 2);*/
+/*    background-color: rgb(15, 170, 15);*/
+/*    outline: none;*/
+/*}*/
 
 .welcome {
     width: 55vw;
@@ -631,7 +635,7 @@ div.mini-block:hover span {
     width: 12vw;
     border-radius: 1vw;
     border: solid black;
-    font-size: 150%;
+    font-size: 130%;
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
     outline: none;
@@ -760,7 +764,7 @@ div.block:hover span:after, .block-update-menu:hover span:after {
     border: solid black;
     width: 29vw;
     border-radius: 1vw;
-    font-size: 150%;
+    font-size: 130%;
     padding: 0.6vw;
     text-align: center;
     text-decoration: none;
@@ -794,8 +798,8 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 }
 
 .headline {
-    padding-bottom: 1vw;
-    padding-top: 1vw;
+    padding-bottom: 0.8vw;
+    padding-top: 0.8vw;
     background-color: green;
     margin-left: 4%;
     color: white;
@@ -806,8 +810,8 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 }
 
 .headline2 {
-    padding-bottom: 1vw;
-    padding-top: 1vw;
+    padding-bottom: 0.8vw;
+    padding-top: 0.8vw;
     background-color: green;
     color: white;
     border: solid black;

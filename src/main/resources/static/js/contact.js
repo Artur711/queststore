@@ -5,6 +5,8 @@ const form = document.getElementById('form')
 const comments = document.getElementById('comments')
 const errorElement = document.getElementById('error')
 const send = document.getElementById('send')
+const letters = /^[A-Za-z ]+$/;
+const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 form.addEventListener('submit', (e) => {
     let messages = checkName(name.value);
@@ -31,7 +33,6 @@ form.addEventListener('submit', (e) => {
 
 function checkName(name) {
     let messages;
-    let letters = /^[A-Za-z ]+$/;
 
     if (name.length < 3) {
         messages = 'Name and last name must be longer than 2 characters';
@@ -49,7 +50,6 @@ function checkName(name) {
 
 function checkMail(mail) {
     let messages;
-    let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (!mail.match(mailFormat)) {
         messages = 'You have entered an invalid email address!';
@@ -83,63 +83,3 @@ function titleCase(str) {
     }
     return true;
 }
-
-function checkIfHaveSpaces(str) {
-    let splitStr = str.split(' ');
-    return splitStr.length > 1 ? true : false;
-}
-
-function checkIfHaveTwoMembers(str) {
-    let splitStr = str.split('@');
-    return splitStr.length == 2 ? true : false;
-}
-
-function checkIfMonkeyIsBeginningOrEnd(str) {
-    if (str.charAt(0) == '@') {
-        return true;
-    } else if (str.charAt(str.length - 1) == '@') {
-        return true;
-    }
-    return false;
-}
-
-function checkIfBeginningValues() {
-    if (name.value === 'Enter your name') {
-        return true;
-    } else if (mail.value === 'Give your email') {
-        return true;
-    } else if (comments.value === 'Your comments') {
-        return true;
-    }
-    return false;
-}
-
-// form.addEventListener('input', () => {
-//     if (!checkIsEmpty()) {
-//         send.removeAttribute('disabled');
-//     } else {
-//         send.setAcheckIsEmptyttribute('disabled', 'disabled');
-//     }
-// });
-//
-// function checkIsEmpty() {
-//     let firstField = true;
-//     let seconfField = true;
-//     let thirdField = true;
-//
-//     if (name.value === 'Enter your name' || name.value == null || name.value == "") {
-//         firstField = false;
-//     }
-//     if (mail.value === 'Give your email' || mail.value == null || mail.value == "") {
-//         seconfField = false;
-//     }
-//     if (comments.value === 'Your comments' || comments.value == null || comments.value == "") {
-//         thirdField = false;
-//     }
-//
-//     if (firstField && seconfField && thirdField) {
-//         return false;
-//     } else {
-//         return true;
-//     }
-// }

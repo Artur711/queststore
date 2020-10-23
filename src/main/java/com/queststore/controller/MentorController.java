@@ -26,8 +26,9 @@ public class MentorController {
     }
 
     @GetMapping("/add_mentor")
-    public String addNewMentor(User user){
-    return "mentor/add_mentor";
+    public String addNewMentor(Model model, User user){
+        model.addAttribute("user", user);
+        return "mentor/add_mentor";
     }
 
     @PostMapping("/add_mentor")
