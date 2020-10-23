@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div th:switch="${quests}">
+<div th:switch="${codecoolerQuests}">
     <div th:case="null">
         <div class="list-menu">
             <h2 class="button-remove is-center">No Quests yet!</h2>
@@ -17,12 +17,10 @@
     </div>
 
     <div th:case="*">
-        <div th:each="quest: ${quests}">
+        <div th:each="quest: ${codecoolerQuests}">
             <nav>
                 <input class="input-update" type="text" th:value="${quest.questId}" disabled>
                 <input class="input-update" type="text" th:value="${quest.name}" disabled>
-
-                <a th:href="@{use_item/{id}(id=${item.itemId})}"><input class="list-menu button-remove" type="submit" th:value="EDIT"></a>
             </nav>
         </div>
     </div>
