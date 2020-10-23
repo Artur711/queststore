@@ -7,87 +7,67 @@
 </head>
 <body>
 
-<form id="form2" action="#" th:action="@{/all_classes/add_the_edited_class/{id}(id=${cc_class.classId})}"
-      th:object="${listOfChosenMentors}" method="post">
-
-    <div class="class-menu-container" th:object="${cc_class}">
-        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
-            Class to be edit
-        </div>
-        <label for="name"></label>
-        <input id="name" class="class_header class-block-menu add-new-class-buttons" type="text" style="height: 75px"
-               th:value="${cc_class.name}" th:field="*{name}" th:name="name"
-               th:placeholder="${cc_class.name}">
-        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
-            Class Mentors
-        </div>
-        <table>
-            <th:block th:each="user : ${listOfChosenMentors}">
-                <tr>
-                    <td th:text="${user.firstName} + ' ' + ${user.lastName}"
-                        class="input-update"></td>
-                    <td>
-                        <a th:href="@{/all_classes/delete_mentor/{id}/{classId}(id=${user.userId}, classId=${cc_class.classId})}"
-                           class="button-remove">Remove</a>
-                    </td>
-                </tr>
-            </th:block>
-        </table>
-
-
-        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
-            Class Students
-        </div>
-
-        <table>
-            <th:block th:each="user : ${listOfChosenStudents}">
-                <tr>
-                    <td th:text="${user.firstName} + ' ' + ${user.lastName}"
-                        class="input-update"></td>
-                    <td>
-                        <a th:href="@{/all_classes/delete_codecooler_from_edited_class/{id}/{classId}(id=${user.userId}, classId=${cc_class.classId})}"
-                           class="button-remove">Remove</a>
-                    </td>
-                </tr>
-            </th:block>
-        </table>
-        <br>
+<div class="list-menu">
+    <div>
+        <form id="form" action="#" th:action="@{/all_classes/add_mentor_to_edit_class/{classId}(classId=${cc_class.classId})}"
+              th:object="${cc_class}" method="get">
+            <h5 class="is-center headline2 zenta">Chose mentor for class</h5>
+            <div class="list-menu">
+                <select name="user" id="user" class="input-update sub-section">
+                    <option th:each="user: ${mentors}"
+                            th:value="${user.userId}"
+                            th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
+                    </option>
+                </select>
+                <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
+            </div>
+        </form>
+        <form id="form" action="#"
+              th:action="@{/all_classes/add_codecooler_to_edit_class/{classId}(classId=${cc_class.classId})}"
+              th:object="${cc_class}" method="get">
+            <h5 class="is-center headline2 zenta">Add Students for class</h5>
+            <div class="list-menu">
+                <select name="student" id="student" class="input-update sub-section">
+                    <option th:each="student: ${students}"
+                            th:value="${student.userId}"
+                            th:text="${student.getFirstName()} + ' ' + ${student.getLastName()}">
+                    </option>
+                </select>
+                <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
+            </div>
+        </form>
     </div>
-    <div class="list-menu">
-        <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+    <div>
+        <form id="form2" action="#" th:action="@{/all_classes/add_the_edited_class/{id}(id=${cc_class.classId})}"
+              th:object="${listOfChosenMentors}" method="post">
+
+            <div th:object="${cc_class}">
+                <h5 class="is-center headline2 zenta">Mentors</h5>
+
+                <div class="list-menu" th:each="user : ${listOfChosenMentors}">
+                    <div th:text="${user.firstName} + ' ' + ${user.lastName}" class="input-update sub-section"></div>
+                    <a th:href="@{/all_classes/delete_mentor/{id}/{classId}(id=${user.userId}, classId=${cc_class.classId})}"
+                       class="button-remove">Remove</a>
+                </div>
+
+                <h5 class="is-center headline2 zenta">Class Students</h5>
+
+                <div class="list-menu" th:each="user : ${listOfChosenStudents}">
+                    <div th:text="${user.firstName} + ' ' + ${user.lastName}" class="input-update sub-section"></div>
+                    <a th:href="@{/all_classes/delete_codecooler_from_edited_class/{id}/{classId}(id=${user.userId}, classId=${cc_class.classId})}"
+                       class="button-remove">Remove</a>
+                </div>
+
+                <label for="name"></label>
+                <input id="name" class="is-center input-update sub-section2 background black-color" type="text"
+                       th:value="${cc_class.name}" th:field="*{name}" th:name="name"
+                       th:placeholder="${cc_class.name}">
+            </div>
+            <div class="list-menu">
+                <input type="submit" id="savebutton" class="button-update" value="UPDATE">
+            </div>
+        </form>
     </div>
-
-</form>
-<form id="form" action="#" th:action="@{/all_classes/add_mentor_to_edit_class/{classId}(classId=${cc_class.classId})}"
-      th:object="${cc_class}" method="get">
-    <div class="list-menu">
-        <div class="input-update">Chose mentor for class</div>
-
-        <select name="user" id="user" class="input-update">
-            <option th:each="user: ${mentors}"
-                    th:value="${user.userId}"
-                    th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
-            </option>
-        </select>
-        <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
-    </div>
-</form>
-<form id="form" action="#"
-      th:action="@{/all_classes/add_codecooler_to_edit_class/{classId}(classId=${cc_class.classId})}"
-      th:object="${cc_class}" method="get">
-    <div class="list-menu">
-        <div class="input-update">Add Students for class</div>
-        <select name="student" id="student" class="input-update">
-            <option th:each="student: ${students}"
-                    th:value="${student.userId}"
-                    th:text="${student.getFirstName()} + ' ' + ${student.getLastName()}">
-            </option>
-        </select>
-        <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
-    </div>
-</form>
-
-
-<!--<script src="js/script.js"></script>-->
+</div>
 </body>
 </html>
