@@ -6,86 +6,62 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
 </head>
 <body>
-<form id="form" action="#" th:action="@{/all_classes/add_mentor_to_new_class}" th:object="${cc_class}" method="get">
 
-    <div class="list-menu">
-        <div class="input-update">Chose mentor for class</div>
+<div class="list-menu">
+    <div id="left-section">
+        <form id="form" action="#" th:action="@{/all_classes/add_mentor_to_new_class}" th:object="${cc_class}" method="get">
+            <h5 class="is-center headline2 zenta">Chose mentor for class</h5>
+            <div class="list-menu">
+                <select name="user" id="user" class="input-update sub-section">
+                    <option th:each="user: ${mentors}"
+                            th:value="${user.userId}"
+                            th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
+                    </option>
+                </select>
+                <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
+            </div>
+        </form>
+        <form id="forme" action="#" th:action="@{/all_classes/add_the_student_to_class}" th:object="${cc_class}" method="get">
+            <h5 class="is-center headline2 zenta">Add Students for class</h5>
+            <div class="list-menu">
+                <select name="student" id="student" class="input-update sub-section">
 
-        <select name="user" id="user" class="input-update">
-            <option th:each="user: ${mentors}"
-                    th:value="${user.userId}"
-                    th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
-            </option>
-        </select>
-        <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
-    </div>
-</form>
-
-<form id="forme" action="#" th:action="@{/all_classes/add_the_student_to_class}" th:object="${cc_class}" method="get">
-    <div class="list-menu">
-
-        <div class="input-update">Add Students for class</div>
-        <select name="student" id="student" class="input-update">
-            <option th:each="user: ${students}"
-                    th:value="${user.userId}"
-                    th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
-            </option>
-        </select>
-        <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
-    </div>
-</form>
-<form id="form2" action="#" th:action="@{/all_classes/add_the_class/}" th:object="${listOfChosenMentors}" method="post">
-
-    <div class="class-menu-container" th:object="${cc_class}">
-        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
-            New
-            Class
-        </div>
-        <label for="name"></label>
-        <input id="name" class="class_header class-block-menu add-new-class-buttons" type="text" style="height: 75px"
-               th:value="${cc_class.name}" th:field="*{name}" th:name="name"
-               th:placeholder="${'Name of New Class'}">
-        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
-            Chosen Mentors
-        </div>
-        <table>
-            <th:block th:each="user : ${listOfChosenMentors}">
-                <tr>
-                    <td th:text="${user.firstName} + ' ' + ${user.lastName}"
-                        class="input-update"></td>
-                    <td>
-                        <a th:href="@{/all_classes/delete_user/{id}(id=${user.userId})}"
-                           class="button-remove">Remove</a>
-                    </td>
-                </tr>
-            </th:block>
-        </table>
-
-
-        <div class="class_header class-block-menu add-new-class-buttons add-new-class-top-buttons class-header-middle">
-            Added
-            Students
-        </div>
-
-        <table>
-            <th:block th:each="user : ${listOfChosenStudents}">
-                <tr>
-                    <td th:text="${user.firstName} + ' ' + ${user.lastName}"
-                        class="input-update"></td>
-                    <td>
-                        <a th:href="@{/all_classes/delete_student/{id}(id=${user.userId})}"
-                           class="button-remove">Remove</a>
-                    </td>
-                </tr>
-            </th:block>
-        </table>
-        <br>
-    </div>
-    <div class="list-menu">
-        <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+                    <option th:each="user: ${students}"
+                            th:value="${user.userId}"
+                            th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
+                    </option>
+                </select>
+                <input type="submit" id="savebutton" class="button-update" value="CONFIRM">
+            </div>
+        </form>
     </div>
 
-</form>
-<!--<script src="js/script.js"></script>-->
+    <div id="right-section-section">
+        <form id="form2" action="#" th:action="@{/all_classes/add_the_class/}" th:object="${listOfChosenMentors}" method="post">
+            <div th:object="${cc_class}">
+                <h5 class="is-center headline2 zenta">Chosen Mentors</h5>
+                <div class="list-menu" th:each="user : ${listOfChosenMentors}">
+                    <div th:text="${user.firstName} + ' ' + ${user.lastName}" class="input-update sub-section"></div>
+                    <a th:href="@{/all_classes/delete_user/{id}(id=${user.userId})}" class="button-remove">Remove</a>
+                </div>
+
+                <h5 class="is-center headline2 zenta">Added Students</h5>
+
+                <div class="list-menu" th:each="user : ${listOfChosenStudents}">
+                    <div th:text="${user.firstName} + ' ' + ${user.lastName}" class="input-update sub-section"></div>
+                    <a th:href="@{/all_classes/delete_student/{id}(id=${user.userId})}" class="button-remove">Remove</a>
+                </div>
+
+                <label for="name"></label>
+                <input id="name" type="text" class="is-center input-update sub-section2 background"
+                           th:value="${cc_class.name}" th:field="*{name}" th:name="name"
+                           th:placeholder="${'Name of New Class'}">
+                <div class="list-menu">
+                    <input type="submit" id="savebutton" class="button-update" value="SAVE">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

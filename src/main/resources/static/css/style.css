@@ -190,6 +190,8 @@ h1, h2, h5 {
     padding: 1vw;
     float: none;
     font-weight: normal;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
 h1 {
@@ -281,13 +283,6 @@ section {
     height: max-content;
     margin: auto;
 }
-
-/*.sub-section {
-    width: 75%;
-    padding: 0% 10% 0% 10%;
-    font-size: 200%;
-    margin-left: 4%;
-}*/
 
 .sub-section2 {
     width: 23vw;
@@ -498,7 +493,7 @@ div.mini-block:hover span {
 }
 
 .list-menu {
-    margin-top: 5vh;
+    /*margin-top: 5vh;*/
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -632,10 +627,10 @@ div.mini-block:hover span {
 }
 
 .button-update, .button-remove {
-    width: 12vw;
+    width: 8vw;
     border-radius: 1vw;
     border: solid black;
-    font-size: 130%;
+    font-size: 120%;
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
     outline: none;
@@ -773,6 +768,10 @@ div.block:hover span:after, .block-update-menu:hover span:after {
     color: white;
 }
 
+.sub-section {
+    width: 18vw;
+}
+
 .store-title {
     text-decoration: none;
     color: rgb(250, 180, 2);
@@ -812,7 +811,7 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 .headline2 {
     padding-bottom: 0.8vw;
     padding-top: 0.8vw;
-    background-color: green;
+    background-color: #485a18;
     color: white;
     border: solid black;
 }

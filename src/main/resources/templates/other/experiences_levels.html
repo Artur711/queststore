@@ -25,10 +25,10 @@
         </div>
     </div>
 
-    <form id="form" action="#" th:action="@{experiences/add_level}" th:object="${level}" method="post">
+    <form id="form" action="#" th:action="@{/experiences/add_level}" th:object="${level}" method="post">
         <div class="list-menu list-menu-frame">
             <label for="new_exp"></label>
-            <input id="new_exp" class="input-update background black-color" type="text" th:value="${level.value}" th:field="*{value}" th:placeholder="Range">
+            <input id="new_exp" class="input-update background black-color" type="text" th:value="${level.value}" th:field="*{value}" placeholder="Range">
             <input id="send" class="input-update button-update headline" type="submit" value="ADD NEW">
         </div>
     </form>
