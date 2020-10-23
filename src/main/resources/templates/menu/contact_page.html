@@ -5,7 +5,7 @@
     <title>Contact page</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
-    <script defer src="../static/js/contact.js" th:href="@{/js/contact.js}"></script>
+    <script th:src="@{js/contact.js}" src="../static/js/contact.js" defer></script>
 </head>
 <body>
 <img id="background-foto" src="../static/photo/img/src/5.jpg" th:src="@{/photo/img/5.jpg}">
@@ -26,38 +26,38 @@
                     <div th:case="null">
                         <div class="instructionDiv inputDiv-m zenta">First Name</div>
                         <label for="first_name"></label>
-                        <input id="first_name" class="inputDiv inputDiv-m" type="text"  value="your first name">
+                        <input id="first_name" class="inputDiv inputDiv-m" type="text" placeholder="your first name" required>
 
                         <div class="instructionDiv inputDiv-m zenta">Last Name</div>
                         <label for="last_name"></label>
-                        <input id="last_name" class="inputDiv inputDiv-m" type="text"  value="your last name">
+                        <input id="last_name" class="inputDiv inputDiv-m" type="text" placeholder="your last name" required>
 
 
                         <div class="instructionDiv inputDiv-m zenta">Email</div>
                         <label for="email"></label>
-                        <input id="email" class="inputDiv inputDiv-m" type="text" value="your email" >
+                        <input id="email" class="inputDiv inputDiv-m" type="text" placeholder="your email" required>
                     </div>
 
                     <div th:case="*">
                         <div class="instructionDiv inputDiv-m zenta">First Name</div>
                         <label for="first_name"></label>
-                        <input class="inputDiv inputDiv-m" type="text"  value="your first name" th:value="${user.firstName}" disabled>
+                        <input id="first_name" class="inputDiv inputDiv-m" type="text" th:value="${user.firstName}" disabled>
 
                         <div class="instructionDiv inputDiv-m zenta">Last Name</div>
                         <label for="last_name"></label>
-                        <input class="inputDiv inputDiv-m" type="text"  value="your last name" th:value="${user.lastName}" disabled>
+                        <input  id="last_name" class="inputDiv inputDiv-m" type="text" th:value="${user.lastName}" disabled>
 
 
                         <div class="instructionDiv inputDiv-m zenta">Email</div>
                         <label for="email"></label>
-                        <input class="inputDiv inputDiv-m" type="text" value="your email" th:value="${user.email}" disabled>
+                        <input  id="email" class="inputDiv inputDiv-m" type="text" th:value="${user.email}" disabled>
                     </div>
 
                     <div class="instructionDiv zenta inputDiv-m">Comments</div>
                     <label for="comments"></label>
-                    <textarea class="inputDiv inputDiv-m" rows="5"  id="comments" name="comments">Your comments</textarea>
+                    <textarea class="inputDiv inputDiv-m" rows="5"  id="comments" name="comments" placeholder="Your comments" required></textarea>
 
-                    <input type="submit" class="instructionDiv zenta inputDiv-m" value="Send" onclick="validation()"/><br><br>
+                    <input id ="send" type="submit" class="instructionDiv zenta inputDiv-m" value="Send" onclick="validation()"/><br><br>
                 </div>
             </form>
         </div>

@@ -1,5 +1,6 @@
-const name = document.getElementById('name')
-const mail = document.getElementById('mail')
+const name = document.getElementById('first_name')
+const lastname = document.getElementById('last_name')
+const mail = document.getElementById('email')
 const form = document.getElementById('form')
 const comments = document.getElementById('comments')
 const errorElement = document.getElementById('error')
@@ -7,6 +8,10 @@ const send = document.getElementById('send')
 
 form.addEventListener('submit', (e) => {
     let messages = checkName(name.value);
+
+    if (messages == null) {
+        messages = checkName(lastname.value);
+    }
 
     if (messages == null) {
         messages = checkMail(mail.value);
@@ -28,10 +33,8 @@ function checkName(name) {
     let messages;
     let letters = /^[A-Za-z ]+$/;
 
-    if (name === 'Enter your name') {
-        messages = 'Name is required';
-    } else if (name.length < 3) {
-        messages = 'Name must be longer than 2 characters';
+    if (name.length < 3) {
+        messages = 'Name and last name must be longer than 2 characters';
     } else if (!name.match(letters)) {
         messages = 'Please input alphabet characters only';
     } else if (whiteSpace(name)) {
@@ -46,10 +49,10 @@ function checkName(name) {
 
 function checkMail(mail) {
     let messages;
-    let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (!mail.match(mailformat)) {
-        messages = 'MYou have entered an invalid email address!';
+    if (!mail.match(mailFormat)) {
+        messages = 'You have entered an invalid email address!';
     }
     return messages;
 }
@@ -60,7 +63,7 @@ function checkComments(comments) {
     if (comments === 'Your comments') {
         messages = 'Comment is required';
     } else if (whiteSpace(comments)) {
-        messages = 'The comment connot contain only spaces';
+        messages = 'The comment cannot contain only spaces';
     } else if (comments.length < 10) {
         messages = 'Comment must be longer than 9 characters';
     }
@@ -81,7 +84,7 @@ function titleCase(str) {
     return true;
 }
 
-function checkIfHaveScapces(str) {
+function checkIfHaveSpaces(str) {
     let splitStr = str.split(' ');
     return splitStr.length > 1 ? true : false;
 }
@@ -91,7 +94,7 @@ function checkIfHaveTwoMembers(str) {
     return splitStr.length == 2 ? true : false;
 }
 
-function checkIfMonkeyIsBegginingOrEnd(str) {
+function checkIfMonkeyIsBeginningOrEnd(str) {
     if (str.charAt(0) == '@') {
         return true;
     } else if (str.charAt(str.length - 1) == '@') {
@@ -100,7 +103,7 @@ function checkIfMonkeyIsBegginingOrEnd(str) {
     return false;
 }
 
-function checkIfBegginningvalues() {
+function checkIfBeginningValues() {
     if (name.value === 'Enter your name') {
         return true;
     } else if (mail.value === 'Give your email') {
@@ -111,32 +114,32 @@ function checkIfBegginningvalues() {
     return false;
 }
 
-form.addEventListener('input', () => {
-    if (!checkIsEmpty()) {
-        send.removeAttribute('disabled');
-    } else {
-        send.setAttribute('disabled', 'disabled');
-    }
-});
-
-function checkIsEmpty() {
-    let firstField = true;
-    let seconfField = true;
-    let thirdField = true;
-
-    if (name.value === 'Enter your name' || name.value == null || name.value == "") {
-        firstField = false;
-    }
-    if (mail.value === 'Give your email' || mail.value == null || mail.value == "") {
-        seconfField = false;
-    }
-    if (comments.value === 'Your comments' || comments.value == null || comments.value == "") {
-        thirdField = false;
-    }
-
-    if (firstField && seconfField && thirdField) {
-        return false;
-    } else {
-        return true;
-    }
-}
+// form.addEventListener('input', () => {
+//     if (!checkIsEmpty()) {
+//         send.removeAttribute('disabled');
+//     } else {
+//         send.setAcheckIsEmptyttribute('disabled', 'disabled');
+//     }
+// });
+//
+// function checkIsEmpty() {
+//     let firstField = true;
+//     let seconfField = true;
+//     let thirdField = true;
+//
+//     if (name.value === 'Enter your name' || name.value == null || name.value == "") {
+//         firstField = false;
+//     }
+//     if (mail.value === 'Give your email' || mail.value == null || mail.value == "") {
+//         seconfField = false;
+//     }
+//     if (comments.value === 'Your comments' || comments.value == null || comments.value == "") {
+//         thirdField = false;
+//     }
+//
+//     if (firstField && seconfField && thirdField) {
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
