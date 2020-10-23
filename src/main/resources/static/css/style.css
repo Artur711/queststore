@@ -26,7 +26,7 @@
 
 .zenta {
     font-family: "Zenda";
-    font-size: 200%;
+    font-size: 1.7vw;
 }
 
 body {
@@ -56,7 +56,6 @@ body {
 #container {
     position: relative;
     z-index: 1;
-    width: 90%;
 }
 
 header {
@@ -97,6 +96,7 @@ header {
 
 footer {
     width: 90vw;
+    left: 5vw;
     position: fixed;
     bottom: 0;
     background-color: #64605d;
@@ -127,7 +127,8 @@ footer {
 }
 
 #pure-main {
-    width: 97%;
+    width: 97vw;
+    margin-left: 1.5vw;
     box-sizing: border-box;
 }
 
@@ -135,8 +136,7 @@ footer {
 iframe {
     width: 90%;
     border: none;
-    /*border: 0.5vw double #64605d;*/
-    /*height: 68vh;*/
+    height: 69vh;
 }
 
 .inside-field {
@@ -148,16 +148,6 @@ iframe {
     width: 97%;
     height: 100%;
 }
-
-/*.iframe-mini {
-    margin-right: 30%;
-    width: 70%;
-    background-color: white;
-    font-size: 250%;
-    border: 6px solid gray;
-    border-radius: 6px;
-}*/
-
 
 .pure-menu-item {
     margin-right: 1vw;
@@ -259,6 +249,14 @@ h2 {
 
 .dropdown-content a:hover {
     background-color: #f1f1f1
+}
+
+.elem:hover {
+    background-color: lightgray;
+}
+
+.elem-a:hover {
+    background-color: darkgreen;
 }
 
 .show {
@@ -409,6 +407,31 @@ div.grid-block:hover span:after{
     transform: rotate(45deg);
 }
 
+div.mini-block {
+    position: relative;
+    bottom: 0vh;
+    text-decoration: none;
+    text-align: right;
+}
+
+div.mini-block span{
+    display: none
+}
+
+div.mini-block:hover span {
+    display: block;
+    position: absolute;
+    right: 0vw;
+    top: 3vh;
+    width: 12vh;
+    border: 0.1vh solid #0cf;
+    background-color: #cff;
+    color: #000;
+    border-radius: 0.2vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
 .btn {
 
     border: solid black;
@@ -418,6 +441,10 @@ div.grid-block:hover span:after{
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
     outline: none;
+}
+
+.btn:hover {
+    background-color: darkgreen;
 }
 
 .btn:disabled {
@@ -570,6 +597,7 @@ div.grid-block:hover span:after{
 }
 
 .empty {
+    height: 0vh;
     color: #64605d;
 }
 
@@ -584,6 +612,19 @@ div.grid-block:hover span:after{
     color: rgb(250, 180, 2);
     background-color: rgb(15, 170, 15);
     outline: none;
+}
+
+.welcome {
+    width: 55vw;
+    border-radius: 1vw;
+    border: solid black;
+    color: white;
+    font-size: 3vh;
+    background-color: #64605d;
+}
+
+.error-photo {
+    width: 20vw;
 }
 
 .button-update, .button-remove {
@@ -605,8 +646,16 @@ div.grid-block:hover span:after{
     background-color: green;
 }
 
+.button-update:hover {
+    background-color: darkgreen;
+}
+
 .button-remove {
     background-color: rgb(206, 40, 40);
+}
+
+.button-remove:hover {
+    background-color: darkred;
 }
 
 .button-buy-with-team {
@@ -752,6 +801,18 @@ div.block:hover span:after, .block-update-menu:hover span:after {
     color: white;
 }
 
+.headline:hover {
+    background-color: darkgreen;
+}
+
+.headline2 {
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+    background-color: green;
+    color: white;
+    border: solid black;
+}
+
 .savebutton {
     margin-left: 35%;
     width: 30%;
@@ -774,11 +835,6 @@ a {
     text-decoration: none;
 }
 
-textarea {
-    font-size: 155%;
-    border: 3px solid gray;
-}
-
 .class-header-middle {
     padding-top: 1vw;
     height: 5vh;
@@ -798,8 +854,9 @@ textarea {
 }
 
 @media screen and (max-width: 1050px) {
-    .pure-logo {
-        width: 40vw;
+
+    .welcome {
+        width: 70vw;
     }
 
     .zenta {
@@ -812,6 +869,10 @@ textarea {
 
     .instructionDiv, .inputDiv {
         font-size: 300%;
+    }
+
+    .inputDiv-m {
+        font-size: 120%;
     }
 
     #loginDiv {
@@ -849,6 +910,9 @@ textarea {
 }
 
 @media screen and (max-width: 750px) {
+    .pure-logo {
+        width: 39vw;
+    }
 
     .pure-item {
         width: 30vw;
@@ -874,9 +938,13 @@ textarea {
     .sub-section2 {
         font-size: 110%;
     }
+
+    .error-photo {
+        width: 30vw;
+    }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
 
     .pure-header {
         min-height: 10vh;
@@ -892,5 +960,9 @@ textarea {
 
     .profile-photo {
         height: 20vh;
+    }
+
+    .error-photo {
+        width: 40vw;
     }
 }

@@ -2,6 +2,7 @@ package com.queststore.controller;
 
 import com.queststore.model.CodeCooler;
 import com.queststore.service.CodeCoolerService;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("/student_list")
 public class CodeCoolerController {
 
     private final CodeCoolerService service;
@@ -18,7 +20,7 @@ public class CodeCoolerController {
         this.service = service;
     }
 
-    @GetMapping("/student_list")
+    @GetMapping
     public String getStudentsList(Model model){
         model.addAttribute("students", service.getAll());
         return "codecooler/student_list";
@@ -62,5 +64,10 @@ public class CodeCoolerController {
         service.delete(id);
         model.addAttribute("students", service.getAll());
         return "redirect:/student_list";
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public String handle() {
+        return "error/contain_codecooler";
     }
 }

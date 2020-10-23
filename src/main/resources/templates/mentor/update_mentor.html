@@ -10,9 +10,9 @@
 <div id="right-section">
     <br>
 
-    <h5 class="is-center headline zenta"> Update Mentor</h5>
+    <p class="is-center headline2 zenta"> Update Mentor</p>
     <nav>
-        <form id="form" action="#" th:action="@{/mentor_edit/{id}(id=${user.userId})}" th:object="${user}" method="post">
+        <form id="form" action="#" th:action="@{/mentors_list/mentor_edit/{id}(id=${user.userId})}" th:object="${user}" method="post">
             <nav>
                 <h5 class="is-center pure-item sub-section3 entity-input">User First name</h5>
                 <label for="firstName"></label>

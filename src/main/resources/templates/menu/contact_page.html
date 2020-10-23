@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <script th:src="@{js/contact.js}" src="../static/js/contact.js" defer></script>
+</head>
+<body>
+<img id="background-foto" src="../static/photo/img/src/5.jpg" th:src="@{/photo/img/5.jpg}">
+<div id="container" class="list-menu">
+
+    <div id="left-section">
+        <img alt="Profile photo" src="../static/photo/img/con.webp" th:src="@{/photo/img/con.webp}">
+    </div>
+
+    <div id="right-section" class="black-color">
+
+        <div th:switch="${user}">
+            <form id="form" th:action="@{/}" method="post">
+                <div id="loginDiv">
+                    <div class="instructionDiv zenta inputDiv-m">Contact us:</div>
+                    <br>
+
+                    <div th:case="null">
+                        <div class="instructionDiv inputDiv-m zenta">First Name</div>
+                        <label for="first_name"></label>
+                        <input id="first_name" class="inputDiv inputDiv-m" type="text" placeholder="your first name" required>
+
+                        <div class="instructionDiv inputDiv-m zenta">Last Name</div>
+                        <label for="last_name"></label>
+                        <input id="last_name" class="inputDiv inputDiv-m" type="text" placeholder="your last name" required>
+
+
+                        <div class="instructionDiv inputDiv-m zenta">Email</div>
+                        <label for="email"></label>
+                        <input id="email" class="inputDiv inputDiv-m" type="text" placeholder="your email" required>
+                    </div>
+
+                    <div th:case="*">
+                        <div class="instructionDiv inputDiv-m zenta">First Name</div>
+                        <label for="first_name"></label>
+                        <input id="first_name" class="inputDiv inputDiv-m" type="text" th:value="${user.firstName}" disabled>
+
+                        <div class="instructionDiv inputDiv-m zenta">Last Name</div>
+                        <label for="last_name"></label>
+                        <input  id="last_name" class="inputDiv inputDiv-m" type="text" th:value="${user.lastName}" disabled>
+
+
+                        <div class="instructionDiv inputDiv-m zenta">Email</div>
+                        <label for="email"></label>
+                        <input  id="email" class="inputDiv inputDiv-m" type="text" th:value="${user.email}" disabled>
+                    </div>
+
+                    <div class="instructionDiv zenta inputDiv-m">Comments</div>
+                    <label for="comments"></label>
+                    <textarea class="inputDiv inputDiv-m" rows="5"  id="comments" name="comments" placeholder="Your comments" required></textarea>
+
+                    <input id ="send" type="submit" class="instructionDiv zenta inputDiv-m" value="Send" onclick="validation()"/><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -6,27 +6,23 @@ import com.queststore.model.User;
 import com.queststore.service.CC_ClassService;
 import com.queststore.service.CodeCoolerService;
 import com.queststore.service.UserService;
-import org.hibernate.service.spi.SessionFactoryServiceInitiatorContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
 import javax.validation.Valid;
-import java.net.http.HttpRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
+@RequestMapping("/all_classes")
 public class CC_ClassController {
 
     CC_ClassService classService;
     UserService userService;
     CodeCoolerService codeCoolerService;
-//    List<User> listOfChosenMentors;
-//    List<CodeCooler> listOfChosenStudents;
     HttpSession session;
 
     public CC_ClassController(HttpSession session, CC_ClassService classService, UserService mentorservice, CodeCoolerService codeCoolerService) {
@@ -34,29 +30,27 @@ public class CC_ClassController {
         this.classService = classService;
         this.userService = mentorservice;
         this.codeCoolerService = codeCoolerService;
-//        this.listOfChosenMentors = new ArrayList<>();
-//        this.listOfChosenStudents = new ArrayList<>();
-
     }
 
-    @GetMapping("/all_classes")
+    @GetMapping
     public String getListOfAllClasses(Model model, HttpSession session) {
         List<CC_Class> allClass = classService.getAllClasses();
         model.addAttribute("allClasses", allClass);
-
-        session.setAttribute("listOfChosenMentors", new ArrayList<User>());
-        session.setAttribute("listOfChosenStudents",new ArrayList<User>());
+        // need for updating class
+        session.removeAttribute("listOfChosenMentors");
+        session.removeAttribute("listOfChosenStudents");
 
         return "collaboration/my_class_list";
     }
 
 
     @GetMapping("/add_class")
-    public String addClassTest(Model model, CC_Class cc_class, HttpServletRequest request) {
+    public String addClass(Model model, CC_Class cc_class, HttpServletRequest request) {
         session = request.getSession(false);
         model.addAttribute("cc_class", new CC_Class());
-        model.addAttribute("listOfChosenMentors", session.getAttribute("listOfChosenMentors"));
-        model.addAttribute("listOfChosenStudents", session.getAttribute("listOfChosenStudents"));
+        User user = (User) session.getAttribute("loggedUser");
+        model.addAttribute("listOfChosenMentors", new HashSet<User>((Collection<? extends User>) session.getAttribute(String.format("listOfChosenMentors_%s", user.getUserId()))));
+        model.addAttribute("listOfChosenStudents", new HashSet<User>((Collection<? extends User>) session.getAttribute(String.format("listOfChosenStudents_%s", user.getUserId()))));
 
         List<User> membersList = userService.getAllMentors();
         List<CodeCooler> studentsList = codeCoolerService.getAll();
@@ -65,57 +59,56 @@ public class CC_ClassController {
         return "collaboration/add_new_class";
     }
 
-    @GetMapping("/add_the_class")
-    public String addChosenMentors(Model model, @Valid String user, HttpSession session, @SessionAttribute(value = "listOfChosenMentors") List<User> tempo) {
-
-        Long userId = Long.parseLong(user);
-        User chosenOne = userService.getUserById(userId);
-          List<User>tempList = (List<User>) session.getAttribute("listOfChosenMentors");
-        tempo.add(chosenOne);
-//        Object listOfChosenMentors = model.getAttribute("listOfChosenMentors");
-//        tempList.add(chosenOne);
-//        model.addAttribute("listOfChosenMentors",listOfChosenMentors);
-          session.setAttribute("listOfChosenMentors",tempo);
-        return "redirect:/add_class";
+    @GetMapping("/add_mentor_to_new_class")
+    public String addChosenMentorsToTempList(Model model, @Valid User user, HttpSession session, @SessionAttribute("loggedUser") User loggedUser) {
+        List<User> tempList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
+        tempList.add(user);
+        session.setAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()), tempList);
+        return "redirect:/all_classes/add_class";
     }
 
     @GetMapping("/add_the_student_to_class")
-    public String addChosenStudentToTempList(Model model, @Valid String student, HttpSession session) {
+    public String addChosenStudentToTempList(Model model, @Valid String student, HttpSession session, @SessionAttribute("loggedUser") User loggedUser) {
         Long studentId = Long.parseLong(student);
         CodeCooler chosenOne = codeCoolerService.getCodeCoolerById(studentId);
 
-        List<User>tempList = (List<User>) session.getAttribute("listOfChosenStudents");
+        List<User> tempList = (List<User>) session.getAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()));
         tempList.add(chosenOne);
-        session.setAttribute("listOfChosenStudents",tempList);
-
-//        listOfChosenStudents.add(chosenOne);
-        return "redirect:/add_class";
+        session.setAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()), tempList);
+        return "redirect:/all_classes/add_class";
     }
 
-    //   CDN
     @PostMapping("/add_the_class")
-    public String addTheClass(Model model, @RequestParam(value = "name") String name) {
+    public String addTheClass(Model model, @RequestParam(value = "name") String name, @SessionAttribute("loggedUser") User loggedUser) {
         System.out.println(name);
-//        classService.create(new CC_Class(name), listOfChosenMentors, listOfChosenStudents);
-//        listOfChosenMentors.clear();
-//        listOfChosenStudents.clear();
+        List<User> mentorsList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
+        List<CodeCooler> codecoolersList = (List<CodeCooler>) session.getAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()));
+
+        classService.create(new CC_Class(name), mentorsList, codecoolersList);
+        mentorsList.clear();
+        codecoolersList.clear();
+        session.setAttribute((String.format("listOfChosenMentors_%s", loggedUser.getUserId())), mentorsList);
+        session.setAttribute((String.format("listOfChosenStudents_%s", loggedUser.getUserId())), codecoolersList);
         return "redirect:/all_classes";
     }
 
     @GetMapping("/delete_student/{id}")
-    public String deleteChosenStudent(@PathVariable("id") long id) {
-        System.out.println(id);
+    public String deleteChosenStudent(@PathVariable("id") long id, @SessionAttribute("loggedUser") User loggedUser) {
         CodeCooler chosenOneToBeRemoved = codeCoolerService.getCodeCoolerById(id);
-//        listOfChosenStudents.removeIf(chosenOneToBeRemoved::equals);
-        return "redirect:/add_class";
+        List<CodeCooler> codecoolersList = (List<CodeCooler>) session.getAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()));
+        codecoolersList.removeIf(chosenOneToBeRemoved::equals);
+        session.setAttribute((String.format("listOfChosenStudents_%s", loggedUser.getUserId())), codecoolersList);
+        return "redirect:/all_classes/add_class";
     }
 
     @GetMapping("/delete_user/{id}")
-    public String deleteChosenMentor(@PathVariable("id") long id) {
+    public String deleteChosenMentor(@PathVariable("id") long id, @SessionAttribute("loggedUser") User loggedUser) {
         System.out.println(id);
         User chosenOneToBeRemoved = userService.getUserById(id);
-//        listOfChosenMentors.removeIf(chosenOneToBeRemoved::equals);
-        return "redirect:/add_class";
+        List<User> mentorsList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
+        mentorsList.removeIf(chosenOneToBeRemoved::equals);
+        session.setAttribute((String.format("listOfChosenMentors_%s", loggedUser.getUserId())), mentorsList);
+        return "redirect:/all_classes/add_class";
 
     }
 
@@ -123,6 +116,81 @@ public class CC_ClassController {
     public String deleteTheClass(@PathVariable("id") Long id) {
         classService.deleteTheClass(id);
         return "redirect:/all_classes";
+    }
+
+    @PostMapping("add_the_edited_class/{id}")
+    public String addTheEditedClass(HttpSession session, @PathVariable("id") Long classId, @RequestParam(value = "name") String name) {
+        HashSet<User> setOfChosenMentors = (HashSet<User>) session.getAttribute("listOfChosenMentors");
+        HashSet<CodeCooler> setOfChosenStudents = (HashSet<CodeCooler>) session.getAttribute("listOfChosenStudents");
+
+        List<User> mentorsToBeSaved = new ArrayList<>(setOfChosenMentors);
+        List<CodeCooler> StudentsToBeSaved = new ArrayList<>(setOfChosenStudents);
+        classService.ClassToBeUpdate(new CC_Class(classId, name), mentorsToBeSaved, StudentsToBeSaved);
+        return "redirect:/all_classes";
+    }
+
+    @GetMapping("/edit_class/{id}")
+    public String editTheClass(Model model, @PathVariable("id") Long classId, HttpSession session) {
+        Integer mentorType = 2;
+        Integer studentType = 1;
+        CC_Class cc_classById = classService.findCC_ClassById(classId);
+        model.addAttribute("cc_class", cc_classById);
+        model.addAttribute("mentors", userService.getAllMentors());
+        model.addAttribute("students", codeCoolerService.getAll());
+
+        HashSet<User> setOfChosenMentors = (HashSet<User>) session.getAttribute("listOfChosenMentors");
+        if (setOfChosenMentors == null) {
+            session.setAttribute("listOfChosenMentors", new HashSet<>(classService.getUsersFromTheClass(classId, mentorType)));
+            model.addAttribute("listOfChosenMentors", classService.getUsersFromTheClass(classId, mentorType));
+        } else {
+            model.addAttribute("listOfChosenMentors", setOfChosenMentors);
+        }
+        HashSet<User> setOfChosenStudents = (HashSet<User>) session.getAttribute("listOfChosenStudents");
+        if (setOfChosenStudents == null) {
+            session.setAttribute("listOfChosenStudents", new HashSet<>(classService.getUsersFromTheClass(classId, studentType)));
+            model.addAttribute("listOfChosenStudents", classService.getUsersFromTheClass(classId, studentType));
+        } else {
+            model.addAttribute("listOfChosenStudents", setOfChosenStudents);
+        }
+        return "collaboration/edit_the_class";
+    }
+
+    @GetMapping("/delete_mentor/{id}/{classId}")
+    public String deleteMentorFromTheClass(Model model, @PathVariable("id") Long userId, @PathVariable("classId") Long classId, HttpSession session) {
+        HashSet<User> setOfChosenMentors = (HashSet<User>) session.getAttribute("listOfChosenMentors");
+        Set<User> updatedSet = setOfChosenMentors.stream().filter(user -> user.getUserId() != userId).collect(Collectors.toSet());
+        session.setAttribute("listOfChosenMentors", updatedSet);
+        String url = String.format("redirect:/all_classes/edit_class/%d", classId);
+        return url;
+    }
+
+
+    @GetMapping("/delete_codecooler_from_edited_class/{id}/{classId}")
+    public String deleteStudentFromTheClass(Model model, @PathVariable("id") Long userId, @PathVariable("classId") Long classId, HttpSession session) {
+        HashSet<User> setOfChosenStudents = (HashSet<User>) session.getAttribute("listOfChosenStudents");
+        Set<User> updatedSet = setOfChosenStudents.stream().filter(user -> user.getUserId() != userId).collect(Collectors.toSet());
+        session.setAttribute("listOfChosenStudents", updatedSet);
+        String url = String.format("redirect:/all_classes/edit_class/%d", classId);
+        return url;
+    }
+
+
+    @GetMapping("/add_mentor_to_edit_class/{classId}")
+    public String addMentorToTheClass(Model model, @Valid User user, @PathVariable("classId") Long classId, HttpSession session) {
+        HashSet<User> setOfChosenMentors = (HashSet<User>) session.getAttribute("listOfChosenMentors");
+        setOfChosenMentors.add(user);
+        session.setAttribute("listOfChosenMentors", setOfChosenMentors);
+        String url = String.format("redirect:/all_classes/edit_class/%d", classId);
+        return url;
+    }
+
+    @GetMapping("/add_codecooler_to_edit_class/{classId}")
+    public String addStudentToTheClass(Model model, @Valid String student, @PathVariable("classId") Long classId, HttpSession session) {
+        HashSet<User> setOfChosenCodecoolers = (HashSet<User>) session.getAttribute("listOfChosenStudents");
+        setOfChosenCodecoolers.add(codeCoolerService.getCodeCoolerById((Long.parseLong(student))));
+        session.setAttribute("listOfChosenStudents", setOfChosenCodecoolers);
+        String url = String.format("redirect:/all_classes/edit_class/%d", classId);
+        return url;
     }
 
 }

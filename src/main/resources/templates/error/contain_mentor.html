@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body>
+    <br><br><br>
+    <nav>
+        <div class="welcome is-center">
+            <p><img class="error-photo" src="../static/photo/img/error.gif" th:src="@{/photo/img/error.gif}"></p>
+            <p>Oops, something went wrong!</p>
+            <p>Probably this mentor is assigned to some class or team.</p>
+            <p>First, remove him or her from the class and team it belongs to.</p>
+            <p>Then  you will try remove him or his.</p>
+            <p><a class="button-update" th:href="@{/mentors_list}">Back to the list</a></p>
+        </div>
+    </nav>
+</body>
+</html>
