@@ -8,7 +8,7 @@
 <body>
 
 <div class="list-menu">
-    <div>
+    <div id="left-section">
         <form id="form" action="#" th:action="@{/all_classes/add_mentor_to_edit_class/{classId}(classId=${cc_class.classId})}"
               th:object="${cc_class}" method="get">
             <h5 class="is-center headline2 zenta">Chose mentor for class</h5>
@@ -37,7 +37,7 @@
             </div>
         </form>
     </div>
-    <div>
+    <div id="left-section">
         <form id="form2" action="#" th:action="@{/all_classes/add_the_edited_class/{id}(id=${cc_class.classId})}"
               th:object="${listOfChosenMentors}" method="post">
 
@@ -59,7 +59,7 @@
                 </div>
 
                 <label for="name"></label>
-                <input id="name" class="is-center input-update sub-section2 background black-color" type="text"
+                <input id="name" class="is-center input-update sub-section background black-color" type="text"
                        th:value="${cc_class.name}" th:field="*{name}" th:name="name"
                        th:placeholder="${cc_class.name}">
             </div>

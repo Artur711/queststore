@@ -493,7 +493,6 @@ div.mini-block:hover span {
 }
 
 .list-menu {
-    /*margin-top: 5vh;*/
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -769,7 +768,7 @@ div.block:hover span:after, .block-update-menu:hover span:after {
 }
 
 .sub-section {
-    width: 18vw;
+    width: 31vw;
 }
 
 .store-title {
@@ -895,6 +894,10 @@ a {
         width: 42vw;
     }
 
+    .sub-section {
+        width: 31vw;
+    }
+
     .button-update, .button-remove {
         width: 35vw;
     }
@@ -917,8 +920,16 @@ a {
         width: 39vw;
     }
 
+    #left-section {
+        width: 80vw;
+    }
+
     .pure-item {
         width: 30vw;
+    }
+
+    .sub-section {
+        width: 75vw;
     }
 
     #loginDiv {
