@@ -56,7 +56,7 @@ public class ItemController {
         Long id = loggedUser.getUserId();
         List<Item> listItems = itemService.getCodecoolerItems(id);
         model.addAttribute("codecoolerItems", listItems);
-        return "store/my_items_list";
+        return "inventory/my_items_list";
     }
 
     @GetMapping("/use_item/{id}")
@@ -65,4 +65,12 @@ public class ItemController {
         model.addAttribute("codecoolerItems", itemService.getCodecoolerItems(loggedUser.getUserId()));
         return "redirect:/welcome_page";
     }
+
+    @GetMapping("/item_list")
+    public String getItemsList(Model model){
+        model.addAttribute("items", itemService.getAll());
+        return "inventory/item_list";
+    }
+
+
 }

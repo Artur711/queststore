@@ -30,10 +30,10 @@ function adminMenu(subpage) {
         document.getElementById('iframe').src = "/add_new_team";
     } else if (subpage.innerText === 'Expierience Leves') {
         document.getElementById('iframe').src = "/experiences";
-    } else if (subpage.innerText === 'Questes') {
+    } else if (subpage.innerText === 'Quests') {
         document.getElementById('iframe').src = "/quest_list";
     } else if (subpage.innerText === 'Items') {
-        document.getElementById('iframe').src = "/items_list";
+        document.getElementById('iframe').src = "/item_list";
     } else if (subpage.innerText === 'Wallets') {
         document.getElementById('iframe').src = "/wallet_list";
     } else if (subpage.innerText === 'My profile') {
@@ -51,10 +51,10 @@ function mentorMenu(subpage) {
         document.getElementById('iframe').src = "/add_new_team";
     } else if (subpage.innerText === 'Expierience Leves') {
         document.getElementById('iframe').src = "/experiences";
-    } else if (subpage.innerText === 'Questes') {
+    } else if (subpage.innerText === 'Quests') {
         document.getElementById('iframe').src = "/quest_list";
     } else if (subpage.innerText === 'Items') {
-        document.getElementById('iframe').src = "/items_list";
+        document.getElementById('iframe').src = "/item_list";
     } else if (subpage.innerText === 'Wallets') {
         document.getElementById('iframe').src = "/wallet_list";
     } else if (subpage.innerText === 'My profile') {
