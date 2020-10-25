@@ -2,29 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit item</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
+    <title>Add new Quest</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <script th:src="@{js/script.js}" src="../static/js/script.js" defer></script>
 </head>
 <body>
-<div id="right-section">
+<div class="list-menu">
     <br>
 
-    <p class="is-center headline2 zenta"> Update Quest </p>
-    <nav>
-        <form id="form" action="#" th:action="@{/update_quest/{id}(id=${quest.questId})}" th:object="${quest}" method="post">
+    <div id="left-section">
+        <nav>
+            <img alt="Profile photo" class="pure-profile-photo profile-photo" th:src="@{'/../photo/img/logo-menu/logo-menu6.jpg'}" src="/../photo/img/logo-menu/logo-menu6.jpg">
+        </nav>
+    </div>
+
+    <div id="right-section" class="black-color">
+        <form id="form" action="#" th:action="@{/add_new_quest}" th:object="${quest}" method="post">
             <nav>
                 <h5 class="is-center pure-item sub-section3 entity-input">Quest title</h5>
                 <label for="title"></label>
                 <input id="title" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{name}" th:value="itemTitle">
 
-                <h5 class="is-center pure-item sub-section3 entity-input">Quest  description</h5>
+                <h5 class="is-center pure-item sub-section3 entity-input">Quest description</h5>
                 <label for="description"></label>
                 <input id="description" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{description}" th:value="itemDescription">
 
-                <h5 class="is-center pure-item sub-section3 entity-input">Quest  type</h5>
+                <h5 class="is-center pure-item sub-section3 entity-input">Quest type</h5>
                 <label for="itemType"></label>
                 <input id="itemType" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{questTypeId}" th:value="itemType">
@@ -34,21 +40,15 @@
                 <input id="questValue" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{questValue}" th:value="questValue">
 
-                <h5 class="is-center pure-item sub-section3 entity-input">Quest  img</h5>
+                <h5 class="is-center pure-item sub-section3 entity-input">Quest img</h5>
                 <label for="img"></label>
                 <input id="img" class="is-center pure-item sub-section3 entity-input background" type="text"
-                       th:field="*{img}" disabled>
+                       value="/../photo/img/logo-menu/logo-menu6.jpg" disabled>
 
-                <!--<option th:each="user: ${item}"
-                        th:value="${user.itemId}"
-                        th:text="${user.itemId} + ' ' + ${user.name}">
-                </option>-->
-
-                <input  type="submit" id="savebutton" class="input-update headline" value="UPDATE">
+                <input id ="send" type="submit" class="input-update headline" value="SAVE"/>
             </nav>
         </form>
-    </nav>
-    <script src="js/update.js"></script>
+    </div>
 </div>
 </body>
 </html>

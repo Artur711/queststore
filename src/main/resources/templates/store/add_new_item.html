@@ -2,53 +2,53 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit item</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
+    <title>Add new Item</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <script th:src="@{js/script.js}" src="../static/js/script.js" defer></script>
 </head>
 <body>
-<div id="right-section">
+<div class="list-menu">
     <br>
 
-    <p class="is-center headline2 zenta"> Update Item</p>
-    <nav>
-        <form id="form" action="#" th:action="@{/update/{id}(id=${item.itemId})}" th:object="${item}" method="post">
+    <div id="left-section">
+        <nav>
+            <img alt="Profile photo" class="pure-profile-photo profile-photo" th:src="@{'/../photo/img/logo-menu/logo-menu5.jpg'}" src="/../photo/img/logo-menu/logo-menu5.jpg">
+        </nav>
+    </div>
+
+    <div id="right-section" class="black-color">
+        <form id="form" action="#" th:action="@{/add_new_item}" th:object="${item}" method="post">
             <nav>
                 <h5 class="is-center pure-item sub-section3 entity-input">Item title</h5>
                 <label for="title"></label>
                 <input id="title" class="is-center pure-item sub-section3 entity-input background" type="text"
-                       th:field="*{name}" th:value="itemTitle">
+                       th:field="*{name}" th:value="itemTitle" required>
 
                 <h5 class="is-center pure-item sub-section3 entity-input">Item description</h5>
                 <label for="description"></label>
                 <input id="description" class="is-center pure-item sub-section3 entity-input background" type="text"
-                       th:field="*{description}" th:value="itemDescription">
+                       th:field="*{description}" th:value="itemDescription" required>
 
                 <h5 class="is-center pure-item sub-section3 entity-input">Item type</h5>
                 <label for="itemType"></label>
                 <input id="itemType" class="is-center pure-item sub-section3 entity-input background" type="text"
-                       th:field="*{itemTypeId}" th:value="itemType">
+                       th:field="*{itemTypeId}" th:value="itemType" required>
 
                 <h5 class="is-center pure-item sub-section3 entity-input">Item price</h5>
                 <label for="price"></label>
                 <input id="price" class="is-center pure-item sub-section3 entity-input background" type="text"
-                       th:field="*{price}" th:value="itemPrice">
+                       th:field="*{price}" th:value="itemPrice" required>
 
                 <h5 class="is-center pure-item sub-section3 entity-input">Item img</h5>
                 <label for="img"></label>
                 <input id="img" class="is-center pure-item sub-section3 entity-input background" type="text"
-                       th:field="*{img}" disabled>
+                        value="/../photo/img/logo-menu/logo-menu5.jpg" disabled>
 
-                <!--<option th:each="user: ${item}"
-                        th:value="${user.itemId}"
-                        th:text="${user.itemId} + ' ' + ${user.name}">
-                </option>-->
-
-                <input  type="submit" id="savebutton" class="input-update headline" value="UPDATE">
+                <input id ="send" type="submit" class="input-update headline" value="SAVE"/>
             </nav>
         </form>
-    </nav>
-    <script src="js/update.js"></script>
+    </div>
 </div>
 </body>
 </html>

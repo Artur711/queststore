@@ -88,6 +88,21 @@ public class ItemController {
         return "redirect:/item_list";
     }
 
+    @GetMapping("/add_new_item")
+    public String addNewItem(Model model, Item item){
+        model.addAttribute("item", item);
+        return "store/add_new_item";
+    }
+
+    @PostMapping("/add_new_item")
+    public String addItem(Model model, @Valid Item item){
+
+        item.setImg("/../photo/img/logo-menu/logo-menu5.jpg");
+        itemService.save(item);
+        model.addAttribute("items", itemService.getAll());
+        return "redirect:/item_list";
+    }
+
     @PostMapping("/update/{id}")
     public String updateItem(@PathVariable("id") long id, @Valid Item item, BindingResult result, Model model) {
         if (result.hasErrors()) {

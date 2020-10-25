@@ -1,5 +1,6 @@
 package com.queststore.controller;
 
+import com.queststore.model.Item;
 import com.queststore.model.Quest;
 import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
@@ -71,6 +72,20 @@ public class QuestController {
     @GetMapping("/delete_quest/{id}")
     public String removeQuest(@PathVariable("id") long id, Model model) {
         service.delete(id);
+        model.addAttribute("quests", service.getAll());
+        return "redirect:/quest_list";
+    }
+
+    @GetMapping("/add_new_quest")
+    public String addNewQuest(Model model, Quest quest){
+        model.addAttribute("quest", quest);
+        return "store/add_new_quest";
+    }
+
+    @PostMapping("/add_new_quest")
+    public String addQuest(Model model, @Valid Quest quest){
+        quest.setImg("/../photo/img/logo-menu/logo-menu6.jpg");
+        service.save(quest);
         model.addAttribute("quests", service.getAll());
         return "redirect:/quest_list";
     }
