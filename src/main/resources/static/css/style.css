@@ -29,6 +29,10 @@
     font-size: 1.7vw;
 }
 
+.margin-top {
+    margin-top: 5vh;
+}
+
 body {
     margin: 0;
 }

@@ -17,10 +17,8 @@ function clickCell(index) {
 
 function adminMenu(subpage) {
     if (subpage.innerText === 'Admins') {
-        //to implement
         document.getElementById('iframe').src = "/admins_list";
     } else if (subpage.innerText === 'Classes') {
-        //to implement
         document.getElementById('iframe').src = "/all_classes";
     } else if (subpage.innerText === 'Mentors') {
         document.getElementById('iframe').src = "/mentors_list";
@@ -35,7 +33,7 @@ function adminMenu(subpage) {
     } else if (subpage.innerText === 'Items') {
         document.getElementById('iframe').src = "/item_list";
     } else if (subpage.innerText === 'Wallets') {
-        document.getElementById('iframe').src = "/wallet_list";
+        document.getElementById('iframe').src = "/codecool_list";
     } else if (subpage.innerText === 'My profile') {
         document.getElementById('iframe').src = "/profile/admin_profile";
     }
@@ -56,7 +54,7 @@ function mentorMenu(subpage) {
     } else if (subpage.innerText === 'Items') {
         document.getElementById('iframe').src = "/item_list";
     } else if (subpage.innerText === 'Wallets') {
-        document.getElementById('iframe').src = "/wallet_list";
+        document.getElementById('iframe').src = "/codecool_list";
     } else if (subpage.innerText === 'My profile') {
         document.getElementById('iframe').src = "/profile/mentor_profile";
     }

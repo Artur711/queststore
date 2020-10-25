@@ -21,6 +21,11 @@ public class UserService {
         return userList.stream().filter(user -> user.getUserType() == 2).collect(Collectors.toList());
     }
 
+    public List<User> getAllAdmins() {
+        List<User> userList = (List<User>) userRepository.findAll();
+        return userList.stream().filter(user -> user.getUserType() == 3).collect(Collectors.toList());
+    }
+
     public void saveUser(User user) {
         userRepository.save(user);
     }
@@ -30,8 +35,13 @@ public class UserService {
         userRepository.save(mentor);
     }
 
+    public void saveAdmin(User admin) {
+        admin.setUserType(3);
+        userRepository.save(admin);
+    }
+
     public User getUserById(long id){
-        List<User> userList = getAllMentors();
+        List<User> userList = (List<User>) userRepository.findAll();
         return userList.stream().filter(user -> user.getUserId() == id).findAny().orElse(null);
     }
 
