@@ -1,13 +1,16 @@
 package com.queststore.controller;
 
+import com.queststore.model.CodeCooler;
 import com.queststore.model.Item;
 import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
 import com.queststore.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -35,22 +38,6 @@ public class ItemController {
         return "store/items_store";
     }
 
-
-    @PostMapping("/buy")
-    public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser, @RequestParam(value = "itemId") Long itemId) {
-
-        model.addAttribute("id", codeService.getCodeCoolerById(loggedUser.getUserId()));
-
-        int studentCoins = codeService.getCodeCoolerById(loggedUser.getUserId()).getCodeCoolCoins();
-        int itemPrice = itemService.getById(itemId).getPrice();
-        Long loggedUserId = loggedUser.getUserId();
-
-        itemService.buyItem(itemId, loggedUserId);
-        codeService.updateCoinsBalance((studentCoins - itemPrice), loggedUserId);
-
-        return "redirect:/items_menu";
-    }
-
     @GetMapping("/my_items")
     public String getMyItemsList(@SessionAttribute("loggedUser") User loggedUser, Model model) {
         Long id = loggedUser.getUserId();
@@ -72,5 +59,42 @@ public class ItemController {
         return "inventory/item_list";
     }
 
+    @PostMapping("/buy")
+    public String buyItem(Model model, @SessionAttribute("loggedUser") User loggedUser, @RequestParam(value = "itemId") Long itemId) {
+
+        model.addAttribute("id", codeService.getCodeCoolerById(loggedUser.getUserId()));
+
+        int studentCoins = codeService.getCodeCoolerById(loggedUser.getUserId()).getCodeCoolCoins();
+        int itemPrice = itemService.getById(itemId).getPrice();
+        Long loggedUserId = loggedUser.getUserId();
+
+        itemService.buyItem(itemId, loggedUserId);
+        codeService.updateCoinsBalance((studentCoins - itemPrice), loggedUserId);
+
+        return "redirect:/items_menu";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editTheCodeCooler(@PathVariable("id") long id, Model model) {
+        Item item = itemService.getById(id);
+        model.addAttribute("item", item);
+        return "inventory/edit_item";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateItem(@PathVariable("id") long id, @Valid Item item, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "inventory/edit_item";
+        }
+
+        item.setItemId(id);
+        itemService.save(item);
+/*        item.setUserId(id);
+        codeCooler.setUserId(service.getCodeCoolerById(id).getUserId());
+        
+        service.save(codeCooler);
+        model.addAttribute("students", service.getAll());;*/
+        return "redirect:/item_list";
+    }
 
 }
