@@ -81,6 +81,13 @@ public class ItemController {
         return "inventory/edit_item";
     }
 
+    @GetMapping("/delete/{id}")
+    public String removeItem(@PathVariable("id") long id, Model model) {
+        itemService.delete(id);
+        model.addAttribute("items", itemService.getAll());
+        return "redirect:/item_list";
+    }
+
     @PostMapping("/update/{id}")
     public String updateItem(@PathVariable("id") long id, @Valid Item item, BindingResult result, Model model) {
         if (result.hasErrors()) {

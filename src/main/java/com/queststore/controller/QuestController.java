@@ -68,6 +68,13 @@ public class QuestController {
         return "inventory/edit_quest";
     }
 
+    @GetMapping("/delete_quest/{id}")
+    public String removeQuest(@PathVariable("id") long id, Model model) {
+        service.delete(id);
+        model.addAttribute("quests", service.getAll());
+        return "redirect:/quest_list";
+    }
+
     @PostMapping("/update_quest/{id}")
     public String updateQuest(@PathVariable("id") long id, @Valid Quest quest, BindingResult result) {
         if (result.hasErrors()) {
