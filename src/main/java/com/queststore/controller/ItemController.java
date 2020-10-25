@@ -75,7 +75,7 @@ public class ItemController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editTheCodeCooler(@PathVariable("id") long id, Model model) {
+    public String editItem(@PathVariable("id") long id, Model model) {
         Item item = itemService.getById(id);
         model.addAttribute("item", item);
         return "inventory/edit_item";
@@ -86,15 +86,9 @@ public class ItemController {
         if (result.hasErrors()) {
             return "inventory/edit_item";
         }
-
         item.setItemId(id);
         itemService.save(item);
-/*        item.setUserId(id);
-        codeCooler.setUserId(service.getCodeCoolerById(id).getUserId());
-        
-        service.save(codeCooler);
-        model.addAttribute("students", service.getAll());;*/
+
         return "redirect:/item_list";
     }
-
 }

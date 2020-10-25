@@ -25,6 +25,8 @@ public class QuestService {
     public void delete(Long id) {
         repository.delete(getById(id));
     }
+    
+    public void save(Quest quest) {repository.save(quest);}
 
     public List<Quest> getAll() {
         return repository.findAll();

@@ -22,8 +22,8 @@
                 <input class="input-update" type="text" th:value="${quest.questId}" disabled>
                 <input class="input-update" type="text" th:value="${quest.name}" disabled>
 
-                <a th:href="@{quest_list/edit/{id}(id=${quest.questId})}" class="button-update">Edit</a>
-                <a th:href="@{quest_list/delete/{id}(id=${quest.questId})}" class="button-remove">Remove</a>
+                <a th:href="@{edit_quest/{id}(id=${quest.questId})}" class="button-update">Edit</a>
+                <a th:href="@{delete/{id}(id=${quest.questId})}" class="button-remove">Remove</a>
             </nav>
         </div>
     </div>

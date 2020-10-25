@@ -18,7 +18,6 @@ public class Quest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quest_id")
-    @Setter(AccessLevel.PROTECTED)
     private long questId;
 
     private String name;
