@@ -12,9 +12,9 @@ const errorElement = document.getElementById('error')
 // const letters = /^[A-Za-z ]+$/;
 // const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-form.addEventListener('submit', (e) => {
-    alert("Sorry");
-})
+// form.addEventListener('submit', (e) => {
+//     alert("Sorry");
+// })
 
 // function checkNames(name) {
 //     let messages;
