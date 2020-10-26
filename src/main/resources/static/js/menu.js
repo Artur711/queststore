@@ -32,8 +32,8 @@ function adminMenu(subpage) {
         document.getElementById('iframe').src = "/quest_list";
     } else if (subpage.innerText === 'Items') {
         document.getElementById('iframe').src = "/item_list";
-    } else if (subpage.innerText === 'Wallets') {
-        document.getElementById('iframe').src = "/codecool_list";
+    } else if (subpage.innerText === 'Codecool') {
+        document.getElementById('iframe').src = "/codecool";
     } else if (subpage.innerText === 'My profile') {
         document.getElementById('iframe').src = "/profile/admin_profile";
     }
@@ -53,8 +53,8 @@ function mentorMenu(subpage) {
         document.getElementById('iframe').src = "/quest_list";
     } else if (subpage.innerText === 'Items') {
         document.getElementById('iframe').src = "/item_list";
-    } else if (subpage.innerText === 'Wallets') {
-        document.getElementById('iframe').src = "/codecool_list";
+    } else if (subpage.innerText === 'Codecool') {
+        document.getElementById('iframe').src = "/codecool";
     } else if (subpage.innerText === 'My profile') {
         document.getElementById('iframe').src = "/profile/mentor_profile";
     }

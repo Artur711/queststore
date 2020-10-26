@@ -294,6 +294,18 @@ section {
     margin-left: 4%;
 }
 
+.info-item {
+    margin-top: 0.1vh;
+    margin-bottom: 0.1vh;
+    text-align: center;
+    background-color: white;
+    width: 22vw;
+    color: black;
+    padding: 0.5vw 1vw;
+    font-size: 2vh;
+    border: solid black;
+}
+
 .entity-input {
     width: 40%;
 }
@@ -860,6 +872,10 @@ a {
 }
 
 @media screen and (max-width: 1050px) {
+    .info-item {
+        font-size: 120%;
+        width: 45vw;
+    }
 
     .welcome {
         width: 70vw;
@@ -963,6 +979,10 @@ a {
 }
 
 @media screen and (max-width: 450px) {
+    .info-item {
+        font-size: 140%;
+        width: 90vw;
+    }
 
     .pure-header {
         min-height: 10vh;

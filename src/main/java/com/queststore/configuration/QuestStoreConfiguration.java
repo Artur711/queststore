@@ -18,7 +18,8 @@ public class QuestStoreConfiguration {
                 "/student_list/*",
                 "/experiences/*",
                 "/menu", "/welcome_page",
-                "/profile/*");
+                "/profile/*",
+                "/codecool");
 
         return registrationBean;
     }
