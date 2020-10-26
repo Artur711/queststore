@@ -22,14 +22,14 @@
                 <input class="input-update" type="text" th:value="${item.itemId}" disabled>
                 <input class="input-update" type="text" th:value="${item.name}" disabled>
 
-                <a th:href="@{item_list/edit/{id}(id=${item.itemId})}" class="button-update">Edit</a>
-                <a th:href="@{item_list/delete/{id}(id=${item.itemId})}" class="button-remove">Remove</a>
+                <a th:href="@{edit/{id}(id=${item.itemId})}" class="button-update">Edit</a>
+                <a th:href="@{delete/{id}(id=${item.itemId})}" class="button-remove">Remove</a>
             </nav>
         </div>
     </div>
 
     <div class="list-menu">
-        <a th:href="@{add_item}" class="input-update button-update headline">ADD NEW</a>
+        <a th:href="@{add_new_item}" class="input-update button-update headline">ADD NEW</a>
     </div>
 </div>
 </body>

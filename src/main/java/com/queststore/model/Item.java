@@ -18,7 +18,6 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
-    @Setter(AccessLevel.PROTECTED)
     private long itemId;
 
     private String name;

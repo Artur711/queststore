@@ -1,5 +1,6 @@
 package com.queststore.service;
 
+import com.queststore.model.CodeCooler;
 import com.queststore.model.Item;
 import com.queststore.repository.ItemRepository;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ public class ItemService {
 
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    public void save(Item item) {
+        repository.save(item);
     }
 
     public List<Item> getAll(){
