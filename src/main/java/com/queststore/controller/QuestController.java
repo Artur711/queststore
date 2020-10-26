@@ -52,7 +52,12 @@ public class QuestController {
 
     @GetMapping("/my_quests")
     public String getMyItemsList(@SessionAttribute("loggedUser") User loggedUser, Model model) {
-        model.addAttribute("codecoolerQuests", service.getCodecoolerQuests(loggedUser.getUserId()));
+        if (service.getCodecoolerQuests(loggedUser.getUserId()).size() != 0) {
+            model.addAttribute("codecoolerQuests", service.getCodecoolerQuests(loggedUser.getUserId()));
+        }
+        else {
+            model.addAttribute("codecoolerQuests", null);
+        }
         return "inventory/my_quests_list";
     }
 

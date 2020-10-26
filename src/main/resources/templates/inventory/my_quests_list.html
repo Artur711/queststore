@@ -11,17 +11,26 @@
 
 <div th:switch="${codecoolerQuests}">
     <div th:case="null">
-        <div class="list-menu">
-            <h2 class="button-remove is-center">No Quests yet!</h2>
-        </div>
+        <nav>
+            <div class="welcome is-center">
+                <p><a class="button-remove" th:href="@{/quests_menu}">No Quests yet!</a></p>
+                <p><img class="error-photo" src="../static/photo/img/logo-quests/road/logo-road1.webp"
+                        th:src="@{/photo/img/logo-quests/road/logo-road1.webp}"></p>
+                <p><a class="button-update" th:href="@{/profile/codecooler_profile}">Back to the profile page</a></p>
+            </div>
+        </nav>
     </div>
 
     <div th:case="*">
         <div th:each="quest: ${codecoolerQuests}">
             <nav>
-                <input class="input-update" type="text" th:value="${quest.questId}" disabled>
+                <input class="input-update" type="text" th:value="'Quest id: ' + ${quest.questId}" disabled>
                 <input class="input-update" type="text" th:value="${quest.name}" disabled>
+                <input class="input-update" type="text" th:value="'Value: ' + ${quest.questValue}" disabled>
             </nav>
+        </div>
+        <div class="list-menu">
+            <a class="button-update" th:href="@{/profile/codecooler_profile}">Back to the profile page</a>
         </div>
     </div>
 </div>

@@ -11,9 +11,14 @@
 
     <div th:switch="${codecoolerItems}">
         <div th:case="null">
-            <div class="list-menu">
-                <h2 class="button-remove is-center">No items yet!</h2>
-            </div>
+            <nav>
+                <div class="welcome is-center">
+                    <p><a class="button-remove" th:href="@{/items_menu}">No items yet!</a></p>
+                    <p><img class="error-photo" src="../static/photo/img/logo-quests/road/logo-road1.webp"
+                            th:src="@{/photo/img/logo-quests/road/logo-road1.webp}"></p>
+                    <p><a class="button-update" th:href="@{/profile/codecooler_profile}">Back to the profile page</a></p>
+                </div>
+            </nav>
         </div>
 
         <div th:case="*">
@@ -22,8 +27,11 @@
                     <input class="input-update" type="text" th:value="${item.itemId}" disabled>
                     <input class="input-update" type="text" th:value="${item.name}" disabled>
 
-                    <a th:href="@{use_item/{id}(id=${item.itemId})}"><input class="list-menu button-remove" type="submit" th:value="USE"></a>
+                    <a th:href="@{use_item/{id}(id=${item.itemId})}"><input class="button-update" type="submit" th:value="USE"></a>
                 </nav>
+            </div>
+            <div class="list-menu">
+                <a class="button-update" th:href="@{/profile/codecooler_profile}">Back to the profile page</a>
             </div>
         </div>
     </div>

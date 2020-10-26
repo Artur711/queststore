@@ -42,7 +42,12 @@ public class ItemController {
     public String getMyItemsList(@SessionAttribute("loggedUser") User loggedUser, Model model) {
         Long id = loggedUser.getUserId();
         List<Item> listItems = itemService.getCodecoolerItems(id);
-        model.addAttribute("codecoolerItems", listItems);
+        if (listItems.size() != 0) {
+            model.addAttribute("codecoolerItems", listItems);
+        }
+        else {
+            model.addAttribute("codecoolerItems", null);
+        }
         return "inventory/my_items_list";
     }
 
