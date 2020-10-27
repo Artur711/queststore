@@ -3,7 +3,7 @@ function clickCell(index) {
     const subpage = document.getElementById(id);
 
     if (subpage.innerText === 'Classes') {
-        document.getElementById('iframe').src = 'my_class_list.html';
+        document.getElementById('iframe').src = 'list_of_all_classes_list.html';
     } else if (subpage.innerText === 'Teams') {
         document.getElementById('iframe').src = 'my_team_list.html';
     } else if (subpage.innerText === 'Quests') {

@@ -51,7 +51,7 @@ public class CC_ClassService {
     }
 
     public List<User> getUsersFromTheClass(Long class_id, Integer user_type) {
-        List<Integer> usersId = repository.getUserIdByTypeFromTheClassroom(class_id, user_type);
+        List<Integer> usersId = repository.getUserIdFromTheClassroomAndUserType(class_id, user_type);
         List<User> usersFromTheClass = new ArrayList<>();
         usersId.stream().collect(Collectors.toSet()).forEach(userId -> {
             if (user_type == 2) {
@@ -61,5 +61,13 @@ public class CC_ClassService {
             }
         });
         return usersFromTheClass;
+    }
+
+    public List<Long> getClassIdsOfUser(Long userId){
+       return repository.getAllClassesIdOfTheUser(userId);
+    }
+
+    public List<CC_Class> getClassesByIds(List<Long> classesId){
+         return repository.findAllByClassIdIn(classesId);
     }
 }

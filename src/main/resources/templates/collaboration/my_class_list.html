@@ -7,33 +7,42 @@
 </head>
 <body>
 
+<div id="my-list-members-logo-container">
+    <img class="photo-my-class-list" src="/photo/profile/crest.webp">
 
 
-<div class="list-menu-container list-menu-container-ex">
+    <div id="my-list-container">
+        <div class="my-list-members" th:each="mapEntry : ${mapOfMentors}">
+            <div th:text="${mapEntry.key.firstName} + ' ' + ${mapEntry.key.lastName}"
+                 class="input-update sub-section sub-section3 sub-section4"></div>
+            <div th:text="${mapEntry.key.email}" class="input-update sub-section sub-section3"></div>
 
-    <tbody th:each="class: ${allClasses}">
+            <select id="tralalala" name="cc_class" class="input-update sub-section sub-section3">
+                <option th:each="mapEntryL : ${mapEntry.value}"
 
-    <div class="list-menu">
-        <input class="input-update"  th:value="${class.classId}" disabled>
-        <input class="input-update"  th:value="${class.name}" disabled>
-        <a th:href="@{all_classes/edit_class/{id}(id=${class.classId})}" class="button-update">Edit</a>
-        <a th:href="@{all_classes/delete_class/{id}(id=${class.classId})}" class="button-remove">Remove</a>
+                        th:text="${mapEntryL.name}">
+                </option>
+            </select>
+
+
+        </div>
+        <div id="my-list-codecoolers-logo">
+            <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
+            <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
+            <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
+        </div>
+
+        <div class="my-list-members" th:each="student : ${listOfStudents}">
+            <div th:text="${student.firstName} + ' ' + ${student.lastName}"
+                 class="input-update sub-section sub-section3 sub-section5"></div>
+            <div th:text="'CC: ' + ${student.codeCoolCoins}" class="input-update sub-section sub-section3"></div>
+
+        </div>
+
+
     </div>
-    </tbody>
-
-
-
-
-<!--    <div class="block-list-menu"><input class="input-update" type="text" value="Class" disabled></div>-->
-<!--    <div class="block-list-menu"><input class="input-update" type="text" value="Class A" disabled></div>-->
-<!--    <div class="block-list-menu"><input class="input-update" type="text" value="20/25" disabled></div>-->
-    <div class="is-center">
-
-        <a th:href="@{all_classes/add_class/}">
-        <button class="button-update">New Class</button></a>
-    </div>
-
 </div>
+
 
 <script src="js/script.js"></script>
 

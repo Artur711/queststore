@@ -40,7 +40,7 @@ public class CC_ClassController {
         session.removeAttribute("listOfChosenMentors");
         session.removeAttribute("listOfChosenStudents");
 
-        return "collaboration/my_class_list";
+        return "collaboration/list_of_all_classes_list";
     }
 
 
@@ -193,4 +193,35 @@ public class CC_ClassController {
         return url;
     }
 
+    @GetMapping("/my_class")
+    public String getAllStudentsClasses(Model model, @SessionAttribute("loggedUser") User loggedUser) {
+        List<Long> classesId = classService.getClassIdsOfUser(loggedUser.getUserId());
+        List<CC_Class> allStudentsClasses = new ArrayList<>();
+        for (Long classId : classesId
+        ) {
+            allStudentsClasses.add(classService.findCC_ClassById(classId));
+        }
+        model.addAttribute("listOfClasses", allStudentsClasses);
+        return "collaboration/all_my_classes_list";
+    }
+
+
+    @GetMapping("/chosen_my_class/{id}")
+    public String getListOfAllMembersOfStudentClass(@PathVariable("id") Long classId, Model model, @SessionAttribute("loggedUser") User loggedUser) {
+        Integer mentorType = 2;
+        Integer studentType = 1;
+        List<User> mentorsFromTheClass = classService.getUsersFromTheClass(classId, mentorType);
+        List<User> studentsFromTheClass = classService.getUsersFromTheClass(classId, studentType);
+
+        HashMap<User, List<CC_Class>> objectObjectHashMap = new HashMap<>();
+        for (User user : mentorsFromTheClass
+        ) {
+            objectObjectHashMap.put(user, classService.getClassesByIds(classService.getClassIdsOfUser(user.getUserId())));
+        }
+        model.addAttribute("listOfStudents", studentsFromTheClass);
+        model.addAttribute("mapOfMentors", objectObjectHashMap);
+        System.out.println("break");
+
+        return "collaboration/my_class_list";
+    }
 }

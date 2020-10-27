@@ -19,12 +19,13 @@ insert into EXPERIENCES (VALUE) VALUES (1000);
 insert into EXPERIENCES (VALUE) VALUES (1500);
 
 ---Add Codecoolers (Probably its a good idea to add codecoolers simultaneously when adding User with user_type codecoolers)
-insert into CODE_COOLERS (CODE_COOLER_COINS, EXP, USER_ID) VALUES ( 0, 0, 1);
-insert into CODE_COOLERS (CODE_COOLER_COINS, EXP, USER_ID) VALUES ( 0, 0, 2);
+insert into CODE_COOLERS (CODE_COOLER_COINS, EXP, USER_ID) VALUES ( 100, 0, 1);
+insert into CODE_COOLERS (CODE_COOLER_COINS, EXP, USER_ID) VALUES ( 75, 0, 2);
 
 ---Add Clasrooms
 insert into CLASSROOMS (NAME) VALUES ('AK Soldiers');
 insert into CLASSROOMS (NAME) VALUES ('Rest of the world');
+insert into CLASSROOMS (NAME) VALUES ('CodeCool Hall of fame');
 
 ---Add Teams
 -- INSERT INTO Teams (team_name) values ('AK-Team');
@@ -93,8 +94,12 @@ INSERT INTO Items (NAME, DESCRIPTION, PRICE, IMG, ITEM_TYPE_ID) values ('Attenda
 
 
 ---Add Codecoolers to Classrooms
-INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,1);	---Pudzianowski to AK class
-INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,2);	---Kalamaga to AK class
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,1);	---Pudzianowski to AK class as a Student
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (3,1);	---Pudzianowski to AK class as a Student
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,2);	---Kalamaga to AK class as a Student
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,3);	---Kolonko to AK class as a Mentor
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,4);	---Martyniuk to AK class as a Mentor
+INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (1,5);	---Zapala to AK class as a Mentor
 INSERT INTO CLASSROOMS_USERS (class_id , user_id) values (2,3);	---
 -- INSERT INTO Users_classrooms (user_id, class_id) values (2,1);	---Kalamaga to AK class
 

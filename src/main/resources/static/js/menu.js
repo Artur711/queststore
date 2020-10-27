@@ -62,7 +62,7 @@ function mentorMenu(subpage) {
 
 function codeCoolerMenu(subpage) {
     if (subpage.innerText === 'Classes') {
-        document.getElementById('iframe').src = "/my_class_list";
+        document.getElementById('iframe').src = "/all_classes/my_class";
     } else if (subpage.innerText === 'Teams') {
         document.getElementById('iframe').src = "/my_team_list";
     } else if (subpage.innerText === 'Quests') {
