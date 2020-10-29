@@ -42,11 +42,11 @@ public class QuestController {
         model.addAttribute("id", codeService.getCodeCoolerById(loggedUser.getUserId()));
 
         int studentCoins = codeService.getCodeCoolerById(loggedUser.getUserId()).getCodeCoolCoins();
-        int questPrice = service.getById(questId).getQuestValue();
+//        int questPrice = service.getById(questId).getQuestValue();
         long loggedUserId = loggedUser.getUserId();
 
         service.completeQuest(loggedUserId, questId);
-        codeService.updateCoinsBalance((studentCoins + questPrice), loggedUserId);
+        codeService.updateWhenMarketQuest(studentCoins, service.getById(questId), loggedUserId);
         return "redirect:/quests_menu";
     }
 

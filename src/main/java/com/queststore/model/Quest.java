@@ -31,18 +31,21 @@ public class Quest {
     @Column(name = "quest_value")
     private int questValue;
 
+    private int exp;
+
 
     @ManyToMany
             @JoinTable(joinColumns = @JoinColumn(name = "quest_id"),
             inverseJoinColumns = @JoinColumn(name = "codecooler_id"))
     List<CodeCooler> codecoolers;
 
-    public Quest(long questId, String name, String description, int questTypeId, String img, int questValue) {
+    public Quest(long questId, String name, String description, int questTypeId, String img, int questValue, int exp) {
         this.questId = questId;
         this.name = name;
         this.description = description;
         this.questTypeId = questTypeId;
         this.img = img;
         this.questValue = questValue;
+        this.exp = exp;
     }
 }

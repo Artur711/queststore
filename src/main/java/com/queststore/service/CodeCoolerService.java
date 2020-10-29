@@ -2,6 +2,7 @@ package com.queststore.service;
 
 import com.queststore.model.CodeCooler;
 import com.queststore.model.CodeCoolerItems;
+import com.queststore.model.Quest;
 import com.queststore.repository.CodeCoolerRepository;
 import com.queststore.repository.QuestRepository;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class CodeCoolerService {
 
     public void save(CodeCooler codeCooler) {
         codeCooler.setUserType(1);
+        codeCooler.setEarned(0);
         repository.save(codeCooler);
     }
 
@@ -39,6 +41,14 @@ public class CodeCoolerService {
         coolerItems.setItemID(itemId);
         coolerItems.setName(itemService.getById(itemId).getName());
         codeCoolerItemsService.save(coolerItems);
+    }
+
+    public void updateWhenMarketQuest(int coins, Quest quest, Long userId){
+        CodeCooler codeCooler = getCodeCoolerById(userId);
+        codeCooler.setCodeCoolCoins(coins + quest.getQuestValue());
+        codeCooler.setEarned(codeCooler.getEarned() + quest.getQuestValue());
+        codeCooler.setExp(codeCooler.getExp() + quest.getExp());
+        repository.save(codeCooler);
     }
 
     public void updateCoinsBalance(int coins, Long userId){
