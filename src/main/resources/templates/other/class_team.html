@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of classes of teams</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+</head>
+<body>
+<div th:each="class: ${classes}">
+    <div class="list-menu">
+        <input class="info-item is-center headline2" th:value="'Class name: ' + ${class.name}" disabled>
+    </div>
+    <div th:each="person: ${class.users}">
+        <input class="info-item" th:value="'First name: ' + ${person.firstName}" disabled>
+        <input class="info-item" th:value="'Last name: ' + ${person.lastName}" disabled>
+        <input class="info-item" th:value="'Email: ' + ${person.email}" disabled>
+        <input class="info-item" th:value="'Phone number: ' + ${person.phoneNumber}" disabled>
+    </div>
+    <p></p>
+</div>
+<div class="list-menu">
+    <p><a class="button-update" th:href="@{/codecool}">Back to menu</a></p>
+</div>
+</body>
+</html>

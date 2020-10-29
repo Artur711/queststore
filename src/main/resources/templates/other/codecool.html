@@ -7,26 +7,15 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
 </head>
 <body>
-<h5 class="is-center headline2 zenta">Mentors</h5>
-<div th:each="mentor: ${mentors}">
-    <input class="info-item" th:value="'First name: ' + ${mentor.firstName}" disabled>
-    <input class="info-item" th:value="'Last name: ' + ${mentor.lastName}" disabled>
-    <input class="info-item" th:value="'Email: ' + ${mentor.email}" disabled>
-    <input class="info-item" th:value="'Phone number: ' + ${mentor.phoneNumber}" disabled>
-    <p><input class="info-item" value="Class:" disabled></p>
-    <p></p>
-</div>
-<h5 class="is-center headline2 zenta">Students</h5>
-<div th:each="student: ${students}">
-    <input class="info-item" th:value="'First name: ' + ${student.firstName}" disabled>
-    <input class="info-item" th:value="'Last name: ' + ${student.lastName}" disabled>
-    <input class="info-item" th:value="'Email: ' + ${student.email}" disabled>
-    <input class="info-item" th:value="'Phone number: ' + ${student.phoneNumber}" disabled>
-    <input class="info-item" th:value="'Code coins: ' + ${student.codeCoolCoins}" disabled>
-    <input class="info-item" th:value="'Experience: ' + ${student.exp}" disabled>
-    <input class="info-item" value="Team:" disabled>
-    <p><input class="info-item" value="Class:" disabled></p>
-    <p></p>
+<div class="flex-container">
+    <a class="grid-block top-margin"  href="/codecool/mentor_student">
+        <img class="img"  src='photo/img/logo-items/exam/logo-exam2.jpg'/>
+        <button class="grid-title btn input-margin">List of Members</button>
+    </a>
+    <a class="grid-block top-margin" href="/codecool/class_team">
+        <img class="img" src='photo/img/logo-items/exam/logo-exam3.jpg'/>
+        <button class="grid-title btn input-margin">Collaboration</button>
+    </a>
 </div>
 </body>
 </html>
