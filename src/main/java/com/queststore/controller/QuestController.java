@@ -101,6 +101,9 @@ public class QuestController {
             return "inventory/edit_quest";
         }
         quest.setQuestId(id);
+        if (quest.getImg() == null) {
+            quest.setImg(service.getById(id).getImg());
+        }
         service.save(quest);
 
         return "redirect:/quest_list";
