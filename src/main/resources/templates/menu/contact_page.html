@@ -24,38 +24,57 @@
                     <br>
 
                     <div th:case="null">
-                        <div class="instructionDiv inputDiv-m zenta">First Name</div>
-                        <label for="first_name"></label>
-                        <input id="first_name" class="inputDiv inputDiv-m" type="text" placeholder="your first name" required>
+                        <div class="form-control">
+                            <label class="instructionDiv inputDiv-m zenta">First Name</label>
+                            <input id="first_name" class="inputDiv inputDiv-m" type="text" placeholder="your first name" required>
+                            <small>Error message</small>
+                        </div>
+                        <p></p>
 
-                        <div class="instructionDiv inputDiv-m zenta">Last Name</div>
-                        <label for="last_name"></label>
-                        <input id="last_name" class="inputDiv inputDiv-m" type="text" placeholder="your last name" required>
+                        <div class="form-control">
+                            <label class="instructionDiv inputDiv-m zenta">Last Name</label>
+                            <input id="last_name" class="inputDiv inputDiv-m" type="text" placeholder="your last name" required>
+                            <small>Error message</small>
+                        </div>
+                        <p></p>
 
-
-                        <div class="instructionDiv inputDiv-m zenta">Email</div>
-                        <label for="email"></label>
-                        <input id="email" class="inputDiv inputDiv-m" type="text" placeholder="your email" required>
+                        <div class="form-control">
+                            <label class="instructionDiv inputDiv-m zenta">Email</label>
+                            <input id="email" class="inputDiv inputDiv-m" type="text" placeholder="your email" required>
+                            <small>Error message</small>
+                        </div>
+                        <p></p>
                     </div>
 
                     <div th:case="*">
-                        <div class="instructionDiv inputDiv-m zenta">First Name</div>
-                        <label for="first_name"></label>
-                        <input id="first_name" class="inputDiv inputDiv-m" type="text" th:value="${user.firstName}" disabled>
+                        <div class="form-control">
+                            <label class="instructionDiv inputDiv-m zenta">First Name</label>
+                            <input id="first_name" class="inputDiv inputDiv-m" type="text" th:value="${user.firstName}" disabled>
+                            <small>Error message</small>
+                        </div>
+                        <p></p>
 
-                        <div class="instructionDiv inputDiv-m zenta">Last Name</div>
-                        <label for="last_name"></label>
-                        <input  id="last_name" class="inputDiv inputDiv-m" type="text" th:value="${user.lastName}" disabled>
+                        <div class="form-control">
+                            <label class="instructionDiv inputDiv-m zenta">Last Name</label>
+                            <input  id="last_name" class="inputDiv inputDiv-m" type="text" th:value="${user.lastName}" disabled>
+                            <small>Error message</small>
+                        </div>
+                        <p></p>
 
-
-                        <div class="instructionDiv inputDiv-m zenta">Email</div>
-                        <label for="email"></label>
-                        <input  id="email" class="inputDiv inputDiv-m" type="text" th:value="${user.email}" disabled>
+                        <div class="form-control">
+                            <label class="instructionDiv inputDiv-m zenta">Email</label>
+                            <input  id="email" class="inputDiv inputDiv-m" type="text" th:value="${user.email}" disabled>
+                            <small>Error message</small>
+                        </div>
+                        <p></p>
                     </div>
 
-                    <div class="instructionDiv zenta inputDiv-m">Comments</div>
-                    <label for="comments"></label>
-                    <textarea class="inputDiv inputDiv-m" rows="5"  id="comments" name="comments" placeholder="Your comments" required></textarea>
+                    <div class="form-control">
+                        <label class="instructionDiv zenta inputDiv-m">Comments</label>
+                        <textarea class="inputDiv inputDiv-m" rows="5"  id="comments" name="comments" placeholder="Your comments" required></textarea>
+                        <small>Error message</small>
+                    </div>
+                    <p></p>
 
                     <input id ="send" type="submit" class="instructionDiv zenta inputDiv-m" value="Send"/>
                 </div>

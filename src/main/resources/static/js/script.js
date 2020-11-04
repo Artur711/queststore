@@ -1,5 +1,6 @@
-const form = document.getElementById('form')
-const errorElement = document.getElementById('error')
+const form = document.getElementById('form_inside');
+const errorElement = document.getElementById('error');
+
 // const send = document.getElementById('send')
 // const firstName = document.getElementById('firstName')
 // const lastName = document.getElementById('lastName')
@@ -8,13 +9,17 @@ const errorElement = document.getElementById('error')
 // const phone = document.getElementById('phoneNumber');
 // const level = document.getElementById('loe_id');
 // const coins = document.getElementById('codecool_coins')
-// const numbers = /^[0-9]+$/;
-// const letters = /^[A-Za-z ]+$/;
-// const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const numbers = /^[0-9]+$/;
+const letters = /^[A-Za-z ]+$/;
+const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-// form.addEventListener('submit', (e) => {
-//     alert("Sorry");
-// })
+form.addEventListener('submit', (e) => {
+    alert("Sorry");
+})
+
+function myFunction() {
+    alert("DOM DOM DOM")
+}
 
 // function checkNames(name) {
 //     let messages;

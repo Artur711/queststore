@@ -640,6 +640,24 @@ div.mini-block:hover span {
     width: 20vw;
 }
 
+.form-control small {
+    visibility: hidden;
+}
+
+/*.form-control.success input {*/
+/*    color: green;*/
+/*    visibility: visible;*/
+/*}*/
+
+/*.form-control.error input{*/
+/*    color: red;*/
+/*    visibility: visible;*/
+/*}*/
+
+.form-control.error small {
+    visibility: visible;
+}
+
 .button-update, .button-remove {
     width: 8vw;
     border-radius: 1vw;

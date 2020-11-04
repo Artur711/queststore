@@ -9,65 +9,64 @@ const letters = /^[A-Za-z ]+$/;
 const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 form.addEventListener('submit', (e) => {
-    let messages = checkName(name.value);
+    let condition1 = checkName(name.value.trim(), name);
+    let condition2 = checkName(lastname.value.trim(), lastname);
+    let condition3 = checkMail(mail.value.trim());
+    let condition4 = checkComments(comments.value.trim());
 
-    if (messages == null) {
-        messages = checkName(lastname.value);
-    }
-
-    if (messages == null) {
-        messages = checkMail(mail.value);
-    }
-
-    if (messages == null) {
-        messages = checkComments(comments.value);
-    }
-
-    if (messages == null) {
-        alert('Success! Your mail was sent.');
-    } else if (messages.length > 0) {
-        alert(messages);
+    if (condition1 || condition2 || condition3 || condition4) {
         e.preventDefault();
+    } else {
+        alert('Success! Your mail was sent.');
     }
 })
 
-function checkName(name) {
-    let messages;
-
-    if (name.length < 3) {
-        messages = 'Name and last name must be longer than 2 characters';
-    } else if (!name.match(letters)) {
-        messages = 'Please input alphabet characters only';
-    } else if (whiteSpace(name)) {
-        messages = 'The name cannot contain only spaces';
-    } else if (!titleCase(name)) {
-        messages = 'Each word must start with a capital letter';
-    } else if (name.length > 20) {
-        messages = "Name mustn't be longer than 20 characters";
+function checkName(nameValue, name) {
+    if (nameValue.length < 3) {
+        setMessageFor(name, 'Must be longer than 2 characters')
+        return true;
+    } else if (!nameValue.match(letters)) {
+        setMessageFor(name, 'Alphabet characters only')
+        return  true;
+    } else if (whiteSpace(nameValue)) {
+        setMessageFor(name, 'Cannot contain only spaces')
+        return true;
+    } else if (!titleCase(nameValue)) {
+        setMessageFor(name, 'Start with a capital letter')
+        return  true;
+    } else if (nameValue.length > 20) {
+        setMessageFor(name, "Mustn't be longer than 20 characters")
+        return  true;
     }
-    return messages;
+    else {
+        setMessageFor(name, 'Error message');
+        return false;
+    }
 }
 
-function checkMail(mail) {
-    let messages;
-
-    if (!mail.match(mailFormat)) {
-        messages = 'You have entered an invalid email address!';
+function checkMail(mailValue) {
+    if (!mailValue.match(mailFormat)) {
+        setMessageFor(mail, 'An invalid email address!')
+        return true;
     }
-    return messages;
+    else {
+        setMessageFor(mail, 'Error message');
+        return false;
+    }
 }
 
-function checkComments(comments) {
-    let messages;
-
-    if (comments === 'Your comments') {
-        messages = 'Comment is required';
-    } else if (whiteSpace(comments)) {
-        messages = 'The comment cannot contain only spaces';
-    } else if (comments.length < 10) {
-        messages = 'Comment must be longer than 9 characters';
+function checkComments(commentsValue) {
+    if (whiteSpace(commentsValue)) {
+        setMessageFor(comments, 'Cannot contain only spaces')
+        return true;
+    } else if (commentsValue.length < 10) {
+        setMessageFor(comments, 'Must be longer than 9 characters')
+        return true;
     }
-    return messages;
+    else {
+        setMessageFor(comments, 'Error message');
+        return false;
+    }
 }
 
 function whiteSpace(str) {
@@ -82,4 +81,16 @@ function titleCase(str) {
         }
     }
     return true;
+}
+
+function setMessageFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    small.innerText = message;
+    if (message === 'Error message') {
+        formControl.className = 'form-control success';
+    }
+    else {
+        formControl.className = 'form-control error';
+    }
 }

@@ -62,7 +62,9 @@ public class CC_ClassController {
     @GetMapping("/add_mentor_to_new_class")
     public String addChosenMentorsToTempList(Model model, @Valid User user, HttpSession session, @SessionAttribute("loggedUser") User loggedUser) {
         List<User> tempList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
-        tempList.add(user);
+        if (!tempList.contains(user)) {
+            tempList.add(user);
+        }
         session.setAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()), tempList);
         return "redirect:/all_classes/add_class";
     }
@@ -73,14 +75,15 @@ public class CC_ClassController {
         CodeCooler chosenOne = codeCoolerService.getCodeCoolerById(studentId);
 
         List<User> tempList = (List<User>) session.getAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()));
-        tempList.add(chosenOne);
+        if (!tempList.contains(chosenOne)) {
+            tempList.add(chosenOne);
+        }
         session.setAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()), tempList);
         return "redirect:/all_classes/add_class";
     }
 
     @PostMapping("/add_the_class")
     public String addTheClass(Model model, @RequestParam(value = "name") String name, @SessionAttribute("loggedUser") User loggedUser) {
-        System.out.println(name);
         List<User> mentorsList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
         List<CodeCooler> codecoolersList = (List<CodeCooler>) session.getAttribute(String.format("listOfChosenStudents_%s", loggedUser.getUserId()));
 
@@ -103,7 +106,6 @@ public class CC_ClassController {
 
     @GetMapping("/delete_user/{id}")
     public String deleteChosenMentor(@PathVariable("id") long id, @SessionAttribute("loggedUser") User loggedUser) {
-        System.out.println(id);
         User chosenOneToBeRemoved = userService.getUserById(id);
         List<User> mentorsList = (List<User>) session.getAttribute(String.format("listOfChosenMentors_%s", loggedUser.getUserId()));
         mentorsList.removeIf(chosenOneToBeRemoved::equals);
