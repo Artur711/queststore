@@ -221,8 +221,12 @@ public class CC_ClassController {
             objectObjectHashMap.put(user, classService.getClassesByIds(classService.getClassIdsOfUser(user.getUserId())));
         }
         model.addAttribute("listOfStudents", studentsFromTheClass);
-        model.addAttribute("mapOfMentors", objectObjectHashMap);
-        System.out.println("break");
+        if (objectObjectHashMap.size() != 0) {
+            model.addAttribute("mapOfMentors", objectObjectHashMap);
+        }
+        else {
+            model.addAttribute("mapOfMentors", null);
+        }
 
         return "collaboration/my_class_list";
     }

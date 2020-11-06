@@ -5,6 +5,7 @@
     <title>Update student</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
 <div id="right-section">
@@ -15,13 +16,13 @@
         <form id="form" action="#" th:action="@{/student_list/update/{id}(id=${codecooler.userId})}" th:object="${codecooler}" method="post">
             <nav>
                 <h5 class="is-center pure-item sub-section3 entity-input">User First name</h5>
-                <label for="firstName"></label>
-                <input id="firstName" class="is-center pure-item sub-section3 entity-input background" type="text"
+                <label for="first_name"></label>
+                <input id="first_name" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{firstName}" th:value="UserFirstname">
 
                 <h5 class="is-center pure-item sub-section3 entity-input">User Last name</h5>
-                <label for="lastName"></label>
-                <input id="lastName" class="is-center pure-item sub-section3 entity-input background" type="text"
+                <label for="last_name"></label>
+                <input id="last_name" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{lastName}" th:value="UserLastname">
 
                 <h5 class="is-center pure-item sub-section3 entity-input">User email</h5>
@@ -35,8 +36,8 @@
                        th:field="*{password}" th:value="UserPassword">
 
                 <h5 class="is-center pure-item sub-section3 entity-input">User phonenumber</h5>
-                <label for="phoneNumber"></label>
-                <input id="phoneNumber" class="is-center pure-item sub-section3 entity-input background" type="text"
+                <label for="phone_number"></label>
+                <input id="phone_number" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{phoneNumber}" th:value="UserPhonenumber">
 
                 <h5 class="is-center pure-item sub-section3 entity-input">Codecooler exp</h5>
@@ -48,11 +49,11 @@
                 <label for="codecool_coins"></label>
                 <input id="codecool_coins" class="is-center pure-item sub-section3 entity-input background" type="text"
                        th:field="*{codeCoolCoins}" th:placeholder="coins">
-                <input type="submit" id="savebutton" class="input-update headline" value="UPDATE">
+
+                <input id="send" type="submit" class="input-update headline" value="UPDATE"/>
             </nav>
         </form>
     </nav>
-    <script src="js/update.js"></script>
 </div>
 </body>
 </html>

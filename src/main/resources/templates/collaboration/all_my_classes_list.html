@@ -6,24 +6,15 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
 </head>
 <body>
-
-<div id="my-list-members-logo-container">
-
-    <div id="my-list-container">
-        <div class="my-list-members" th:each="cc_class : ${listOfClasses}">
-            <a th:href="@{/all_classes/chosen_my_class/{id}(id=${cc_class.classId})}">
-                <div th:text="${cc_class.name}"
-
-                     class="input-update sub-section sub-section3 sub-section4">
-
-                </div>
-            </a>
-        </div>
+<div class="welcome">
+    <div class="my-list-members" th:each="cc_class : ${listOfClasses}">
+        <a th:href="@{/all_classes/chosen_my_class/{id}(id=${cc_class.classId})}">
+            <div th:text="${cc_class.name}"
+                 class="input-update button-update headline">
+            </div>
+        </a>
     </div>
 </div>
-
-
 <!--<script src="js/script.js"></script>-->
-
 </body>
 </html>

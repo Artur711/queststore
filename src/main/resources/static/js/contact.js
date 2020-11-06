@@ -9,10 +9,10 @@ const letters = /^[A-Za-z ]+$/;
 const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 form.addEventListener('submit', (e) => {
-    let condition1 = checkName(name.value.trim(), name);
-    let condition2 = checkName(lastname.value.trim(), lastname);
-    let condition3 = checkMail(mail.value.trim());
-    let condition4 = checkComments(comments.value.trim());
+    let condition1 = checkName(name.value, name);
+    let condition2 = checkName(lastname.value, lastname);
+    let condition3 = checkMail(mail.value);
+    let condition4 = checkComments(comments.value);
 
     if (condition1 || condition2 || condition3 || condition4) {
         e.preventDefault();

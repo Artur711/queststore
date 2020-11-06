@@ -895,8 +895,9 @@ a {
 }
 
 .photo-my-class-list{
-    max-width: 30%;
-    max-height: 30%;
+    max-width: 15%;
+    max-height: 15%;
+    margin-top: 2vh;
     opacity: 1;
 }
 
@@ -915,22 +916,24 @@ a {
 }
 
 .photo-my-class-list-codecooler{
-    max-width: 10%;
-    max-height: 10%;
-    margin: unset;
+    max-width: 5%;
+    max-height: 5%;
+    margin: 0vh 2vh 0vh 0vh;
 }
 /*.sub-section3{*/
 /*    display: flex;*/
 /*    justify-content: center;*/
 /*    align-content: center;*/
 /*}*/
-.sub-section3:hover{
+/*.sub-section3:hover{
     background-color: #73AD21;
 
-}
+}*/
 
 .sub-section4{
-    background-color: #008000;
+    background-color: darkred;
+    width: 21vw;
+    font-size: 2vh;
     opacity: 1.0;
 }
 

@@ -7,44 +7,45 @@
 </head>
 <body>
 
-<div id="my-list-members-logo-container">
+<div class="welcome">
     <img class="photo-my-class-list" src="/photo/profile/crest.webp">
 
-
-    <div id="my-list-container">
-        <div class="my-list-members" th:each="mapEntry : ${mapOfMentors}">
-            <div th:text="${mapEntry.key.firstName} + ' ' + ${mapEntry.key.lastName}"
-                 class="input-update sub-section sub-section3 sub-section4"></div>
-            <div th:text="${mapEntry.key.email}" class="input-update sub-section sub-section3"></div>
-
-            <select id="tralalala" name="cc_class" class="input-update sub-section sub-section3">
-                <option th:each="mapEntryL : ${mapEntry.value}"
-
-                        th:text="${mapEntryL.name}">
-                </option>
-            </select>
-
-
+    <div th:switch="${mapOfMentors}">
+        <div th:case="null" class="my-list-members">
+            <div class="input-update sub-section4">No mentor is assigned to this class.</div>
         </div>
-        <div id="my-list-codecoolers-logo">
-            <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
-            <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
-            <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
+        <div th:case="*">
+            <div class="my-list-members" th:each="mapEntry : ${mapOfMentors}">
+                <div th:text="${mapEntry.key.firstName} + ' ' + ${mapEntry.key.lastName}"
+                     class="input-update sub-section4"></div>
+                <div th:text="${mapEntry.key.email}" class="input-update sub-section4"></div>
+
+                <!--     <select id="tralalala" name="cc_class" class="input-update sub-section sub-section3">
+                         <option th:each="mapEntryL : ${mapEntry.value}"
+
+                                 th:text="${mapEntryL.name}">
+                         </option>
+                     </select>-->
+            </div>
         </div>
+    </div>
 
-        <div class="my-list-members" th:each="student : ${listOfStudents}">
-            <div th:text="${student.firstName} + ' ' + ${student.lastName}"
-                 class="input-update sub-section sub-section3 sub-section5"></div>
-            <div th:text="'CC: ' + ${student.codeCoolCoins}" class="input-update sub-section sub-section3"></div>
+    <div id="my-list-codecoolers-logo">
+        <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
+        <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
+        <img class="photo-my-class-list-codecooler" src="/photo/profile/shield.webp">
+    </div>
 
-        </div>
+    <div class="my-list-members" th:each="student : ${listOfStudents}">
+        <div th:text="${student.firstName} + ' ' + ${student.lastName}"
+             class="input-update sub-section4 sub-section5"></div>
+        <div th:text="'CC: ' + ${student.codeCoolCoins}" class="input-update sub-section4 sub-section5"></div>
+    </div>
 
-
+    <div class="list-menu">
+        <p><a class="button-update" th:href="@{/all_classes/my_class}">Back to list</a></p>
     </div>
 </div>
-
-
-<script src="js/script.js"></script>
-
+<!--<script src="js/script.js"></script>-->
 </body>
 </html>
