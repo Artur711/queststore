@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <title>All class list</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-
 <div class="list-menu-container list-menu-container-ex">
-
     <tbody th:each="class: ${allClasses}">
 
     <div class="list-menu">
@@ -24,10 +22,6 @@
             <button class="input-update button-update headline">New Class</button>
         </a>
     </div>
-
 </div>
-
-<script src="js/script.js"></script>
-
 </body>
 </html>

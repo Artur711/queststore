@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Contact page</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script th:src="@{js/contact.js}" src="../static/js/contact.js" defer></script>
 </head>
 <body>
@@ -12,7 +12,7 @@
 <div id="container" class="list-menu">
 
     <div id="left-section">
-        <img alt="Profile photo" src="../static/photo/img/con.webp" th:src="@{/photo/img/con.webp}">
+        <img alt="Profile photo" class="img-contact" src="../static/photo/img/con.webp" th:src="@{/photo/img/con.webp}">
     </div>
 
     <div id="right-section" class="black-color">
@@ -71,7 +71,7 @@
 
                     <div class="form-control">
                         <label class="instructionDiv zenta inputDiv-m">Comments</label>
-                        <textarea class="inputDiv inputDiv-m" rows="5"  id="comments" name="comments" placeholder="Your comments" required></textarea>
+                        <textarea class="inputDiv inputDiv-m" rows="3"  id="comments" name="comments" placeholder="Your comments" required></textarea>
                         <small>Error message</small>
                     </div>
                     <p></p>

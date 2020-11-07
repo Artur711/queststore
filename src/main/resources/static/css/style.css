@@ -1065,6 +1065,10 @@ a {
         width: 90vw;
     }
 
+    .img-contact {
+        width: 20vw;
+    }
+
     .pure-header {
         min-height: 10vh;
     }
