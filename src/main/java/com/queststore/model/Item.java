@@ -44,4 +44,10 @@ public class Item {
         this.img = img;
         this.itemTypeId = itemTypeId;
     }
+
+    public Item(String name, String description, int price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 }
