@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Mentor profile</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0m mininum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
 <div class="list-menu">
@@ -16,10 +17,12 @@
     <div id="right-section" class="black-color">
         <form id="form" action="#" th:action="@{/profile/update_mentor_profile}" th:object="${profile}" method="post">
             <h5 class="is-center pure-item sub-section2">Name</h5>
-            <h5 class="is-center pure-item sub-section2"><span th:text="${profile.firstName}"></span></h5>
+            <label for="first_name"></label><input id="first_name" class="is-center pure-item sub-section2" type="text"
+                                                   th:field="*{firstName}" th:value="${profile.firstName}" disabled>
 
             <h5 class="is-center pure-item sub-section2">Surname</h5>
-            <h5 class="is-center pure-item sub-section2"><span th:text="${profile.lastName}"></span></h5>
+            <label for="last_name"></label><input id="last_name" class="is-center pure-item sub-section2" type="text"
+                                                  th:field="*{lastName}" th:value="${profile.lastName}" disabled>
 
             <h5 class="is-center pure-item sub-section2">Phone number</h5>
             <label for="phone_number"></label><input id="phone_number" class="is-center pure-item sub-section2 background" type="text"
