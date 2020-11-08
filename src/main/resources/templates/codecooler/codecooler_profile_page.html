@@ -17,38 +17,45 @@
 
         <div id="right-section" class="black-color">
             <form id="form" action="#" th:action="@{/profile/update_codecooler_profile}" th:object="${profile}" method="post">
+                <div class="list-menu black-color">
+                    <h5 class="is-center pure-item sub-section2">Name</h5>
+                    <label for="first_name"></label><input id="first_name" class="is-center pure-item sub-section2" type="text"
+                                                           th:field="*{firstName}" th:value="${profile.firstName}" disabled>
 
-                <h5 class="is-center pure-item sub-section2">Name</h5>
-                <label for="first_name"></label><input id="first_name" class="is-center pure-item sub-section2" type="text"
-                                                       th:field="*{firstName}" th:value="${profile.firstName}" disabled>
+                    <h5 class="is-center pure-item sub-section2">Surname</h5>
+                    <label for="last_name"></label><input id="last_name" class="is-center pure-item sub-section2" type="text"
+                                                          th:field="*{lastName}" th:value="${profile.lastName}" disabled>
 
-                <h5 class="is-center pure-item sub-section2">Surname</h5>
-                <label for="last_name"></label><input id="last_name" class="is-center pure-item sub-section2" type="text"
-                                                      th:field="*{lastName}" th:value="${profile.lastName}" disabled>
+                    <h5 class="is-center pure-item sub-section2">Phone number</h5>
+                    <label for="phone_number"></label><input id="phone_number" class="is-center pure-item sub-section2 background" type="text"
+                                                             th:field="*{phoneNumber}" th:value="${profile.phoneNumber}">
 
-                <h5 class="is-center pure-item sub-section2">Phone number</h5>
-                <label for="phone_number"></label><input id="phone_number" class="is-center pure-item sub-section2 background" type="text"
-                                                      th:field="*{phoneNumber}" th:value="${profile.phoneNumber}">
-
-                <h5 class="is-center pure-item sub-section2">Password</h5>
-                <label for="password"></label><input id="password" class="is-center pure-item sub-section2 background" type="password"
+                    <h5 class="is-center pure-item sub-section2">Password</h5>
+                    <label for="password"></label><input id="password" class="is-center pure-item sub-section2 background" type="password"
                                                          th:field="*{password}" th:value="${profile.password}">
 
-                <h5 class="is-center pure-item sub-section2">Mail</h5>
-                <label for="email"></label><input id="email" class="is-center pure-item sub-section2 background" type="text"
-                                                     th:field="*{email}" th:value="${profile.email}">
+                    <h5 class="is-center pure-item sub-section2">Mail</h5>
+                    <label for="email"></label><input id="email" class="is-center pure-item sub-section2" type="text"
+                                                      th:field="*{email}" th:value="${profile.email}">
 
-                <div th:object="${loe}">
-                        <h5 class="is-center pure-item sub-section2"><span th:text="${'Level: ' + loe}"></span></h5>
+                    <div th:object="${loe}">
+                        <label for="loe_id"></label><input id="loe_id" class="is-center pure-item sub-section2" type="text"
+                                                           th:value="${'Level: ' + loe}" disabled>
+
+                    </div>
+                    <div th:object="${codecooler}">
+                        <label for="exp"></label><input id="exp" class="is-center pure-item sub-section2" type="text"
+                                                           th:value="${'You have EXP:' + codecooler.exp}" disabled>
+                        <label for="codecool_coins"></label><input id="codecool_coins" class="is-center pure-item sub-section2" type="text"
+                                                           th:value="${'You have C$:' + codecooler.codeCoolCoins}" disabled>
+
+                        <label for="erned"></label><input id="erned" class="is-center pure-item sub-section2" type="text"
+                                                           th:value="${'You earned C$:' + codecooler.earned}" disabled>
+                    </div>
+                    <nav>
+                        <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+                    </nav>
                 </div>
-                <div th:object="${codecooler}">
-                    <h5 class="is-center pure-item sub-section2"><span th:text="${'You have EXP:' + codecooler.exp}"></span></h5>
-                    <h5 class="is-center pure-item sub-section2"><span th:text="${'You have C$:' + codecooler.codeCoolCoins}"></span></h5>
-                    <h5 class="is-center pure-item sub-section2"><span th:text="${'You earned C$:' + codecooler.earned}"></span></h5>
-                </div>
-                <nav>
-                    <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
-                </nav>
             </form>
         </div>
     </div>

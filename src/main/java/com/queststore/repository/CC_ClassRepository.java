@@ -1,14 +1,12 @@
 package com.queststore.repository;
 
 import com.queststore.model.CC_Class;
-import com.queststore.model.User;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
-import java.beans.Transient;
 import java.util.List;
 
 public interface CC_ClassRepository extends CrudRepository<CC_Class, Long> {

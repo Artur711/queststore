@@ -20,10 +20,10 @@ import java.util.stream.Collectors;
 @RequestMapping("/all_classes")
 public class CC_ClassController {
 
-    CC_ClassService classService;
-    UserService userService;
-    CodeCoolerService codeCoolerService;
-    HttpSession session;
+    private CC_ClassService classService;
+    private UserService userService;
+    private CodeCoolerService codeCoolerService;
+    private HttpSession session;
 
     public CC_ClassController(HttpSession session, CC_ClassService classService, UserService mentorservice, CodeCoolerService codeCoolerService) {
         this.session = session;

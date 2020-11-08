@@ -16,28 +16,30 @@
 
     <div id="right-section" class="black-color">
         <form id="form" action="#" th:action="@{/profile/update_mentor_profile}" th:object="${profile}" method="post">
-            <h5 class="is-center pure-item sub-section2">Name</h5>
-            <label for="first_name"></label><input id="first_name" class="is-center pure-item sub-section2" type="text"
-                                                   th:field="*{firstName}" th:value="${profile.firstName}" disabled>
+            <div class="list-menu black-color">
+                <h5 class="is-center pure-item sub-section2">Name</h5>
+                <label for="first_name"></label><input id="first_name" class="is-center pure-item sub-section2" type="text"
+                                                       th:field="*{firstName}" th:value="${profile.firstName}" disabled>
 
-            <h5 class="is-center pure-item sub-section2">Surname</h5>
-            <label for="last_name"></label><input id="last_name" class="is-center pure-item sub-section2" type="text"
-                                                  th:field="*{lastName}" th:value="${profile.lastName}" disabled>
+                <h5 class="is-center pure-item sub-section2">Surname</h5>
+                <label for="last_name"></label><input id="last_name" class="is-center pure-item sub-section2" type="text"
+                                                      th:field="*{lastName}" th:value="${profile.lastName}" disabled>
 
-            <h5 class="is-center pure-item sub-section2">Phone number</h5>
-            <label for="phone_number"></label><input id="phone_number" class="is-center pure-item sub-section2 background" type="text"
-                                                  th:field="*{phoneNumber}" th:value="${profile.phoneNumber}">
+                <h5 class="is-center pure-item sub-section2">Phone number</h5>
+                <label for="phone_number"></label><input id="phone_number" class="is-center pure-item sub-section2 background" type="text"
+                                                         th:field="*{phoneNumber}" th:value="${profile.phoneNumber}">
 
-            <h5 class="is-center pure-item sub-section2">Password</h5>
-            <label for="password"></label><input id="password" class="is-center pure-item sub-section2 background" type="password"
+                <h5 class="is-center pure-item sub-section2">Password</h5>
+                <label for="password"></label><input id="password" class="is-center pure-item sub-section2 background" type="password"
                                                      th:field="*{password}" th:value="${profile.password}">
 
-            <h5 class="is-center pure-item sub-section2">Mail</h5>
-            <label for="email"></label><input id="email" class="is-center pure-item sub-section2 background" type="text"
-                                                 th:field="*{email}" th:value="${profile.email}">
-            <nav>
-                <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
-            </nav>
+                <h5 class="is-center pure-item sub-section2">Mail</h5>
+                <label for="email"></label><input id="email" class="is-center pure-item sub-section2 background" type="text"
+                                                  th:field="*{email}" th:value="${profile.email}">
+                <nav>
+                    <input type="submit" id="savebutton" class="input-update headline" value="SAVE">
+                </nav>
+            </div>
         </form>
     </div>
 </div>
