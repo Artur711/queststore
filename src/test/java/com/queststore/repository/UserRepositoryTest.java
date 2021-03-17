@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import org.junit.jupiter.api.function.Executable;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,16 +22,14 @@ class UserRepositoryTest {
     public void should_find_all() {
         //given:
         int listSize = 6;
-        User secondUser = getSecondUser();
-        User lastUser = getLastUser();
 
         //when:
         List<User> userList = (List<User>) userRepository.findAll();
 
         //then:
-        assertAll((Executable) () -> assertEquals(userList.size(), listSize),
-                (Executable) () -> assertTrue(userList.get(1).equals(getSecondUser())),
-                (Executable) () -> assertTrue(userList.get(listSize - 1).equals(getLastUser())));
+        assertAll(() -> assertEquals(userList.size(), listSize),
+                () -> assertEquals(getSecondUser(), userList.get(1)),
+                () -> assertEquals(getLastUser(), userList.get(listSize - 1)));
     }
 
     @Test
@@ -45,7 +42,7 @@ class UserRepositoryTest {
         User maybeSavedUser = userRepository.findUserByLastNameAndPassword(user.getLastName(), user.getPassword());
 
         //then:
-        assertTrue(maybeSavedUser.equals(user));
+        assertEquals(user, maybeSavedUser);
     }
 
     private User getUser() {

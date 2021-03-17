@@ -1,6 +1,5 @@
 package com.queststore.controller;
 
-import com.queststore.model.CodeCooler;
 import com.queststore.model.Item;
 import com.queststore.model.User;
 import com.queststore.service.CodeCoolerService;
