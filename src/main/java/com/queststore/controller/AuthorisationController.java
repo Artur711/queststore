@@ -24,6 +24,10 @@ public class AuthorisationController {
         this.userRepository = userRepository;
     }
 
+    @GetMapping("")
+    public String empty() {
+        return "redirect:/index";
+    }
 
     @GetMapping("/index")
     public String login(Model model, User user, HttpSession session) {
@@ -34,7 +38,6 @@ public class AuthorisationController {
         }
         return "redirect:/menu";
     }
-
 
     @PostMapping
     public void processLoginAttempt(HttpServletRequest request,
